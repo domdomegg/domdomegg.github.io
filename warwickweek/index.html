@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>What week of term is it at Warwick University?</title>
+	<meta name="author" content="Adam Jones (domdomegg)">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	 crossorigin="anonymous">
+	<style>
+		body {
+			background: #1F2228;
+			color: #EEF4ED;
+		}
+
+		.purple {
+			color: #F92672;
+			margin-left: 0.15rem;
+		}
+
+		.lead .purple {
+			font-size: 125%;
+			font-weight: bold;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="d-none d-sm-block" style="padding-top: 5rem;"></div>
+		<h1 class="pt-2">What week of term is it at Warwick University?</h1>
+		<h2 class="py-4 lead">Academic week <span class="purple" id="academicWeek">n</span><span id="termWeekContainer">, and term <span class="purple" id="term">n</span>'s week <span class="purple" id="termWeek">n</span></span> started on <span id="startDate"></span>.</h2>
+
+		<a class="btn btn-outline-light" href="..">Homepage</a>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+	<script>
+		// This code was adapted from https://warwick.ac.uk/services/sg/spa/centraltimetabling/help/academicweeks
+		const year = (inYear, date, weeks, dropdownDisplay) => ({
+			inYear: inYear,
+			startDate : date,
+			weeks: weeks,
+			dropdownDisplay: dropdownDisplay
+		});
+
+		const years = [
+			year(201415, moment("September 29, 2014"), 53, "2014-15"),
+			year(201516, moment("October 5, 2015"), 52, "2015-16"),
+			year(201617, moment("October 3, 2016"), 52, "2016-17"),
+			year(201718, moment("October 2, 2017"), 52, "2017-18"),
+			year(201819, moment("October 1, 2018"), 52, "2018-19"),
+			year(201920, moment("September 30, 2019"), 53, "2019-20"),
+			year(202021, moment("October 5, 2020"), 52, "2020-21"),
+			year(202122, moment("October 4, 2021"), 52, "2021-22"),
+			year(202223, moment("October 3, 2022"), 52, "2022-23"),
+			year(202324, moment("October 2, 2023"), 52, "2023-24"),
+			year(202425, moment("September 30, 2024"), 52, "2024-25")
+		];
+		// End of code from https://warwick.ac.uk/services/sg/spa/centraltimetabling/help/academicweeks
+
+		const today = moment();
+		const thisYear = [...years].reverse().find(year => today.isSameOrAfter(year.startDate));
+
+		const academicWeek = today.diff(thisYear.startDate, 'weeks') + 1;
+		const term =
+			(academicWeek <= 10) ? 1 :
+			(academicWeek >= 15 && academicWeek <= 24) ? 2 :
+			(academicWeek >= 30 && academicWeek <= 39) ? 3 : null;
+		const termWeek =
+			(term == 1) ? academicWeek :
+			(term == 2) ? academicWeek - 14 :
+			(term == 3) ? academicWeek - 29 : null;
+
+		document.getElementById('academicWeek').innerText = academicWeek;
+		document.getElementById('term').innerText = term;
+		document.getElementById('termWeek').innerText = termWeek;
+		document.getElementById('termWeekContainer').style.display = term == null ? 'none' : '';
+		document.getElementById('startDate').innerText = moment().startOf('isoWeek').format('dddd MMMM Do');
+	</script>
+</body>
+
+</html>

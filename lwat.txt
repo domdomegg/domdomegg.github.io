@@ -1,0 +1,4 @@
+There is a copy of my last will and testament in my Google Drive, as both a Google Doc and PDF. The PDF copy should have the hex sha256hash:
+a8bd627793cf1a2d38825692e916cc94a22ad0bc29deced41b61bb4a096c1fd0
+
+(you should check this by downloading the PDF, then running `shasum256 Will.pdf` or `shasum -a 256 Will.pdf`, or search online for a ‘SHA256 file checksum’ tool)
