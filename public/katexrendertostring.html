@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.css" integrity="sha256-kAbX9Z5ZMhjo34PRGEMc7RiueevlbmDilvUt1NsZGAI=" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js" integrity="sha256-Jv5VrSHYxxBmh18hQUviB4OiVzOkDHdO0uY4GtrCMDQ=" crossorigin="anonymous"></script>        <style>
+            body {
+                width: 95%;
+                margin: 20px auto;
+                text-align: center;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+            }
+            textarea {
+                width: 100%;
+                height: 100px;
+                font-size: 20px;
+            }
+            .katex {
+                font-size: 2em;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Barebones Katex live renderer with katex.renderToString output</h1>
+        <form onsubmit="return false;">
+            <textarea placeholder="c = \pm\sqrt{a^2 + b^2}" oninput="updateOutput(this.value)" autofocus></textarea>
+        </form>
+        <br>
+        <div id="katexoutput"></div>
+        <br>
+        <code id="katexoutputtext"></code>
+        <script type="text/javascript">
+            function updateOutput(latex) {
+                katex.render(latex, document.getElementById('katexoutput'));
+                document.getElementById('katexoutputtext').innerHTML = katex.renderToString(latex).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");;
+            }
+        </script>
+    </body>
+</html>

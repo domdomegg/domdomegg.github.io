@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Display text</title>
+</head>
+
+<body>
+	<noscript>This tool requires JavaScript to work.</noscript>
+	<h1 id="textTag"></h1>
+	<script>
+		// By BrunoLM, https://stackoverflow.com/a/3855394
+		var qs = (function (a) {
+			if (a == "") return {};
+			var b = {};
+			for (var i = 0; i < a.length; ++i) {
+				var p = a[i].split('=', 2);
+				if (p.length == 1)
+					b[p[0]] = "";
+				else
+					b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+			}
+			return b;
+		})(window.location.search.substr(1).split('&'));
+		// End of BrunLM's code
+
+		if (qs['text']) {
+			document.getElementById('textTag').innerHTML = qs['text'];
+
+			if (qs['title'])
+				document.title = qs['title'];
+
+			if (qs['textcolor'])
+				document.getElementById('textTag').style.color = '#' + qs['textcolor'];
+			if (qs['bgcolor'])
+				document.getElementById('textTag').style.backgroundColor = '#' + qs['bgcolor'];
+		} else {
+			document.write('Missing text attribute');
+		}
+	</script>
+	<style>
+		body,
+		html {
+			margin: 0;
+			padding: 0;
+		}
+
+		h1 {
+			margin: 0;
+			padding: 20px;
+			font-family: sans-serif;
+			display: block;
+			text-decoration: none;
+		}
+	</style>
+</body>
+<!-- USAGE:
+		Use this address to display some text, like so:
+		displaytext.html?text=Here%20is%20a%20message&title=Your%20Title
+
+		Only the text attribute is absolutely required
+	-->
+</html>

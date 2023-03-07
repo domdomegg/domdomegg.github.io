@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charSet="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="author" content="Adam Jones (domdomegg)" />
+  <style>
+    .animate-fade-in {
+      animation: fade-in 0.5s ease-in-out;
+    }
+
+    @keyframes fade-in {
+      0% { opacity: 0; }
+    }
+
+    /* Note that there aren't any p tags that could match, nor any classes named 'example', nor any rules! */
+    :where(p):not(:where([class~=example] *)) {
+      
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="animate-fade-in">This should fade in</h2>
+</body>
+
+</html>

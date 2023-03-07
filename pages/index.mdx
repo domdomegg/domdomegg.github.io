@@ -1,0 +1,121 @@
+import Head from 'next/head'
+import Image from 'next/image'
+import ClickCounter from '../components/ClickCounter'
+
+<Head>
+  <title>Adam Jones</title>
+</Head>
+
+{/**
+ * Important styles used here because otherwise prose overrides them
+ * Can't use not-prose due to https://bugs.chromium.org/p/chromium/issues/detail?id=1407172
+ * */}
+<div className="flex flex-col md:flex-row gap-4 md:gap-8 mb-16">
+  <div className="w-36 md:w-48 animate-fade-up">
+    <ClickCounter
+      clickee="Adam"
+      messages={{
+        1: "Oh nice, you found this!",
+        10: "I guess the curiosity would get me too.",
+        25: "Is continuing really a good use of time?",
+        50: "Do you want to stop now?",
+        100: "No? Ok, well keep going if you must.",
+        200: "Do you wonder how many other people have found this?",
+        300: "FYI for tomorrow, this may help: https://www.nhs.uk/conditions/repetitive-strain-injury-rsi/",
+        400: "Wow, you don't give up do you?",
+        500: "Okay, that's the end. Unless you want to keep going for a very long time.",
+        1000000: "Ahh, so I see that either:\n1. You know how to debug software.\n2. You have an insane amount of free time, and aren't spending it wisely.",
+      }}>
+      <Image
+        className="rounded-2xl hover:scale-105 hover:-rotate-3 active:scale-95 hover:shadow transition-all !my-0"
+        src="/images/profile-pic.webp"
+        alt="Headshot of Adam Jones"
+        width={288}
+        height={288}
+        priority
+      />
+    </ClickCounter>
+  </div>
+  <div className="flex-1 md:self-center space-y-2 md:space-y-4">
+    <h1 className="!text-3xl md:!text-5xl !mb-0 animate-fade-up [animation-delay:100ms] "><span className="animate-wave-in inline-block [animation-delay:200ms]">👋</span> Hello world!</h1>
+    <p className="md:!text-3xl !text-xl animate-fade-up [animation-delay:200ms]">I'm Adam. I make impactful things for people.</p>
+    <p className="!text-xl animate-fade-up [animation-delay:300ms]">
+      <a href="https://github.com/domdomegg">GitHub</a>
+      {" ∙ "}
+      <a href="https://linkedin.com/in/domdomegg/">LinkedIn</a>
+      {" ∙ "}
+      <a href="mailto:domdomegg+adamjones.me@gmail.com">Email</a>
+      {" ∙ "}
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdL0wKeFtzQpcpcyPp25x3vKn8x9WoLS-qbQ97hxjHOsll9EA/viewform">Feedback</a>
+    </p>
+  </div>
+</div>
+
+## How am I spending my time?
+
+As of March 2023, I'm:
+
+- Developing the [Hypertune](https://www.hypertune.com) platform, that allows developers to quickly and easily make their applications configurable.
+- Building software for [BlueDot Impact](https://bluedotimpact.org/) to improve programmes that support people into high-impact careers.
+- Owning technology at [Raise](https://www.joinraise.org/), a movement to get people more engaged with charity. The big things this month are running Raise's [campaigns platform](http://github.com/raisenational/raise) and handling our registration with the Charity Commission.
+- Finishing [my YouTube series](https://www.youtube.com/@adam-jones) on programming language theory, specifically implementing Hindley-Milner type inference in TypeScript.
+
+## I'm interested in
+
+- Applying [effective alturism](https://www.effectivealtruism.org/) principles.
+- Mitigating risks from [artificial intelligence](https://80000hours.org/problem-profiles/artificial-intelligence/).
+- Improving government services, particularly in local government.
+- Self-improvement, particularly towards optimising happiness and productivity (in terms of outcomes rather than outputs).
+
+## Featured projects
+
+- [AWS Email Simulator](https://github.com/domdomegg/aws-ses-v2-local): enables devs to test emails without AWS credentials, and work productively without internet. Downloaded over 14,000 times.
+- [YouTube thumbnail hider](https://chrome.google.com/webstore/detail/hide-youtube-thumbnails/phmcfcbljjdlomoipaffekhgfnpndbef): browser extension with thousands of weekly active users and plenty of glowing 5-star reviews.
+- [Apply for a postal vote service](./postal-vote/): fully-working GOV.UK-style service. I think this is the first ever properly electronic version of this form.
+- [Serverless offline watcher](https://www.npmjs.com/package/serverless-offline-watcher): developer tool that enables extending the Serverless framework with arbitrary file or directory hooks.
+- [London cycle parking](./london-cycle-parking/): find cycle parking quickly in London.
+- [ISA tracking tool](https://github.com/domdomegg/halifax-share-dealing-sdk): compatible with 4 brokers for read _and write_ operations. Has reliably tracked my [ISA](https://www.gov.uk/individual-savings-accounts) performance every day for the last 3 years.
+- [PDF scanner](./pdf-scanner): add a scanned look, more convincingly than existing services.
+- [RSA SecurID library](https://github.com/domdomegg/rsa-securid): reverse-engineered security token generator, derived from a C library. Also available as an easy-to-use [browser extension](https://github.com/domdomegg/rsa-securid-browser-extension).
+- [TypeScript i18n library](https://github.com/domdomegg/ts-i18n): A lightweight, flexible, and fully type-safe translation framework for websites, native apps and servers.
+- [Google Doc to LaTeX](./gdoc2latex-gui): Converter that makes writing LaTeX a piece of cake. 
+- [Discord reminder bot template](https://github.com/domdomegg/discord-reminder-template): send reminders from GitHub. 2 min setup.
+- [Day visualiser](./oneday): ever felt you needed more existential dread in your life? See how fast the day is slipping away from you.
+- Media: I publish [free-cultural works](https://creativecommons.org/share-your-work/public-domain/freeworks/) on places like [Wikimedia Commons](https://commons.wikimedia.org/wiki/User:Domdomegg) (where I also helped build the [Android app](https://commons-app.github.io/)). They've ended up in [US state forestry manuals](https://vtechworks.lib.vt.edu/bitstream/handle/10919/102139/2020TreeStewardManualver03.pdf#page=8), [South African national textbooks](https://dinwiddiehighschool.co.za/wp-content/uploads/2020/11/grd-11-textbook.pdf#page=12), [papers on language models](https://doi.org/10.1093/nar/gkac278), and [YouTube videos with millions of views](https://www.youtube.com/watch?t=10&v=w_CYwd6cHUA).
+
+Most of these have their source code availabile on [my GitHub](https://github.com/domdomegg).
+
+## Communicating with me
+
+From you to me:
+
+- Please bias towards overcommunicating with me. Will interrupt you if you're telling me stuff I don't think is relevant.
+- State your uncertainties and where you've made assumptions.
+- Give me [feedback](https://forms.gle/TQGSXMhG3kQiB5V36). Prefer unpolished timely feedback to no or late feedback. Bonus points if you can be specific or provide examples.
+- Prefers asynchronous communication. Dislikes surprise phone calls.
+- Asynchronous: Slack if you know I check that workspace. WhatsApp, Messenger or Telegram for personal stuff, email for everything else.
+  - If you need me to do or answer something, make it obvious.
+    - Add '[Action required]' to the subject.
+    - Prefix tasks with 'Action required:'.
+    - State any relevant timelines upfront.
+  - If I need to read it, use the email 'to' line or tag my Slack handle.
+  - When writing something with multiple parts, give them unique numbers. This helps us refer back to them.
+  - Don't [inline reply](https://ssw.com.au/rules/email-avoid-inline/) to emails. It's hard to see what's been added, muddies email history, and causes difficult-to-resolve forks.
+  - [Don't just say hello](https://nohello.net/).
+  - Where relevant, communicate widely (e.g. Slack channels/email distros, not DMs) so others can learn from our conversation later.
+- Synchronous: In person, or [Google Meet](https://meet.google.com/). Hates Webex and Lync.
+
+From me to you:
+
+- Will try to follow your communication preferences.
+- I try to triage comms within 24 hours, and respond within 1 week. Slower when I'm extra busy. I don't usually send acknowledgement messages.
+- [Assume misunderstanding, not malice](https://en.wikipedia.org/wiki/Hanlon%27s_razor). In particular:
+    - If you think I'm going in the wrong direction, tell me early.
+    - I err on the side of overcommunicating to ensure we're aligned. This can lead to overexplaining: if this is the case let me know!
+    - If I am slow to respond, I'm likely just a bit overloaded with other stuff.
+- ✅ is 'done', 👍 is 'acknowledged' ([not meant passive aggressively](https://www.cnet.com/culture/internet/gen-z-youll-have-to-pry-the-hostile-thumbs-up-emoji-from-my-old-dead-hands/))
+
+## Other trivia
+
+- Lives in [London](https://www.youtube.com/watch?v=UAusbJmRB0c). If you're around and would like to meet up, let me know!
+- Enjoys getting around by bike, and will encourage you to give it a go. Happy to help find you a [good commuting route](https://www.cyclestreets.net/) and get you confident on the road.
