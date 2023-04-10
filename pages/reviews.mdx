@@ -1,0 +1,81 @@
+# Reviews
+
+I review a lot of things, and try to give high quality feedback when doing so.
+
+This page aims to improve the process of getting my review on some kind of artefact, such as a pull request (code change), an event or strategy plan, legal draft, etc. It should make reviews more valuable, quicker and easier.
+
+## What I expect from you if you've asked for my review on an artefact
+
+- You warrant the artefact is reviewable. This means:
+  - I have access to the artefact.
+  - You're not making significant changes to the artefact irregadless of my review, which would likely invalidate a review.
+  - If it's code you want merged now:
+    - If there are CI checks, any failures should be explained.
+    - It should not have merge conflicts with the target branch.
+- You are clear on what you want feedback on:
+  - Say which part you want feedback on. I'll default to everything.
+  - Say what level of feedback you want. For example, 'Please review the high-level structure of this early draft.' or 'Please review formatting only, as content is fixed by legal'. Defaults:
+    - For pull requests, I'll check it's good to merge.
+    - For sendable things (letters, emails), I'll check it's good to send.
+  - Explain background context on what we're optimising for, e.g. 'This email content is to meet regulatory requirements, so we need to be sure it's legally precise and satisfies regulation X part Y. It's also only a one-off so the copy can be to a lower standard than normal.'
+  - In small orgs, I often wear different hats. If relevant, highlight which hat I should wear. For example 'Do you think this is okay from a regulatory perspective?' is a different question to 'Do you think the marketing is persuasive here?' (though if one hat rings alarm bells, I'll still comment).
+- If you have a fixed dealine, you say so at the start.
+- If you have an idea on how I can systematically improve my reviews, you give me [feedback](./feedback).
+- If you are stuck and asking me for help, you have made an attempt to unblock yourself. For example, reading the documentation and doing some Googling. You explain what you've tried already.
+<br/><br/>Your attempt to unblock yourself should be proportionate to how long you think it would take me to unblock you: the two failure modes here are either:
+
+  1. you keep bugging me and don't learn how to fix problems yourself, or
+  2. you don't ask for help and waste lots of your time when you could have just asked me.
+
+  Problem 2 seems more common, so if you're unsure lean towards asking for help and I'll let you know if I thought it was inappropriate.
+- You address my feedback in line with _How to interpret my reviews_ below.
+
+### Preferences
+
+- I will want to reference specific points of your artefact.
+  - This is easier if you send me the artefact in a tool that allows comments, such as Google Docs or GitHub.
+  - If unavailable, then give me something to reference. For documents, this can generally be done by numbering paragraphs.
+- For code changes, I strongly prefer many small PRs over few big ones. If a series of PRs are all related, a brief GitHub issue explaining the problem, solution, and implementation approach can help provide context to the code changes to further speed up reviews.
+- If you're contributing to something I own, I'd rather be involved earlier to prevent wasted effort building the wrong thing or in the wrong way.
+
+### What I *don't* expect
+
+- The artefact is in a perfectly polished state. If it was perfect there'd be no need for me to review it. Additionally as per above it can be useful to ask for feedback earlier on: just be clear about what stage it's at.
+- You address all comments (see _How to interpret my reviews_ below).
+- You have figured everything out. Fine to get it most of the way and say 'I got stuck on X, and after reading the docs and trying Y and Z, I still can't figure out how to fix it'.
+
+## What you can expect from me
+
+- I will attempt to review the artefact by your deadline.
+  - I am often busy and may not be able to do this: consider reducing the scope of your feedback request if you need it soon.
+  - If I think it's unlikely I complete the requested review by the deadline, I will try to let you know.
+- I will leave comments on the artefact, taking into account the level and type of review requested.
+- I will give feedback with reasonable skill and care.
+- I will focus on the stuff that matters. So I usually won't quibble about the internal details of things, unless one of the following is true:
+  - you ask for this feedback
+  - the comment affects something's external interface
+  - I think you would benefit from understanding the existing conventions regarding details (usually this case is only if you are a new contributor to a project who has indicated they intend to contribute several pieces of work, although I think conventions are much better enforced by systems, or at least already explicitly documented).
+- Mandatory feedback should generally only be that which I think justifies blocking overall approval.
+  - For PRs, the test question is for overall approval is 'Does the changeset improve the codebase?', and *not* 'Is this perfect?'
+- I won't block on any non-mandatory feedback.
+  - I should approve a PR if I have not given mandatory feedback. If I've messed this up, feel free to give me a poke.
+- My feedback should be relatively consistent. Additionally, feedback should be explainable beyond personal preference (but it might just be 'so it's consistent with the rest of the artefact').
+- I will carefully consider [feedback](./feedback) you give me about my reviewing style.
+
+## How to interpret my reviews
+
+I attempt to use standard vocabularly in my reviews to make it clear what I expect you to address. From least to most important:
+
+- **nit**: a nitpick comment. For example, minor style suggestions, formatting issues or internal implementation details.
+- **consider** / **maybe**: an idea for you to consider. They're not always immediately actionable, but I think they're worth genuinely thinking about.
+- **future**: something that should be done eventually, but not as part of this change (especially because I prefer smaller changesets).
+- **should** / **optional**: something that would be nice to do now, and probably as part of this changeset. Suggested edits ([Google Docs](https://support.google.com/docs/answer/6033474), [GitHub](https://github.blog/2018-11-01-suggested-changes-update/)) are at this level, unless otherwise stated.
+- **must** / [imperative mood](https://en.wikipedia.org/wiki/Imperative_mood): A thing I think we should change. I expect you either to address the thing, or to comment to discuss the thing. This is the only level which blocks approval.
+
+If the comment was a question, I will expect some form of response (even if it's just 'Yes, have fixed now.').
+
+If the comment was just praising something you'd done (e.g. 'Nice tests!'), no response is necessary.
+
+Feel free to dismiss completely addressed comments ([Google Docs](https://support.google.com/docs/answer/65129#zippy=%2Cclose-or-reopen-a-comment), [GitHub](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request#resolving-conversations)).
+
+If you've asked for help, I might explain how you could have unblocked yourself for example by pointing to relevant docs. Unless I explicitly say so, this is *not* an indication that I thought you should have sorted this yourself, but instead is just a resource to help you (or other people coming to the artefact review) in future.
