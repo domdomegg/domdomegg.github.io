@@ -21,7 +21,7 @@
     "eslint-config-domdomegg": "^1.0.0",
     "eslint-plugin-mdx": "^2.0.5",
     "next": "^13.1.4",
-    "postcss": "^8.4.21",
+    "postcss": "^8.4.31",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "recma-mdx-displayname": "^0.4.0",
