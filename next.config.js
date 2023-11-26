@@ -14,6 +14,7 @@ const nextConfig = {
     unoptimized: true,
   },
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  trailingSlash: true,
 };
 
 module.exports = withMDX(nextConfig);
