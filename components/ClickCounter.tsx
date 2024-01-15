@@ -13,8 +13,8 @@ const ClickCounter: React.FC<Props> = ({ clickee, messages, children }) => {
     const newCount = count + 1;
     // eslint-disable-next-line no-console
     console.log(`You have clicked ${clickee} ${newCount} time${newCount === 1 ? '' : 's'}`);
-    // eslint-disable-next-line no-console
-    if (messages[newCount]) console.log(messages[newCount]);
+    // eslint-disable-next-line no-alert
+    if (messages[newCount]) alert(messages[newCount]);
     setCount(newCount);
   };
 

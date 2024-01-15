@@ -1,6 +1,8 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
-import { Inter } from '@next/font/google';
+import { Inter } from 'next/font/google';
+import BlogHeader from '../components/BlogHeader';
+import ProsePage from '../components/ProsePage';
 
 const inter = Inter({ variable: '--font-inter', subsets: ['latin'] });
 
@@ -11,12 +13,28 @@ const App: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
   );
 
   if (Component.displayName === 'MDXContent') {
+    if ('frontmatter' in Component && typeof Component.frontmatter === 'object' && Component.frontmatter !== null && 'title' in Component.frontmatter) {
+      return (
+        <>
+          {common}
+          <ProsePage>
+            <article itemScope itemType="https://schema.org/BlogPosting">
+              <BlogHeader frontmatter={Component.frontmatter} />
+              <div itemProp="articleBody">
+                <Component {...pageProps} />
+              </div>
+            </article>
+          </ProsePage>
+        </>
+      );
+    }
+
     return (
       <>
         {common}
-        <div className="max-w-sm md:max-w-2xl mx-auto px-8 py-12 md:my-24 prose animate-fade-up">
+        <ProsePage>
           <Component {...pageProps} />
-        </div>
+        </ProsePage>
       </>
     );
   }
