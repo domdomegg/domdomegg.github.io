@@ -13,13 +13,13 @@ const App: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
   );
 
   if (Component.displayName === 'MDXContent') {
-    if ('frontmatter' in Component && typeof Component.frontmatter === 'object' && Component.frontmatter !== null && 'title' in Component.frontmatter) {
+    if ('frontmatter' in pageProps) {
       return (
         <>
           {common}
           <ProsePage>
             <article itemScope itemType="https://schema.org/BlogPosting">
-              <BlogHeader frontmatter={Component.frontmatter} />
+              <BlogHeader frontmatter={pageProps.frontmatter} />
               <div itemProp="articleBody">
                 <Component {...pageProps} />
               </div>

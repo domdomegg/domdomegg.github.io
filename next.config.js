@@ -2,15 +2,16 @@
 module.exports = async () => {
   const nextMDX = require('@next/mdx');
   const recmaMdxDisplayname = require('recma-mdx-displayname');
-  const recmaMdxFrontmatter = require('recma-mdx-frontmatter');
+  const recmaNextjsStaticProps = (await import('recma-nextjs-static-props')).default;
+  const remarkMdxFrontmatter = (await import('remark-mdx-frontmatter')).default;
   const remarkFrontmatter = (await import('remark-frontmatter')).default;
   const remarkGfm = (await import('remark-gfm')).default;
 
   const withMDX = nextMDX({
     extension: /\.mdx?$/,
     options: {
-      recmaPlugins: [recmaMdxDisplayname, recmaMdxFrontmatter],
-      remarkPlugins: [remarkFrontmatter, remarkGfm],
+      recmaPlugins: [recmaMdxDisplayname, recmaNextjsStaticProps],
+      remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter, remarkGfm],
     },
   });
 
