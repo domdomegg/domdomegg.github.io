@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 module.exports = async () => {
   const nextMDX = require('@next/mdx');
   const recmaMdxDisplayname = require('recma-mdx-displayname');
@@ -24,4 +25,4 @@ module.exports = async () => {
   };
 
   return withMDX(nextConfig);
-}
+};
