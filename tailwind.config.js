@@ -27,6 +27,16 @@ module.exports = {
         'fade-up': '0.4s ease-in-out 0s 1 both running fade-up',
         'wave-in': '0.7s cubic-bezier(0.5, 1, 0.89, 1) 0s 1 both running wave-in',
       },
+      typography: {
+        DEFAULT: {
+          // Disable adding quote marks to block-quotes
+          // https://github.com/tailwindlabs/tailwindcss-typography/issues/66#issuecomment-1754429609
+          css: {
+            'blockquote p:first-of-type::before': false,
+            'blockquote p:last-of-type::after': false,
+          },
+        },
+      },
     },
   },
   plugins: [
