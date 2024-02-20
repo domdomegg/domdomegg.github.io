@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app';
 import { Inter } from 'next/font/google';
 import BlogHeader from '../components/BlogHeader';
 import ProsePage from '../components/ProsePage';
+import SiteHeader from '../components/SiteHeader';
 
 const inter = Inter({ variable: '--font-inter', subsets: ['latin'] });
 
@@ -18,6 +19,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
         <>
           {common}
           <ProsePage>
+            <SiteHeader />
             <article itemScope itemType="https://schema.org/BlogPosting">
               <BlogHeader frontmatter={Component.frontmatter} />
               <div itemProp="articleBody">
@@ -33,6 +35,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
       <>
         {common}
         <ProsePage>
+          <SiteHeader />
           <Component {...pageProps} />
         </ProsePage>
       </>

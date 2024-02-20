@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import z from 'zod';
 import clsx from 'clsx';
+import Head from 'next/head';
 
 export const frontmatterSchema = z.object({
   title: z.string(),
@@ -14,7 +15,9 @@ const BlogHeader: React.FC<{ frontmatter: unknown }> = ({ frontmatter }) => {
 
   return (
     <>
-      <p className="!mb-2">Blog</p>
+      <Head>
+        <title>{title} - Adam Jones's Blog</title>
+      </Head>
       <h1 className="!mb-6" itemProp="headline">{title}</h1>
       <div className="flex gap-2 items-center mb-10">
         <a href="/">
@@ -32,11 +35,11 @@ const BlogHeader: React.FC<{ frontmatter: unknown }> = ({ frontmatter }) => {
           <p className="!my-2 !leading-none text-xs text-gray-500">
             {modifiedAt ? 'Published ' : ''}
             <time itemProp="datePublished" dateTime={new Date(publishedAt).toISOString()}>
-              {new Date(publishedAt).toLocaleDateString(undefined, { dateStyle: 'long' })}
+              {new Date(publishedAt).toLocaleDateString('en-GB', { dateStyle: 'long' })}
             </time>
             {modifiedAt ? ' · Updated ' : ''}
             <time itemProp="dateModified" dateTime={new Date(modifiedAt ?? publishedAt).toISOString()} className={clsx({ hidden: !parsed.modifiedAt })}>
-              {new Date(modifiedAt ?? publishedAt).toLocaleDateString(undefined, { dateStyle: 'long' })}
+              {new Date(modifiedAt ?? publishedAt).toLocaleDateString('en-GB', { dateStyle: 'long' })}
             </time>
           </p>
         </div>

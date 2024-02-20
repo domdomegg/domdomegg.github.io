@@ -3,8 +3,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
 import z from 'zod';
+import Head from 'next/head';
 import { frontmatterSchema } from '../../components/BlogHeader';
 import ProsePage from '../../components/ProsePage';
+import SiteHeader from '../../components/SiteHeader';
 
 const postSchema = frontmatterSchema.extend({
   href: z.string(),
@@ -17,7 +19,11 @@ interface BlogIndexProps {
 const BlogIndex: React.FC<BlogIndexProps> = ({ posts }) => {
   return (
     <ProsePage>
-      <h1>Adam's Blog</h1>
+      <SiteHeader />
+      <Head>
+        <title>Adam Jones's Blog</title>
+      </Head>
+      <h1>Adam Jones's Blog</h1>
       <ul>
         {posts.map((post) => (
           <li key={post.href}>
@@ -27,7 +33,7 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ posts }) => {
               —
               {' '}
               <time dateTime={new Date(post.publishedAt).toISOString()}>
-                {new Date(post.publishedAt).toLocaleDateString(undefined, { dateStyle: 'long' })}
+                {new Date(post.publishedAt).toLocaleDateString('en-GB', { dateStyle: 'long' })}
               </time>
             </span>
           </li>
