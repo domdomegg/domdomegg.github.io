@@ -5,12 +5,14 @@ module.exports = async () => {
   const recmaMdxFrontmatter = require('recma-mdx-frontmatter');
   const remarkFrontmatter = (await import('remark-frontmatter')).default;
   const remarkGfm = (await import('remark-gfm')).default;
+  const rehypeSlug = (await import('rehype-slug')).default;
 
   const withMDX = nextMDX({
     extension: /\.mdx?$/,
     options: {
       recmaPlugins: [recmaMdxDisplayname, recmaMdxFrontmatter],
       remarkPlugins: [remarkFrontmatter, remarkGfm],
+      rehypePlugins: [rehypeSlug],
     },
   });
 

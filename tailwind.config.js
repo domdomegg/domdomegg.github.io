@@ -14,7 +14,9 @@ module.exports = {
       },
       keyframes: {
         'fade-up': {
-          from: { opacity: '0', transform: 'translateY(1rem)' },
+          // This ensures things are in the right place to start, so fragment links etc. take people to the right place
+          '0%': { opacity: '0', transform: 'translateY(0)' },
+          '1%': { opacity: '0', transform: 'translateY(1rem)' },
         },
         'wave-in': {
           '0%': { transform: 'rotate(70deg)' },
