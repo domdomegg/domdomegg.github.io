@@ -44,6 +44,7 @@ const BlogHeader: React.FC<{ frontmatter: unknown }> = ({ frontmatter }) => {
           </p>
         </div>
       </div>
+      <p><em>This article is written solely in my personal capacity, and does not represent the views of any organisations I am affiliated with.</em></p>
     </>
   );
 };
