@@ -30,8 +30,10 @@ const BlogHeader: React.FC<{ frontmatter: unknown }> = ({ frontmatter }) => {
             priority
           />
         </a>
-        <div itemProp="author" itemScope itemType="https://schema.org/Person">
-          <p className="!my-2 !leading-none" itemProp="name"><a href="/" itemProp="url">Adam Jones</a></p>
+        <div>
+          <div itemProp="author" itemScope itemType="https://schema.org/Person">
+            <p className="!my-2 !leading-none" itemProp="name"><a href="/" itemProp="url">Adam Jones</a></p>
+          </div>
           <p className="!my-2 !leading-none text-xs text-gray-500">
             {modifiedAt ? 'Published ' : ''}
             <time itemProp="datePublished" dateTime={new Date(publishedAt).toISOString()}>
