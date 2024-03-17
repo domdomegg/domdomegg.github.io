@@ -1,0 +1,53 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><title>ai-safety.txt: Making AI vulnerability reporting easy<!-- --> - Adam Jones&#x27;s Blog</title><link rel="preload" href="/images/profile-pic.webp" as="image" fetchpriority="high"/><meta name="next-head-count" content="4"/><meta name="author" content="Adam Jones (domdomegg)"/><link rel="icon" href="/favicon.ico"/><link rel="preload" href="/_next/static/media/c9a5bc6a7c948fb0-s.p.woff2" as="font" type="font/woff2" crossorigin="anonymous" data-next-font="size-adjust"/><link rel="preload" href="/_next/static/css/959e37a84d15751d.css" as="style" crossorigin=""/><link rel="stylesheet" href="/_next/static/css/959e37a84d15751d.css" crossorigin="" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" crossorigin="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-ee7e63bc15b31913.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/framework-5429a50ba5373c56.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/main-f69e07f9c4fb556b.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/pages/_app-9d12d0d3265b2557.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/pages/blog/ai-safety-txt-56f5c17af113c0db.js" defer="" crossorigin=""></script><script src="/_next/static/Jvn4FUacsF-x9XaEex3rt/_buildManifest.js" defer="" crossorigin=""></script><script src="/_next/static/Jvn4FUacsF-x9XaEex3rt/_ssgManifest.js" defer="" crossorigin=""></script><style id="__jsx-2557906319">:root{--font-inter:'__Inter_aaf875', '__Inter_Fallback_aaf875'}</style></head><body><div id="__next"><div class="max-w-2xl mx-auto px-6 my-8 sm:my-12 md:my-20 lg:my-24 prose animate-fade-up"><div class="flex gap-4 items-center mb-10"><span>Adam Jones</span><span>|</span><a href="/">Home</a><a href="/blog">Blog</a></div><article itemscope="" itemType="https://schema.org/BlogPosting"><h1 class="!mb-6" itemProp="headline">ai-safety.txt: Making AI vulnerability reporting easy</h1><div class="flex gap-2 items-center mb-10"><a href="/"><img alt="Headshot of Adam Jones" fetchpriority="high" width="40" height="40" decoding="async" data-nimg="1" class="rounded-full !my-0" style="color:transparent" src="/images/profile-pic.webp"/></a><div><div itemProp="author" itemscope="" itemType="https://schema.org/Person"><p class="!my-2 !leading-none" itemProp="name"><a href="/" itemProp="url">Adam Jones</a></p></div><p class="!my-2 !leading-none text-xs text-gray-500"><time itemProp="datePublished" dateTime="2024-03-17T00:00:00.000Z">17 March 2024</time><time itemProp="dateModified" dateTime="2024-03-17T00:00:00.000Z" class="hidden">17 March 2024</time></p></div></div><p><em>This article is written solely in my personal capacity, and does not represent the views of any organisations I am affiliated with.</em></p><div itemProp="articleBody"><p>The <a href="https://www.aisafetysummit.gov.uk/policy-updates/#company-policies">UK</a> and <a href="https://www.whitehouse.gov/briefing-room/statements-releases/2023/07/21/fact-sheet-biden-harris-administration-secures-voluntary-commitments-from-leading-artificial-intelligence-companies-to-manage-the-risks-posed-by-ai/">US</a> governments have both secured voluntary commitments from many major AI companies on AI safety, including reporting mechanisms for model vulnerabilities.</p>
+<p>Back in February 2024, I tested <a href="/blog/ai-vulnerability-reporting/">how companies were doing on these commitments</a>. While doing this, I found that it was often difficult to find the reporting process for model vulnerabilities. This document puts forwards a proposal for organisations to publish ai-safety.txt files, in a very similar way to <a href="https://securitytxt.org/">security.txt files</a>.</p>
+<div class="my-4 px-4 bg-gray-100 border border-gray-200"><div role="button" tabindex="0" aria-expanded="false" class="px-4 py-4 -mx-4"><span class="text-gray-400 inline-block transition-all select-none scale-75">▶</span> <!-- -->What&#x27;s a model vulnerability?</div></div>
+<h2 id="why-do-we-need-this">Why do we need this?</h2>
+<p>AI systems are rapidly becoming more capable and accessible, and being put in charge of more decisions. Better tools being widely available have the potential to supercharge productivity and make the world a radically better place. Additionally, automating decision making can reduce bias, or increase access to services.</p>
+<p>However, these factors also bring about risks: more capable and accessible systems can enable serious misuse. Flaws in software systems in charge of more decisions can go <a href="https://www.politico.eu/article/dutch-scandal-serves-as-a-warning-for-europe-over-risks-of-using-algorithms/">disastrously</a> <a href="https://en.wikipedia.org/wiki/British_Post_Office_scandal">wrong</a>.</p>
+<p>There&#x27;s broad agreement that organisations using AI systems should be receptive to reports of things going wrong. But in my <a href="/blog/ai-vulnerability-reporting/">recent research</a>, I discovered just finding a way to contact organisations about model vulnerabilities was difficult! And these were for organisations that explicitly have agreed to having good processes to manage vulnerability reporting - let alone more general organisations that might employ AI systems in key processes like healthcare triage, policing or recruitment.</p>
+<p>A step towards better model vulnerability reporting would be to have a standardised way for people to find contact details. Without this, people are less likely to disclose vulnerabilities, or do so securely.</p>
+<h2 id="the-proposal">The proposal</h2>
+<p>In short, publish a file plain text file at:</p>
+<p><strong><span class="text-gray-400">example.com</span><span class="select-all">/.well-known/ai-safety.txt</span></strong></p>
+<p>that details how people should report model vulnerabilities, for example:</p>
+<!-- -->
+<!-- -->
+<pre><code>Contact: mailto:ai-vulns@example.com
+Last-Updated: 2024-03-17T00:00:00.000Z
+</code></pre>
+<p>Required fields:</p>
+<ul>
+<li><strong>Contact</strong>. A URI representing an email, phone number or webpage that indicates how to get in touch to report AI vulnerabilities. Multiple Contact fields can be specified. This may be a link to an organisation&#x27;s security.txt, indicating model vulnerabilities should be submitted through the organisation&#x27;s cybersecurity processes.</li>
+<li><strong>Last-Updated</strong>. An ISO 8601 timestamp indicating when the file was most recently updated. At most 1 allowed. It&#x27;s recommended you keep this up to date to give researchers confidence that the file is still relevant. This must never be set to a date in the future.</li>
+</ul>
+<p>Optional fields:</p>
+<ul>
+<li><strong>AI-Model</strong>. A link that clearly identifies an upstream AI vendor or AI model, so researchers are able to understand which AI models are being used for different purposes. Multiple AI-Model fields can be specified.</li>
+<li><strong>Acknowledgments, Canonical, Encryption, Expires, Hiring, Policy, Preferred-Languages</strong>. All defined in the same way as <a href="https://www.rfc-editor.org/rfc/rfc9116">RFC9116</a>, except for model vulnerabilities rather than cybersecurity.</li>
+</ul>
+<p>Comments can be placed in the file by prefixing lines with the # symbol. This can be useful for briefly explaining how you are using AI systems.</p>
+<p>This is heavily inspired by <a href="https://securitytxt.org/">security.txt</a>, and to reduce confusion intends to use similar terminology in the same way. The only major difference is using Last-Updated instead of Expires.</p>
+<p>An example with all the possible fields:</p>
+<pre><code>Contact: mailto:ai-vulns@example.com
+Preferred-Languages: en
+
+Last-Updated: 2024-03-17T00:00:00.000Z
+Expires: 2024-04-17T00:00:00.000Z
+
+# Recruitment: extracts factual information from candidates resumes
+AI-Model: https://openai.com/gpt-4
+
+# Customer service: triage tickets
+AI-Model: https://llama.meta.com/llama2
+
+Acknowledgments: https://example.com/ai-safety-stars
+Canonical: https://example.com/.well-known/ai-safety.txt
+Encryption: https://example.com/pgp-key.txt
+Hiring: https://example.com/careers#safety
+Policy: https://example.com/disclosure-policy.html</code></pre>
+<h2 id="what-can-you-do-to-help">What can you do to help?</h2>
+<p><strong>Developers of AI systems</strong> should publish an ai-safety.txt file. They should also encourage their customers to publish an ai-safety.txt file, possibly making it mandatory for customers deploying AI systems in higher risk domains such as healthcare.</p>
+<p><strong>Organisations using AI systems</strong> should publish an ai-safety.txt file. They should encourage other organisations in their industry to do so, and consider the presence of an ai-safety.txt file as part of due diligence processes when procuring AI systems.</p>
+<p><strong>AI safety researchers</strong> should look for these files when reporting issues. If you encounter difficulty finding the right way to report issues to organisations, call them out and encourage them to adopt this standard!</p>
+<p><strong>Standard setting organisations</strong> can incorporate having an ai-safety.txt file as part of their standards. If you&#x27;re interested in turning this into a real RFC please <a href="/">get in touch</a>.</p>
+<p><strong>Policymakers and regulators</strong> should encourage organisations developing and using AI systems to publish ai-safety.txt files, or at least set some minimum quality bar for having a working vulnerability reporting process.</p></div></article></div></div><script id="__NEXT_DATA__" type="application/json" crossorigin="">{"props":{"pageProps":{}},"page":"/blog/ai-safety-txt","query":{},"buildId":"Jvn4FUacsF-x9XaEex3rt","nextExport":true,"autoExport":true,"isFallback":false,"scriptLoader":[]}</script></body></html>
