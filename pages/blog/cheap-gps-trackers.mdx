@@ -1,0 +1,93 @@
+---
+title: "Do cheap GPS trackers work? A review of the GF-07, GF-09 and GF-22."
+publishedAt: "2024-03-24"
+---
+
+I wanted to explore how I might be able to track my bike easily. In this article, I laid out what I’d like the trackers to do, and my results from testing 3 cheap widely available trackers: the GF-07, GF-09, and GF-22.
+
+TLDR: No, these trackers either don’t work at all or are very inaccurate (e.g. >250m off).
+
+## A brief intro into tracking 
+
+My bike got stolen recently. Someone broke into my flat’s bike store overnight, and took it plus some other bike equipment. It’s covered by two CCTV cameras, but the police didn’t want to pursue it, and the company owning the cameras won’t release the footage - so I’m at a bit of a dead end.
+
+This got me thinking: could I get a GPS tracker for my next bike? This might increase the chance I’m able to recover my bike in future: both directly, and because this might push the amount of evidence available for police over the edge to where they’ll investigate.
+
+I think this is probably worth 8-18% of the value of the bike. [93% of London bike thefts reported to the police are never solved](https://www.bbc.co.uk/news/articles/cw0xp8w5x46o), so that gives us a base rate of about 7%. Unfortunately, I couldn’t find any good statistics recovery of bikes with GPS tracking, so my finger in the air estimate is that this probably helps increase the chance of recovery from 7% to maybe 15-25%. I’m going to ignore the recurring benefit (i.e. if my bike is stolen and recovered, it still has a higher probability of being recovered afterwards again) for simplicity.
+
+This makes it reasonable to spend ~£30-70 on a GPS tracker for it, given I value my bike at about £400. This includes the cost of my time purchasing the tracker, fitting it to the bike, charging it, etc.
+
+Some products are quite a bit more than this. For example, the Invoxia GPS Tracker Pro costs [£150](https://www.amazon.co.uk/Invoxia-Cellular-Tracker-1-Year-Subscription/dp/B08HM69GS2), and then the location has to be accessed via a proprietary app with a [£8 monthly subscription](https://www.invoxia.com/en-GB/compare).
+
+However, there are a few potential trackers in this budget. These seem to be sold under a range of different brand names with a 'GF' model number. To test them out, I purchased one of each: a GF-07 from Amazon for £6.99, a GF-09 from Amazon for £12.99, and a GF-22 from eBay for £16.99.
+
+Also in this price range, there are tags that work on the [Apple Find My network](https://en.wikipedia.org/wiki/Find_My) such as [Airtags](https://www.apple.com/uk/airtag/). These don’t use GPS themselves: instead, they ping out an identifier via Bluetooth which other Apple devices send back to a central database with the location where they were spotted. Unfortunately, they [require pairing with an iPhone](https://support.apple.com/en-gb/101602) which I don’t have. In future there might also be a [Google Find My Device network](https://blog.google/products/android/google-android-safety-features/), but this is apparently [blocked on Apple implementing some standards for detecting unwanted trackers](https://www.androidpolice.com/find-my-device-network-held-back-apple/). I don’t explore either of these in this article, however have bought some Apple Find My compatible tags for a future blog.
+
+## My requirements
+
+So, what makes a good bike tracker? I think I want a tracker that is:
+
+1. **Accurate and reliable**. If my bike gets stolen, I want to be able to track it ideally to a particular building in a city (multi-storey blocks complicate things though). This indicates an indoors accuracy of about 5-10 metres, while the tracker is inside my bike. It should work reliably, and ideally should avoid use of proprietary communication protocols or apps.
+2. **Small and lightweight**. I want to be able to attach this somewhere on my bike easily, and in a way where it’s not so obvious that it will be quickly removed. It also shouldn’t add considerable weight to the bike.
+3. **Long-lasting**, at least in standby mode. I don’t want to be charging this all the time. But I don’t need tracking unless the bike is stolen, so as long as it can go into standby and not use much battery while waiting for a text this is fine. A good target might be two months of standby, and maybe 24 hours of GPS updates (sending updates maybe once every 5 minutes). It would be clever if it texted me when it was low on battery to tell me to charge it.
+4. **Inexpensive**. For the reasons above, I think £20-£60 is about the right range. I’d also ideally want to avoid an expensive monthly subscription - although a couple pounds a month would be reasonable.
+
+## How reasonable are these requirements?
+
+At this price point, and based on the product pages for these devices, I was expecting basic cellular devices with a [GNSS](https://en.wikipedia.org/wiki/Satellite_navigation) chip (such as [GPS](https://en.wikipedia.org/wiki/Global_Positioning_System), [GLONASS](https://en.wikipedia.org/wiki/GLONASS), [BeiDou](https://en.wikipedia.org/wiki/BeiDou) or [Galileo](https://en.wikipedia.org/wiki/Galileo_(satellite_navigation))). The tracker would act like a mobile phone, and when it receives a SMS text message, it would respond with its coordinates.
+
+For getting GNSS and SMS capabilities, there are fully-fledged phones that include this not too far away from the target price point:
+* For £30 you can get a [TTfone TT240](https://www.amazon.co.uk/TTfone-TT240-Simple-Whatsapp-Mobile/dp/B08P7M64BJ). This comes with GPS, GLONASS and SMS capabilities, plus it has WiFi, Bluetooth, cameras, a screen and a Linux-based operating system for apps. It has an 11 day standby time.
+* For £40 you can get an [Alcatel 1](https://www.amazon.co.uk/Alcatel-Volcano-Black-Unlocked-Smartphone/dp/B09LM8Q9BG/). This comes with GPS and SMS capabilities, plus it has WiFi, Bluetooth, cameras, a 5” touchscreen, and runs Android apps. It has a 13 day standby time.
+
+A longer-lasting battery also seems possible. For £30, you can get a Nokia 3310 that has a [30 days standby time](https://www.techradar.com/news/new-nokia-3310-vs-original-nokia-3310-which-phone-is-king#:~:text=to%20a%20whopping-,31%20days%20of%20standby,-.), or for £75 can get the Nokia 2 with a [56 days standby time](https://nokiamob.net/2017/11/02/nokia-2-has-up-to-56-days-standby-time-differences-between-model-numbers/). One or two [18650 cells](https://en.wikipedia.org/wiki/18650_battery) would fit neatly into a bike [seat post](https://en.wikipedia.org/wiki/Seatpost), and would likely give the device plenty of battery.
+
+With just the core GNSS and SMS functionality, it seems like it should be possible to build a compact yet long-lasting tracker for about £30 that meets all the requirements.
+
+All the devices (GF-07, GF-09 and GF-22) seem to advertise this is roughly what they are doing, with GPS. However, they all skimp on the battery life, and we’ll see about GPS in the next section…
+
+## Comparing tracker performance
+
+I tested all the trackers on 2024-03-24 at [`51.52565, -0.089443`](https://geohack.toolforge.org/geohack.php?params=51_31_32_N_0_5_21_W) (near Old Street station, in London).
+
+### GF-07
+
+Unfortunately the location tracking did not work at all. Instead of coordinates, it just returned a Chinese message: ‘【未获取到地址链接】’. This translates to ‘Address link not obtained’, probably indicating that it struggled to find an appropriate signal to determine its location. I gave it another 5 minutes of searching and tried again, but got the same error.
+
+The device also advertised an audio monitoring feature: where you can call the device and hear what’s going on around it. This did work, although the microphone quality was quite poor and only picked up noises very close by. I reckon this would be useless across the room from somebody, and likely not helpful for figuring out how to retrieve my bike.
+
+### GF-09
+
+Unfortunately I encountered the exact same problem with location tracking as to the GF-07. It again returned a Chinese message: ‘【未获取到地址链接】’ (including after waiting 5 minutes). Given the same message and formatting as the GF-07,  I suspect the firmware behind these things is all roughly the same.
+
+It also advertised audio monitoring, but this didn’t work: the device seemed to simply decline all the incoming calls.
+
+### GF-22
+
+It wasn’t looking hopeful for this after the last two, but I gave it a go anyways. This time, I got a location! The device responded:
+
+> BAT:93%,http://fcstgps.com/smap.php?lac=316&cellid=31743&c=234&n=15V=7100
+
+The link took me to Google Maps displaying the location 51.528194, -0.089806. This is about 280 metres off from the actual location. I tried a few times, waiting a couple of minutes between each attempt and got back the exact same URL pointing to the same location.
+
+I also tried once more at a different location. In this case it was even worse, at over 400m away from the actual location.
+
+I’m not certain what’s happening here. I think it might be finding the GSM cell tower location rather than actually using a GPS chip. In any case, this would be useless for finding my bike in a crowded urban environment like London. At a stretch, I could maybe see this being useful for tracking a larger object like a car or van, in a less dense environment - but even then suspect there are better options given weight and size become less of an issue.
+
+Like the GF-09 it advertised an audio feature, which didn’t seem to work - again declining all incoming calls.
+
+### Conclusion
+
+These all clearly fail at requirement 1 (accurate and reliable tracking). I was somewhat expecting the GF-07 to perform poorly given the manual it came with claimed to only be using LBS positioning (looking at nearby GSM cell-towers, generally only accurate to the nearest few hundred meters), but I thought the GF-09 or GF-22 would provide reasonable accuracy (their packaging does claim to have A-GPS).
+
+These devices do perform well at requirements 2 (small and lightweight) and 3 (inexpensive). But a small, inexpensive device that doesn't work still isn't very helpful.
+
+On requirement 4, they generally only advertise 1-2 days of battery life, so likely fail here. I didn't bother testing this given the devices didn't work well in the first place.
+
+## How are these still on the market?
+
+It's surprising that these products which clearly don't work as advertised are still being sold so widely on major platforms like Amazon and eBay. The situation seems similar to the issues of sellers listing [dangerous USB-C cables](https://www.theguardian.com/technology/2016/mar/30/amazon-clamps-down-dangerous-usb-c-cables) or [fake flash drives and SSDs](https://youtube.com/watch?v=QOhLlvNlI20): where it’s simply cheaper for marketplaces to refund customers than properly monitor these product categories (or hope that the refund process is annoying enough that customers give up).
+
+Marketplaces could still be doing more here: it seems like the default is that these products do not work, and they keep using the same model numbers - so clamping down on these in particular (or at least how they’re advertised) seems relatively low lift.
+
+Finally, I am confused by the positive reviews on some of these products though. Maybe these are just fake reviews, or people who are okay with 400m accuracy? If you bought any of these products and did have a good experience that differs from the above, [get in touch](/).
