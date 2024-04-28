@@ -16,7 +16,7 @@ const BlogHeader: React.FC<{ frontmatter: unknown }> = ({ frontmatter }) => {
   return (
     <>
       <Head>
-        <title>{title} - Adam Jones's Blog</title>
+        <title>{`${title} - Adam Jones's Blog`}</title>
       </Head>
       <h1 className="!mb-6" itemProp="headline">{title}</h1>
       <div className="flex gap-2 items-center mb-10">
