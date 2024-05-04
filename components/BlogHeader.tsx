@@ -6,12 +6,12 @@ import Head from 'next/head';
 export const frontmatterSchema = z.object({
   title: z.string(),
   publishedAt: z.string(),
-  modifiedAt: z.string().optional(),
+  updatedAt: z.string().optional(),
 });
 
 const BlogHeader: React.FC<{ frontmatter: unknown }> = ({ frontmatter }) => {
   const parsed = frontmatterSchema.parse(frontmatter);
-  const { publishedAt, modifiedAt, title } = parsed;
+  const { publishedAt, updatedAt, title } = parsed;
 
   return (
     <>
@@ -35,13 +35,13 @@ const BlogHeader: React.FC<{ frontmatter: unknown }> = ({ frontmatter }) => {
             <p className="!my-2 !leading-none" itemProp="name"><a href="/" itemProp="url">Adam Jones</a></p>
           </div>
           <p className="!my-2 !leading-none text-xs text-gray-500">
-            {modifiedAt ? 'Published ' : ''}
+            {updatedAt ? 'Published ' : ''}
             <time itemProp="datePublished" dateTime={new Date(publishedAt).toISOString()}>
               {new Date(publishedAt).toLocaleDateString('en-GB', { dateStyle: 'long' })}
             </time>
-            {modifiedAt ? ' · Updated ' : ''}
-            <time itemProp="dateModified" dateTime={new Date(modifiedAt ?? publishedAt).toISOString()} className={clsx({ hidden: !parsed.modifiedAt })}>
-              {new Date(modifiedAt ?? publishedAt).toLocaleDateString('en-GB', { dateStyle: 'long' })}
+            {updatedAt ? ' · Updated ' : ''}
+            <time itemProp="dateModified" dateTime={new Date(updatedAt ?? publishedAt).toISOString()} className={clsx({ hidden: !parsed.updatedAt })}>
+              {new Date(updatedAt ?? publishedAt).toLocaleDateString('en-GB', { dateStyle: 'long' })}
             </time>
           </p>
         </div>

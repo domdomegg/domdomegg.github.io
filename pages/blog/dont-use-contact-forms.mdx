@@ -1,6 +1,7 @@
 ---
 title: "No, I don’t want to fill out your contact form"
 publishedAt: "2024-04-28"
+updatedAt: "2024-05-04"
 ---
 
 Contact forms are almost always worse for users than just putting an email on your website. I explore why they’re terrible, why you’ve done it anyway, and what to do about it.
@@ -119,11 +120,11 @@ If you really worry about this, you can [obfuscate your email from spam bots](ht
 
 ### You want to manage messages as a team
 
-You can do this with email! Hook up a [shared mailbox](https://support.microsoft.com/en-gb/office/open-and-use-a-shared-mailbox-in-outlook-d94a8e9e-21f1-4240-808b-de9c9c088afd), [collaborative inbox](https://support.google.com/a/users/answer/167430), or one of the many off-the-shelf customer service solutions like [Zendesk](https://www.zendesk.co.uk/service/ticketing-system/customer-service-email-management-software/), [Zoho Desk](https://www.zoho.com/desk/), [Freshdesk](https://www.freshworks.com/freshdesk/), [Zammad](https://zammad.org/), [osTicket](https://osticket.com/), or [FreeScout](https://freescout.net/) to your email.
+You can do this with email! Hook up a [shared mailbox](https://support.microsoft.com/en-gb/office/open-and-use-a-shared-mailbox-in-outlook-d94a8e9e-21f1-4240-808b-de9c9c088afd), [collaborative inbox](https://support.google.com/a/users/answer/167430), or one of the many off-the-shelf customer service solutions like [Zendesk](https://www.zendesk.co.uk/service/ticketing-system/customer-service-email-management-software/), [Zoho Desk](https://www.zoho.com/desk/), [Freshdesk](https://www.freshworks.com/freshdesk/), [Request Tracker](https://github.com/bestpractical/rt)[^6], [Zammad](https://zammad.org/), [osTicket](https://osticket.com/) or [FreeScout](https://freescout.net/) to your email.
 
 ### You think email isn’t secure enough
 
-Email used to be very insecure because it wasn’t encrypted.[^6] This meant that people between mail servers could read the contents of messages.
+Email used to be very insecure because it wasn’t encrypted.[^7] This meant that people between mail servers could read the contents of messages.
 
 However, unless you’ve done something weird with your email setup, it’ll probably be encrypted securely like [99% of other email traffic](https://transparencyreport.google.com/safer-email/overview) is in 2024.
 
@@ -133,7 +134,7 @@ Another question to ask yourself if you don’t list an email for this reason: d
 
 ### You think email isn't accessible to assistive technology users
 
-I've heard the claim that you need a contact form to be compliant with some common accessibility standard - this is simply not true. If you don't beleive me, try and actually find this rule.[^7]
+I've heard the claim that you need a contact form to be compliant with some common accessibility standard - this is simply not true. If you don't beleive me, try and actually find this rule.[^8]
 
 Listing an email is almost certainly easier to parse and understand than your contact form.
 
@@ -161,6 +162,8 @@ Contact forms are hard to get right, and often just a worse experience for every
 
 [^5]: It could probably place this a bit more prominently by cutting some of the other stuff, but on the whole the message is fairly clear and not an unreasonable length.
 
-[^6]: There are also other email security risks, such as email spoofing (solvable with [DMARC](https://en.wikipedia.org/wiki/DMARC)!). But on the whole, the email security risk seems overblown (especially compared to 'crappy WordPress form' security risk).
+[^6]: Thanks to amluto for [the recommendation](https://news.ycombinator.com/item?id=40257941).
 
-[^7]: Further examples that would seem to suggest that this is not necessary is that the following organisations list an email to contact them: [Equality and Human Rights Commission](https://www.equalityhumanrights.com/contact-us) (the public body responsible for disability rights), [Scope](https://www.scope.org.uk/contact-us/) (a major disability equality charity) and [AbilityNet](https://abilitynet.org.uk/how-contact-us) (a charity building assistive technologies).
+[^7]: There are also other email security risks, such as email spoofing (solvable with [DMARC](https://en.wikipedia.org/wiki/DMARC)!). But on the whole, the email security risk seems overblown (especially compared to 'crappy WordPress form' security risk).
+
+[^8]: Further examples that would seem to suggest that this is not necessary is that the following organisations list an email to contact them: [Equality and Human Rights Commission](https://www.equalityhumanrights.com/contact-us) (the public body responsible for disability rights), [Scope](https://www.scope.org.uk/contact-us/) (a major disability equality charity) and [AbilityNet](https://abilitynet.org.uk/how-contact-us) (a charity building assistive technologies).
