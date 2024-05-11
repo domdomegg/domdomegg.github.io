@@ -4,6 +4,7 @@ import path from 'node:path';
 import matter from 'gray-matter';
 import z from 'zod';
 import Head from 'next/head';
+import { Feed } from 'feed';
 import { frontmatterSchema } from '../../components/BlogHeader';
 import ProsePage from '../../components/ProsePage';
 import SiteHeader from '../../components/SiteHeader';
@@ -22,6 +23,7 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ posts }) => {
       <SiteHeader />
       <Head>
         <title>Adam Jones's Blog</title>
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="./feed" />
       </Head>
       <h1>Adam Jones's Blog</h1>
       <ul>
@@ -46,9 +48,12 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ posts }) => {
 export default BlogIndex;
 
 export const getStaticProps: GetStaticProps<BlogIndexProps> = async () => {
+  const posts = getSortedPostsData();
+  writeRssFeed(posts);
+
   return {
     props: {
-      posts: getSortedPostsData(),
+      posts,
     },
   };
 };
@@ -72,4 +77,29 @@ function getSortedPostsData() {
     }
     return -1;
   });
+}
+
+function writeRssFeed(posts: Zod.infer<typeof postSchema>[]) {
+  const feed = new Feed({
+    id: 'https://adamjones.me/',
+    link: 'https://adamjones.me/',
+    generator: 'https://adamjones.me/',
+    title: 'Adam Jones\'s Blog',
+    description: 'Adam Jones\'s Blog',
+    language: 'en',
+    favicon: 'https://adamjones.me/favicon.ico',
+    copyright: '',
+  });
+
+  posts.forEach((post) => {
+    feed.addItem({
+      title: post.title,
+      link: `https://adamjones.me/blog/${post.href.slice(1)}`,
+      date: new Date(post.publishedAt),
+    });
+  });
+
+  const rss = feed.rss2();
+  fs.mkdirSync('public/blog', { recursive: true });
+  fs.writeFileSync('public/blog/feed', rss);
 }

@@ -17,6 +17,7 @@ const BlogHeader: React.FC<{ frontmatter: unknown }> = ({ frontmatter }) => {
     <>
       <Head>
         <title>{`${title} - Adam Jones's Blog`}</title>
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="../feed" />
       </Head>
       <h1 className="!mb-6" itemProp="headline">{title}</h1>
       <div className="flex gap-2 items-center mb-10">
