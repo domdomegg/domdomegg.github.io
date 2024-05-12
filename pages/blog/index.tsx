@@ -89,6 +89,7 @@ function writeRssFeed(posts: Zod.infer<typeof postSchema>[]) {
     language: 'en',
     favicon: 'https://adamjones.me/favicon.ico',
     copyright: '',
+    feed: 'https://adamjones.me/blog/feed',
   });
 
   posts.forEach((post) => {
