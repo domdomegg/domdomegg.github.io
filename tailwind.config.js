@@ -31,11 +31,15 @@ module.exports = {
       },
       typography: {
         DEFAULT: {
-          // Disable adding quote marks to block-quotes
-          // https://github.com/tailwindlabs/tailwindcss-typography/issues/66#issuecomment-1754429609
           css: {
+            // Disable adding quote marks to block-quotes
+            // https://github.com/tailwindlabs/tailwindcss-typography/issues/66#issuecomment-1754429609
             'blockquote p:first-of-type::before': false,
             'blockquote p:last-of-type::after': false,
+
+            // Disable adding backticks to code
+            'code::before': false,
+            'code::after': false,
           },
         },
       },
