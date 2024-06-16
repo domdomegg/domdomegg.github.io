@@ -4,6 +4,7 @@ import path from 'node:path';
 import matter from 'gray-matter';
 import Head from 'next/head';
 import { Feed } from 'feed';
+import { Blog, BlogPosting, WithContext } from 'schema-dts';
 import ProsePage from '../../components/ProsePage';
 import SiteHeader from '../../components/SiteHeader';
 import { Post, postSchema } from '../../components/BlogHeader';
@@ -44,13 +45,47 @@ const externalPosts: Post[] = [
     href: 'https://aisafetyfundamentals.com/blog/ai-risks/',
     publishedOn: '2024-02-21',
   },
-].map((p) => ({ ...p, location: 'external' }));
+].map((p) => ({ ...p, absoluteUrl: p.href, location: 'external' }));
 
 interface BlogIndexProps {
   posts: Post[]
 }
 
 const BlogIndex: React.FC<BlogIndexProps> = ({ posts }) => {
+  const jsonLd: WithContext<Blog> = {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    '@id': 'https://adamjones.me/blog/',
+    mainEntityOfPage: 'https://adamjones.me/blog/',
+    url: 'https://adamjones.me/blog/',
+
+    name: 'Adam Jones\'s Blog',
+    author: {
+      '@type': 'Person',
+      '@id': 'https://adamjones.me/',
+      url: 'https://adamjones.me/',
+      name: 'Adam Jones',
+    },
+    blogPost: posts.map<BlogPosting>((p) => ({
+      '@type': 'BlogPosting',
+      '@id': p.absoluteUrl,
+      mainEntityOfPage: p.absoluteUrl,
+      url: p.absoluteUrl,
+
+      name: p.title,
+      headline: p.title,
+      datePublished: p.publishedOn,
+      dateModified: p.updatedOn,
+
+      author: {
+        '@type': 'Person',
+        '@id': 'https://adamjones.me/',
+        url: 'https://adamjones.me/',
+        name: 'Adam Jones',
+      },
+    })),
+  };
+
   return (
     <ProsePage>
       <SiteHeader />
@@ -59,6 +94,11 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ posts }) => {
         <link rel="alternate" type="application/rss+xml" title="RSS" href="./feed" />
       </Head>
       <h1>Adam Jones's Blog</h1>
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <ul>
         {posts.map((post) => (
           <li key={post.href}>
@@ -102,6 +142,7 @@ function getSortedPostsData(): Post[] {
     return {
       ...matterData,
       href,
+      absoluteUrl: `https://adamjones.me/blog/${href.slice(1)}`,
       location: 'internal',
     };
   });
@@ -132,7 +173,7 @@ function writeRssFeed(posts: Post[]) {
   posts.forEach((post) => {
     feed.addItem({
       title: post.title,
-      link: post.location === 'internal' ? `https://adamjones.me/blog/${post.href.slice(1)}` : post.href,
+      link: post.absoluteUrl,
       date: new Date(post.publishedOn),
     });
   });

@@ -44,11 +44,9 @@ const InnerApp: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
                 </div>
               </div>
             </div>
-            <article itemScope itemType="https://schema.org/BlogPosting">
+            <article>
               <BlogHeader frontmatter={Component.frontmatter} />
-              <div itemProp="articleBody">
-                <Component {...pageProps} />
-              </div>
+              <Component {...pageProps} />
             </article>
           </ProsePage>
         </div>

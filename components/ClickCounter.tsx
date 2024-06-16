@@ -6,7 +6,7 @@ export type Props = React.PropsWithChildren<{
   clickee: string,
 }>;
 
-const ClickCounter: React.FC<Props> = ({ clickee, messages, children }) => {
+export const ClickCounter: React.FC<Props> = ({ clickee, messages, children }) => {
   const [count, setCount] = useState(0);
 
   const increment = () => {
@@ -34,5 +34,3 @@ const ClickCounter: React.FC<Props> = ({ clickee, messages, children }) => {
     </div>
   );
 };
-
-export default ClickCounter;
