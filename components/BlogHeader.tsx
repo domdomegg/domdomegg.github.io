@@ -5,13 +5,20 @@ import Head from 'next/head';
 
 export const frontmatterSchema = z.object({
   title: z.string(),
-  publishedAt: z.string(),
-  updatedAt: z.string().optional(),
+  publishedOn: z.string().date(),
+  updatedOn: z.string().date().optional(),
 });
+
+export const postSchema = frontmatterSchema.extend({
+  href: z.string(),
+  location: z.literal('internal').or(z.literal('external')),
+});
+
+export type Post = Zod.infer<typeof postSchema>;
 
 const BlogHeader: React.FC<{ frontmatter: unknown }> = ({ frontmatter }) => {
   const parsed = frontmatterSchema.parse(frontmatter);
-  const { publishedAt, updatedAt, title } = parsed;
+  const { publishedOn, updatedOn, title } = parsed;
 
   return (
     <>
@@ -47,13 +54,13 @@ const BlogHeader: React.FC<{ frontmatter: unknown }> = ({ frontmatter }) => {
             </span>
           </div>
           <p className="!mb-0 !mt-1 leading-none text-xs text-gray-500">
-            {updatedAt ? 'Published ' : ''}
-            <time itemProp="datePublished" dateTime={new Date(publishedAt).toISOString()}>
-              {new Date(publishedAt).toLocaleDateString('en-GB', { dateStyle: 'long' })}
+            {updatedOn ? 'Published ' : ''}
+            <time itemProp="datePublished" dateTime={new Date(publishedOn).toISOString()}>
+              {new Date(publishedOn).toLocaleDateString('en-GB', { dateStyle: 'long' })}
             </time>
-            {updatedAt ? ' · Updated ' : ''}
-            <time itemProp="dateModified" dateTime={new Date(updatedAt ?? publishedAt).toISOString()} className={clsx({ hidden: !parsed.updatedAt })}>
-              {new Date(updatedAt ?? publishedAt).toLocaleDateString('en-GB', { dateStyle: 'long' })}
+            {updatedOn ? ' · Updated ' : ''}
+            <time itemProp="dateModified" dateTime={new Date(updatedOn ?? publishedOn).toISOString()} className={clsx({ hidden: !parsed.updatedOn })}>
+              {new Date(updatedOn ?? publishedOn).toLocaleDateString('en-GB', { dateStyle: 'long' })}
             </time>
           </p>
         </div>
