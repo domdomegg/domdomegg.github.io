@@ -132,7 +132,7 @@ function writeRssFeed(posts: Post[]) {
   posts.forEach((post) => {
     feed.addItem({
       title: post.title,
-      link: `https://adamjones.me/blog/${post.href.slice(1)}`,
+      link: post.location === 'internal' ? `https://adamjones.me/blog/${post.href.slice(1)}` : post.href,
       date: new Date(post.publishedOn),
     });
   });
