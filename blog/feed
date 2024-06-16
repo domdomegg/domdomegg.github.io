@@ -4,21 +4,21 @@
         <title>Adam Jones's Blog</title>
         <link>https://adamjones.me/</link>
         <description>Adam Jones's Blog</description>
-        <lastBuildDate>Sun, 16 Jun 2024 12:09:04 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 16 Jun 2024 12:14:32 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://adamjones.me/</generator>
         <language>en</language>
         <atom:link href="https://adamjones.me/blog/feed" rel="self" type="application/rss+xml"/>
         <item>
             <title><![CDATA[Why we work in public at BlueDot Impact]]></title>
-            <link>https://adamjones.me/blog/ttps://bluedot.org/blog/working-in-public/</link>
-            <guid>https://adamjones.me/blog/ttps://bluedot.org/blog/working-in-public/</guid>
+            <link>https://bluedot.org/blog/working-in-public/</link>
+            <guid>https://bluedot.org/blog/working-in-public/</guid>
             <pubDate>Sun, 16 Jun 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Why are people building AI systems?]]></title>
-            <link>https://adamjones.me/blog/ttps://aisafetyfundamentals.com/blog/why-are-people-building-ai-systems/</link>
-            <guid>https://adamjones.me/blog/ttps://aisafetyfundamentals.com/blog/why-are-people-building-ai-systems/</guid>
+            <link>https://aisafetyfundamentals.com/blog/why-are-people-building-ai-systems/</link>
+            <guid>https://aisafetyfundamentals.com/blog/why-are-people-building-ai-systems/</guid>
             <pubDate>Sat, 25 May 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
@@ -59,14 +59,14 @@
         </item>
         <item>
             <title><![CDATA[AI alignment project ideas]]></title>
-            <link>https://adamjones.me/blog/ttps://aisafetyfundamentals.com/blog/alignment-project-ideas/</link>
-            <guid>https://adamjones.me/blog/ttps://aisafetyfundamentals.com/blog/alignment-project-ideas/</guid>
+            <link>https://aisafetyfundamentals.com/blog/alignment-project-ideas/</link>
+            <guid>https://aisafetyfundamentals.com/blog/alignment-project-ideas/</guid>
             <pubDate>Fri, 12 Apr 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[How to avoid the 4 mistakes behind 92% of rejected AI governance applications]]></title>
-            <link>https://adamjones.me/blog/ttps://aisafetyfundamentals.com/blog/avoid-governance-application-mistakes/</link>
-            <guid>https://adamjones.me/blog/ttps://aisafetyfundamentals.com/blog/avoid-governance-application-mistakes/</guid>
+            <link>https://aisafetyfundamentals.com/blog/avoid-governance-application-mistakes/</link>
+            <guid>https://aisafetyfundamentals.com/blog/avoid-governance-application-mistakes/</guid>
             <pubDate>Fri, 05 Apr 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
@@ -77,8 +77,8 @@
         </item>
         <item>
             <title><![CDATA[Can we scale human feedback for complex AI tasks? An intro to scalable oversight.]]></title>
-            <link>https://adamjones.me/blog/ttps://aisafetyfundamentals.com/blog/scalable-oversight-intro/</link>
-            <guid>https://adamjones.me/blog/ttps://aisafetyfundamentals.com/blog/scalable-oversight-intro/</guid>
+            <link>https://aisafetyfundamentals.com/blog/scalable-oversight-intro/</link>
+            <guid>https://aisafetyfundamentals.com/blog/scalable-oversight-intro/</guid>
             <pubDate>Mon, 18 Mar 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
@@ -101,14 +101,14 @@
         </item>
         <item>
             <title><![CDATA[What is AI alignment?]]></title>
-            <link>https://adamjones.me/blog/ttps://aisafetyfundamentals.com/blog/what-is-ai-alignment/</link>
-            <guid>https://adamjones.me/blog/ttps://aisafetyfundamentals.com/blog/what-is-ai-alignment/</guid>
+            <link>https://aisafetyfundamentals.com/blog/what-is-ai-alignment/</link>
+            <guid>https://aisafetyfundamentals.com/blog/what-is-ai-alignment/</guid>
             <pubDate>Fri, 01 Mar 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[What risks does AI pose?]]></title>
-            <link>https://adamjones.me/blog/ttps://aisafetyfundamentals.com/blog/ai-risks/</link>
-            <guid>https://adamjones.me/blog/ttps://aisafetyfundamentals.com/blog/ai-risks/</guid>
+            <link>https://aisafetyfundamentals.com/blog/ai-risks/</link>
+            <guid>https://aisafetyfundamentals.com/blog/ai-risks/</guid>
             <pubDate>Wed, 21 Feb 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
