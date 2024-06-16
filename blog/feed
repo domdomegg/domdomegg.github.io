@@ -4,11 +4,23 @@
         <title>Adam Jones's Blog</title>
         <link>https://adamjones.me/</link>
         <description>Adam Jones's Blog</description>
-        <lastBuildDate>Mon, 03 Jun 2024 12:38:59 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 16 Jun 2024 12:09:04 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://adamjones.me/</generator>
         <language>en</language>
         <atom:link href="https://adamjones.me/blog/feed" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Why we work in public at BlueDot Impact]]></title>
+            <link>https://adamjones.me/blog/ttps://bluedot.org/blog/working-in-public/</link>
+            <guid>https://adamjones.me/blog/ttps://bluedot.org/blog/working-in-public/</guid>
+            <pubDate>Sun, 16 Jun 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Why are people building AI systems?]]></title>
+            <link>https://adamjones.me/blog/ttps://aisafetyfundamentals.com/blog/why-are-people-building-ai-systems/</link>
+            <guid>https://adamjones.me/blog/ttps://aisafetyfundamentals.com/blog/why-are-people-building-ai-systems/</guid>
+            <pubDate>Sat, 25 May 2024 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[How to send Keycloak emails through Google Workspace's SMTP relay]]></title>
             <link>https://adamjones.me/blog//keycloak-google-workspace</link>
@@ -46,10 +58,28 @@
             <pubDate>Sun, 28 Apr 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
+            <title><![CDATA[AI alignment project ideas]]></title>
+            <link>https://adamjones.me/blog/ttps://aisafetyfundamentals.com/blog/alignment-project-ideas/</link>
+            <guid>https://adamjones.me/blog/ttps://aisafetyfundamentals.com/blog/alignment-project-ideas/</guid>
+            <pubDate>Fri, 12 Apr 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[How to avoid the 4 mistakes behind 92% of rejected AI governance applications]]></title>
+            <link>https://adamjones.me/blog/ttps://aisafetyfundamentals.com/blog/avoid-governance-application-mistakes/</link>
+            <guid>https://adamjones.me/blog/ttps://aisafetyfundamentals.com/blog/avoid-governance-application-mistakes/</guid>
+            <pubDate>Fri, 05 Apr 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
             <title><![CDATA[Do cheap GPS trackers work? A review of the GF-07, GF-09 and GF-22.]]></title>
             <link>https://adamjones.me/blog//cheap-gps-trackers</link>
             <guid>https://adamjones.me/blog//cheap-gps-trackers</guid>
             <pubDate>Sun, 24 Mar 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Can we scale human feedback for complex AI tasks? An intro to scalable oversight.]]></title>
+            <link>https://adamjones.me/blog/ttps://aisafetyfundamentals.com/blog/scalable-oversight-intro/</link>
+            <guid>https://adamjones.me/blog/ttps://aisafetyfundamentals.com/blog/scalable-oversight-intro/</guid>
+            <pubDate>Mon, 18 Mar 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[ai-safety.txt: Making AI vulnerability reporting easy]]></title>
@@ -68,6 +98,18 @@
             <link>https://adamjones.me/blog//oh-good</link>
             <guid>https://adamjones.me/blog//oh-good</guid>
             <pubDate>Sun, 03 Mar 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[What is AI alignment?]]></title>
+            <link>https://adamjones.me/blog/ttps://aisafetyfundamentals.com/blog/what-is-ai-alignment/</link>
+            <guid>https://adamjones.me/blog/ttps://aisafetyfundamentals.com/blog/what-is-ai-alignment/</guid>
+            <pubDate>Fri, 01 Mar 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[What risks does AI pose?]]></title>
+            <link>https://adamjones.me/blog/ttps://aisafetyfundamentals.com/blog/ai-risks/</link>
+            <guid>https://adamjones.me/blog/ttps://aisafetyfundamentals.com/blog/ai-risks/</guid>
+            <pubDate>Wed, 21 Feb 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[How are AI companies doing with their voluntary commitments on vulnerability reporting?]]></title>
