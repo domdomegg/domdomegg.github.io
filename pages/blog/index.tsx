@@ -74,8 +74,8 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ posts }) => {
 
       name: p.title,
       headline: p.title,
-      datePublished: p.publishedOn,
-      dateModified: p.updatedOn,
+      datePublished: new Date(p.publishedOn).toISOString(),
+      dateModified: p.updatedOn ? new Date(p.updatedOn).toISOString() : undefined,
 
       author: {
         '@type': 'Person',
@@ -137,12 +137,12 @@ function getSortedPostsData(): Post[] {
   const fileNames = fs.readdirSync(blogDir).filter((f) => f !== 'index.tsx' && !f.startsWith('_'));
   const localPostsData = fileNames.map((fileName) => {
     const fileContents = fs.readFileSync(path.join(blogDir, fileName), 'utf8');
-    const href = `./${fileName.slice(0, fileName.lastIndexOf('.'))}`;
+    const href = `./${fileName.slice(0, fileName.lastIndexOf('.'))}/`;
     const matterData = matter(fileContents).data;
     return {
       ...matterData,
       href,
-      absoluteUrl: `https://adamjones.me/blog/${href.slice(1)}`,
+      absoluteUrl: `https://adamjones.me/blog/${href.slice(2)}`,
       location: 'internal',
     };
   });

@@ -28,8 +28,8 @@ const BlogHeader: React.FC<{ frontmatter: unknown }> = ({ frontmatter }) => {
 
     name: parsed.title,
     headline: parsed.title,
-    datePublished: parsed.publishedOn,
-    dateModified: parsed.updatedOn,
+    datePublished: new Date(parsed.publishedOn).toISOString(),
+    dateModified: parsed.updatedOn ? new Date(parsed.updatedOn).toISOString() : undefined,
 
     author: {
       '@type': 'Person',
