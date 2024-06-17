@@ -9,7 +9,7 @@ import ProsePage from '../../components/ProsePage';
 import SiteHeader from '../../components/SiteHeader';
 import { Post, postSchema } from '../../components/BlogHeader';
 
-const externalPosts: Post[] = [
+const externalPosts: Post[] = ([
   {
     title: '3 articles on AI safety we’d like to exist',
     href: 'https://aisafetyfundamentals.com/blog/ai-safety-articles-we-would-like-to-exist/',
@@ -50,7 +50,8 @@ const externalPosts: Post[] = [
     href: 'https://aisafetyfundamentals.com/blog/ai-risks/',
     publishedOn: '2024-02-21',
   },
-].map((p) => ({ ...p, absoluteUrl: p.href, location: 'external' }));
+] satisfies Omit<Post, 'absoluteUrl' | 'location'>[])
+  .map((p) => ({ ...p, absoluteUrl: p.href, location: 'external' }));
 
 interface BlogIndexProps {
   posts: Post[]
