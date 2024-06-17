@@ -11,6 +11,11 @@ import { Post, postSchema } from '../../components/BlogHeader';
 
 const externalPosts: Post[] = [
   {
+    title: '3 articles on AI safety we’d like to exist',
+    href: 'https://aisafetyfundamentals.com/blog/ai-safety-articles-we-would-like-to-exist/',
+    publishedOn: '2024-06-17',
+  },
+  {
     title: 'Why we work in public at BlueDot Impact',
     href: 'https://bluedot.org/blog/working-in-public/',
     publishedOn: '2024-06-16',
