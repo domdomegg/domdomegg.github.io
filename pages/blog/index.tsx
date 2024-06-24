@@ -11,6 +11,11 @@ import { Post, postSchema } from '../../components/BlogHeader';
 
 const externalPosts: Post[] = ([
   {
+    title: 'What we changed for the June 2024 AI alignment course',
+    href: 'https://aisafetyfundamentals.com/blog/june-2024-alignment-course-updates/',
+    publishedOn: '2024-06-24',
+  },
+  {
     title: '3 articles on AI safety we’d like to exist',
     href: 'https://aisafetyfundamentals.com/blog/ai-safety-articles-we-would-like-to-exist/',
     publishedOn: '2024-06-17',
