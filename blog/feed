@@ -4,11 +4,23 @@
         <title>Adam Jones's Blog</title>
         <link>https://adamjones.me/</link>
         <description>Adam Jones's Blog</description>
-        <lastBuildDate>Sun, 23 Jun 2024 14:50:32 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 24 Jun 2024 17:15:13 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://adamjones.me/</generator>
         <language>en</language>
         <atom:link href="https://adamjones.me/blog/feed" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[What we changed for the June 2024 AI alignment course]]></title>
+            <link>https://aisafetyfundamentals.com/blog/june-2024-alignment-course-updates/</link>
+            <guid>https://aisafetyfundamentals.com/blog/june-2024-alignment-course-updates/</guid>
+            <pubDate>Mon, 24 Jun 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[A thing I'd like to exist: benchmarks for train internet]]></title>
+            <link>https://adamjones.me/blog/benchmark-train-internet/</link>
+            <guid>https://adamjones.me/blog/benchmark-train-internet/</guid>
+            <pubDate>Sun, 23 Jun 2024 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[3 articles on AI safety we’d like to exist]]></title>
             <link>https://aisafetyfundamentals.com/blog/ai-safety-articles-we-would-like-to-exist/</link>
