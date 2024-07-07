@@ -4,11 +4,17 @@
         <title>Adam Jones's Blog</title>
         <link>https://adamjones.me/</link>
         <description>Adam Jones's Blog</description>
-        <lastBuildDate>Sun, 30 Jun 2024 10:23:24 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 07 Jul 2024 11:12:43 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://adamjones.me/</generator>
         <language>en</language>
         <atom:link href="https://adamjones.me/blog/feed" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[7 blogs in 7 days]]></title>
+            <link>https://adamjones.me/blog/7-blogs-7-days/</link>
+            <guid>https://adamjones.me/blog/7-blogs-7-days/</guid>
+            <pubDate>Sun, 07 Jul 2024 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[What we changed for the June 2024 AI alignment course]]></title>
             <link>https://aisafetyfundamentals.com/blog/june-2024-alignment-course-updates/</link>
