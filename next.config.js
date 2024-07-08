@@ -44,7 +44,7 @@ const rehypeAddHoverableFootnotes = () => {
         // NB: this still breaks for headings, but footnotes are rare in headings so I haven't bothered fixing this
         if (node.tagName === 'p') {
           node.tagName = 'span';
-          node.properties.className += ' block py-5';
+          node.properties.className += ' block my-5';
         }
 
         // Update the footnote tooltip trigger (anchor element) to have a wider hitbox, so it's easier to use and you can hover from the trigger to the tooltip itself
