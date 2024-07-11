@@ -4,11 +4,17 @@
         <title>Adam Jones's Blog</title>
         <link>https://adamjones.me/</link>
         <description>Adam Jones's Blog</description>
-        <lastBuildDate>Thu, 11 Jul 2024 09:16:12 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 11 Jul 2024 21:51:27 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://adamjones.me/</generator>
         <language>en</language>
         <atom:link href="https://adamjones.me/blog/feed" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Government departments should say they don't care]]></title>
+            <link>https://adamjones.me/blog/gov-doc-clearance-dont-care/</link>
+            <guid>https://adamjones.me/blog/gov-doc-clearance-dont-care/</guid>
+            <pubDate>Thu, 11 Jul 2024 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Avoiding unhelpful work as a new AI governance researcher]]></title>
             <link>https://adamjones.me/blog/avoid-unhelpful-ai-governance-work/</link>
