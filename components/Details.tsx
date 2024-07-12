@@ -1,9 +1,15 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Details: React.FC<React.PropsWithChildren<{ title: string }>> = ({ title, children }) => {
-  const [isOpen, setOpen] = useState(false);
+  const [isOpen, setOpen] = useState(true);
   const toggleOpen = () => setOpen((s) => !s);
+
+  useEffect(() => {
+    if (typeof window !== undefined) {
+      setOpen(false);
+    }
+  }, []);
 
   return (
     <div
