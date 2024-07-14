@@ -4,11 +4,17 @@
         <title>Adam Jones's Blog</title>
         <link>https://adamjones.me/</link>
         <description>Adam Jones's Blog</description>
-        <lastBuildDate>Sat, 13 Jul 2024 21:44:21 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 14 Jul 2024 22:39:36 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://adamjones.me/</generator>
         <language>en</language>
         <atom:link href="https://adamjones.me/blog/feed" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Addressing digital harms: a right of appeal is not sufficient]]></title>
+            <link>https://adamjones.me/blog/right-of-appeal-problems/</link>
+            <guid>https://adamjones.me/blog/right-of-appeal-problems/</guid>
+            <pubDate>Mon, 15 Jul 2024 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[AI as a corporation (or, an intro to AI safety?)]]></title>
             <link>https://adamjones.me/blog/ai-as-a-corporation/</link>
