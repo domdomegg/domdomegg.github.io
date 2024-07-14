@@ -7,7 +7,7 @@ import Details from '../../components/Details';
 import BarChart from '../../components/BarChart';
 import * as React from 'react';
 
-Yesterday, I published [a benchmark that compared a few different ways of hosting a static Next.js site](https://adamjones.me/blog/benchmark-next-vs-nginx/). I tested against a server running locally to focus as much as possible on the actual performance difference between servers.
+Yesterday, I published [a benchmark that compared a few different ways of hosting a static Next.js site](../benchmark-next-vs-nginx/). I tested against a server running locally to focus as much as possible on the performance difference between the tools alone.
 
 However, in the real world your servers are far away!
 
@@ -60,12 +60,12 @@ Median page load times, no additional reqs/second (i.e. for the browser to consi
 
 ## Takeaways
 
-At low load, this does increase latency across the board. Surprisingly, Next.js actually starts to do better than nginx here: I’m not certain why this is the case. I think it could be various optimisations like their [image optimisation](https://nextjs.org/docs/pages/building-your-application/optimizing/images) (although I’m not certain this is actually enabled).
+At low load, moving to a remote server increases latency across the board. Surprisingly, Next.js actually starts to do slightly better than nginx: I’m not certain why this is the case. It could be various optimisations like their [image optimisation](https://nextjs.org/docs/pages/building-your-application/optimizing/images) (although I’m not certain this was enabled).
 
-At higher load and just measuring HTTP request times, nginx just takes the lead by a couple of milliseconds: but the difference is pretty small (although to be noted this is at much lower volumes than yesterday’s post).
+At higher load and measuring HTTP request times, nginx just takes the lead by a couple of milliseconds: but the difference is pretty small (note this is at much lower volumes than yesterday’s post).
 
-Doing this experiment also reinforced my belief that nginx is more of a pain to setup. Next.js ‘just worked’. I cloned the repo, did an `npm install` and things were happy. nginx required fiddling with the config file (I ended up using the absolute path rather than relative path with PWD to get it working), all the while being annoying to troubleshoot.
+This experiment also reinforced my belief that nginx is more of a pain to setup. Next.js ‘just worked’. I cloned the repo, did an `npm install` and things were happy. nginx required fiddling with the config file (I ended up using the absolute path rather than relative path with `PWD` to get it working), all the while being annoying to troubleshoot.
 
-I think [yesterday’s takeaway](https://adamjones.me/blog/benchmark-next-vs-nginx/#takeaways) still holds: that in practice the performance penalty for picking Next.js over nginx is often worth the setup hassle.
+I think [yesterday’s takeaway](../benchmark-next-vs-nginx/#takeaways) still holds: that in practice the performance penalty for picking Next.js over nginx is often worth the setup hassle.
 
 [^1]: Hosted in eu-west-1, while I was sending requests from a high-bandwidth business internet connection in London.

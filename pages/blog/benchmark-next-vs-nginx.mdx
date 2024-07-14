@@ -7,6 +7,8 @@ import Details from '../../components/Details';
 import BarChart from '../../components/BarChart';
 import * as React from 'react';
 
+_Update: I did [a follow-up with a more realistic setup, showing what the performance looks like when this is running on a remote server](../benchmark-next-vs-nginx-aws/)._
+
 [Next.js](https://nextjs.org/) is a React framework that allows you to build web applications. It offers a bunch of neat features to make web development easier.
 
 While Next.js leans heavily into server-side features like SSR and API routes, it can be used to build static websites. Three ways to deploy these static sites are:[^1]
@@ -111,6 +113,8 @@ That said, the Next.js server is plenty fast for real-world use cases. It was ju
 The real-world penalty will also likely be lower than this: network latency will likely start to dominate. And if you’ve got dynamic requests to APIs, that will almost certainly be the bottleneck rather than the static file serving.
 
 Overall, with this small of a penalty in most cases I’d pick running Next.js given it’s significantly easier to set up (provided you’re building a Next.js app already), and means your deployment can be standardised across static and dynamic applications. Only when you’re getting hundreds or thousands of requests per second, or if you've already got a really smooth nginx pipeline, does it probably become worth looking at this.
+
+_Update: I did [a follow-up with a more realistic setup, showing what the performance looks like when this is running on a remote server](../benchmark-next-vs-nginx-aws/)._
 
 [^1]: These are ways to do it if you’re hosting on bare metal. There are of course also services that will effectively do one of these for you, like [Vercel’s cloud hosting](https://vercel.com/frameworks/nextjs) or [GitHub Pages](https://pages.github.com/).
 
