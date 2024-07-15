@@ -11,6 +11,16 @@ import { Post, postSchema } from '../../components/BlogHeader';
 
 const externalPosts: Post[] = ([
   {
+    title: 'Our 2023 internal cybersecurity course',
+    href: 'https://bluedot.org/blog/internal-cybersecurity-2023/',
+    publishedOn: '2024-07-15',
+  },
+  {
+    title: 'What we learnt from running our AI alignment course in March 2024',
+    href: 'https://bluedot.org/blog/ai-alignment-march-2024-retro/',
+    publishedOn: '2024-07-02',
+  },
+  {
     title: 'What we changed for the June 2024 AI alignment course',
     href: 'https://aisafetyfundamentals.com/blog/june-2024-alignment-course-updates/',
     publishedOn: '2024-06-24',
