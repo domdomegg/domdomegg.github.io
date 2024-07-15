@@ -4,11 +4,17 @@
         <title>Adam Jones's Blog</title>
         <link>https://adamjones.me/</link>
         <description>Adam Jones's Blog</description>
-        <lastBuildDate>Sun, 14 Jul 2024 22:39:36 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 15 Jul 2024 13:44:25 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://adamjones.me/</generator>
         <language>en</language>
         <atom:link href="https://adamjones.me/blog/feed" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Our 2023 internal cybersecurity course]]></title>
+            <link>https://bluedot.org/blog/internal-cybersecurity-2023/</link>
+            <guid>https://bluedot.org/blog/internal-cybersecurity-2023/</guid>
+            <pubDate>Mon, 15 Jul 2024 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Addressing digital harms: a right of appeal is not sufficient]]></title>
             <link>https://adamjones.me/blog/right-of-appeal-problems/</link>
@@ -68,6 +74,12 @@
             <link>https://adamjones.me/blog/7-blogs-7-days/</link>
             <guid>https://adamjones.me/blog/7-blogs-7-days/</guid>
             <pubDate>Sun, 07 Jul 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[What we learnt from running our AI alignment course in March 2024]]></title>
+            <link>https://bluedot.org/blog/ai-alignment-march-2024-retro/</link>
+            <guid>https://bluedot.org/blog/ai-alignment-march-2024-retro/</guid>
+            <pubDate>Tue, 02 Jul 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[What we changed for the June 2024 AI alignment course]]></title>
