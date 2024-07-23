@@ -11,6 +11,16 @@ import { Post, postSchema } from '../../components/BlogHeader';
 
 const externalPosts: Post[] = ([
   {
+    title: 'How to avoid the 2 mistakes behind 89% of rejected AI alignment applications',
+    href: 'https://aisafetyfundamentals.com/blog/avoid-alignment-application-mistakes/',
+    publishedOn: '2024-07-22',
+  },
+  {
+    title: 'What do applicants mean when they say they come from LinkedIn?',
+    href: 'https://bluedot.org/blog/generic-linkedin-source-attribution/',
+    publishedOn: '2024-07-19',
+  },
+  {
     title: 'Our 2023 internal cybersecurity course',
     href: 'https://bluedot.org/blog/internal-cybersecurity-2023/',
     publishedOn: '2024-07-15',
