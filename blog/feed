@@ -4,11 +4,29 @@
         <title>Adam Jones's Blog</title>
         <link>https://adamjones.me/</link>
         <description>Adam Jones's Blog</description>
-        <lastBuildDate>Mon, 15 Jul 2024 13:44:32 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 23 Jul 2024 08:55:10 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://adamjones.me/</generator>
         <language>en</language>
         <atom:link href="https://adamjones.me/blog/feed" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Reflections on my 7-day writing challenge]]></title>
+            <link>https://adamjones.me/blog/7-blogs-7-days-review/</link>
+            <guid>https://adamjones.me/blog/7-blogs-7-days-review/</guid>
+            <pubDate>Tue, 23 Jul 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[How to avoid the 2 mistakes behind 89% of rejected AI alignment applications]]></title>
+            <link>https://aisafetyfundamentals.com/blog/avoid-alignment-application-mistakes/</link>
+            <guid>https://aisafetyfundamentals.com/blog/avoid-alignment-application-mistakes/</guid>
+            <pubDate>Mon, 22 Jul 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[What do applicants mean when they say they come from LinkedIn?]]></title>
+            <link>https://bluedot.org/blog/generic-linkedin-source-attribution/</link>
+            <guid>https://bluedot.org/blog/generic-linkedin-source-attribution/</guid>
+            <pubDate>Fri, 19 Jul 2024 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Our 2023 internal cybersecurity course]]></title>
             <link>https://bluedot.org/blog/internal-cybersecurity-2023/</link>
