@@ -4,11 +4,17 @@
         <title>Adam Jones's Blog</title>
         <link>https://adamjones.me/</link>
         <description>Adam Jones's Blog</description>
-        <lastBuildDate>Sun, 28 Jul 2024 20:16:31 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 01 Aug 2024 00:04:37 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://adamjones.me/</generator>
         <language>en</language>
         <atom:link href="https://adamjones.me/blog/feed" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Diagnosing infectious diseases with CRISPR: SHERLOCK and DETECTR explained]]></title>
+            <link>https://adamjones.me/blog/crispr-diagnostics-intro/</link>
+            <guid>https://adamjones.me/blog/crispr-diagnostics-intro/</guid>
+            <pubDate>Thu, 01 Aug 2024 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Reflections on my 7-day writing challenge]]></title>
             <link>https://adamjones.me/blog/7-blogs-7-days-review/</link>
