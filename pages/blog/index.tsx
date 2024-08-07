@@ -11,6 +11,21 @@ import { Post, postSchema } from '../../components/BlogHeader';
 
 const externalPosts: Post[] = ([
   {
+    title: 'Results from testing ad adjustments',
+    href: 'https://bluedot.org/blog/ads-alignment-june24-tests/',
+    publishedOn: '2024-08-08',
+  },
+  {
+    title: 'What advertising creatives work for technical people?',
+    href: 'https://bluedot.org/blog/ads-alignment-june24-creatives/',
+    publishedOn: '2024-08-08',
+  },
+  {
+    title: 'Advertising to technical people: LinkedIn, Twitter, Reddit and others compared',
+    href: 'https://bluedot.org/blog/ads-alignment-june24-platforms/',
+    publishedOn: '2024-08-08',
+  },
+  {
     title: 'How to avoid the 2 mistakes behind 89% of rejected AI alignment applications',
     href: 'https://aisafetyfundamentals.com/blog/avoid-alignment-application-mistakes/',
     publishedOn: '2024-07-22',
