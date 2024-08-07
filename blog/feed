@@ -4,11 +4,35 @@
         <title>Adam Jones's Blog</title>
         <link>https://adamjones.me/</link>
         <description>Adam Jones's Blog</description>
-        <lastBuildDate>Wed, 07 Aug 2024 18:54:17 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 07 Aug 2024 21:44:04 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://adamjones.me/</generator>
         <language>en</language>
         <atom:link href="https://adamjones.me/blog/feed" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Advertising to technical people: LinkedIn, Twitter, Reddit and others compared]]></title>
+            <link>https://bluedot.org/blog/ads-alignment-june24-platforms/</link>
+            <guid>https://bluedot.org/blog/ads-alignment-june24-platforms/</guid>
+            <pubDate>Thu, 08 Aug 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[What advertising creatives work for technical people?]]></title>
+            <link>https://bluedot.org/blog/ads-alignment-june24-creatives/</link>
+            <guid>https://bluedot.org/blog/ads-alignment-june24-creatives/</guid>
+            <pubDate>Thu, 08 Aug 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Results from testing ad adjustments]]></title>
+            <link>https://bluedot.org/blog/ads-alignment-june24-tests/</link>
+            <guid>https://bluedot.org/blog/ads-alignment-june24-tests/</guid>
+            <pubDate>Thu, 08 Aug 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Are cheap shaver blades any good?]]></title>
+            <link>https://adamjones.me/blog/cheap-shaver-blades/</link>
+            <guid>https://adamjones.me/blog/cheap-shaver-blades/</guid>
+            <pubDate>Thu, 08 Aug 2024 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Diagnosing infectious diseases with CRISPR: SHERLOCK and DETECTR explained]]></title>
             <link>https://adamjones.me/blog/crispr-diagnostics-intro/</link>
