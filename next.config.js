@@ -73,6 +73,38 @@ const rehypeAddHoverableFootnotes = () => {
   };
 };
 
+/** @type {import("unified").Plugin<[], import("estree").Program>} */
+const recmaHref = () => (ast, vfile) => {
+  const path = require('node:path');
+  const pathFromRoot = path.relative(vfile.cwd, path.join(vfile.dirname, vfile.stem));
+  const rootRelativeUrl = `/${pathFromRoot.startsWith('pages/') ? pathFromRoot.slice('pages/'.length) : pathFromRoot}/`;
+
+  ast.body.push({
+    type: 'ExpressionStatement',
+    expression: {
+      type: 'AssignmentExpression',
+      operator: '=',
+      left: {
+        type: 'MemberExpression',
+        object: {
+          type: 'Identifier',
+          name: 'MDXContent',
+        },
+        property: {
+          type: 'Identifier',
+          name: 'href',
+        },
+        computed: false,
+        optional: false,
+      },
+      right: {
+        type: 'Literal',
+        value: rootRelativeUrl,
+      },
+    },
+  });
+};
+
 module.exports = async () => {
   const nextMDX = require('@next/mdx');
 
@@ -92,7 +124,7 @@ module.exports = async () => {
     options: {
       remarkPlugins: [remarkFrontmatter, remarkGfm],
       rehypePlugins: [rehypeSlug, rehypeExtractToc, rehypeExtractTocExport, rehypeAddHoverableFootnotes],
-      recmaPlugins: [recmaMdxDisplayname, recmaMdxFrontmatter, recmaNextjsStaticProps],
+      recmaPlugins: [recmaMdxDisplayname, recmaMdxFrontmatter, recmaHref, recmaNextjsStaticProps],
     },
   });
 

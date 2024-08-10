@@ -18,9 +18,11 @@ export const postSchema = frontmatterSchema.extend({
 
 export type Post = Zod.infer<typeof postSchema>;
 
-const BlogHeader: React.FC<{ frontmatter: unknown }> = ({ frontmatter }) => {
+const BlogHeader: React.FC<{ frontmatter: unknown, href: string }> = ({ frontmatter, href }) => {
   const parsed = frontmatterSchema.parse(frontmatter);
-  const { publishedOn, updatedOn, title } = parsed;
+
+  // Date in format YYYY/MM/DD
+  const citationDate = new Date(parsed.publishedOn).toISOString().slice(0, 10).replaceAll('-', '/');
 
   const jsonLd: WithContext<BlogPosting> = {
     '@context': 'https://schema.org',
@@ -42,15 +44,22 @@ const BlogHeader: React.FC<{ frontmatter: unknown }> = ({ frontmatter }) => {
   return (
     <>
       <Head>
-        <title>{`${title} - Adam Jones's Blog`}</title>
+        <title>{`${parsed.title} - Adam Jones's Blog`}</title>
         <link rel="alternate" type="application/rss+xml" title="RSS" href="../feed" />
+        <meta name="citation_title" content={parsed.title} />
+        <meta name="citation_author" content="Adam Jones" />
+        <meta name="citation_date" content={citationDate} />
+        <meta name="citation_online_date" content={citationDate} />
+        <meta name="citation_publication_date" content={citationDate} />
+        <meta name="citation_fulltext_html_url" content={`https://adamjones.me${href}`} />
+        <meta name="citation_fulltext_world_readable" content="" />
       </Head>
       <script
         type="application/ld+json"
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <h1 className="!mb-8" id="blog-headline">{title}</h1>
+      <h1 className="!mb-8" id="blog-headline">{parsed.title}</h1>
       <div className="flex gap-2 items-center mb-10">
         <a href="/">
           <Image
@@ -78,13 +87,13 @@ const BlogHeader: React.FC<{ frontmatter: unknown }> = ({ frontmatter }) => {
             </span>
           </div>
           <p className="!mb-0 !mt-1 leading-none text-xs text-gray-500">
-            {updatedOn ? 'Published ' : ''}
-            <time dateTime={new Date(publishedOn).toISOString()}>
-              {new Date(publishedOn).toLocaleDateString('en-GB', { dateStyle: 'long' })}
+            {parsed.updatedOn ? 'Published ' : ''}
+            <time dateTime={new Date(parsed.publishedOn).toISOString()}>
+              {new Date(parsed.publishedOn).toLocaleDateString('en-GB', { dateStyle: 'long' })}
             </time>
-            {updatedOn ? ' · Updated ' : ''}
-            <time dateTime={new Date(updatedOn ?? publishedOn).toISOString()} className={clsx({ hidden: !parsed.updatedOn })}>
-              {new Date(updatedOn ?? publishedOn).toLocaleDateString('en-GB', { dateStyle: 'long' })}
+            {parsed.updatedOn ? ' · Updated ' : ''}
+            <time dateTime={new Date(parsed.updatedOn ?? parsed.publishedOn).toISOString()} className={clsx({ hidden: !parsed.updatedOn })}>
+              {new Date(parsed.updatedOn ?? parsed.publishedOn).toLocaleDateString('en-GB', { dateStyle: 'long' })}
             </time>
           </p>
         </div>

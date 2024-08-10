@@ -32,7 +32,7 @@ const App: React.FC<AppProps> = (props) => {
 const InnerApp: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
   if (Component.displayName === 'MDXContent') {
     // Blog pages
-    if ('frontmatter' in Component && typeof Component.frontmatter === 'object' && Component.frontmatter !== null && 'title' in Component.frontmatter) {
+    if ('frontmatter' in Component && typeof Component.frontmatter === 'object' && Component.frontmatter !== null && 'title' in Component.frontmatter && 'href' in Component && typeof Component.href === 'string') {
       return (
         <div className="lg:ml-80 xl:ml-20 2xl:ml-0">
           <ProsePage>
@@ -45,7 +45,7 @@ const InnerApp: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
               </div>
             </div>
             <article>
-              <BlogHeader frontmatter={Component.frontmatter} />
+              <BlogHeader frontmatter={Component.frontmatter} href={Component.href} />
               <Component {...pageProps} />
             </article>
           </ProsePage>
