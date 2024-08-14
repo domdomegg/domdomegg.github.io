@@ -22,8 +22,6 @@ const App: React.FC<AppProps> = (props) => {
     <PostHogProvider>
       {/* eslint-disable-next-line react/no-unknown-property */}
       <style jsx global>{`:root { --font-inter: ${inter.style.fontFamily}; }`}</style>
-      {/* Cloudflare analytics */}
-      <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "211b612bd6db41308a0d09319d6a408a"}' />
       <InnerApp {...props} />
     </PostHogProvider>
   );
