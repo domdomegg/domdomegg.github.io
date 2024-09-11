@@ -4,11 +4,17 @@
         <title>Adam Jones's Blog</title>
         <link>https://adamjones.me/</link>
         <description>Adam Jones's Blog</description>
-        <lastBuildDate>Mon, 19 Aug 2024 15:36:18 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 11 Sep 2024 19:41:46 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://adamjones.me/</generator>
         <language>en</language>
         <atom:link href="https://adamjones.me/blog/feed" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[An easy win for UK AI safety: supporting whistleblowers]]></title>
+            <link>https://adamjones.me/blog/uk-ais-easy-win-whistleblowing/</link>
+            <guid>https://adamjones.me/blog/uk-ais-easy-win-whistleblowing/</guid>
+            <pubDate>Wed, 11 Sep 2024 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[The AI regulator’s toolbox: A list of concrete AI governance practices]]></title>
             <link>https://adamjones.me/blog/ai-regulator-toolbox/</link>
