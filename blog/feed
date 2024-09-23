@@ -4,11 +4,17 @@
         <title>Adam Jones's Blog</title>
         <link>https://adamjones.me/</link>
         <description>Adam Jones's Blog</description>
-        <lastBuildDate>Sun, 15 Sep 2024 19:22:57 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 23 Sep 2024 09:40:12 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://adamjones.me/</generator>
         <language>en</language>
         <atom:link href="https://adamjones.me/blog/feed" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[An easy win for UK AI safety: competition law safe harbour]]></title>
+            <link>https://adamjones.me/blog/uk-ais-easy-win-competition-safe-harbour/</link>
+            <guid>https://adamjones.me/blog/uk-ais-easy-win-competition-safe-harbour/</guid>
+            <pubDate>Mon, 23 Sep 2024 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[An easy win for UK AI safety: supporting whistleblowers]]></title>
             <link>https://adamjones.me/blog/uk-ais-easy-win-whistleblowing/</link>
