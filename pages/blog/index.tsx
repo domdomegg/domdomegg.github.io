@@ -11,19 +11,34 @@ import { Post, postSchema } from '../../components/BlogHeader';
 
 const externalPosts: Post[] = ([
   {
+    title: 'Modular AI Safety courses proposal',
+    href: 'https://bluedot.org/blog/modular-ai-safety-courses-proposal/',
+    publishedOn: '2024-09-16',
+  },
+  {
+    title: 'Summary of AI alignment participant user interviews',
+    href: 'https://bluedot.org/blog/alignment-participant-user-interviews/',
+    publishedOn: '2024-09-13',
+  },
+  {
+    title: 'What we didn’t cover in our June 2024 AI Alignment course (or, an accessible list of more niche alignment research agendas)',
+    href: 'https://aisafetyfundamentals.com/blog/not-covered-2406-alignment/',
+    publishedOn: '2024-08-13',
+  },
+  {
     title: 'Results from testing ad adjustments',
     href: 'https://bluedot.org/blog/ads-alignment-june24-tests/',
-    publishedOn: '2024-08-08',
+    publishedOn: '2024-08-07',
   },
   {
     title: 'What advertising creatives work for technical people?',
     href: 'https://bluedot.org/blog/ads-alignment-june24-creatives/',
-    publishedOn: '2024-08-08',
+    publishedOn: '2024-08-07',
   },
   {
     title: 'Advertising to technical people: LinkedIn, Twitter, Reddit and others compared',
     href: 'https://bluedot.org/blog/ads-alignment-june24-platforms/',
-    publishedOn: '2024-08-08',
+    publishedOn: '2024-08-07',
   },
   {
     title: 'How to avoid the 2 mistakes behind 89% of rejected AI alignment applications',
@@ -44,6 +59,11 @@ const externalPosts: Post[] = ([
     title: 'What we learnt from running our AI alignment course in March 2024',
     href: 'https://bluedot.org/blog/ai-alignment-march-2024-retro/',
     publishedOn: '2024-07-02',
+  },
+  {
+    title: 'What is a lead cohort?',
+    href: 'https://bluedot.org/blog/lead-cohort/',
+    publishedOn: '2024-07-01',
   },
   {
     title: 'What we changed for the June 2024 AI alignment course',
