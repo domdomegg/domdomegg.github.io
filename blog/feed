@@ -4,16 +4,34 @@
         <title>Adam Jones's Blog</title>
         <link>https://adamjones.me/</link>
         <description>Adam Jones's Blog</description>
-        <lastBuildDate>Mon, 23 Sep 2024 09:40:12 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 02 Oct 2024 21:50:40 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://adamjones.me/</generator>
         <language>en</language>
         <atom:link href="https://adamjones.me/blog/feed" rel="self" type="application/rss+xml"/>
         <item>
+            <title><![CDATA[No time for user interviews? Learn how to use empathetic role-playing to make better product decisions.]]></title>
+            <link>https://adamjones.me/blog/empathetic-role-playing/</link>
+            <guid>https://adamjones.me/blog/empathetic-role-playing/</guid>
+            <pubDate>Wed, 02 Oct 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
             <title><![CDATA[An easy win for UK AI safety: competition law safe harbour]]></title>
             <link>https://adamjones.me/blog/uk-ais-easy-win-competition-safe-harbour/</link>
             <guid>https://adamjones.me/blog/uk-ais-easy-win-competition-safe-harbour/</guid>
             <pubDate>Mon, 23 Sep 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Modular AI Safety courses proposal]]></title>
+            <link>https://bluedot.org/blog/modular-ai-safety-courses-proposal/</link>
+            <guid>https://bluedot.org/blog/modular-ai-safety-courses-proposal/</guid>
+            <pubDate>Mon, 16 Sep 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Summary of AI alignment participant user interviews]]></title>
+            <link>https://bluedot.org/blog/alignment-participant-user-interviews/</link>
+            <guid>https://bluedot.org/blog/alignment-participant-user-interviews/</guid>
+            <pubDate>Fri, 13 Sep 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[An easy win for UK AI safety: supporting whistleblowers]]></title>
@@ -22,34 +40,40 @@
             <pubDate>Wed, 11 Sep 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
+            <title><![CDATA[What we didn’t cover in our June 2024 AI Alignment course (or, an accessible list of more niche alignment research agendas)]]></title>
+            <link>https://aisafetyfundamentals.com/blog/not-covered-2406-alignment/</link>
+            <guid>https://aisafetyfundamentals.com/blog/not-covered-2406-alignment/</guid>
+            <pubDate>Tue, 13 Aug 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
             <title><![CDATA[The AI regulator’s toolbox: A list of concrete AI governance practices]]></title>
             <link>https://adamjones.me/blog/ai-regulator-toolbox/</link>
             <guid>https://adamjones.me/blog/ai-regulator-toolbox/</guid>
             <pubDate>Sat, 10 Aug 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
+            <title><![CDATA[Are cheap shaver blades any good?]]></title>
+            <link>https://adamjones.me/blog/cheap-shaver-blades/</link>
+            <guid>https://adamjones.me/blog/cheap-shaver-blades/</guid>
+            <pubDate>Thu, 08 Aug 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
             <title><![CDATA[Advertising to technical people: LinkedIn, Twitter, Reddit and others compared]]></title>
             <link>https://bluedot.org/blog/ads-alignment-june24-platforms/</link>
             <guid>https://bluedot.org/blog/ads-alignment-june24-platforms/</guid>
-            <pubDate>Thu, 08 Aug 2024 00:00:00 GMT</pubDate>
+            <pubDate>Wed, 07 Aug 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[What advertising creatives work for technical people?]]></title>
             <link>https://bluedot.org/blog/ads-alignment-june24-creatives/</link>
             <guid>https://bluedot.org/blog/ads-alignment-june24-creatives/</guid>
-            <pubDate>Thu, 08 Aug 2024 00:00:00 GMT</pubDate>
+            <pubDate>Wed, 07 Aug 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Results from testing ad adjustments]]></title>
             <link>https://bluedot.org/blog/ads-alignment-june24-tests/</link>
             <guid>https://bluedot.org/blog/ads-alignment-june24-tests/</guid>
-            <pubDate>Thu, 08 Aug 2024 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Are cheap shaver blades any good?]]></title>
-            <link>https://adamjones.me/blog/cheap-shaver-blades/</link>
-            <guid>https://adamjones.me/blog/cheap-shaver-blades/</guid>
-            <pubDate>Thu, 08 Aug 2024 00:00:00 GMT</pubDate>
+            <pubDate>Wed, 07 Aug 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Diagnosing infectious diseases with CRISPR: SHERLOCK and DETECTR explained]]></title>
@@ -146,6 +170,12 @@
             <link>https://bluedot.org/blog/ai-alignment-march-2024-retro/</link>
             <guid>https://bluedot.org/blog/ai-alignment-march-2024-retro/</guid>
             <pubDate>Tue, 02 Jul 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[What is a lead cohort?]]></title>
+            <link>https://bluedot.org/blog/lead-cohort/</link>
+            <guid>https://bluedot.org/blog/lead-cohort/</guid>
+            <pubDate>Mon, 01 Jul 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[What we changed for the June 2024 AI alignment course]]></title>
