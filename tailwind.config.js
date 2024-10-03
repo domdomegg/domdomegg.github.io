@@ -14,11 +14,6 @@ module.exports = {
         sans: ['var(--font-inter)', 'Inter', ...defaultTheme.fontFamily.sans],
       },
       keyframes: {
-        'fade-up': {
-          // This ensures things are in the right place to start, so fragment links etc. take people to the right place
-          '0%': { opacity: '0', transform: 'translateY(0)' },
-          '1%': { opacity: '0', transform: 'translateY(1rem)' },
-        },
         'wave-in': {
           '0%': { transform: 'rotate(70deg)' },
           '40%': { transform: 'rotate(-30deg)' },
@@ -27,7 +22,6 @@ module.exports = {
         },
       },
       animation: {
-        'fade-up': '0.4s ease-in-out 0s 1 both running fade-up',
         'wave-in': '0.7s cubic-bezier(0.5, 1, 0.89, 1) 0s 1 both running wave-in',
       },
       typography: {
