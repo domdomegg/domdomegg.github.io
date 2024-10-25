@@ -32,7 +32,7 @@ const InnerApp: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
     // Blog pages
     if ('frontmatter' in Component && typeof Component.frontmatter === 'object' && Component.frontmatter !== null && 'title' in Component.frontmatter && 'href' in Component && typeof Component.href === 'string') {
       return (
-        <div className="lg:ml-80 xl:ml-20 2xl:ml-0">
+        <div className="lg:ml-[21rem] 2xl:ml-0">
           <ProsePage>
             <SiteHeader />
             <div className="sticky self-start top-8 hidden lg:block">
