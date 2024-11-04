@@ -11,6 +11,11 @@ import { Post, postSchema } from '../../components/BlogHeader';
 
 const externalPosts: Post[] = ([
   {
+    title: 'AI Alignment June 2024 course retrospective',
+    href: 'https://bluedot.org/blog/ai-alignment-june-2024-retro/',
+    publishedOn: '2024-10-30',
+  },
+  {
     title: 'Does project proposal feedback result in better final projects?',
     href: 'https://bluedot.org/blog/is-proposal-feedback-helpful/',
     publishedOn: '2024-10-21',
