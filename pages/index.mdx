@@ -2,6 +2,18 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { ClickCounter } from '../components/ClickCounter'
 import { AdamJsonLd } from '../components/AdamJsonLd'
+import { NewBlogArticlePromo } from '../components/NewBlogArticlePromo'
+import { getRecentPost } from '../lib/blog';
+
+export const getStaticProps = async () => {
+  const post = getRecentPost();
+
+  return {
+    props: {
+      post,
+    },
+  };
+};
 
 <Head>
   <title>Adam Jones</title>
@@ -52,6 +64,8 @@ import { AdamJsonLd } from '../components/AdamJsonLd'
     </p>
   </div>
 </div>
+
+<NewBlogArticlePromo post={props.post} />
 
 ## How am I spending my time?
 
