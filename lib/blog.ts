@@ -6,6 +6,11 @@ import { Post, postSchema } from '../components/BlogHeader';
 
 const externalPosts: Post[] = ([
   {
+    title: 'Why we run our AI safety courses',
+    href: 'https://aisafetyfundamentals.com/blog/why-we-run-our-ai-safety-courses/',
+    publishedOn: '2024-12-04',
+  },
+  {
     title: 'How Does AI Learn? A Beginner’s Guide with Examples',
     href: 'https://aisafetyfundamentals.com/blog/how-does-ai-learn/',
     publishedOn: '2024-11-29',
