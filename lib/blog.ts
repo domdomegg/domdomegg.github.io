@@ -6,6 +6,11 @@ import { Post, postSchema } from '../components/BlogHeader';
 
 const externalPosts: Post[] = ([
   {
+    title: 'Teach-swap-explain: a learning activity for course designers to create highly effective learning experiences',
+    href: 'https://bluedot.org/blog/teach-swap-explain-activity/',
+    publishedOn: '2024-12-12',
+  },
+  {
     title: 'Why we run our AI safety courses',
     href: 'https://aisafetyfundamentals.com/blog/why-we-run-our-ai-safety-courses/',
     publishedOn: '2024-12-04',
