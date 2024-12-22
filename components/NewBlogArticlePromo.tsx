@@ -30,7 +30,7 @@ export const NewBlogArticlePromo: React.FC<NewBlogArticlePromoProps> = ({ post }
     <div className="-mt-6 -mb-4 px-5 bg-blue-50 border border-blue-200 rounded-lg">
       <p className="text-blue-900">
         <span className="font-bold">New {formatDaysAgoRange(daysAgo)}: </span>
-        <a href={post.href} className="underline">{post.title}</a>
+        <a href={post.absoluteUrl} className="underline">{post.title}</a>
         &nbsp;
         <span className="text-sm">(published {formatDaysAgo(daysAgo)})</span>
       </p>
