@@ -1,7 +1,7 @@
 import { Post } from './BlogHeader';
 
 interface NewBlogArticlePromoProps {
-  post?: Post | undefined;
+  posts: Post[];
 }
 
 const calcDaysAgo = (date: string): number => {
@@ -21,7 +21,16 @@ const formatDaysAgoRange = (daysAgo: number): string => {
   return 'recently';
 };
 
-export const NewBlogArticlePromo: React.FC<NewBlogArticlePromoProps> = ({ post }) => {
+export const NewBlogArticlePromo: React.FC<NewBlogArticlePromoProps> = ({ posts }) => {
+  const post = posts
+    .sort((a, b) => new Date(b.publishedOn).getTime() - new Date(a.publishedOn).getTime())
+    .find((p) => {
+      const publishedDate = new Date(p.publishedOn);
+      const now = new Date();
+      const daysSincePublished = Math.floor((now.getTime() - publishedDate.getTime()) / (1000 * 60 * 60 * 24));
+
+      return daysSincePublished <= 14 && daysSincePublished >= 0;
+    });
   if (!post) return null;
 
   const daysAgo = calcDaysAgo(post.publishedOn);

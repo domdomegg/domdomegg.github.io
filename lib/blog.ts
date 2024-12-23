@@ -158,18 +158,6 @@ export function getSortedPostsData(): Post[] {
     });
 }
 
-export function getRecentPost(): Post | undefined {
-  const posts = getSortedPostsData();
-
-  return posts.find((p) => {
-    const publishedDate = new Date(p.publishedOn);
-    const now = new Date();
-    const daysSincePublished = Math.floor((now.getTime() - publishedDate.getTime()) / (1000 * 60 * 60 * 24));
-
-    return daysSincePublished <= 14 && daysSincePublished >= 0;
-  });
-}
-
 export function writeRssFeed(posts: Post[]) {
   const feed = new Feed({
     id: 'https://adamjones.me/',

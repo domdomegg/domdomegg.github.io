@@ -11,6 +11,8 @@ interface BlogIndexProps {
 }
 
 const BlogIndex: React.FC<BlogIndexProps> = ({ posts }) => {
+  const publishedPosts = posts.filter((p) => Date.now() >= new Date(p.publishedOn).getTime());
+
   const jsonLd: WithContext<Blog> = {
     '@context': 'https://schema.org',
     '@type': 'Blog',
@@ -25,7 +27,7 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ posts }) => {
       url: 'https://adamjones.me/',
       name: 'Adam Jones',
     },
-    blogPost: posts.map<BlogPosting>((p) => ({
+    blogPost: publishedPosts.map<BlogPosting>((p) => ({
       '@type': 'BlogPosting',
       '@id': p.absoluteUrl,
       mainEntityOfPage: p.absoluteUrl,
@@ -59,7 +61,7 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ posts }) => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <ul>
-        {posts.map((post) => (
+        {publishedPosts.map((post) => (
           <li key={post.href}>
             <a href={post.href}>{post.title}</a>
             {post.location === 'external' && <>{' '}<span className="bg-gray-300 rounded-full text-xs px-2">External</span></>}
@@ -82,7 +84,7 @@ export default BlogIndex;
 
 export const getStaticProps: GetStaticProps<BlogIndexProps> = async () => {
   const posts = getSortedPostsData();
-  writeRssFeed(posts);
+  writeRssFeed(posts.filter((p) => Date.now() >= new Date(p.publishedOn).getTime()));
 
   return {
     props: {

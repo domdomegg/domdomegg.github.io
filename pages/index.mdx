@@ -3,14 +3,14 @@ import Image from 'next/image'
 import { ClickCounter } from '../components/ClickCounter'
 import { AdamJsonLd } from '../components/AdamJsonLd'
 import { NewBlogArticlePromo } from '../components/NewBlogArticlePromo'
-import { getRecentPost } from '../lib/blog';
+import { getSortedPostsData } from '../lib/blog';
 
 export const getStaticProps = async () => {
-  const post = getRecentPost();
+  const posts = getSortedPostsData();
 
   return {
     props: {
-      post,
+      posts,
     },
   };
 };
@@ -65,7 +65,7 @@ export const getStaticProps = async () => {
   </div>
 </div>
 
-<NewBlogArticlePromo post={props.post} />
+<NewBlogArticlePromo posts={props.posts} />
 
 ## How am I spending my time?
 
