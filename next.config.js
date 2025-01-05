@@ -117,6 +117,7 @@ module.exports = async () => {
 
   const recmaMdxDisplayname = require('recma-mdx-displayname');
   const recmaMdxFrontmatter = require('recma-mdx-frontmatter');
+  // eslint-disable-next-line import/no-unresolved
   const recmaNextjsStaticProps = (await import('recma-nextjs-static-props')).default;
 
   const withMDX = nextMDX({
