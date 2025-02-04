@@ -13,7 +13,6 @@ In short, human-in-the-loop systems get humans to oversee decisions and make the
 
 A challenge to getting effective oversight is that as AI systems improve, almost all decisions will be approved. Reviewers will then likely become complacent and just start approving everything. For example, [an operative who carried out human reviews for AI-suggested military strikes explained “At first, we did checks to ensure that the machine didn’t get confused. But at some point we relied on the automatic system [...] I would invest 20 seconds for each target at this stage, and do dozens of them every day. I had zero added value as a human, apart from being a stamp of approval.”](https://www.972mag.com/lavender-ai-israeli-army-gaza/)
 
-
 ## How can we fix this?
 
 **Mandating a minimum percentage of rejected decisions would reduce reviewer complacency.** If humans are used to seeing and rejecting mistakes, they’re more likely to review recommendations properly. Determining the exact percentage necessary here would be useful further work: I’d imagine this probably sits around 5-10%. It might also be the case that for different types of decisions this percentage could be different, or there are other methods[^1] that could work.
@@ -30,7 +29,7 @@ A challenge to getting effective oversight is that as AI systems improve, almost
 
 **Bad recommendations should never be actioned.** To be clear: if a reviewer makes a mistake and approves a known bad decision, the system should not actually carry out that bad plan.
 
-<Details title="Won’t this create a bunch of extra work">
+<Details title='Won’t this create a bunch of extra work'>
 This is an objection I’ve heard to this idea. There are usually two scenarios:
 
 The case where oversight is being done well: Once deployed it will be 5-10% extra work for the reviewers (and less if there are more true rejections). This is a small price to pay to be able to continuously improve the oversight measures, and verify and demonstrate the effectiveness of your oversight system. There is also some work to develop such systems, for example to update the software to generate and inject these bad examples. Making this easy is valuable future work.
@@ -40,7 +39,7 @@ The case where oversight is being done poorly: this would require significant ef
 One neat thing is that it’s difficult for organisations to object to this proposal on the grounds of it creating work above the % of cases injected - because presumably that means their existing human oversight systems are just not good.
 </Details>
 
-<Details title="Won’t this be stressful for the operatives">
+<Details title='Won’t this be stressful for the operatives'>
 Having a system that is in some sense testing operatives might add a little stress to their jobs.
 
 However, some stress about getting important things wrong is appropriate. Operatives probably _should_ worry that they might be bombing innocent people, and try very hard to avoid this. If the worry of being called out by the system is greater than this then maybe something has gone wrong.
@@ -83,9 +82,9 @@ There are likely many other things you could do to help with this, and there are
 
 [^1]:
      For example in low-risk cases, filtering for riskier decisions might be appropriate. This is only suitable for decisions where full human-in-the-loop is not necessary, given under this model some decisions will be acted upon without any human oversight.
-    
+
     Here, a model could predict the likelihood a human reviewer would reject the recommendation. If this is above a certain threshold, it is then reviewed by a human.
-    
+
     This is similar to how many fraud models in finance work: they approve transactions below some risk threshold, and require different levels of review for those above the threshold (where you might need to complete 2-factor authentication, or call your bank).
 
 [^2]:

@@ -5,7 +5,6 @@ publishedOn: "2024-04-29"
 
 import Details from '../../components/Details';
 import BarChart from '../../components/BarChart';
-import * as React from 'react';
 
 _Update: I did [a follow-up with a more realistic setup, showing what the performance looks like when this is running on a remote server](../benchmark-next-vs-nginx-aws/)._
 
@@ -23,10 +22,10 @@ Knowing _how much slower_ this is allows us to properly evaluate this penalty, a
 
 So, how fast is it? I took this blog (yes, the very one you’re reading) and tested out how long it takes to load.
 
-<Details title="Detailed reproduction steps">
+<Details title='Detailed reproduction steps'>
 Specifically, I took [commit 34df60](https://github.com/domdomegg/domdomegg.github.io/tree/34df6053e2e5c984838e02e86cdc9ee0926d9ab3), ran `npm install` with Node v20.12.2, then ran:
 
-<Details title="nginx">
+<Details title='nginx'>
 Tested with nginx/1.25.5 installed via Homebrew.
 
 Create nginx.conf:
@@ -52,13 +51,13 @@ http {
 Then run `npm run build && nginx -c $PWD/nginx.conf -p $PWD`
 </Details>
 
-<Details title="next start">
+<Details title='next start'>
 Edit `next.config.js` to remove `output: 'export'`
 
 Run `npm run build && PORT=8080 npx next start`
 </Details>
 
-<Details title="next dev">
+<Details title='next dev'>
 Run `npx next dev --port 8080`
 </Details>
 
@@ -68,7 +67,7 @@ Then run [benchmark-next-vs-nginx](https://github.com/domdomegg/benchmark-next-v
 Median HTTP load times, high reqs/second (i.e. for the HTML response, using [k6](https://grafana.com/docs/k6/latest/get-started/running-k6/)):
 
 <BarChart data={[
-  ['Deployment type', 'Load time, lower is better', { role: 'annotation' }],
+  ['Deployment type', 'Load time, lower is better', {role: 'annotation'}],
   ['nginx', 0.052, '0.05ms'],
   ['next start', 253.466, '253ms'],
   ['next dev', 1688.108, '1688ms'],
@@ -77,15 +76,15 @@ Median HTTP load times, high reqs/second (i.e. for the HTML response, using [k6]
 Median page load times, no additional reqs/second (i.e. for the browser to consider the page fully loaded, using [Puppeteer](https://pptr.dev/)):
 
 <BarChart data={[
-  ['Deployment type', 'Load time, lower is better', { role: 'annotation' }],
+  ['Deployment type', 'Load time, lower is better', {role: 'annotation'}],
   ['nginx', 38.690521, '39ms'],
   ['next start', 58.83, '59ms'],
   ['next dev', 241.6322715, '242ms'],
 ]} />
 
-<Details title="Full results">
+<Details title='Full results'>
 
-<div className="overflow-x-auto">
+<div className='overflow-x-auto'>
 |                     | nginx       | next&nbsp;start | next&nbsp;dev |
 |---------------------|-------------|-----------------|---------------|
 | load_passes         |         500 |             500 |           500 |

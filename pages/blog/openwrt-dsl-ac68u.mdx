@@ -73,7 +73,6 @@ To do this:
 2. On the router, run: `nvram set clkfreq=1200,666 && nvram commit && reboot`. This will increase the CPU frequency to 1200Mhz, set the RAM frequency to 666Mhz, and reboot the router. You’ll need to wait for a minute for the router to reboot.
     * You can tweak the number even higher if you want, which might eek out a bit more performance. I didn’t bother as I was already getting the max from my external internet connection. If you push it too high, the router might not boot - [an NVRAM reset](#appendix-nvram-reset) will undo your changes and fix this.
 
-
 ### Full benchmarks
 
 Here’s the full table of benchmarks for the DSL-AC68U on OpenWrt, plus a comparison against the stock firmware:
@@ -96,6 +95,5 @@ Here’s the full table of benchmarks for the DSL-AC68U on OpenWrt, plus a compa
 2. Press and **hold** the WPS button
 3. Turn on the device
 4. Wait until the power LED blinks fast (in about 30 seconds). Then release the WPS button.
-
 
 [^1]: While I recommend using the latest firmware, one that definitely worked for me was 23.05.5
