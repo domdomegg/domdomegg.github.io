@@ -1,7 +1,27 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 html {
     @apply scroll-smooth
+}
+
+@utility prose {
+    code {
+        &::before,
+        &::after {
+            content: none;
+        }
+    }
+
+    blockquote {
+        /* Disable adding quote marks to block-quotes
+        * https://github.com/tailwindlabs/tailwindcss-typography/issues/66#issuecomment-1754429609
+        */
+        p {
+            &:first-of-type::before,
+            &:last-of-type::after {
+                content: none;
+            }
+        }
+    }
 }

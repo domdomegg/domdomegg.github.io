@@ -17,7 +17,7 @@ A human-in-the-loop system would surface recommendations to a human, who would t
 
 A human-out-of-the-loop system would not require human approval before taking actions. In this case the system might launch strikes automatically without anyone checking what it is doing.
 
-<Details title="What is a human-on-the-loop system?">
+<Details title='What is a human-on-the-loop system?'>
 Human-on-the-loop systems (also known as human-over-the-loop systems) take actions autonomously without requiring human approval, but can be interrupted by a human.
 
 In our airstrike targeting system example, a human-on-the-loop system could be one which selects targets and gives humans 60 seconds to cancel the automatic strike. This system would inform humans as to what was happening and give them a genuine chance to stop the strike.
@@ -25,7 +25,7 @@ In our airstrike targeting system example, a human-on-the-loop system could be o
 Human-on-the-loop systems are more common in fast-paced domains. For example, most of today’s autonomous vehicles are human-on-the-loop systems: they’ll continue driving autonomously, but do give humans the opportunity to stop them and take over.
 </Details>
 
-<Details title="Mixed systems">
+<Details title='Mixed systems'>
 There is also scope for systems that use a combination of these methods, usually when looking at the AI systems that make them up at different granularity.
 
 For example, in an autonomous vehicle might have systems that are:
@@ -39,7 +39,7 @@ For example, in an autonomous vehicle might have systems that are:
 
 **AI systems are already involved in making important decisions.** For example, [Palantir Gotham is a military decision-making platform leveraging AI](https://www.youtube.com/watch?v=rxKghrZU5w8), and [marketing materials](https://www.palantir.com/platforms/gotham/) state ‘Gotham's targeting offering supports soldiers with an Al-powered kill chain.’
 
-**People are deploying AI systems in more places.** McKinsey reports [72% of companies have adopted AI in at least one function as of early 2024](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai), up from 55% in 2023. Additionally, organisations are using AI in more business functions than previous years, 
+**People are deploying AI systems in more places.** McKinsey reports [72% of companies have adopted AI in at least one function as of early 2024](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai), up from 55% in 2023. Additionally, organisations are using AI in more business functions than previous years,
 
 **People are trying to build even more powerful AI systems.** [OpenAI](https://openai.com/charter/#:~:text=We%20will%20attempt%20to%20directly%20build%20safe%20and%20beneficial%20AGI%2C%20but%20will%20also%20consider%20our%20mission%20fulfilled%20if%20our%20work%20aids%20others%20to%20achieve%20this%20outcome.) states they “will attempt to directly build safe and beneficial AGI”, which they define as “highly autonomous systems that outperform humans at most economically valuable work”. [Anthropic](https://www.anthropic.com/news/core-views-on-ai-safety) “expect rapid AI progress and very large impacts from AI” which they expect “would be very disruptive, changing employment, macroeconomics, and power structures both within and between nations”.
 
@@ -49,12 +49,11 @@ For example, in an autonomous vehicle might have systems that are:
 
 **A human-in-the-loop could catch some mistakes.** A human could review the outputs of the AI model before decisions are made, and thus prevent harms caused by acting on faulty outputs.
 
-
 ## Why might human-in-the-loop not work?
 
 **Having a human-in-the-loop is not a silver-bullet.** It might be useful as one piece of a [defence in depth strategy](https://en.wikipedia.org/wiki/Defense_in_depth_(computing)) against some AI risks. Notably:
 
-<Details title="It’s hard to catch mistakes">
+<Details title='It’s hard to catch mistakes'>
 Humans may struggle to effectively catch AI mistakes, especially as systems become more complex. AI can process vast amounts of data and make decisions based on intricate patterns that humans might not easily understand or verify. Additionally, AI errors might be subtle or occur in edge cases that aren't immediately apparent to human reviewers.
 
 Related reading:
@@ -63,7 +62,7 @@ Related reading:
 * [Open Problems and Fundamental Limitations of Reinforcement Learning from Human Feedback](https://arxiv.org/pdf/2307.15217). While not all RLHF problems carry over neatly, many of them do.
 </Details>
 
-<Details title="It’s sometimes infeasible">
+<Details title='It’s sometimes infeasible'>
 Some AI systems might be performing critical functions, but it’s simply not possible for them to have a human-in-the-loop because they might require quick action, or the volume of decisions might be too great to have humans review them. For example:
 * Automated emergency braking systems: detecting pedestrians and slowing a vehicle to avoid or reduce the severity of a collision. This is a safety-critical system where the decision-making speed required means a human can’t be in the loop.
 * Content moderation: AI filtering vast amounts of social media content for policy violations. The sheer volume makes comprehensive human review unfeasible.
@@ -71,7 +70,7 @@ Some AI systems might be performing critical functions, but it’s simply not po
 Some problems might not have obviously ‘correct’ answers. For example, people have different values, so would come to different answers on ‘how much risk to civilians would you allow to capture a terrorist?’. Even non-value-judgements can be hard to evaluate, like ‘what government policies will lead to the most economic growth’. This makes arguing whether reasoning contains mistakes very difficult.
 </Details>
 
-<Details title="It doesn’t prevent all AI harms">
+<Details title='It doesn’t prevent all AI harms'>
 Human-in-the-loop is a technique that can be used by actors genuinely wanting to reduce harm. However, these are not the only actors in the AI space.
 
 For example, rogue nation states or terrorist organisations may try to use AI systems to cause harm intentionally. If these actors have control of an AI system, human-in-the-loop might actually make things worse (for example, if that human is optimising for making sure the AI system is accurately picking the most harmful options).

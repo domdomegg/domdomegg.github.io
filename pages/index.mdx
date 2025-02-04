@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { ClickCounter } from '../components/ClickCounter'
-import { AdamJsonLd } from '../components/AdamJsonLd'
-import { NewBlogArticlePromo } from '../components/NewBlogArticlePromo'
-import { getSortedPostsData } from '../lib/blog';
+import {ClickCounter} from '../components/ClickCounter'
+import {AdamJsonLd} from '../components/AdamJsonLd'
+import {NewBlogArticlePromo} from '../components/NewBlogArticlePromo'
+import {getSortedPostsData} from '../lib/blog';
 
 export const getStaticProps = async () => {
   const posts = getSortedPostsData();
@@ -24,43 +24,43 @@ export const getStaticProps = async () => {
  * Important styles used here because otherwise prose overrides them
  * Can't use not-prose due to https://bugs.chromium.org/p/chromium/issues/detail?id=1407172
  * */}
-<div className="flex flex-col md:flex-row gap-4 md:gap-8 mb-16">
-  <div className="w-48">
+<div className='flex flex-col md:flex-row gap-4 md:gap-8'>
+  <div className='w-48'>
     <ClickCounter
-      clickee="Adam"
+      clickee='Adam'
       messages={{
-        5: "Oh nice, you found this!",
-        10: "I guess the curiosity would get me too.",
-        25: "Is continuing really a good use of time?",
-        50: "Do you want to stop now?",
-        100: "No? Ok, well keep going if you must.",
-        200: "Do you wonder how many other people have found this?",
-        300: "FYI for tomorrow, this may help: https://www.nhs.uk/conditions/repetitive-strain-injury-rsi/",
-        400: "Wow, you don't give up do you?",
-        500: "Okay, that's the end. Unless you want to keep going for a very long time.",
-        1000000: "Ahh, so I see that either:\n1. You know how to debug software.\n2. You have an insane amount of free time, and aren't spending it wisely.",
+        5: 'Oh nice, you found this!',
+        10: 'I guess the curiosity would get me too.',
+        25: 'Is continuing really a good use of time?',
+        50: 'Do you want to stop now?',
+        100: 'No? Ok, well keep going if you must.',
+        200: 'Do you wonder how many other people have found this?',
+        300: 'FYI for tomorrow, this may help: https://www.nhs.uk/conditions/repetitive-strain-injury-rsi/',
+        400: 'Wow, you don\'t give up do you?',
+        500: 'Okay, that\'s the end. Unless you want to keep going for a very long time.',
+        1000000: 'Ahh, so I see that either:\n1. You know how to debug software.\n2. You have an insane amount of free time, and aren\'t spending it wisely.',
       }}>
       <Image
-        className="rounded-2xl hover:scale-105 hover:-rotate-3 active:scale-95 hover:shadow transition-all !my-0"
-        src="/images/profile-pic.webp"
-        alt="Headshot of Adam Jones"
+        className='rounded-2xl hover:scale-105 hover:-rotate-3 active:scale-95 hover:shadow-sm transition-all !my-0'
+        src='/images/profile-pic.webp'
+        alt='Headshot of Adam Jones'
         width={288}
         height={288}
         priority
       />
     </ClickCounter>
   </div>
-  <div className="flex-1 md:self-center space-y-2 md:space-y-4">
-    <h1 className="!text-3xl md:!text-5xl !mb-0"><span className="animate-wave-in inline-block [animation-delay:200ms]">👋</span> Hello world!</h1>
-    <p className="md:!text-3xl !text-xl">I'm Adam. I make impactful things for people.</p>
-    <p className="!text-xl">
-      <a href="https://github.com/domdomegg">GitHub</a>
+  <div className='flex-1 md:self-center'>
+    <h1 className='!text-3xl md:!text-5xl !mb-0'><span className='animate-wave-in inline-block [animation-delay:200ms]'>👋</span> Hello world!</h1>
+    <p className='md:!text-3xl !text-xl !my-2 md:!my-4'>I'm Adam. I make impactful things for people.</p>
+    <p className='!text-xl'>
+      <a href='https://github.com/domdomegg'>GitHub</a>
       {" ∙ "}
-      <a href="https://linkedin.com/in/domdomegg/">LinkedIn</a>
+      <a href='https://linkedin.com/in/domdomegg/'>LinkedIn</a>
       {" ∙ "}
-      <a href="mailto:domdomegg+adamjones.me@gmail.com">Email</a>
+      <a href='mailto:domdomegg+adamjones.me@gmail.com'>Email</a>
       {" ∙ "}
-      <a href="/feedback">Feedback</a>
+      <a href='/feedback'>Feedback</a>
     </p>
   </div>
 </div>
@@ -98,7 +98,7 @@ As of December 2024, I'm:
 - [PDF scanner](./pdf-scanner): add a scanned look, more convincingly than existing services.
 - [RSA SecurID library](https://github.com/domdomegg/rsa-securid): reverse-engineered security token generator, derived from a C library. Also available as an easy-to-use [browser extension](https://github.com/domdomegg/rsa-securid-browser-extension).
 - [TypeScript i18n library](https://github.com/domdomegg/ts-i18n): A lightweight, flexible, and fully type-safe translation framework for websites, native apps and servers.
-- [Google Doc to LaTeX](./gdoc2latex-gui): Converter that makes writing LaTeX a piece of cake. 
+- [Google Doc to LaTeX](./gdoc2latex-gui): Converter that makes writing LaTeX a piece of cake.
 - [Discord reminder bot template](https://github.com/domdomegg/discord-reminder-template): send reminders from GitHub. 2 min setup.
 - [Day visualiser](./oneday): ever felt you needed more existential dread in your life? See how fast the day is slipping away from you.
 - Media: I publish [free-cultural works](https://creativecommons.org/share-your-work/public-domain/freeworks/) on places like [Wikimedia Commons](https://commons.wikimedia.org/wiki/User:Domdomegg) (where I also helped build the [Android app](https://commons-app.github.io/)). They've ended up in [US state forestry manuals](https://vtechworks.lib.vt.edu/bitstream/handle/10919/102139/2020TreeStewardManualver03.pdf#page=8), [South African national textbooks](https://dinwiddiehighschool.co.za/wp-content/uploads/2020/11/grd-11-textbook.pdf#page=12), [papers on language models](https://doi.org/10.1093/nar/gkac278), and [YouTube videos with millions of views](https://www.youtube.com/watch?t=10&v=w_CYwd6cHUA).

@@ -4,8 +4,6 @@ publishedOn: "2024-03-17"
 ---
 
 import Details from '../../components/Details';
-import * as React from 'react';
-
 
 The [UK](https://www.aisafetysummit.gov.uk/policy-updates/#company-policies) and [US](https://www.whitehouse.gov/briefing-room/statements-releases/2023/07/21/fact-sheet-biden-harris-administration-secures-voluntary-commitments-from-leading-artificial-intelligence-companies-to-manage-the-risks-posed-by-ai/) governments have both secured voluntary commitments from many major AI companies on AI safety, including reporting mechanisms for model vulnerabilities.
 
@@ -33,7 +31,8 @@ A step towards better model vulnerability reporting would be to have a standardi
 
 In short, publish a file plain text file at:
 
-**<span class="text-gray-400">example.com</span><span className="select-all">/.well-known/ai-safety.txt</span>**
+{/* eslint-disable-next-line @stylistic/max-statements-per-line */}
+**<span className='text-gray-400'>example.com</span><span className='select-all'>/.well-known/ai-safety.txt</span>**
 
 that details how people should report model vulnerabilities, for example:
 
