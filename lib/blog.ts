@@ -6,6 +6,11 @@ import {type Post, postSchema} from '../components/BlogHeader';
 
 const externalPosts: Post[] = ([
 	{
+		title: 'YouTube series: How to contribute to the BlueDot Impact repo',
+		href: 'https://www.youtube.com/playlist?list=PLqUl_YPWTmuJahSpi_PUDj55AtEi2edax',
+		publishedOn: '2025-03-30',
+	},
+	{
 		title: 'Teach-swap-explain: a learning activity for course designers to create highly effective learning experiences',
 		href: 'https://bluedot.org/blog/teach-swap-explain-activity/',
 		publishedOn: '2024-12-12',
