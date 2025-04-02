@@ -8,6 +8,7 @@ const Document: React.FC = () => {
 			<Head>
 				<meta name='author' content='Adam Jones (domdomegg)' />
 				<link rel='icon' href='/favicon.ico' />
+				<meta name='darkreader-lock' />
 			</Head>
 			<body>
 				<Main />

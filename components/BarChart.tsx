@@ -1,7 +1,18 @@
 import {Chart, type ChartWrapperOptions} from 'react-google-charts';
 
 const BarChart: React.FC<{data: (string | number)[][]; options?: ChartWrapperOptions['options']}> = ({data, options}) => {
-	return (
+	return (<>
+		<style>{`
+		@media (prefers-color-scheme: dark) {
+			[id^="reactgooglegraph"] text {
+				fill: var(--color-white);
+			}
+
+			[id^="reactgooglegraph"] .google-visualization-tooltip > path {
+				fill: var(--color-slate-800);
+			}
+		}
+		`}</style>
 		<div className='-mt-4 mb-12'>
 			<Chart
 				chartType='BarChart'
@@ -28,7 +39,7 @@ const BarChart: React.FC<{data: (string | number)[][]; options?: ChartWrapperOpt
 				}}
 			/>
 		</div>
-	);
+	</>);
 };
 
 export default BarChart;

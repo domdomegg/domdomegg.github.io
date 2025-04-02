@@ -64,8 +64,8 @@ const BlogIndex: React.FC<BlogIndexProps> = ({posts}) => {
 				{publishedPosts.map((post) => (
 					<li key={post.href}>
 						<a href={post.href}>{post.title}</a>
-						{post.location === 'external' && <>{' '}<span className='bg-gray-300 rounded-full text-xs px-2'>External</span></>}
-						<span className='text-xs text-gray-500'>
+						{post.location === 'external' && <>{' '}<span className='bg-stone-300 dark:bg-stone-800 rounded-full text-xs px-2'>External</span></>}
+						<span className='text-xs text-stone-500'>
 							{' '}
 							—
 							{' '}

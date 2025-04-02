@@ -75,9 +75,9 @@ const BlogHeader: React.FC<{frontmatter: unknown; href: string}> = ({frontmatter
 					<div className='flex flex-row gap-2 relative w-full'>
 						<p className='!my-0 leading-none'><a href='/'>Adam Jones</a></p>
 						<button type='button' className='cursor-auto p-4 -my-6 -mx-4'>
-							<span className='bg-gray-300 rounded-full text-sm px-2'>Personally</span>
+							<span className='bg-stone-300 dark:bg-stone-800 rounded-full text-sm px-2'>Personally</span>
 						</button>
-						<span className='absolute block mt-6 bg-white border w-full border-gray-300 rounded-sm shadow-sm px-3 text-xs z-10 transition-all origin-top-left invisible scale-0 [button:hover_+_&]:visible [button:focus-within_+_&]:visible hover:visible focus-within:visible [button:hover_+_&]:scale-100 [button:focus-within_+_&]:scale-100 hover:scale-100 focus-within:scale-100'>
+						<span className='absolute block mt-6 bg-white dark:bg-stone-800 border w-full border-stone-300 dark:border-stone-600 rounded-sm shadow-sm px-3 text-xs z-10 transition-all origin-top-left invisible scale-0 [button:hover_+_&]:visible [button:focus-within_+_&]:visible hover:visible focus-within:visible [button:hover_+_&]:scale-100 [button:focus-within_+_&]:scale-100 hover:scale-100 focus-within:scale-100'>
 							<p>
 								This is my personal blog, where I write solely in my personal capacity. It does not represent the positions of any organisations I'm associated with.
 							</p>
@@ -86,7 +86,7 @@ const BlogHeader: React.FC<{frontmatter: unknown; href: string}> = ({frontmatter
 							</p>
 						</span>
 					</div>
-					<p className='!mb-0 !mt-1 leading-none text-xs text-gray-500'>
+					<p className='!mb-0 !mt-1 leading-none text-xs text-stone-500'>
 						{parsed.updatedOn ? 'Published ' : ''}
 						<time dateTime={new Date(parsed.publishedOn).toISOString()}>
 							{new Date(parsed.publishedOn).toLocaleDateString('en-GB', {dateStyle: 'long'})}

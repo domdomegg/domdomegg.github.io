@@ -33,8 +33,8 @@ const InnerApp: React.FC<AppProps> = ({Component, pageProps}: AppProps) => {
 		// Blog pages
 		if ('frontmatter' in Component && typeof Component.frontmatter === 'object' && Component.frontmatter !== null && 'title' in Component.frontmatter && 'href' in Component && typeof Component.href === 'string') {
 			return (
-				<div className='lg:ml-[21rem] 2xl:ml-0'>
-					<ProsePage>
+				<ProsePage>
+					<div className='lg:ml-[10rem] lg:-mr-[10rem] 2xl:mx-0'>
 						<SiteHeader />
 						<div className='sticky self-start top-8 hidden lg:block'>
 							<div className='relative right-full'>
@@ -47,8 +47,8 @@ const InnerApp: React.FC<AppProps> = ({Component, pageProps}: AppProps) => {
 							<BlogHeader frontmatter={Component.frontmatter} href={Component.href} />
 							<Component {...pageProps} />
 						</article>
-					</ProsePage>
-				</div>
+					</div>
+				</ProsePage>
 			);
 		}
 

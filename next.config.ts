@@ -65,7 +65,7 @@ const rehypeAddHoverableFootnotes = () => {
 					type: 'element',
 					tagName: 'span',
 					properties: {
-						className: 'absolute block !-mt-2 bg-white border w-full border-gray-300 rounded-sm shadow-sm px-3 text-xs z-10 transition-all origin-top-left invisible scale-0 [sup:hover_+_&]:visible [sup:focus-within_+_&]:visible hover:visible focus-within:visible [sup:hover_+_&]:scale-100 [sup:focus-within_+_&]:scale-100 hover:scale-100 focus-within:scale-100',
+						className: 'absolute block !-mt-2 bg-white dark:bg-stone-800 border w-full border-stone-300 dark:border-stone-600 rounded-sm shadow-sm px-3 text-xs z-10 transition-all origin-top-left invisible scale-0 [sup:hover_+_&]:visible [sup:focus-within_+_&]:visible hover:visible focus-within:visible [sup:hover_+_&]:scale-100 [sup:focus-within_+_&]:scale-100 hover:scale-100 focus-within:scale-100',
 					},
 					children: relevantChildren,
 				});

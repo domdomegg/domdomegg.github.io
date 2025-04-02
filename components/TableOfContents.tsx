@@ -19,7 +19,7 @@ const TableOfContents: React.FC<{title: string; tableOfContents: Toc}> = ({title
 
 	return (
 		<nav className='text-sm'>
-			<a href='#blog-headline' className={clsx('block ml-8 !no-underline hover:!text-gray-900 transition-all', activeSectionId === null ? '!text-gray-900 text-base mb-8' : '!text-gray-400 mb-6')}>{title}</a>
+			<a href='#blog-headline' className={clsx('block ml-8 !no-underline hover:!text-stone-900 dark:hover:!text-stone-300 transition-all', activeSectionId === null ? '!text-stone-900 dark:!text-stone-300 text-base mb-8' : '!text-stone-400 mb-6')}>{title}</a>
 			{tableOfContents.map((entry) => <TableOfContentsEntry key={entry.id} entry={entry} activeSectionId={activeSectionId} />)}
 		</nav>
 	);
@@ -28,7 +28,7 @@ const TableOfContents: React.FC<{title: string; tableOfContents: Toc}> = ({title
 const TableOfContentsEntry: React.FC<{entry: TocEntry; activeSectionId: string | null}> = ({entry, activeSectionId}) => {
 	return (
 		<div className={clsx('ml-8 group', entry.depth === 2 && 'mb-6')}>
-			<a href={`#${entry.id}`} className={clsx('block mb-2 !no-underline hover:!text-gray-900 transition-all', activeSectionId === entry.id ? '!text-gray-900' : '!text-gray-400')}>{entry.value}</a>
+			<a href={`#${entry.id}`} className={clsx('block mb-2 !no-underline hover:!text-stone-900 dark:hover:!text-stone-300 transition-all', activeSectionId === entry.id ? '!text-stone-900 dark:!text-stone-300' : '!text-stone-400')}>{entry.value}</a>
 			{(entry.children ?? []).map((childEntry) => <TableOfContentsEntry key={childEntry.id} entry={childEntry} activeSectionId={activeSectionId} />)}
 		</div>
 	);
