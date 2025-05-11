@@ -140,7 +140,7 @@ const externalPosts: Post[] = ([
 
 export function getSortedPostsData(): Post[] {
 	const blogDir = path.join(process.cwd(), 'pages', 'blog');
-	const fileNames = fs.readdirSync(blogDir).filter((f) => f !== 'index.tsx' && !f.startsWith('_'));
+	const fileNames = fs.readdirSync(blogDir).filter((f) => f !== 'index.tsx' && f.endsWith('.mdx'));
 	const localPostsData = fileNames.map((fileName) => {
 		const fileContents = fs.readFileSync(path.join(blogDir, fileName), 'utf8');
 		const href = `./${fileName.slice(0, fileName.lastIndexOf('.'))}/`;
@@ -154,7 +154,13 @@ export function getSortedPostsData(): Post[] {
 	});
 
 	return [...localPostsData, ...externalPosts]
-		.map((p) => postSchema.parse(p, {path: [p.href]}))
+		.map((p) => {
+			try {
+				return postSchema.parse(p, {path: [p.href]});
+			} catch (e) {
+				throw new Error(`Failed to parse ${p.href}`, {cause: e});
+			}
+		})
 		.sort((a, b) => {
 			if (a.publishedOn < b.publishedOn) {
 				return 1;
