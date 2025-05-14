@@ -5,6 +5,7 @@ import ProsePage from '../../components/ProsePage';
 import SiteHeader from '../../components/SiteHeader';
 import {type Post} from '../../components/BlogHeader';
 import {getSortedPostsData, writeRssFeed} from '../../lib/blog';
+import Link from 'next/link';
 
 type BlogIndexProps = {
 	posts: Post[];
@@ -57,13 +58,12 @@ const BlogIndex: React.FC<BlogIndexProps> = ({posts}) => {
 			<h1>Adam Jones's Blog</h1>
 			<script
 				type='application/ld+json'
-
 				dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}}
 			/>
 			<ul>
 				{publishedPosts.map((post) => (
 					<li key={post.href}>
-						<a href={post.href}>{post.title}</a>
+						<Link href={post.href}>{post.title}</Link>
 						{post.location === 'external' && <>{' '}<span className='bg-stone-300 dark:bg-stone-800 rounded-full text-xs px-2'>External</span></>}
 						<span className='text-xs text-stone-500'>
 							{' '}

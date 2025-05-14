@@ -1,6 +1,5 @@
 import domdomegg from 'eslint-config-domdomegg';
-import eslintMdx from 'eslint-mdx';
-import mdx from 'eslint-plugin-mdx';
+import * as mdx from 'eslint-plugin-mdx';
 
 /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigFile} */
 export default [
@@ -9,15 +8,7 @@ export default [
 	},
 	...domdomegg,
 	{
-		files: ['**/*.mdx'],
-		languageOptions: {
-			sourceType: 'module',
-			ecmaVersion: 'latest',
-			parser: eslintMdx,
-		},
-		plugins: {
-			mdx,
-		},
+		...mdx.flat,
 		rules: {
 			'@stylistic/indent': 'off',
 			'@stylistic/no-multi-spaces': 'off',
@@ -25,5 +16,8 @@ export default [
 			'no-unused-expressions': 'off',
 			'no-undef': 'off',
 		},
+	},
+	{
+		...mdx.flatCodeBlocks,
 	},
 ];

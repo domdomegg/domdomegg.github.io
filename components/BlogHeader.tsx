@@ -3,6 +3,7 @@ import z from 'zod';
 import clsx from 'clsx';
 import Head from 'next/head';
 import {type BlogPosting, type WithContext} from 'schema-dts';
+import Link from 'next/link';
 
 export const frontmatterSchema = z.object({
 	title: z.string(),
@@ -56,12 +57,11 @@ const BlogHeader: React.FC<{frontmatter: unknown; href: string}> = ({frontmatter
 			</Head>
 			<script
 				type='application/ld+json'
-
 				dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}}
 			/>
 			<h1 className='!mb-8' id='blog-headline'>{parsed.title}</h1>
 			<div className='flex gap-2 items-center mb-10'>
-				<a href='/'>
+				<Link href='/'>
 					<Image
 						className='rounded-full !my-0'
 						src='/images/profile-pic.webp'
@@ -70,10 +70,10 @@ const BlogHeader: React.FC<{frontmatter: unknown; href: string}> = ({frontmatter
 						height={40}
 						priority
 					/>
-				</a>
+				</Link>
 				<div className='flex-1'>
 					<div className='flex flex-row gap-2 relative w-full'>
-						<p className='!my-0 leading-none'><a href='/'>Adam Jones</a></p>
+						<p className='!my-0 leading-none'><Link href='/'>Adam Jones</Link></p>
 						<button type='button' className='cursor-auto p-4 -my-6 -mx-4'>
 							<span className='bg-stone-300 dark:bg-stone-800 rounded-full text-sm px-2'>Personally</span>
 						</button>

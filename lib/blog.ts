@@ -143,7 +143,7 @@ export function getSortedPostsData(): Post[] {
 	const fileNames = fs.readdirSync(blogDir).filter((f) => f !== 'index.tsx' && f.endsWith('.mdx'));
 	const localPostsData = fileNames.map((fileName) => {
 		const fileContents = fs.readFileSync(path.join(blogDir, fileName), 'utf8');
-		const href = `./${fileName.slice(0, fileName.lastIndexOf('.'))}/`;
+		const href = `/blog/${fileName.slice(0, fileName.lastIndexOf('.'))}/`;
 		const matterData = matter(fileContents).data;
 		return {
 			...matterData,
@@ -156,7 +156,7 @@ export function getSortedPostsData(): Post[] {
 	return [...localPostsData, ...externalPosts]
 		.map((p) => {
 			try {
-				return postSchema.parse(p, {path: [p.href]});
+				return postSchema.parse(p);
 			} catch (e) {
 				throw new Error(`Failed to parse ${p.href}`, {cause: e});
 			}

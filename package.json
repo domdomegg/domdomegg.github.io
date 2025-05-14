@@ -20,7 +20,7 @@
     "clsx": "^2.1.1",
     "eslint": "^9.19.0",
     "eslint-config-domdomegg": "^2.0.8",
-    "eslint-plugin-mdx": "^3.1.5",
+    "eslint-plugin-mdx": "^3.4.1",
     "feed": "^4.2.2",
     "gray-matter": "^4.0.3",
     "next": "^15.2.4",

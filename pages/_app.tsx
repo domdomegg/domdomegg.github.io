@@ -8,17 +8,25 @@ import BlogHeader from '../components/BlogHeader';
 import ProsePage from '../components/ProsePage';
 import SiteHeader from '../components/SiteHeader';
 import TableOfContents from '../components/TableOfContents';
+import {useEffect} from 'react';
+import {Router} from 'next/router';
 
 // eslint-disable-next-line new-cap
 const inter = Inter({variable: '--font-inter', subsets: ['latin']});
 
-if (typeof window !== 'undefined') { // checks that we are client-side
-	posthog.init('phc_yZ6zilX74HsRDdqv4JXMzF3o0fEtQvvSGHEfrONN5MH', {
-		api_host: 'https://eu.i.posthog.com',
-	});
-}
-
 const App: React.FC<AppProps> = (props) => {
+	useEffect(() => {
+		posthog.init('phc_yZ6zilX74HsRDdqv4JXMzF3o0fEtQvvSGHEfrONN5MH', {
+			api_host: 'https://eu.i.posthog.com',
+		});
+
+		const handleRouteChange = () => posthog?.capture('$pageview');
+		Router.events.on('routeChangeComplete', handleRouteChange);
+		return () => {
+			Router.events.off('routeChangeComplete', handleRouteChange);
+		};
+	}, []);
+
 	return (
 		<PostHogProvider>
 			{/* eslint-disable-next-line react/no-unknown-property */}

@@ -23,5 +23,17 @@ html {
                 content: none;
             }
         }
+
+        @apply not-italic font-[weight:inherit]
+    }
+}
+
+@theme {
+    --animate-wave-in: 0.7s cubic-bezier(0.5, 1, 0.89, 1) 0s 1 both running wave-in;
+    @keyframes wave-in {
+        0% {transform: rotate(70deg);}
+        40% {transform: rotate(-30deg);}
+        70% {transform: rotate(20deg);}
+        90% {transform: rotate(-10deg);}
     }
 }
