@@ -22,7 +22,39 @@ export const jsonLd: WithContext<Person> = {
 		'https://commons.wikimedia.org/wiki/User:Domdomegg',
 		'https://en.wikipedia.org/wiki/User:Domdomegg',
 		'https://wiki.openstreetmap.org/wiki/User:Domdomegg',
+		'https://orcid.org/0009-0007-5138-9633',
 	],
+	address: {
+		'@type': 'PostalAddress',
+		addressLocality: 'London',
+		addressRegion: 'England',
+		addressCountry: 'GB',
+	},
+	jobTitle: 'AI Safety Lead',
+	worksFor: {
+		'@type': 'Organization',
+		name: 'BlueDot Impact',
+		url: 'https://bluedot.org/',
+	},
+	affiliation: {
+		'@type': 'Organization',
+		name: 'Raise',
+		url: 'https://www.joinraise.org/',
+	},
+	alumniOf: {
+		'@type': 'CollegeOrUniversity',
+		name: 'University of Warwick',
+		url: 'https://warwick.ac.uk/',
+	},
+	knowsAbout: [
+		'tech leadership',
+		'software engineering',
+		'AI safety',
+		'open source software',
+		'AI alignment',
+		'AI governance',
+	],
+	knowsLanguage: ['English'],
 };
 
 export const AdamJsonLd: React.FC = () => {
