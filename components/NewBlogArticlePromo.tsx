@@ -23,29 +23,53 @@ const formatDaysAgo = (daysAgo: number): string => {
 };
 
 export const NewBlogArticlePromo: React.FC<NewBlogArticlePromoProps> = ({posts}) => {
-	const post = posts
+	const recentPosts = posts
 		.sort((a, b) => new Date(b.publishedOn).getTime() - new Date(a.publishedOn).getTime())
-		.find((p) => {
+		.filter((p) => {
 			const publishedDate = new Date(p.publishedOn);
 			const now = new Date();
 			const daysSincePublished = Math.floor((now.getTime() - publishedDate.getTime()) / (1000 * 60 * 60 * 24));
 
 			return daysSincePublished <= 14 && daysSincePublished >= 0;
 		});
-	if (!post) {
+
+	if (recentPosts.length === 0) {
 		return null;
 	}
 
-	const daysAgo = calcDaysAgo(post.publishedOn);
+	if (recentPosts.length === 1) {
+		const post = recentPosts[0];
+		const daysAgo = calcDaysAgo(post.publishedOn);
+
+		return (
+			<div className='-mt-1 -mb-4 px-5 bg-red-100 dark:bg-red-950 border border-transparent rounded-lg'>
+				<p className='text-red-700 font-semibold'>
+					<span className='font-bold'>new: </span>
+					<Link href={post.href} className='text-red-950'>{post.title}</Link>
+					&nbsp;
+					<span className='text-sm'>(published {formatDaysAgo(daysAgo)})</span>
+				</p>
+			</div>
+		);
+	}
 
 	return (
-		<div className='-mb-4 px-5 bg-red-100 dark:bg-red-950 border border-transparent rounded-lg'>
+		<div className='-mt-1 -mb-4 px-5 bg-red-100 dark:bg-red-950 border border-transparent rounded-lg'>
 			<p className='text-red-700 font-semibold'>
-				<span className='font-bold'>new: </span>
-				<Link href={post.href} className='text-red-950'>{post.title}</Link>
-				&nbsp;
-				<span className='text-sm'>(published {formatDaysAgo(daysAgo)})</span>
+				<span className='font-bold'>new:</span>
 			</p>
+			<ul className='text-red-700 font-semibold list-disc list-inside pl-2 -mt-2 marker:text-red-700'>
+				{recentPosts.map((post) => {
+					const daysAgo = calcDaysAgo(post.publishedOn);
+					return (
+						<li key={post.href}>
+							<Link href={post.href} className='text-red-950'>{post.title}</Link>
+							&nbsp;
+							<span className='text-sm'>({formatDaysAgo(daysAgo)})</span>
+						</li>
+					);
+				})}
+			</ul>
 		</div>
 	);
 };

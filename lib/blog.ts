@@ -6,6 +6,11 @@ import {type Post, postSchema} from '../components/BlogHeader';
 
 const externalPosts: Post[] = ([
 	{
+		title: 'Key paths, plans and strategies to AI safety success',
+		href: 'https://bluedot.org/blog/ai-safety-paths-plans-and-strategies',
+		publishedOn: '2025-06-19',
+	},
+	{
 		title: 'What is customer due diligence in AI safety?',
 		href: 'https://bluedot.org/blog/customer-due-diligence-ai-safety',
 		publishedOn: '2025-06-13',
