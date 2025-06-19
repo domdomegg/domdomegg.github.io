@@ -11,6 +11,11 @@ const externalPosts: Post[] = ([
 		publishedOn: '2025-06-19',
 	},
 	{
+		title: 'LinkedIn Ads: can you get more efficient marketing by overbudgeting and holding your manual bid the same?',
+		href: 'https://bluedot.org/blog/linkedin-ads-overbudgeting-experiment',
+		publishedOn: '2025-06-17',
+	},
+	{
 		title: 'What is customer due diligence in AI safety?',
 		href: 'https://bluedot.org/blog/customer-due-diligence-ai-safety',
 		publishedOn: '2025-06-13',

@@ -25,12 +25,23 @@ const formatDaysAgo = (daysAgo: number): string => {
 export const NewBlogArticlePromo: React.FC<NewBlogArticlePromoProps> = ({posts}) => {
 	const recentPosts = posts
 		.sort((a, b) => new Date(b.publishedOn).getTime() - new Date(a.publishedOn).getTime())
-		.filter((p) => {
+		.filter((p, index) => {
 			const publishedDate = new Date(p.publishedOn);
 			const now = new Date();
 			const daysSincePublished = Math.floor((now.getTime() - publishedDate.getTime()) / (1000 * 60 * 60 * 24));
 
-			return daysSincePublished <= 14 && daysSincePublished >= 0;
+			// Always hide posts in the future
+			if (daysSincePublished < 0) {
+				return false;
+			}
+
+			// Always show posts that are less than 7 days old
+			if (daysSincePublished < 7) {
+				return true;
+			}
+
+			// Otherwise show the post if it was published in the last 14 days AND is in the 3 most recent
+			return daysSincePublished <= 14 && index < 3;
 		});
 
 	if (recentPosts.length === 0) {
