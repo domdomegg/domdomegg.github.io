@@ -69,7 +69,7 @@ export const NewBlogArticlePromo: React.FC<NewBlogArticlePromoProps> = ({posts})
 			<p className='font-semibold'>
 				<span className='font-bold'>new:</span>
 			</p>
-			<ul className='font-semibold list-disc list-inside pl-2 -mt-2 marker:text-red-700'>
+			<ul className='font-semibold list-disc -mt-2 marker:text-red-700'>
 				{recentPosts.map((post) => {
 					const daysAgo = calcDaysAgo(post.publishedOn);
 					return (
