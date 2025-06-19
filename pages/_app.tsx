@@ -1,6 +1,6 @@
 import '../styles/globals.css';
 import type {AppProps} from 'next/app';
-import {Inter} from 'next/font/google';
+import {Source_Sans_3} from 'next/font/google';
 import posthog from 'posthog-js';
 import {PostHogProvider} from 'posthog-js/react';
 import type {Toc} from '@stefanprobst/rehype-extract-toc';
@@ -12,7 +12,7 @@ import {useEffect} from 'react';
 import {Router} from 'next/router';
 
 // eslint-disable-next-line new-cap
-const inter = Inter({variable: '--font-inter', subsets: ['latin']});
+const sans = Source_Sans_3({variable: '--font-sans', subsets: ['latin']});
 
 const App: React.FC<AppProps> = (props) => {
 	useEffect(() => {
@@ -30,7 +30,9 @@ const App: React.FC<AppProps> = (props) => {
 	return (
 		<PostHogProvider>
 			{/* eslint-disable-next-line react/no-unknown-property */}
-			<style jsx global>{`:root { --font-inter: ${inter.style.fontFamily}; }`}</style>
+			<style jsx global>{`:root {
+				--font-sans: ${sans.style.fontFamily};
+			}`}</style>
 			<InnerApp {...props} />
 		</PostHogProvider>
 	);

@@ -137,6 +137,7 @@ export default async (): Promise<NextConfig> => {
 		},
 		pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
 		trailingSlash: true,
+		devIndicators: false,
 	};
 
 	return withMDX(nextConfig);

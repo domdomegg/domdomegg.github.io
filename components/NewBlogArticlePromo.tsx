@@ -22,18 +22,6 @@ const formatDaysAgo = (daysAgo: number): string => {
 	return `${daysAgo} days ago`;
 };
 
-const formatDaysAgoRange = (daysAgo: number): string => {
-	if (daysAgo === 0) {
-		return 'today';
-	}
-
-	if (daysAgo < 7) {
-		return 'this week';
-	}
-
-	return 'recently';
-};
-
 export const NewBlogArticlePromo: React.FC<NewBlogArticlePromoProps> = ({posts}) => {
 	const post = posts
 		.sort((a, b) => new Date(b.publishedOn).getTime() - new Date(a.publishedOn).getTime())
@@ -51,10 +39,10 @@ export const NewBlogArticlePromo: React.FC<NewBlogArticlePromoProps> = ({posts})
 	const daysAgo = calcDaysAgo(post.publishedOn);
 
 	return (
-		<div className='-mb-4 px-5 bg-blue-50 dark:bg-blue-950 border border-blue-200 rounded-lg'>
-			<p className='light:text-blue-900'>
-				<span className='font-bold'>New {formatDaysAgoRange(daysAgo)}: </span>
-				<Link href={post.href} className='underline'>{post.title}</Link>
+		<div className='-mb-4 px-5 bg-red-100 dark:bg-red-950 border border-transparent rounded-lg'>
+			<p className='text-red-700 font-semibold'>
+				<span className='font-bold'>new: </span>
+				<Link href={post.href} className='text-red-950'>{post.title}</Link>
 				&nbsp;
 				<span className='text-sm'>(published {formatDaysAgo(daysAgo)})</span>
 			</p>

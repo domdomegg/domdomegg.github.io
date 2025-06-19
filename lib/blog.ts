@@ -6,6 +6,16 @@ import {type Post, postSchema} from '../components/BlogHeader';
 
 const externalPosts: Post[] = ([
 	{
+		title: 'What is customer due diligence in AI safety?',
+		href: 'https://bluedot.org/blog/customer-due-diligence-ai-safety',
+		publishedOn: '2025-06-13',
+	},
+	{
+		title: 'Export ALL Your WhatsApp Chats from Android to Your Computer!',
+		href: 'https://www.youtube.com/watch?v=U8pJ1MB521s',
+		publishedOn: '2025-05-25',
+	},
+	{
 		title: 'YouTube series: How to contribute to the BlueDot Impact repo',
 		href: 'https://www.youtube.com/playlist?list=PLqUl_YPWTmuJahSpi_PUDj55AtEi2edax',
 		publishedOn: '2025-03-30',
@@ -17,12 +27,12 @@ const externalPosts: Post[] = ([
 	},
 	{
 		title: 'Why we run our AI safety courses',
-		href: 'https://aisafetyfundamentals.com/blog/why-we-run-our-ai-safety-courses/',
+		href: 'https://bluedot.org/blog/why-we-run-our-ai-safety-courses/',
 		publishedOn: '2024-12-04',
 	},
 	{
 		title: 'How Does AI Learn? A Beginner’s Guide with Examples',
-		href: 'https://aisafetyfundamentals.com/blog/how-does-ai-learn/',
+		href: 'https://bluedot.org/blog/how-does-ai-learn/',
 		publishedOn: '2024-11-29',
 	},
 	{
@@ -47,7 +57,7 @@ const externalPosts: Post[] = ([
 	},
 	{
 		title: 'What we didn’t cover in our June 2024 AI Alignment course (or, an accessible list of more niche alignment research agendas)',
-		href: 'https://aisafetyfundamentals.com/blog/not-covered-2406-alignment/',
+		href: 'https://bluedot.org/blog/not-covered-2406-alignment/',
 		publishedOn: '2024-08-13',
 	},
 	{
@@ -67,7 +77,7 @@ const externalPosts: Post[] = ([
 	},
 	{
 		title: 'How to avoid the 2 mistakes behind 89% of rejected AI alignment applications',
-		href: 'https://aisafetyfundamentals.com/blog/avoid-alignment-application-mistakes/',
+		href: 'https://bluedot.org/blog/avoid-alignment-application-mistakes/',
 		publishedOn: '2024-07-22',
 	},
 	{
@@ -92,12 +102,12 @@ const externalPosts: Post[] = ([
 	},
 	{
 		title: 'What we changed for the June 2024 AI alignment course',
-		href: 'https://aisafetyfundamentals.com/blog/june-2024-alignment-course-updates/',
+		href: 'https://bluedot.org/blog/june-2024-alignment-course-updates/',
 		publishedOn: '2024-06-24',
 	},
 	{
 		title: '3 articles on AI safety we’d like to exist',
-		href: 'https://aisafetyfundamentals.com/blog/ai-safety-articles-we-would-like-to-exist/',
+		href: 'https://bluedot.org/blog/ai-safety-articles-we-would-like-to-exist/',
 		publishedOn: '2024-06-17',
 	},
 	{
@@ -107,32 +117,32 @@ const externalPosts: Post[] = ([
 	},
 	{
 		title: 'Why are people building AI systems?',
-		href: 'https://aisafetyfundamentals.com/blog/why-are-people-building-ai-systems/',
+		href: 'https://bluedot.org/blog/why-are-people-building-ai-systems/',
 		publishedOn: '2024-05-25',
 	},
 	{
 		title: 'AI alignment project ideas',
-		href: 'https://aisafetyfundamentals.com/blog/alignment-project-ideas/',
+		href: 'https://bluedot.org/blog/alignment-project-ideas/',
 		publishedOn: '2024-04-12',
 	},
 	{
 		title: 'How to avoid the 4 mistakes behind 92% of rejected AI governance applications',
-		href: 'https://aisafetyfundamentals.com/blog/avoid-governance-application-mistakes/',
+		href: 'https://bluedot.org/blog/avoid-governance-application-mistakes/',
 		publishedOn: '2024-04-05',
 	},
 	{
 		title: 'Can we scale human feedback for complex AI tasks? An intro to scalable oversight.',
-		href: 'https://aisafetyfundamentals.com/blog/scalable-oversight-intro/',
+		href: 'https://bluedot.org/blog/scalable-oversight-intro/',
 		publishedOn: '2024-03-18',
 	},
 	{
 		title: 'What is AI alignment?',
-		href: 'https://aisafetyfundamentals.com/blog/what-is-ai-alignment/',
+		href: 'https://bluedot.org/blog/what-is-ai-alignment/',
 		publishedOn: '2024-03-01',
 	},
 	{
 		title: 'What risks does AI pose?',
-		href: 'https://aisafetyfundamentals.com/blog/ai-risks/',
+		href: 'https://bluedot.org/blog/ai-risks/',
 		publishedOn: '2024-02-21',
 	},
 ] satisfies Omit<Post, 'absoluteUrl' | 'location'>[])

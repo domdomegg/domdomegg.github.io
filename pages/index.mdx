@@ -24,8 +24,8 @@ export const getStaticProps = async () => {
  * Important styles used here because otherwise prose overrides them
  * Can't use not-prose due to https://bugs.chromium.org/p/chromium/issues/detail?id=1407172
  * */}
-<div className='flex flex-col md:flex-row gap-4 md:gap-8'>
-  <div className='w-48'>
+<div className='flex flex-col sm:flex-row gap-8'>
+  <div className='w-36'>
     <ClickCounter
       clickee='Adam'
       messages={{
@@ -40,20 +40,21 @@ export const getStaticProps = async () => {
         500: 'Okay, that\'s the end. Unless you want to keep going for a very long time.',
         1000000: 'Ahh, so I see that either:\n1. You know how to debug software.\n2. You have an insane amount of free time, and aren\'t spending it wisely.',
       }}>
-      <Image
-        className='rounded-2xl hover:scale-105 hover:-rotate-3 active:scale-95 hover:shadow-sm transition-all !my-0'
-        src='/images/profile-pic.webp'
-        alt='Headshot of Adam Jones'
-        width={288}
-        height={288}
-        priority
-      />
+      <div className='rounded-full outline-4 outline-red-500 outline-dashed outline-offset-4 group hover:scale-105 active:scale-95 transition-all hover:rotate-6'>
+        <Image
+          className='rounded-full group-hover:-rotate-9 hover:shadow-sm transition-all !my-0'
+          src='/images/profile-pic.webp'
+          alt='Headshot of Adam Jones'
+          width={180}
+          height={180}
+          priority
+        />
+      </div>
     </ClickCounter>
   </div>
-  <div className='flex-1 md:self-center'>
-    <h1 className='!text-3xl md:!text-5xl !mb-0'><span className='animate-wave-in inline-block [animation-delay:200ms]'>👋</span> Hello world!</h1>
-    <p className='md:!text-3xl !text-xl !my-2 md:!my-4'>I'm Adam. I make impactful things for people.</p>
-    <p className='!text-xl'>
+  <div className='flex-1 sm:self-center'>
+    <p className='!text-2xl !my-1'><span className='text-red-600 font-semibold'>adam</span> makes AI play nice with the world</p>
+    <p className='!text-lg lowercase !my-2'>
       <a href='https://github.com/domdomegg'>GitHub</a>
       {" ∙ "}
       <a href='https://linkedin.com/in/domdomegg/'>LinkedIn</a>
@@ -66,31 +67,43 @@ export const getStaticProps = async () => {
 </div>
 
 <NewBlogArticlePromo posts={props.posts} />
+<div className='grid sm:gap-4 sm:grid-cols-2 -my-4'>
 
-## How am I spending my time?
+<div>
+## now
 
-As of May 2025, I'm:
+- ai safety @ [bluedot](https://bluedot.org/)
+- advisor @ [dsit, uk government](https://www.gov.uk/government/organisations/department-for-science-innovation-and-technology)
+- trustee @ [raise](https://www.joinraise.org/)
+</div>
 
-- Working full-time at [BlueDot Impact](https://bluedot.org/) building the [AI safety and alignment](https://aisafetyfundamentals.com/blog/what-is-ai-alignment) field. I've recently been working on:
-  - hiring for two new exciting roles: [AI safety program manager](https://bluedot.org/join-us/ai-safety-program-manager) and [software engineering contractor](https://bluedot.org/join-us/swe-contractor)!
-  - developing a new talent pipeline based on recent thinking about AI safety field strategy, as part of being a [field catalyst](https://ssir.org/articles/entry/field_catalysts) that develops a [strong field](https://www.bridgespan.org/getmedia/16a72306-0675-4abd-9439-fbf6c0373e9b/strong-field-framework.pdf)
-  - developing our new learning platform, to host [our future of AI course](https://bluedot.org/courses/future-of-ai)
-- Handling technology and governance at [Raise](https://www.joinraise.org/), a charity that encourages students to think about effective giving. This includes handling our end-of-year submissions to the Charity Commission, and looking after our [open-source software](https://github.com/raisenational).
-- Writing up [new interactive articles on my blog](https://adamjones.me/blog/)
-- Learning about:
-  - implementing AI evaluations with local LLMs, including making improvements to projects like [inspect-ai](https://github.com/UKGovernmentBEIS/inspect_ai/pulls?q=is%3Apr+author%3Adomdomegg), [inspect-evals](https://github.com/UKGovernmentBEIS/inspect_evals/pull/21), [llama-cpp-python](https://github.com/abetlen/llama-cpp-python/pulls?q=is%3Apr+author%3Adomdomegg)
-  - agentic AI coding tools, particularly [Cline](https://github.com/cline/cline), which I'm trying to [upskill the BlueDot team to use](https://www.youtube.com/playlist?list=PLqUl_YPWTmuJahSpi_PUDj55AtEi2edax)
-  - the model context protocol, including building MCP servers for [Airtable](https://github.com/domdomegg/airtable-mcp-server) and [computer use](https://github.com/domdomegg/computer-use-mcp/)
-- Hobbies:
-  - board games: [Star Realms](https://boardgamegeek.com/boardgame/147020/star-realms) and [Spirit Island](https://boardgamegeek.com/boardgame/162886/spirit-island)
-  - video games: [PlateUp](https://store.steampowered.com/app/1599600/PlateUp/) and [Ultimate Chicken Horse](https://store.steampowered.com/app/386940/Ultimate_Chicken_Horse/)
-  - physical games: capture the flag out in [Hampstead Heath](https://en.wikipedia.org/wiki/Hampstead_Heath)!
+<div>
+## previously
 
-## Featured projects
+- forward deployed engineer @ [palantir](https://www.palantir.com/)
+- platform engineer @ [starling bank](https://www.starlingbank.com/)
+- cs degree @ [university of warwick](https://warwick.ac.uk/)
+</div>
+</div>
 
-- [AWS Email Simulator](https://github.com/domdomegg/aws-ses-v2-local): enables devs to test emails without AWS credentials, and work productively without internet. Downloaded over 750,000 times. {/* https://npm-stat.com/charts.html?package=aws-ses-v2-local&from=2021-11-01 */}
-- [YouTube thumbnail hider](https://chromewebstore.google.com/detail/hide-youtube-thumbnails/phmcfcbljjdlomoipaffekhgfnpndbef): browser extension with over 60,000 weekly active users and plenty of [glowing 5-star reviews](https://chromewebstore.google.com/detail/hide-youtube-thumbnails/phmcfcbljjdlomoipaffekhgfnpndbef/reviews).
-- [Serverless offline watcher](https://www.npmjs.com/package/serverless-offline-watcher): developer tool that enables extending the Serverless framework with arbitrary file or directory hooks. Downloaded over 290,000 times. {/* https://npm-stat.com/charts.html?package=serverless-offline-watcher&from=2021-11-01 */}
+## bio
+
+**Adam Jones** is an AI safety practitioner working to make the transition to advanced AI systems go well. He does many things in service of this: software engineering, governance research, program management, field strategy, and more.
+
+At [BlueDot Impact](https://bluedot.org), he leads AI safety talent programs. This includes the large-scale [AI Safety Fundamentals: Alignment course](https://bluedot.org/courses/alignment), as well as intensive bootcamps for in-demand roles like the [AI Safety Operations Bootcamp](https://bluedot.org/courses/ops).
+
+On the side, he advises the [UK Government's Department for Science, Innovation and Technology (DSIT)](https://www.gov.uk/government/organisations/department-for-science-innovation-and-technology) on AI safety, and is a trustee of [Raise](https://www.joinraise.org/), a charity that encourages students to think about effective giving.
+
+{/*  https://npm-stat.com/charts.html?package=aws-ses-v2-local&from=2021-11-01 */}
+Outside of work, he enjoys making things! This includes writing [blog articles](/blog) (mainly about AI safety) and building popular open-source tools: [his AWS Email Simulator](https://github.com/domdomegg/aws-ses-v2-local) has 900,000+ downloads, [his YouTube thumbnail-hiding browser extension](https://chromewebstore.google.com/detail/hide-youtube-thumbnails/phmcfcbljjdlomoipaffekhgfnpndbef/reviews) serves 40,000+ weekly users, and [his Airtable MCP server](https://github.com/domdomegg/airtable-mcp-server) has spurred over 45 forks. Finally, he also contributes media to Wikimedia Commons, with his work appearing in [textbooks](https://dinwiddiehighschool.co.za/wp-content/uploads/2020/11/grd-11-textbook.pdf#page=12), [academic papers](https://doi.org/10.1093/nar/gkac278), and [YouTube videos](https://www.youtube.com/watch?t=10&v=w_CYwd6cHUA) with millions of views.
+
+When not making new things, he enjoys co-operative board games, video games, sunny weather, and [playing capture the flag on Hampstead Heath](https://www.instagram.com/reel/DJ0H-xTow9C/).
+
+## projects
+
+- [AWS Email Simulator](https://github.com/domdomegg/aws-ses-v2-local): enables devs to test emails without AWS credentials, and work productively without internet. Downloaded over 900,000 times. {/* https://npm-stat.com/charts.html?package=aws-ses-v2-local&from=2021-11-01 */}
+- [YouTube thumbnail hider](https://chromewebstore.google.com/detail/hide-youtube-thumbnails/phmcfcbljjdlomoipaffekhgfnpndbef): browser extension with >40,000 weekly active users and [100+ 5-star reviews](https://chromewebstore.google.com/detail/hide-youtube-thumbnails/phmcfcbljjdlomoipaffekhgfnpndbef/reviews).
+- [Serverless offline watcher](https://www.npmjs.com/package/serverless-offline-watcher): developer tool that enables extending the Serverless framework with arbitrary file or directory hooks. Downloaded over 310,000 times. {/* https://npm-stat.com/charts.html?package=serverless-offline-watcher&from=2021-11-01 */}
 - [A TypeScript Airtable library](https://www.npmjs.com/package/airtable-ts), which makes building apps on top of Airtable way easier.
 - [Apply for a postal vote service](./postal-vote/): fully-working GOV.UK-style service. I think this is the first ever properly electronic version of this form.
 - [London cycle parking](./london-cycle-parking/): find cycle parking quickly in London.
@@ -105,44 +118,8 @@ As of May 2025, I'm:
 
 Most of these have their source code availabile on [my GitHub](https://github.com/domdomegg). You can [contribute to support their development](./sponsor/).
 
-## Communicating with me
+## working with me
 
-_Note: Don't worry too much about following these exactly! Details here are mostly relevant for people I work with a lot._
-
-From you to me:
-
-- Bias towards overcommunicating with me. Leave pauses so I can interrupt you if you're telling me stuff I don't think is relevant.
-- Give me [feedback](./feedback/). Prefer unpolished timely feedback to no or late feedback. Bonus points if you can be specific or provide examples.
-- State your uncertainties and where you've made assumptions.
-- Dislikes unplanned synchronous communications.
-  - Exception: if we are colleagues and something is blocking you.
-- Asynchronous comms:
-  - Slack if we have a workspace in common relevant to the topic, you know I check that workspace, and it's something short.
-  - WhatsApp, Messenger or Telegram for personal stuff (no formal work comms).
-    - Exception: If we're working somewhere that doesn't have a communication tool, you can send work comms here.
-  - Google Docs or similar for anything longer or that needs collaboration.
-  - Email for everything else, or where you're not sure.
-  - It's fine for you to send me asynchronous communications while sitting next to me.
-  - If you need me to do or answer something, make it obvious. For example:
-    - Add '[Action required]' to the subject.
-    - Prefix tasks with 'Action required:' and bold them.
-    - State any relevant timelines upfront.
-  - If I need to read it, use the email 'to' line or tag my Slack handle.
-  - Don't [inline reply](https://ssw.com.au/rules/email-avoid-inline/) to emails. It's hard to see what's been added, muddies email history, and causes difficult-to-resolve forks.
-  - [Don't just say hello](https://nohello.net/).
-  - Prefer to communicate widely (e.g. Slack channels/email distros, not DMs) so others can learn from our conversation later.
-    - Exception: discussions about personal or sensitive matters
-- Synchronous comms:
-  - Likes: In person, or [Google Meet](https://meet.google.com/).
-- Enjoys [working in public](https://www.getonbrd.com/blog/public-by-default-how-we-manage-information-visibility-at-get-on-board)
-- If you're asking me to review something, see my [review guide](./reviews/).
-
-From me to you:
-
-- I try to triage comms within 72 hours, and respond within 1 week. Slower when I'm extra busy. I don't usually send acknowledgement messages unless asked.
-- [Assume misunderstanding, not malice](https://en.wikipedia.org/wiki/Hanlon%27s_razor). In particular:
-  - If I'm going in the wrong direction, tell me early.
-  - I tend to overcommunicate to ensure we're aligned. Interrupt me if I'm telling you something you know!
-  - If I am slow to respond, I'm likely a bit overloaded with other stuff.
-- I will send you asynchronous communications while sitting next to you, unless you ask me not to. This is to avoid interrupting you, and so that you can instead address comments at a time that is convenient to you.
-- 👀 is 'looking', ✅ is 'done', 👍 is 'acknowledged' ([not meant passive aggressively](https://www.cnet.com/culture/internet/gen-z-youll-have-to-pry-the-hostile-thumbs-up-emoji-from-my-old-dead-hands/)), ➕ is 'agreed', 🙌 or 🎉 is 'yay'
+The following make up a [How to work with me manual](https://medium.com/swlh/user-manual-to-me-92c8ce68f960) / [User Guide](https://lg.substack.com/p/the-looking-glass-a-user-guide-to), which coworkers or [AI virtual collaborators](https://www.youtube.com/watch?v=snkOMOjiVOk&t=932s) might find helpful:
+- [Preferences for communicating with me](/blog/communication-preferences/)
+- [How I give reviews](/blog/reviewing-your-work/)
