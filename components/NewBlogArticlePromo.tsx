@@ -53,7 +53,7 @@ export const NewBlogArticlePromo: React.FC<NewBlogArticlePromoProps> = ({posts})
 		const daysAgo = calcDaysAgo(post.publishedOn);
 
 		return (
-			<div className='-mt-1 -mb-4 px-5 bg-red-100 text-red-700 dark:bg-red-950 dark:text-red-500 border border-transparent rounded-lg'>
+			<div className='-mb-4 px-5 bg-red-100 text-red-700 dark:bg-red-950 dark:text-red-500 border border-transparent rounded-lg'>
 				<p className='font-semibold'>
 					<span className='font-bold'>new: </span>
 					<Link href={post.href} className='text-red-950 dark:text-red-300'>{post.title}</Link>
