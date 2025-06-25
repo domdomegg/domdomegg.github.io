@@ -175,11 +175,12 @@ export function getSortedPostsData(): Post[] {
 
 	return [...localPostsData, ...externalPosts]
 		.map((p) => {
-			try {
-				return postSchema.parse(p);
-			} catch (e) {
-				throw new Error(`Failed to parse ${p.href}`, {cause: e});
+			const result = postSchema.safeParse(p);
+			if (result.success) {
+				return result.data;
 			}
+
+			throw new Error(`Failed to parse ${p.href}: ${result.error.toString()}`, {cause: result.error});
 		})
 		.sort((a, b) => {
 			if (a.publishedOn < b.publishedOn) {

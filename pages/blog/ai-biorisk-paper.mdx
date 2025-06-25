@@ -1,0 +1,87 @@
+---
+title: "Quantitative models of AI-driven bioterrorism and lab leak biorisk"
+publishedOn: "2025-06-25"
+---
+
+import BarChart from '../../components/BarChart'
+import Details from '../../components/Details'
+
+Advanced AI systems could potentially help malicious actors overcome technical barriers that have historically made bioattacks difficult to execute. This could enable bioterrorism, a concern that deserves serious attention.
+
+Current research shows AI models can provide some assistance with biological planning, though significant gaps remain in areas like resource acquisition and execution. As AI capabilities advance, these limitations may erode, making bioterrorism a more pressing threat.
+
+But there's another AI biorisk that might be getting less attention than it deserves...
+
+![](/images/blog/ai-biorisk-paper/bioterrorism-v-lab-leak.jpg)
+
+## What the Numbers Actually Say
+
+I built probabilistic models to quantify pandemic risks from both bioterrorism and laboratory accidents, considering how general-purpose radically transformative AI might affect each. The results were striking:
+
+<BarChart
+  data={[
+    ['Risk Source', 'Pandemics per Year'],
+    ['Bioterrorism (Current)', 0.00002],
+    ['Lab Leaks (Current)', 0.03],
+    ['Bioterrorism (With AI)', 0.002],
+    ['Lab Leaks (With AI)', 0.3],
+  ]}
+/>
+
+_(bioterrorism currently is 0.00002/year, but this is too small to render on the chart)_
+
+There's a roughly a 2000x difference for accidental lab leaks over bioterror attacks.
+
+Even after AI amplifies bioterrorism risk by ~80x, lab leaks remain 150x more likely. We could be looking at COVID-level pandemics every 3 years.
+
+<Details title='More numbers'>
+**Current annual pandemic risk:**
+- Bioterrorism: ~1 in 50,000 years (0.00002/year)
+- Lab leaks: ~1 in 20 years (0.05/year)
+
+**With advanced AI systems:**
+- Bioterrorism: ~1 in 600 years (0.002/year)
+- Lab leaks: ~1 in 3 years (0.3/year)
+
+If you liked these numbers, the paper has even more numbers! 😉 Find the link to the full PDF below.
+</Details>
+
+## Why Lab Leaks Dominate
+
+The math reflects several realities:
+
+**Volume matters.** There are thousands of BSL-3 laboratories (or higher) worldwide conducting high-risk research. Even small per-lab accident rates become significant when multiplied across the global research enterprise.
+
+**Accidents are easier than attacks.** Lab-acquired infections happen through familiar mechanisms: human error, equipment failure, procedural violations. Bioterrorism requires malicious intent, specialized knowledge, resource acquisition, and successful execution - a much higher bar.
+
+**AI amplifies research volume.** Advanced AI could dramatically accelerate biological research, creating more opportunities for accidents. While AI might also improve lab safety protocols, the models suggest volume effects dominate.
+
+## The Uncertainty Problem
+
+These estimates come with enormous error bars. The 95% confidence intervals span orders of magnitude for most parameters. We're making informed guesses about complex systems with limited historical data.
+
+This uncertainty cuts both ways. Lab leak risks could be lower than modeled if AI dramatically improves safety protocols. Bioterrorism risks could be higher if AI enables novel attack vectors we haven't considered.
+
+But uncertainty itself argues for better understanding of the risks, and sincerely considering both pathways to biorisk.
+
+## Limitations
+
+This analysis has clear limitations. It excludes nation-state bioweapons programs, which likely have higher baseline capabilities than non-state actors. It doesn't account for pandemic preparedness improvements that might contain outbreaks regardless of origin. And it treats AI impact as a simple multiplier when reality will be far more complex.
+
+Still, the core insight seems robust: boring institutional failures could pose greater biorisk than from malicious plots. This pattern is common across other risks - car accidents kill more people than terrorist attacks, medical errors cause more harm than murders, and so on.
+
+## Takeaways
+
+We shouldn't dismiss bioterrorism concerns - we're also a long way off managing these! The model's uncertainties are also high enough that it could be the case that these are still higher than lab leaks. Instead, we should ensure both threats get serious mitigation efforts.
+
+A wider focus on lab leaks though suggests expanding dangerous capability evaluations beyond direct harm to include capabilities that might accelerate research volume. It argues for developing AI-powered biosafety technologies alongside restrictions on dual-use research. And it reinforces the importance of international cooperation on laboratory safety standards.
+
+The uncertainties also highlight our need for better data. Organizations like the [UK AI Security Institute](https://www.aisi.gov.uk/research-agenda#criminal-misuse) are doing excellent work to reduce uncertainty around AI biorisk: both how likely different scenarios are, and how effective mitigations might be.
+
+---
+
+**Want the full details?** The complete paper includes detailed methodology, parameter values and sensitivity analyses. And of course a long list of references that you can follow up on!
+
+[**📄 Read the full paper: "Quantitative models of AI-driven bioterrorism and lab leak biorisk"**](/blog/ai-biorisk-paper/quantitative-models-of-AI-driven-bioterrorism-and-lab-leak-biorisk.pdf)
+
+[Interactive models on GitHub](https://github.com/domdomegg/biorisk-squiggle-models) are also available for those interested in exploring the assumptions and running their own scenarios.

@@ -30,7 +30,7 @@ const BarChart: React.FC<{data: (string | number)[][]; options?: ChartWrapperOpt
 					},
 					backgroundColor: 'transparent',
 					focusTarget: 'category',
-					colors: ['#ff5f66'],
+					colors: ['#e7000b'],
 					height: Math.max(data.length * 30, 200),
 					chartArea: {
 						height: '80%',
