@@ -1,0 +1,182 @@
+---
+title: "Overcoming problems with compute thresholds for AI regulation"
+publishedOn: "2025-06-30"
+---
+
+A threshold is a well-defined boundary to define which AI systems are covered by regulations. Compute thresholds focus on the amount of computer processing power used to train the system - usually measured in FLOP (floating point operations). There are many [different types of thresholds that could be used](/blog/ai-model-thresholds).
+
+Compute thresholds seem **the most promising** type of threshold to help scope proportionate regulation.
+
+However, they are not perfect. Understanding where they fall short can help regulators plan for and work around these limitations.
+
+## Problems
+
+### Algorithmic advances
+
+**Algorithmic advances (very high significance, hard to mitigate):** Gradual technical progress and sudden breakthroughs make AI activities more compute-efficient over time.
+
+Compute thresholds set before the advance would then allow for more capable models to be produced without oversight. For example, the transformer architecture proposed in 2017 unlocked more capable AI models for the same amount of compute, or equally powerful models with less compute.
+
+There are also potential configurations post-deployment of frontier models that might be considered an algorithmic advance. For example, models which can use tools (e.g. like ChatGPT plugins), be augmented with extra data (e.g. like Bing Chat pulls from the internet), or that can coordinate and call copies of themselves (e.g. like Auto-GPT). Alternatively, even simple changes like asking language models to explain themselves step by step rather than jumping for the final answer (known as [‘chain of thought prompting’](https://learnprompting.org/docs/intermediate/chain_of_thought)) was only discovered to improve performance months after release.
+
+There are strong pressures to encourage algorithmic advances and as such we should expect them. Better algorithms would mean model training would be cheaper and faster, giving developers a competitive edge. Additionally, as AI models improve they may speed up progress in a positive feedback loop: as AI researchers have tools that might be able to write some of the new model’s code for them (like GitHub Copilot).
+
+**Potential mitigation:** Forecasting future algorithmic progress and changing the compute threshold over time (while maintaining the option to change things further). For example, if an advance halves the compute needed to train an AI system, the compute threshold should probably be halved. This would likely require technical expertise in government to identify these advances and choose how to correspondingly update the threshold. Such identification would need to include ‘obvious’ compute speedups, but also more subtle architecture changes or data cleaning optimisations that mean less compute might result in significant risk. International collaboration may help reduce this burden and result in a more consistency internationally for AI developers.
+
+### Using existing models
+
+**Using existing models (high significance, moderate difficulty to mitigate):** It may be difficult to accurately measure all the compute that is part of existing models be counted, if they influence the training of the new model.
+
+Recent research on imitation learning from AI has shown new models can be trained based on specially curated datasets outputted by existing models. This can result in powerful models that require far less compute to train. Intuitively this somewhat makes sense: if you ask one AI model to write in a way for another AI to understand and comprehend, it’s likely easier for the new AI to learn from compared to reading any random sentence from the internet.
+
+Similarly, models might be directly derived from existing large models through fine-tuning or other further online training of models. For example, newer versions of ChatGPT are released every few weeks: which are the original model plus some extra training. And some service providers offer methods to fine-tune models using custom data, which also involves extra compute. However, [the benefits of additional training are probably limited to 1-2 OOMs of compute](https://epochai.org/blog/the-limited-benefit-of-recycling-foundation-models).
+
+This is exacerbated when models are trained and run by different people in the supply chain, because it becomes harder to accurately track the total compute involved. This might be particularly difficult if companies want to keep the amount of compute used in different parts secret (e.g. OpenAI allows 3rd parties to spend further compute by way of fine-tuning GPT-4, but keeps the total amount of compute used to train the base GPT-4 secret - meaning a company performing fine-tuning wouldn’t know if they exceeded the threshold).
+
+**Potential mitigation:** How total compute should be calculated in these cases needs to be clarified: generally this should be ‘include it all’ (i.e. total compute = compute of the existing model + compute of training new model from this model). This starts to get very fuzzy if only using AI outputs in limited ways, and probably is overly burdensome if only doing minor fine-tuning. Additionally, people building on top of external existing AI models that intend to spend significant further compute on the models might need to hold vendors to transparency requirements. This area is one where the industry is least developed, so forecasting exactly how these AI supply chains will look is difficult at present.
+
+### Gaming/goodharting
+
+**Gaming/Goodharting (high significance, moderate difficulty to mitigate):** Companies aiming to avoid certain regulatory requirements might attempt to optimise for being under a threshold.
+
+Bad faith seems plausible from some companies in the space, especially as the sector grows and there are more actors. There’s evidence of companies gaming previous regulatory regimes, for example by using technical legal loopholes to be compliant to the letter but not the spirit of the law (e.g. tax avoidance), or by breaking the law but making it hard for regulators to detect (e.g. a ridesharing company showed regulators including TfL a fake view of which cars were available, to enable unlicensed drivers evade the law ([source](https://www.theguardian.com/news/2022/jul/12/uber-used-greyball-fake-app-to-evade-police-across-europe-leak-reveals))).
+
+**Potential mitigation:** Have clear and objective definitions that are harder to exploit: get wide feedback from industry and technical experts who can red-team specific proposed thresholds. Potentially review the feasibility of ‘good faith requirement’ clause in regulations to require companies to not intentionally game this. Have strong whistleblower protections and robust organisational procedures to follow-up on whistleblower reports for concerns about risk, or concerns someone is acting in bad faith in relation to AI risk mitigation requirements.
+
+### Trade-off between training and inference compute
+
+**Trade-off between training and inference compute (high significance, moderately difficult to mitigate):** Most AI models are deployed in two stages: (1) training, where the base model is built, (2) inference, where the model infers output given unseen input. By changing the balance of how compute is spent between these two, AI models may achieve higher performance on some tasks.
+
+Research has found that using 10-100x more inference compute may allow for decreasing training compute by 10x ([further reading](https://epochai.org/blog/trading-off-compute-in-training-and-inference#key-takeaways)) for the same performance. Because inference compute is usually far lower than training compute this can be a worthwhile trade-off (especially for models expecting lower usage volumes generally): meaning models using proportionally more compute on inference might achieve greater capabilities.
+
+There are several techniques for performing this trade-off. Intuitively one idea might be to ‘ask the model to write some code 10 times, then take the code that passes the most automated tests’.
+
+Inference compute is often in the hands of model users, which is a far larger set of people than those training frontier models. As such, it would be difficult to add a threshold on inference compute - instead adjusting the overall compute threshold for AI trainers to account for this effect is most reasonable.
+
+**Potential mitigation:** Setting a conservative (low) compute threshold to account for the ability to use more inference compute to achieve greater capabilities. Having API controls to monitor if people do appear to be augmenting model performance.
+
+### Unclear definition of distinct models
+
+**Unclear definition of distinct models (moderate significance, moderate difficulty to mitigate):** In some cases, it might be unclear how compute should be allocated to a model which could be considered a single model or many models (relevant for if the threshold is based on compute per model).
+
+For example, a company develops 10 different narrow systems that all fall under the compute threshold. However, these narrow systems can work together: for example, one system is a ‘manager’ and the other 9 are good at certain jobs. In this case, it seems like it can also be viewed a level up as ‘one large system’ which is over the threshold: but this gets fuzzy if models are produced at very different times or by different vendors.
+
+Another example is where an organisation trains many models. During training they spot places for optimisation so they stop training, make the tweaks, and then start training from scratch again. Here, it’s unclear if the training compute should count the prototypes: plausibly without these earlier experiments the final model would not be as good as it is. More concretely: there were probably a load of early GPT-4-like prototypes at OpenAI, which were iterated and some were probably thrown out - should the thrown out ones be included in the final compute cost? What about further back, like GPT-3 - should this compute be included?
+
+**Potential mitigation:** Clarify how compute should be accounted for in these cases. It’s probably best to lean towards an approach that considers the reasonably foreseeable use of the deployed systems: if it’s expected users will use the AI in an ecosystem of related AIs that form a somewhat coherent unit, the compute should probably be considered for this unit as a whole. It’s plausible the ‘similar models over time’ problem might not be significant: many runs where there is some tinkering tend to be quite short or small, so may not change the numbers that much - industry engagement here might be useful for gauging this. Finally, one alternative route would be to consider the compute used on AI research for the organisation as a whole: but this may inadvertently pick up very large companies with lots of small AI projects, rather than frontier AI models.
+
+### Companies hesitant to share details of algorithmic advances
+
+**Companies hesitant to share details of algorithmic advances (moderate significance, easy to mitigate):** Information about algorithmic advances would be useful to the government to update thresholds, but companies may be hesitant to share these, for fear of them leaking and them losing competitive advantage.
+
+Companies are probably more happy to share multipliers with government (e.g. ‘we made it 2x faster, but we’re not going to tell you how’): but verifying these without understanding the mechanism might be harder.
+
+Additionally, not understanding the mechanism makes it harder to identify when two companies have identified two overlapping or separate advances. For example, if there are two independent advances which both improve efficiency by 2x, thresholds should drop 4x. However, if these are equivalent or incompatible methods we should only drop the threshold by 2x. Even if information about the mechanism was shared, the government would likely need technical experts to evaluate the similarity of mechanisms.
+
+Finally, frequently reducing the threshold might result in race dynamics: for example if a frontier AI developer sees the threshold suddenly gets slashed by 10, this suggests one of their competitors has found an advance that gives them a 10x speedup: so they might feel under more commercial pressure to ‘catch-up’ by disregarding internal safety procedures.
+
+**Potential mitigation:** Building strong relationships with AI developers to understand advances, and build trust that information shared will be held in confidence. Being tactful around communications when we update thresholds, to minimise race dynamic effects. Potentially having some kind of scheduled or projected curve (but maintaining the option to change things if something pushes this way off): this would need to be informed by experts following AI advances.
+
+### Lagging updates
+
+**Lagging updates (moderate significance, easy to mitigate):** Algorithmic advances tend to only be known after a model has been trained with the new technique: beforehand it’s usually unclear whether it will be an improvement or not, and how much by. Therefore we might only know that a model is particularly risky after it exists.
+
+**Potential mitigation:** Setting a conservative (low) compute threshold to account for some level of algorithmic advance. Use a compound threshold, or other measures, to include models that people have a reasonable chance of discovering an advance (although it should be noted many advances have been accidental and hard to predict so this might not work in practice).
+
+### Slow updates
+
+**Slow updates (moderate significance, moderately difficult to mitigate):** Algorithmic advances can be complex, and will require even the best technical experts time to evaluate. Additionally, once technical analysis has been completed there may be procedural hurdles to overcome to update the threshold.
+
+**Potential mitigation:** Setting a conservative (low) compute threshold. Building methods to update the threshold relatively quickly (e.g. in a matter of days) through secondary legislation or similar.
+
+### Narrow AI systems
+
+**Narrow AI systems (moderate significance, moderately difficult to mitigate):** Some AI developers may be developing very high-risk systems (e.g. offensive cybersecurity capability), but if these systems are only trained to perform a very narrow selection of tasks they may not pass the overall compute thresholds.
+
+**Potential mitigation:** Building a compound threshold that also considers the use of models, or ensuring there are other measures to mitigate risks from smaller but still dangerous AI models.
+
+### Fundamental AI research work
+
+**Fundamental AI research work (moderate significance, moderately difficult to mitigate):** Some organisations might focus on developing algorithmic advances to sell to others or for a future large model, but only use small models to test whether their interventions work. This might also include research institutions at top universities.
+
+The work of these organisations is important to understanding where thresholds should be set, but they are not well captured by the existing compute thresholds approach.
+
+**Potential mitigation:** Ensure there are methods to track algorithmic advances from these kinds of organisations, even if they are not producing frontier AI systems themselves.
+
+### Trade-off incentive between capabilities/safety
+
+**Trade-off incentive between capabilities/safety (low significance, moderately difficult to mitigate):** If the threshold is experienced as a cap because people wish to avoid regulation, AI developers may have incentives to prioritise compute that furthers the commercial value of the model over compute that improves the safety of the model (although these are often not in conflict).
+
+There’s some evidence that this may happen based on analogous behaviour already: for example when Microsoft was rushing to release Bing Chat (in some sense a ‘time to release threshold’), they chose less safety training for being able to release the model earlier: which resulted in a model that [insulted, seriously threatened and misled the public](https://time.com/6256529/bing-openai-chatgpt-danger-alignment/).
+
+**Potential mitigation:** Setting a conservative (low) compute threshold so the temptation to skirt just under the threshold is less - or at least the models that are just below the threshold are less risky. Promoting education and awareness of safety techniques (e.g. demonstrating the business value from AI aligned with human values), and otherwise incentivising their use.
+
+### Incentives to lobby for changing threshold value
+
+**Incentives to lobby for changing threshold value (low significance, moderately difficult to mitigate):** Companies building smaller models that want to avoid regulation are likely to lobby for the thresholds to be increased. Companies building larger models that will be included in the threshold in any case might lobby for the thresholds to be decreased, to create barriers for entry and maintain competitive advantage.
+
+Without careful management of these incentives, thresholds may not be set well. In particular, if governments rely on industry connections to tell the government about breakthroughs, they might systematically over or under report compute multipliers from technological advances.
+
+**Potential mitigation:** Careful engagement with industry to avoid being unduly influenced by lobbying efforts. Some public accountability in how thresholds are set and updated (that aren’t overly rigid in case we do need to make urgent and significant changes). AI regulators can probably learn a lot from existing regulators on how they avoid regulatory capture.
+
+### Logistical difficulties measuring basic compute
+
+**Logistical difficulties measuring basic compute (low significance, moderately difficult to mitigate):** FLOP might stop working as a metric to compare compute across companies. This is likely a less important factor, given the relative robustness of FLOP in quantifying compute.
+
+This might happen because new architectures are developed that use different types of operations. Additionally, specialised hardware might be used (such as TPUs, a chip optimised for AI training) that might be difficult to directly compare - especially if they are doing higher level operations like matrix multiplication.
+
+**Potential mitigation:** The team reviewing algorithmic advances should likely also be aware of hardware advances that might affect how the unit of compute is interpreted.
+
+---
+
+## Annex A: How might we set and update compute threshold values?
+
+Setting and updating compute thresholds to accurately reflect risks models pose helps prioritise mitigations for the models with the most dangerous capabilities. There are a number of key takeaways that we might extract from the above analysis.
+
+### Takeaway 1: Compute thresholds should be set conservatively (low FLOP).
+
+Adding a ‘safety margin’ by setting the compute thresholds conservatively is important for several significant reasons:
+
+* AI advances: Discontinuous jumps may result in sudden increased abilities for the same amount of compute due to algorithmic or data improvements.
+* Lagging threshold: Advances may only be known after training, and not before.
+* Slow updates: Algorithmic improvements may take time to evaluate, and then to logistically react to.
+* Augmentation: Augmenting models may provide models greater capabilities (e.g. use of tools, access to data at runtime e.g. search indexes, recursive querying).
+* Trading-off training vs inference compute: this may allow for more dangerous capabilities with the same amount of compute.
+* Gaming/goodharting: Model developers reacting to the thresholds may change their approach, e.g. inputting more data but less compute during training. In the extreme case, bad faith actors may attempt to misrepresent or misreport compute usage.
+
+### Takeaway 2: Compute thresholds should decrease at some rate over time by default.
+
+Algorithmic progress allows highly capable AI models to be trained with less compute. It appears to happen at a fairly regular rate, with rare occasional jumps. It is hard to predict exactly how this trend will continue, however [a rough trajectory can be forecast based on measuring past AI progress](https://openai.com/research/ai-and-efficiency) and engaging with experts - in particular by collaborating with industry to understand the trends in their own internal metrics of algorithmic progress.
+
+Having the threshold value decrease at the expected rate of AI progress by default appears to be the best option in terms of:
+
+* Proportionate to public safety risks: The threshold automatically accounts for changes in relationships in factors we know to predict harms to society, and reduces the ‘safety margin’ needed to be built into threshold values that didn’t account for AI advancement already.
+* Clear for industry: There should be fewer occasions where we perform ad-hoc changes to the threshold value, so they are better able to predict where the value will be in future.
+
+### Takeaway 3: Compute thresholds should be updated to make ad-hoc and rate corrections for AI algorithmic advances and AI risk resilience based on continuous monitoring.
+
+Occasional jumps in algorithmic efficiency or other capabilities, or AI risk resilience may require ad-hoc updates to the threshold value.
+
+Additionally, the rate of AI progress may change over time. It may accelerate, if AI systems start making AI research easier (for example, use of models that help AI developers write code) - but it also may decelerate as more of the low hanging fruit is picked.
+
+Also the world may become more resilient to AI risks over time: for example as people are more aware of the risks from AI systems or we have better defences (e.g. rapid vaccine development, defensive cybersecurity). This would allow us to update the thresholds the other direction.
+
+Detecting and horizon scanning for both of these signals would need to be done on an ongoing basis by people with technical expertise. This would include reviewing advances published publicly, as well as potentially talking to labs privately.
+
+When such AI advances are spotted, changes may need to be made to thresholds fairly quickly (e.g. a matter of days). This would include changes to the threshold values, but also potentially to the type of threshold. Clear departmental processes and policies should specify when changes to the thresholds are actually required, how urgently different types of changes need to be made, and logistically how to achieve these changes in urgent situations.
+
+## Annex B: How might a government take this further?
+
+*These are tentative ideas at this point! Before rolling them out a government might want to do additional brainstorming and validation of alternatives.*
+
+Compute thresholds appear to be the most robust option to classify who potential regulation should apply to. However, these may need to be combined with other thresholds to form a compound threshold that captures relevant organisations or models that aren’t using quite as much compute through sector or opt-in selection.
+
+For setting the initial threshold values, this would need further consultation with technical AI experts and industry. In terms of an initial value, picking about 50% of the current state of the art feels about the right place to start (but would need validating that this does cover the kinds of organisations and models that are high risk). Thresholds should be set fairly conservatively to account for slow updates, the lagging nature of the threshold, and to discourage people from attempting to push right up against the threshold.
+
+For updating the thresholds over time, a team (initially small, maybe 2 FTE) with technical expertise would need to be set up in government. This team would likely need to grow over time if AI advances are discovered more frequently, or more AI actors in the space need to be monitored. As well as being reactive to publicly and privately reported advances, they would need to be proactive in horizon scanning for future advances - potentially asking for information about overall trends in algorithmic advances with data only available from AI labs. There has already been some [external](https://openai.com/research/ai-and-efficiency) [work](https://epochai.org/trends#algorithmic-trends-section) done to track algorithmic efficiency.
+
+The team should probably collaborate internationally to set common global thresholds: this would reduce duplicate work done by regulators, and reduce regulatory burden on companies. They may need legal powers to request information from frontier AI companies, which balance the commercial sensitivity of novel AI algorithms and the importance of government understanding for appropriately setting thresholds.
+
+If thresholds are enshrined in legislation, they should be easy to update fairly rapidly (i.e. matter of days). In the UK, this would probably means some kind of power to write secondary legislation or similar. For public and industry perception, it should be clear when and why we update these thresholds. The way thresholds are defined needs to be clear and objective to provide clarity to businesses, help regulators prioritise high-risk actors, and minimise the ability for thresholds to be gamed.
+
+Other legislative challenges are to mitigate the risks from bad faith actors. This might require information powers, duties on companies to report advances / report concerns about thresholds / act in good faith, and new whistleblowing powers for reporting concerns relating to AI risk. Collaborating with and learning from other bodies who have faced similar challenges is likely to be useful for informing the best strategy here.

@@ -6,6 +6,16 @@ import {type Post, postSchema} from '../components/BlogHeader';
 
 const externalPosts: Post[] = ([
 	{
+		title: '5 ways to develop an AI safety plan or field strategy',
+		href: 'https://bluedot.org/blog/5-ways-to-develop-ai-safety-plan',
+		publishedOn: '2025-06-29',
+	},
+	{
+		title: 'What makes a good AI safety plan?',
+		href: 'https://bluedot.org/blog/what-makes-a-good-ai-safety-plan',
+		publishedOn: '2025-06-20',
+	},
+	{
 		title: 'Key paths, plans and strategies to AI safety success',
 		href: 'https://bluedot.org/blog/ai-safety-paths-plans-and-strategies',
 		publishedOn: '2025-06-19',
