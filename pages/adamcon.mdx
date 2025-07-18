@@ -50,7 +50,7 @@ AdamCon is a one-day event designed around meeting new people in booked 1:1 conv
 
 ## People Are Already Buzzing
 
-export const Testimonial = ({quote, name, title, image}) => (
+export const Testimonial = ({quote, name, title, image, href}) => (
  <div className='flex gap-6 my-6 bg-red-50 p-8 border-l-4 border-red-600'>
    <img
      src={image}
@@ -62,7 +62,10 @@ export const Testimonial = ({quote, name, title, image}) => (
       {quote}
      </div>
      <div className='text-sm text-gray-600'>
-      <div className='font-semibold text-gray-900'>{name}</div>
+      {href
+        ? <a href={href} target='_blank' rel='noreferrer' className='font-semibold text-gray-900'>{name}</a>
+        : <div className='font-semibold text-gray-900'>{name}</div>
+      }
       <div>{title}</div>
      </div>
    </div>
@@ -70,10 +73,11 @@ export const Testimonial = ({quote, name, title, image}) => (
 )
 
 <Testimonial
-  quote="After a previous conference I went to, I thought 'what if this, but for friendships?' and somehow convinced myself this was genius rather than unhinged. The worst case scenario is we stand around awkwardly for six hours. The best case is I accidentally create London's most chaotic friendship laboratory. Either way, I'm calling it a win."
+  quote="After a previous conference I went to, I thought 'what if this, but for friendships?' and somehow convinced myself this was genius rather than unhinged."
   name='Adam Jones'
-  title='Founder & CEO, AdamCon'
+  title='Putting the Adam in AdamCon'
   image='/images/profile-pic.webp'
+  href='/'
 />
 
 <Testimonial
@@ -81,6 +85,22 @@ export const Testimonial = ({quote, name, title, image}) => (
   name='Malena Schmidt'
   title='Confirmed attendee, AdamCon'
   image='https://malenaschmidt.com/profile-pic.jpg'
+  href='https://malenaschmidt.com'
+/>
+
+<Testimonial
+  quote={'Whatever Adam\'s planning, it\'s going to be chaos in the best possible way. I have no idea what to expect but I\'m bringing good energy and an open heart. Sign me up for that energy.'}
+  name='Li-Lian Ang'
+  title='Self-published author, entrepreneur, and AdamCon enthusiast'
+  image='https://anglilian.com/images/me-fun.jpg'
+  href='https://anglilian.com'
+/>
+
+<Testimonial
+  quote={'When I first heard the name "AdamCon" it wasn\'t clear whether this was a convention or the largest prank he\'s ever played. I\'m still not sure. See you there.'}
+  name='Will Saunter'
+  title='Co-Founder of BlueDot Impact, and AdamCon fan'
+  image='https://bluedot.org/images/team/will.jpg'
 />
 
 [→ Get your name on this list!](#apply)
