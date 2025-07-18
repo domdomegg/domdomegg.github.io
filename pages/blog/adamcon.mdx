@@ -54,24 +54,31 @@ AdamCon is a one-day event designed around meeting new people in booked 1:1 conv
 ## People Are Already Buzzing
 
 export const Testimonial = ({quote, name, title, image, href}) => (
- <div className='flex gap-6 my-6 bg-red-50 p-8 border-l-4 border-red-600'>
-   <img
-     src={image}
-     alt={name}
-     className='size-24 rounded-full object-cover flex-shrink-0 !my-0'
-   />
-   <div>
+ <div className='flex flex-col sm:flex-row gap-6 my-6 bg-red-50 p-8 border-l-4 border-red-600'>
+   <div className='sm:order-2'>
      <div className='text-gray-800 leading-relaxed mt-0 mb-4'>
       {quote}
      </div>
-     <div className='text-sm text-gray-600'>
-      {href
-        ? <a href={href} target='_blank' rel='noreferrer' className='font-semibold text-gray-900'>{name}</a>
-        : <div className='font-semibold text-gray-900'>{name}</div>
-      }
-      <div>{title}</div>
+     <div className='flex items-center gap-3 sm:block text-sm text-gray-600'>
+      <img
+        src={image}
+        alt={name}
+        className='size-12 sm:size-24 rounded-full object-cover flex-shrink-0 !my-0 sm:hidden'
+      />
+      <div>
+        {href
+          ? <a href={href} target='_blank' rel='noreferrer' className='font-semibold text-gray-900'>{name}</a>
+          : <div className='font-semibold text-gray-900'>{name}</div>
+        }
+        <div>{title}</div>
+      </div>
      </div>
    </div>
+   <img
+     src={image}
+     alt={name}
+     className='hidden sm:block size-24 rounded-full object-cover flex-shrink-0 !my-0 sm:order-1'
+   />
  </div>
 )
 
