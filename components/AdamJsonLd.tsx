@@ -10,7 +10,7 @@ export const jsonLd: WithContext<Person> = {
 	familyName: 'Jones',
 	image: {
 		'@type': 'ImageObject',
-		url: 'https://adamjones.me/images/profile-pic.webp',
+		url: 'https://adamjones.me/images/adam-jones.jpg',
 		description: 'Headshot of Adam Jones',
 	},
 	sameAs: [

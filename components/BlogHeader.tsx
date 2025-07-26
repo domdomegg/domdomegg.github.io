@@ -64,7 +64,7 @@ const BlogHeader: React.FC<{frontmatter: unknown; href: string}> = ({frontmatter
 				<Link href='/'>
 					<Image
 						className='rounded-full !my-0'
-						src='/images/profile-pic.webp'
+						src='/images/adam-jones.jpg'
 						alt='Headshot of Adam Jones'
 						width={40}
 						height={40}
