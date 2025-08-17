@@ -3,7 +3,9 @@ import Image from 'next/image'
 import {ClickCounter} from '../components/ClickCounter'
 import {AdamJsonLd} from '../components/AdamJsonLd'
 import {NewBlogArticlePromo} from '../components/NewBlogArticlePromo'
-import {getSortedPostsData} from '../lib/blog';
+import {ProjectsGrid} from '../components/ProjectsGrid'
+import {getSortedPostsData} from '../lib/blog'
+import {projects} from '../lib/projects'
 
 export const getStaticProps = async () => {
   const posts = getSortedPostsData();
@@ -11,6 +13,7 @@ export const getStaticProps = async () => {
   return {
     props: {
       posts,
+      projects,
     },
   };
 };
@@ -99,24 +102,7 @@ Outside of work, he enjoys making things! This includes writing [blog articles](
 
 When not making new things, he enjoys co-operative board games, video games, sunny weather, and [playing capture the flag on Hampstead Heath](https://www.instagram.com/reel/DJ0H-xTow9C/).
 
-## projects
-
-- [AWS Email Simulator](https://github.com/domdomegg/aws-ses-v2-local): enables devs to test emails without AWS credentials, and work productively without internet. Downloaded over 1 million times. {/* https://npm-stat.com/charts.html?package=aws-ses-v2-local&from=2021-11-01 */}
-- [YouTube thumbnail hider](https://chromewebstore.google.com/detail/hide-youtube-thumbnails/phmcfcbljjdlomoipaffekhgfnpndbef): browser extension with >30,000 weekly active users and [100+ 5-star reviews](https://chromewebstore.google.com/detail/hide-youtube-thumbnails/phmcfcbljjdlomoipaffekhgfnpndbef/reviews).
-- [Serverless offline watcher](https://www.npmjs.com/package/serverless-offline-watcher): developer tool that enables extending the Serverless framework with arbitrary file or directory hooks. Downloaded over 330,000 times. {/* https://npm-stat.com/charts.html?package=serverless-offline-watcher&from=2021-11-01 */}
-- [A TypeScript Airtable library](https://www.npmjs.com/package/airtable-ts), which makes building apps on top of Airtable way easier.
-- [Apply for a postal vote service](./postal-vote/): fully-working GOV.UK-style service. I think this is the first ever properly electronic version of this form.
-- [London cycle parking](./london-cycle-parking/): find cycle parking quickly in London.
-- [ISA tracking tool](https://github.com/domdomegg/halifax-share-dealing-sdk): compatible with 4 brokers for read _and write_ operations. Has reliably tracked my [ISA](https://www.gov.uk/individual-savings-accounts) performance every day for the last 5 years.
-- [PDF scanner](./pdf-scanner): add a scanned look to documents, more convincingly than existing services.
-- [RSA SecurID library](https://github.com/domdomegg/rsa-securid): reverse-engineered security token generator, derived from a C library. Also available as an easy-to-use [browser extension](https://github.com/domdomegg/rsa-securid-browser-extension).
-- [TypeScript i18n library](https://github.com/domdomegg/ts-i18n): A lightweight, flexible, and fully type-safe translation framework for websites, native apps and servers.
-- [Google Doc to LaTeX](./gdoc2latex-gui): Converter that makes writing LaTeX a piece of cake.
-- [Discord reminder bot template](https://github.com/domdomegg/discord-reminder-template): send reminders from GitHub. 2 min setup.
-- [Day visualiser](./oneday): ever felt you needed more existential dread in your life? See how fast the day is slipping away from you.
-- Media: I publish [free-cultural works](https://creativecommons.org/share-your-work/public-domain/freeworks/) on places like [Wikimedia Commons](https://commons.wikimedia.org/wiki/User:Domdomegg) (where I also helped build the [Android app](https://commons-app.github.io/)). They've ended up in [US state forestry manuals](https://vtechworks.lib.vt.edu/bitstream/handle/10919/102139/2020TreeStewardManualver03.pdf#page=8), [South African national textbooks](https://dinwiddiehighschool.co.za/wp-content/uploads/2020/11/grd-11-textbook.pdf#page=12), [papers on language models](https://doi.org/10.1093/nar/gkac278), and [YouTube videos with millions of views](https://www.youtube.com/watch?t=10&v=w_CYwd6cHUA).
-
-Most of these have their source code availabile on [my GitHub](https://github.com/domdomegg). You can [contribute to support their development](./sponsor/).
+<ProjectsGrid projects={props.projects} />
 
 ## working with me
 
