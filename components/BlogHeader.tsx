@@ -9,6 +9,7 @@ export const frontmatterSchema = z.object({
 	title: z.string(),
 	publishedOn: z.string().date(),
 	updatedOn: z.string().date().optional(),
+	citable: z.boolean().optional(),
 });
 
 export const postSchema = frontmatterSchema.extend({
@@ -47,13 +48,17 @@ const BlogHeader: React.FC<{frontmatter: unknown; href: string}> = ({frontmatter
 			<Head>
 				<title>{`${parsed.title} - Adam Jones's Blog`}</title>
 				<link rel='alternate' type='application/rss+xml' title='RSS' href='../feed' />
-				<meta name='citation_title' content={parsed.title} />
-				<meta name='citation_author' content='Adam Jones' />
-				<meta name='citation_date' content={citationDate} />
-				<meta name='citation_online_date' content={citationDate} />
-				<meta name='citation_publication_date' content={citationDate} />
-				<meta name='citation_fulltext_html_url' content={`https://adamjones.me${href}`} />
-				<meta name='citation_fulltext_world_readable' content='' />
+				{parsed.citable && (
+					<>
+						<meta name='citation_title' content={parsed.title} />
+						<meta name='citation_author' content='Adam Jones' />
+						<meta name='citation_date' content={citationDate} />
+						<meta name='citation_online_date' content={citationDate} />
+						<meta name='citation_publication_date' content={citationDate} />
+						<meta name='citation_fulltext_html_url' content={`https://adamjones.me${href}`} />
+						<meta name='citation_fulltext_world_readable' content='' />
+					</>
+				)}
 			</Head>
 			<script
 				type='application/ld+json'
