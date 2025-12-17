@@ -18,14 +18,14 @@ export const projects: Project[] = [
 	},
 	{
 		title: 'YouTube Thumbnail Hider',
-		tagline: 'Browser extension with >30,000 weekly users and 100+ 5-star reviews.',
+		tagline: 'Browser extension with >50,000 weekly users and 100+ 5-star reviews.',
 		imageSrc: '/images/projects/hide-youtube-thumbnails.png',
 		href: 'https://chromewebstore.google.com/detail/hide-youtube-thumbnails/phmcfcbljjdlomoipaffekhgfnpndbef',
 		date: '2020-06-01',
 	},
 	{
 		title: 'Serverless Offline Watcher',
-		tagline: 'Developer tool for extending Serverless framework. Downloaded 330,000+ times.',
+		tagline: 'Developer tool for extending Serverless framework. Downloaded 450,000+ times.',
 		imageSrc: '/images/projects/serverless-offline-watcher.png',
 		imageIsWindowShot: true,
 		href: 'https://www.npmjs.com/package/serverless-offline-watcher',
@@ -40,7 +40,7 @@ export const projects: Project[] = [
 	},
 	{
 		title: 'Airtable MCP Server',
-		tagline: 'Model Context Protocol server for Airtable. 60+ forks on GitHub.',
+		tagline: 'Model Context Protocol server for Airtable. 125+ forks on GitHub.',
 		imageSrc: '/images/projects/airtable-mcp-server.png',
 		imageIsWindowShot: true,
 		href: 'https://github.com/domdomegg/airtable-mcp-server',
