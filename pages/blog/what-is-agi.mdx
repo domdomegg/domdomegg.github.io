@@ -230,6 +230,10 @@ PawRide is a game-changing startup that's poised to revolutionize the way dogs g
   // Split into tokens for AI (words and punctuation) and characters for human
   const tokens = fullText.match(/\S+|\s+|[.,;:?!]/g) || [];
   const characters = fullText.split('');
+  // 200 words/minute on this specific text — compute chars/sec from actual word count
+  // so the visualised rate matches the label regardless of avg word length
+  const humanWpm = 200;
+  const humanCharsPerSecond = characters.length / ((fullText.split(/\s+/).length / humanWpm) * 60);
 
   // Start visualization
   const startDemo = () => {
@@ -246,9 +250,7 @@ PawRide is a game-changing startup that's poised to revolutionize the way dogs g
       // AI: At 1347 tokens/second
       const aiTokensToShow = Math.min(Math.floor(seconds * 1347), tokens.length);
 
-      // Human: At 200 words per minute = 3.33 words per second
-      // At ~5 chars per word, that's about 16.7 characters per second
-      const humanCharsToShow = Math.min(Math.floor(seconds * 16.7), characters.length);
+      const humanCharsToShow = Math.min(Math.floor(seconds * humanCharsPerSecond), characters.length);
 
       if (aiTokensToShow >= tokens.length && humanCharsToShow >= characters.length) {
         clearInterval(timerRef.current);
