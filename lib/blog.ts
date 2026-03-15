@@ -195,7 +195,7 @@ const externalPosts: Post[] = ([
 
 export function getSortedPostsData(): Post[] {
 	const blogDir = path.join(process.cwd(), 'pages', 'blog');
-	const fileNames = fs.readdirSync(blogDir).filter((f) => f !== 'index.tsx' && f.endsWith('.mdx'));
+	const fileNames = fs.readdirSync(blogDir).filter((f) => f !== 'index.tsx' && f.endsWith('.mdx') && !f.startsWith('[draft]'));
 	const localPostsData = fileNames.map((fileName) => {
 		const fileContents = fs.readFileSync(path.join(blogDir, fileName), 'utf8');
 		const href = `/blog/${fileName.slice(0, fileName.lastIndexOf('.'))}/`;
