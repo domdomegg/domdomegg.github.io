@@ -11,6 +11,31 @@ const externalPosts: Post[] = ([
 		publishedOn: '2025-06-29',
 	},
 	{
+		title: 'Langfuse Context: All things MCP with Adam Jones (Tech Lead at Anthropic)',
+		href: 'https://www.youtube.com/watch?v=aWL-d0yibjU',
+		publishedOn: '2026-01-06',
+	},
+	{
+		title: 'MCP Connect with Anthropic, Zoopla & Alpic | London edition',
+		href: 'https://www.youtube.com/watch?v=GISJGn3Mq08',
+		publishedOn: '2025-12-19',
+	},
+	{
+		title: 'Code Execution with MCP: Fix Tool Token Bloat (Adam Jones, Anthropic)',
+		href: 'https://www.youtube.com/watch?v=o_2_s60ui48',
+		publishedOn: '2025-12-12',
+	},
+	{
+		title: 'Code execution with MCP: Building more efficient agents',
+		href: 'https://www.anthropic.com/engineering/code-execution-with-mcp',
+		publishedOn: '2025-11-04',
+	},
+	{
+		title: 'The Model Context Protocol: Connecting AI to Everything - Adam Jones, Anthropic',
+		href: 'https://www.youtube.com/watch?v=T4-BdZQUCSE',
+		publishedOn: '2025-11-03',
+	},
+	{
 		title: 'What makes a good AI safety plan?',
 		href: 'https://bluedot.org/blog/what-makes-a-good-ai-safety-plan',
 		publishedOn: '2025-06-20',
