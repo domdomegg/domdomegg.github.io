@@ -6,6 +6,11 @@ import {type Post, postSchema} from '../components/BlogHeader';
 
 const externalPosts: Post[] = ([
 	{
+		title: 'Give AI companies something to aim for: The case for beneficial capability evals',
+		href: 'https://blog.bluedot.org/p/give-ai-companies-something-to-aim',
+		publishedOn: '2026-01-10',
+	},
+	{
 		title: '5 ways to develop an AI safety plan or field strategy',
 		href: 'https://bluedot.org/blog/5-ways-to-develop-ai-safety-plan',
 		publishedOn: '2025-06-29',
