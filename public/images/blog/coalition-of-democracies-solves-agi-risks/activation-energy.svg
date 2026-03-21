@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 310" font-family="system-ui, -apple-system, sans-serif">
+  <rect width="620" height="310" fill="white"/>
+
+  <!-- Annotations drawn first (behind curves) -->
+
+  <!-- Reference line at democracy energy level -->
+  <line x1="100" y1="185" x2="445" y2="185" stroke="#d1d5db" stroke-width="1" stroke-dasharray="3 4"/>
+
+  <!-- Leader: blue peak to arrow -->
+  <line x1="262" y1="48" x2="420" y2="48" stroke="#93c5fd" stroke-width="1" stroke-dasharray="3 4"/>
+
+  <!-- Leader: red peak to arrow -->
+  <line x1="262" y1="120" x2="400" y2="120" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3 4"/>
+
+  <!-- Red barrier-height arrow -->
+  <g stroke="#dc2626" fill="#dc2626" stroke-width="1.5">
+    <line x1="400" y1="180" x2="400" y2="125"/>
+    <polygon points="400,120 396,130 404,130" stroke="none"/>
+    <polygon points="400,185 396,175 404,175" stroke="none"/>
+  </g>
+
+  <!-- Blue barrier-height arrow -->
+  <g stroke="#2563eb" fill="#2563eb" stroke-width="1.5">
+    <line x1="420" y1="180" x2="420" y2="53"/>
+    <polygon points="420,48 416,58 424,58" stroke="none"/>
+    <polygon points="420,185 416,175 424,175" stroke="none"/>
+  </g>
+
+  <!-- Energy curves (drawn over annotations) -->
+
+  <!-- Energy landscape: single country (lower barrier) -->
+  <path d="M 50 170
+           Q 63 185 85 185
+           C 200 185 230 120 260 120
+           C 290 120 420 260 500 260
+           Q 532 260 555 246"
+        fill="none" stroke="#dc2626" stroke-width="3" stroke-dasharray="10 5"/>
+
+  <!-- Energy landscape: coalition (higher barrier) -->
+  <path d="M 50 170
+           Q 63 185 85 185
+           C 190 185 228 48 260 48
+           C 292 48 420 260 500 260
+           Q 532 260 555 246"
+        fill="none" stroke="#2563eb" stroke-width="3"/>
+
+  <!-- Balls -->
+  <circle cx="85" cy="176" r="9" fill="#374151"/>
+  <circle cx="500" cy="251" r="9" fill="#374151" opacity="0.3"/>
+
+  <!-- Well labels (25px below each well bottom) -->
+  <text x="85" y="210" font-size="16" fill="#374151" font-weight="600" text-anchor="middle">Democracy</text>
+  <text x="500" y="285" font-size="16" fill="#374151" font-weight="600" text-anchor="middle">Tyranny</text>
+
+  <!-- Blue arrow label -->
+  <text x="435" y="90" font-size="13" fill="#2563eb">Much larger</text>
+  <text x="435" y="106" font-size="13" fill="#2563eb">push needed</text>
+
+  <!-- Red arrow label -->
+  <text x="435" y="140" font-size="13" fill="#dc2626">Smaller push</text>
+  <text x="435" y="156" font-size="12" fill="#dc2626" font-style="italic">(e.g. economic</text>
+  <text x="435" y="170" font-size="12" fill="#dc2626" font-style="italic">shock from AI)</text>
+
+  <!-- Legend (top-left) -->
+  <line x1="30" y1="16" x2="67" y2="16" stroke="#dc2626" stroke-width="3" stroke-dasharray="10 5"/>
+  <text x="75" y="21" font-size="14" fill="#374151">Single country controlling AGI</text>
+
+  <line x1="30" y1="36" x2="67" y2="36" stroke="#2563eb" stroke-width="3"/>
+  <text x="75" y="41" font-size="14" fill="#374151">Coalition of democracies</text>
+</svg>
