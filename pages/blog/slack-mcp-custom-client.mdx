@@ -1,0 +1,95 @@
+---
+title: "How to set up the Slack MCP server with a custom client"
+publishedOn: "2026-04-14"
+citable: true
+---
+
+import Details from '../../components/Details'
+
+Slack publish an [MCP server](https://docs.slack.dev/ai/slack-mcp-server/) at `https://mcp.slack.com/mcp` that gives AI agents access to your workspace — search, read messages, send messages, read/write canvases, and so on.
+
+Slack document how to [connect it to Claude Code](https://docs.slack.dev/ai/slack-mcp-server/connect-to-claude) and to Cursor, but both of those flows rely on their pre-registered Slack apps. If you want to use the server from your own MCP client — a self-hosted [aggregator](https://github.com/domdomegg/mcp-aggregator), a bespoke agent, a different IDE, anything — you need your own Slack app.
+
+## 1. Create the Slack app from a manifest
+
+Go to [api.slack.com/apps](https://api.slack.com/apps) → **Create New App** → **From a manifest** → pick your workspace → paste this (replacing the redirect URL with your client's callback):
+
+```json
+{
+    "display_information": {
+        "name": "slack-mcp",
+        "description": "MCP client access to Slack",
+        "background_color": "#2c2d30"
+    },
+    "features": {
+        "bot_user": {
+            "display_name": "slack-mcp",
+            "always_online": false
+        }
+    },
+    "oauth_config": {
+        "redirect_urls": [
+            "https://mcp.example.com/upstream-auth/callback"
+        ],
+        "scopes": {
+            "bot": [
+                "users:read"
+            ],
+            "user": [
+                "search:read.public",
+                "search:read.private",
+                "search:read.mpim",
+                "search:read.im",
+                "search:read.files",
+                "search:read.users",
+                "chat:write",
+                "channels:history",
+                "groups:history",
+                "mpim:history",
+                "im:history",
+                "canvases:read",
+                "canvases:write",
+                "users:read",
+                "users:read.email"
+            ]
+        }
+    },
+    "settings": {
+        "org_deploy_enabled": true
+    }
+}
+```
+
+> **Important!** Remember to replace `https://mcp.example.com/upstream-auth/callback` above with your client's OAuth callback URL.
+
+<Details title='What is this manifest doing?'>
+This manifest defines a Slack app for your organisation, necessary to connect via the MCP. When you connect via Claude Code or Cursor, this is because the creators of those tools have created their own Slack apps that set a callback URL specific to their apps. So this is your equivalent version for your client.
+
+A few things in that manifest are non-obvious:
+
+- **The user scopes are the ones the Slack MCP server advertises** in its [`.well-known/oauth-protected-resource`](https://mcp.slack.com/.well-known/oauth-protected-resource) metadata. Including all of them gives the MCP server its full toolset; trim the list if you want to restrict.
+- **The bot user is a hack.** The MCP server itself only uses *user* tokens (`xoxp-…`), so you shouldn't need a bot. However, Slack's `oauth/v2_user/authorize` endpoint silently fails with "doesn't have a bot user to install" if the app has no bot user declared. Adding `features.bot_user` + at least one bot scope (here, `users:read`) is the minimum that makes the authorize endpoint accept the request. The bot is never actually used at runtime.
+</Details>
+
+## 2. Edit a couple settings
+
+Enable PKCE: In **OAuth & Permissions**,[^1] find **"Proof Key for Code Exchange (PKCE)"** and click **Opt In**.
+
+Enable MCP: In **Agents & AI Apps**,[^2] find **Model Context Protocol**, and flip the toggle.
+
+## 3. Point your client at it
+
+In your MCP client, configure Slack with:
+
+- **URL:** `https://mcp.slack.com/mcp`
+- **OAuth client ID:** from *Basic Information → App Credentials* in the Slack admin
+
+(If your client requires configuring an OAuth client secret you can set it to an empty string or a placeholder string like "unused")
+
+## Troubleshooting
+
+- **"No scopes requested"**: your client isn't sending the `scope` parameter. The Slack MCP server advertises scopes in its protected-resource metadata (RFC 9728) — your client should read them from there and include them in the authorize URL.
+- **"doesn't have a bot user to install"**: missing `features.bot_user` in the manifest (see above).
+
+[^1]: URL looks like `https://app.slack.com/app-settings/<TEAM_ID>/<APP_ID>/oauth`
+[^2]: URL looks like `https://api.slack.com/apps/<APP_ID>/app-assistant`
