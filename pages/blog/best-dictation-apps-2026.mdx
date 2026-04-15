@@ -1,0 +1,228 @@
+---
+title: "What's the best dictation app? I tried 21 Wispr Flow alternatives to find out."
+publishedOn: "2026-04-15"
+---
+
+Hold a hotkey, talk, release - your words appear at the cursor, cleaned up by an LLM. That's push-to-talk dictation, and it's the fastest way I've found to prompt AI agents.
+
+[Wispr Flow](https://wisprflow.ai/) popularised the pattern, but it's closed-source, uses remote models with privacy implications, and paid. But luckily there are a lot of alternatives!
+
+I evaluated 21 of these dictation apps to work out which is actually best. _This is a snapshot as of April 2026: this space moves fast and some apps will look different in six months._
+
+## TL;DR
+
+- **macOS only: use [FluidVoice](https://github.com/altic-dev/FluidVoice).** Live preview of the transcript while you speak, and LLM cleanup runs by default - it feels the closest to Wispr Flow's UX of anything I tried. It has some minor rough edges (I've filed a few PRs upstream), but none are blockers.
+- **Cross-platform: use [Handy](https://github.com/cjpais/Handy).** Windows, macOS and Linux support, active maintainers, and it supports the same top-tier transcription models. No live preview, and you have to enable LLM cleanup manually, but it's solid.
+
+For the transcription model:
+- **English only:** select NVIDIA Parakeet v2. It's faster and more accurate than any Whisper model I tested, including Whisper Turbo. For English only, it's slightly better than Parakeet v3 and about the same as Cohere Transcribe in my testing.
+- **Non-english or multilingual:** select NVIDIA Parakeet v3 (faster, less accurate) or Cohere Transcribe 03-2026 (slower, more accurate).
+
+If you don't care about the other products, skip to [how to set these up](#how-to-set-up) to learn how to set these up best.
+
+## Why use a dictation app?
+
+Typing is slow. Most people talk at around 150 words per minute and type at 40-60, so dictation speeds them up. But even for fast typists it's faster - in typing tests I type at 150 wpm, but editing mid-sentence is much faster when you can just say the correction out loud. "Let's schedule a 2pm meeting with Jane, oh I mean 3pm" gets fixed up by the LLM cleanup; the equivalent typing workflow is to stop, backspace or move the cursor, and retype which is a lot slower. A [2020 study of clinical notes](https://www.sciencedirect.com/science/article/abs/pii/S1386505620301684) found speech recognition was faster than typing, and as a nice bonus the dictated notes also tended to be longer and more complete. The study was specific to the medical context, but if it does transfer to prompting AI systems, the extra length and detail is a nice side benefit given a lot of the time these systems are bottlenecked on how much context you give them.
+
+Typing requires more mental effort than speaking, at least for me. I can't fully articulate why - it just is. I notice it most at the end of a long day, when typing starts to feel like work and dictation doesn't.
+
+Typing can be hard with disabilities or injuries. For people with motor impairments, tremors, or limited hand mobility, these apps make writing more accessible in a way typing often isn't. Dictation also helps reduce keystrokes, helping manage conditions like RSI.
+
+I find dictation great a lot of the time, especially for semi-ephemeral short-form text - prompting Claude Code, drafting Slack messages, replying to emails, filling in forms. This said, I still prefer typing for some things, like structuring long-form writing like blog posts (mainly as a forcing function to really get my thoughts clear) or making many micro edits to a document.
+
+## How these apps differ
+
+Every app in this space does roughly the same thing, but they differ on:
+
+- **Transcription models supported** - local options (Whisper, Parakeet, Apple Speech) vs cloud only (OpenAI, Groq, Cohere).
+- **LLM cleanup models supported** - which providers, and which specific models. Some apps haven't updated to the latest Claude or Gemini models.
+- **Ease of setup** - some work out of the box, others have a dozen configuration screens to get through.
+- **Privacy** - does audio leave your machine? Does the app phone home? Has the vendor had any incidents?
+- **Commercial posture** - open-source and free, or heading toward enshittification.
+- **Live preview** - can you see the transcription as you speak, or only after release?
+- **Community and support** - active maintainers, responsive to issues, regular releases.
+
+Other features exist (screenshot context, per-app profiles, command mode, editing mode) but I found they matter much less than the basics above.
+
+## Apps I ruled out, and why
+
+I put my list together by searching GitHub for dictation-adjacent repos, asking a few AI agents to find alternatives to Wispr Flow, and going through Reddit and Hacker News threads where people recommend transcription tools. This isn't every dictation app that exists, but it's most of the ones people are actually talking about.
+
+I had some hard requirements: free, open source, supports up-to-date transcription and LLM models, actively maintained, has LLM cleanup. That narrowed things down fast.
+
+| App | Why I excluded it |
+|-----|-------------------|
+| Wispr Flow | Closed source, paid, cloud-only transcription. |
+| Aqua Voice | Closed source, paid, cloud-only transcription. |
+| Superwhisper | Closed source, paid. |
+| Voibe | Closed source, paid. |
+| BetterDictation | Closed source, paid. |
+| Careless Whisper | Closed source, paid. |
+| Dictaflow | Closed source, paid. |
+| VoiceInk | Open source, but the distributed binary (including via Homebrew) costs $40. You can build from source for free, but this is a real pain and you don't get auto-updates. |
+| Hex | No LLM cleanup - the UI was [removed in 0.6.3](https://github.com/kitlangton/Hex/blob/main/CHANGELOG.md). |
+| Freeflow | Crashes on launch in my testing. Not ready for prime time yet. |
+| Dial8 | The GitHub repo looks abandoned. The website offers a downloadable app but it requires a login and it wasn't clear what it actually does. |
+| WhisperWriter | Last commit Aug 2024. No LLM cleanup. |
+| MisterWhisper | No LLM cleanup. Last meaningful activity Dec 2025. |
+| foges/whisper-dictation | Last commit Jul 2024. No LLM cleanup. Toggle-only (no hold-to-record). |
+| CustomWispr | Cloud-only (OpenAI). 14 stars. |
+| Vocorize | Last commit Aug 2025. No LLM cleanup. 13 stars. |
+
+That left me with four apps worth a proper look: **Handy**, **FluidVoice**, **Whispering**, **OpenWhispr**, plus **Spokenly** as an interesting closed-source honourable mention.
+
+## The serious contenders
+
+### Handy
+
+[github.com/cjpais/Handy](https://github.com/cjpais/Handy) - MIT, 19.8k stars, macOS/Windows/Linux, `brew install --cask handy`.
+
+**What I liked.** Genuinely easy to set up. Supports Whisper, Parakeet and Cohere. Works fully offline if you want, or you can plug in OpenAI, Anthropic, Groq, OpenRouter, Apple Intelligence, Ollama, etc. for LLM cleanup. The maintainers are responsive - when I bisected a microphone initialisation regression and [filed it](https://github.com/cjpais/Handy/issues/1283), it got picked up quickly. MIT-licensed, no upsells, no hint of a paid tier coming.
+
+**What I didn't.** No live preview - the text only appears after you release the hotkey, which feels slow once you've used something with streaming. LLM cleanup isn't on by default; turning it on requires going into advanced settings and wiring up a separate "post-processing" keybind (see [setup](#how-to-set-up)).
+
+**Verdict.** If you're on Windows or Linux, this is the best option. On macOS it's still good, just not my top pick - FluidVoice has enough usability wins for me to prefer it.
+
+### FluidVoice
+
+[github.com/altic-dev/FluidVoice](https://github.com/altic-dev/FluidVoice) - GPL-3, 1.7k stars, macOS 15+, `brew install --cask fluidvoice`.
+
+**What I liked.** Live word-by-word preview as you speak. LLM cleanup is on by default, so you don't have to configure anything to get the Wispr-Flow-style polished output. Local Parakeet v2 and v3 support, plus Cohere Transcribe and Apple Speech. Command mode is a neat concept - you can say "hey Claude, do X" and have it run as a prompt rather than being pasted as text, although not sure how much I'll actually use this.
+
+**What I didn't.** A few rough edges, all of which I've filed upstream:
+
+- Short utterances (under 1s) get silently dropped by the transcription guard ([#276](https://github.com/altic-dev/FluidVoice/issues/276)).
+- The default cleanup prompt appends the transcript rather than templating it, which makes it hard to write a prompt that references the transcript explicitly ([#277](https://github.com/altic-dev/FluidVoice/issues/277), [#280](https://github.com/altic-dev/FluidVoice/issues/280)).
+- The default cleanup prompt is mediocre - you'll want to set a custom one (see [setup](#how-to-set-up)).
+
+None are blockers; the basic dictate-and-paste flow works great.
+
+**Verdict.** My top pick for macOS. The live preview and default-on cleanup make it feel meaningfully better to use than Handy. If the upstream bugs get fixed it will be unambiguously the best option.
+
+### Whispering
+
+[github.com/EpicenterHQ/epicenter](https://github.com/EpicenterHQ/epicenter) - MIT/AGPL, 4.4k stars, cross-platform, YC S25.
+
+**What I liked.** Widest cloud STT backend coverage of any app I tried (Whisper, Parakeet, Moonshine, Groq, OpenAI, ElevenLabs, and self-hosted via Speaches). Cross-platform including a browser version. Active development.
+
+**What I didn't.** The setup UI is janky - too many irrelevant settings with no wizard to guide you through, and notifications fire constantly and block buttons you're trying to click. I couldn't get it to bind to the globe/Fn key for hold-to-record. The available Claude models in the transformations section don't include Sonnet 4.6 or Opus 4.6. It doesn't support the local Cohere Transcribe STT model. Configuring an AI post-processing transformation to run by default takes significantly more work than it should. Pasting on macOS is buggy in my testing - it sometimes pastes both the pre- and post-transformation text. No live preview.
+
+**Verdict.** Has the most potential on paper, but the rough edges mean I'd reach for Handy over this basically every time.
+
+### OpenWhispr
+
+[github.com/OpenWhispr/openwhispr](https://github.com/OpenWhispr/openwhispr) - MIT, 2.4k stars, cross-platform.
+
+**What I liked.** Works locally, supports LLM cleanup with Ollama as a local option, has an interesting "agent mode" that can take actions rather than just paste text (very similar to FluidVoice's "Command mode").
+
+**What I didn't.** Feels a bit commercial - there are signs it might be heading toward paid tiers or enshittification. The agent mode doesn't work very reliably in my testing - voice transcription drops out and the tools don't fire consistently. It only supports Parakeet v3, not v2 - which is actually a downgrade for English (see [setup](#how-to-set-up)). No live preview. No Cohere Transcribe.
+
+**Verdict.** Works, but no reason to pick it over Handy. Worried it may get worse as it gets more commercialized.
+
+### Spokenly (honourable mention)
+
+[spokenly.app](https://spokenly.app/) - closed source, free local tier, $9.99/mo Pro, macOS 14+ only.
+
+This is the only closed-source app I'd consider. The free tier has local Whisper + Parakeet, with a "Local Only Mode" that actually blocks network access. It doesn't push the paid tier too hard. A unique feature is a voice MCP server - you can have Claude Code request voice input from you through it, which is maybe interesting? The settings UI is also slightly more polished than both the recommended open source alternatives.
+
+Still, it's closed source, Mac-only, and if the company decides to squeeze users later there's nothing you can do.
+
+## Summary comparison
+
+| App | Open source | Cross-platform | LLM setup | Live preview | Latest models | No paid nags |
+|-----|------|----------------|-------------|--------------|---------------|--------------------|
+| **FluidVoice** | Yes | No, macOS only | Yes | Yes | Yes | Yes |
+| **Handy** | Yes | Yes | Opt-in | No | Yes | Yes |
+| Whispering | Yes | Yes | Opt-in, fiddly | No | No | Yes |
+| OpenWhispr | Yes | Yes | Yes | No | No | No |
+| Spokenly | No | No, macOS only | Yes | Yes | Yes | No, minor |
+
+## Which one is actually best?
+
+Four considerations dominated for me:
+
+1. **Ease of setup.** Handy and FluidVoice both "just work" out of the box (once you've enabled cleanup on Handy). Whispering has too many settings. OpenWhispr's agent mode adds complexity without paying it back.
+2. **Privacy and supply chain.** Running transcription on-device means the audio never leaves your machine. Once you use cloud transcription you have to trust at least one more vendor with everything you dictate. All five shortlisted apps can run fully locally.
+3. **Commercial posture.** FOSS with active maintainers beats closed-source-with-free-tier every time, because the free tier can (and often does) evaporate. Handy and FluidVoice are both fully FOSS with nothing hinting at a paid future. Spokenly and OpenWhispr have some commercial smell.
+4. **Live preview.** Surprisingly important. Once you've seen the transcript appear as you speak, the gap between release and text-appearing on other apps feels jarring.
+
+With all of that:
+
+- **macOS: FluidVoice wins**, mostly on live preview + default-on cleanup, and partly on the robust paste mechanism.
+- **Windows/Linux: Handy wins**, as it has the latest models, is fairly easy to set up and does not have a commercial slant.
+
+## How to set up
+
+### Transcription model
+
+Use **Parakeet v2** for English. It's fast, extremely accurate, and in my testing beats every Whisper variant including Whisper Turbo. It also beats Parakeet v3 for English.
+
+For non-English languages, use:
+- **Parakeet v3** - fast, high accuracy. Slightly worse than v2 on English specifically, but supports a lot more languages.
+- **Cohere Transcribe** - slower, very high accuracy.
+
+Obviously, you can try a few and see what works - quality can vary by accent, domain and background noise.
+
+### LLM cleanup prompt
+
+Here's the cleanup prompt I use:
+
+```text
+<speaker_details>
+The speaker is [YOUR NAME] ([YOUR USERNAME]). Common topics include [YOUR USUAL TOPICS].
+</speaker_details>
+
+<transcript>
+${transcript}
+</transcript>
+
+Clean up the transcript below:
+1. Fix spelling, capitalization, and punctuation (e.g. Aaron Drones → Adam Jones)
+2. Apply corrections when the speaker corrects themselves (e.g. "Yeah book with Oliver, I mean Jane" → "Yeah, book with Jane")
+3. Remove false starts and abandoned phrases (e.g. "Can you — actually, let's just go with blew blue" → "Let's just go with blue")
+4. Convert number words to digits (e.g. twenty-five → 25, ten percent → 10%, five dollars → $5, fifty kilos → 50 kg)
+5. Replace spoken punctuation with symbols (e.g. period → ., comma → ,, question mark → ?, exclamation mark → !, adam jones dot me slash example dash app → adamjones.me/example-app)
+6. Remove filler words (um, uh, like, yeah, so, you know)
+7. Keep the original language (e.g. if spoken in French, output in French)
+
+If the transcript is empty you should immediately end your turn and output nothing (or if you must output something, a single space). Outputting "The transcript is empty" would be a mistake.
+
+If the transcript is a question, you should treat that as the thing to clean up, not try to answer that question. E.g. "Hey, uhh what is the um time" → "Hey, what is the time?". Or "Um how does the transcript clean cleaner you know work?" → "How does the transcript cleaner work?"
+
+Return only the cleaned text:
+```
+
+### LLM cleanup model
+
+For the model itself, I've tried:
+
+- **Claude Haiku 4.5** - works well, fast, low-ish cost. My default.
+- **Gemma 4 via Ollama (gemma4:e4b or gemma4:e2b)** - both good enough for cleanup. Fully local. But slow on my M2 Pro with 16GB RAM, and hoovers up RAM while running. (This might be my Ollama setup rather than the model.)
+- **Apple Intelligence** - abysmal at the moment. Using this is worse than no cleanup.
+
+### Configuring FluidVoice
+
+```sh
+brew install --cask fluidvoice
+```
+
+Then:
+
+1. In the 'Voice Engine' settings, select your transcription model.
+2. Set your push-to-talk key (I use Fn).
+3. Enable 'Press and Hold Mode'
+4. In the 'AI Enhancements' settings, replace the default prompt with the template above and pick your cleanup LLM.
+
+### Configuring Handy
+
+```sh
+brew install --cask handy
+```
+
+Handy has two keybinds: the default one runs raw transcription with no cleanup, and a separate "post-processing pipeline" keybind runs transcription + cleanup. You almost always want cleanup, so the trick is:
+
+1. Pick your transcription model in setup wizard.
+2. Set the **default** keybind to something you'll never press (e.g. `Ctrl+Shift+F19`).
+3. Go to **advanced settings** and enable the **post-processing pipeline**.
+4. Set the post-processing keybind to what you actually want to use (e.g. Fn).
+5. Configure the pipeline to use the prompt template above with your preferred LLM.
