@@ -1,0 +1,111 @@
+---
+title: "Running LLMs Locally in 2026: Local models got ~2.8x faster in a year"
+publishedOn: "2026-04-16"
+---
+
+import BarChart from '../../components/BarChart';
+import Details from '../../components/Details';
+
+A year ago I [benchmarked local LLMs](../local-llms-speed-early-2025/) on an M2 Pro MacBook with 16GB RAM. I thought it'd be interesting to rerun the same setup a year later: same machine, same models, same methodology.
+
+Short answer: the exact same model on the exact same hardware now runs ~1.1-1.4x faster. And newer models with similar capability run **~2.8x faster** than last year's.
+
+## Inference improvements: up to ~1.8x faster for the same models on the same hardware
+
+Most models got modestly faster for free: ~1.1-1.4x for the medium sizes, more for the tiny ones (Gemma 3 1B got 1.8x faster!). This is ollama, its underlying [llama.cpp](https://github.com/ggml-org/llama.cpp) engine, and Metal kernels all improving over the year.
+
+<BarChart
+  data={[
+    ['Model', '2025', {role: 'annotation'}, '2026', {role: 'annotation'}],
+    ['deepseek-r1:1.5b', 83.1, '83.1', 118.0, '118.0'],
+    ['llama3.2:1b', 82.0, '82.0', 117.1, '117.1'],
+    ['gemma3:1b', 58.4, '58.4', 106.6, '106.6'],
+    ['llama3.2:3b', 56.1, '56.1', 69.9, '69.9'],
+    ['gemma3:4b', 43.3, '43.3', 52.1, '52.1'],
+    ['deepseek-r1:8b', 28.9, '28.9', 32.2, '32.2'],
+    ['gemma3:12b', 17.6, '17.6', 19.4, '19.4'],
+    ['deepseek-r1:14b', 16.2, '16.2', 17.9, '17.9'],
+    ['phi4:14b', 15.0, '15.0', 16.8, '16.8'],
+    ['mistral-small:24b', 1.18, '1.18', 0.22, '0.22'],
+    ['gemma3:27b', 0.06, '0.06', 0.05, '0.05'],
+  ]}
+  options={{
+    colors: ['#94a3b8', '#e7000b'],
+    legend: {position: 'top'},
+    hAxis: {title: 'Tokens per second', ticks: []},
+  }}
+/>
+
+<Details title='Raw data table'>
+| Model | 2025 tps | 2026 tps | Change |
+|-------|---------:|---------:|-------:|
+| deepseek-r1:1.5b | 83.1 | 118.0 | +42% |
+| llama3.2:1b | 82.0 | 117.1 | +43% |
+| gemma3:1b | 58.4 | 106.6 | +83% |
+| llama3.2:3b | 56.1 | 69.9 | +25% |
+| gemma3:4b | 43.3 | 52.1 | +20% |
+| deepseek-r1:8b | 28.9 | 32.2 | +11% |
+| gemma3:12b | 17.6 | 19.4 | +10% |
+| deepseek-r1:14b | 16.2 | 17.9 | +10% |
+| phi4:14b | 15.0 | 16.8 | +12% |
+| mistral-small:24b | 1.18 | 0.22 | **-81%** |
+| gemma3:27b | 0.06 | 0.05 | -16% |
+</Details>
+
+Two oddities:
+
+- `mistral-small:24b` regressed from 1.18 to 0.22 tps. The local digest matches what I ran last year, so it's not a different quantisation. My guess is it's right at the RAM edge for a 16GB machine and something in the engine now pushes it over into heavier swap. Repeated runs after unloading everything still got 0.21-0.28 tps, so it's not just thermal noise.
+- `gemma3:27b` is still unusable. Its 17GB of weights don't fit in 16GB of RAM, so you're really measuring SSD speed. This was true in 2025 and is still true now.
+
+## New models are ~2.8x faster at the same capability
+
+The bigger gain comes from switching to a newer model. gemma4:e4b is about as capable as phi4:14b, but runs at **41.3 tps** on the same machine — ~2.8x faster than phi4:14b did last year (15 tps):
+
+<BarChart
+  data={[
+    ['Model', 'Tokens per second', {role: 'annotation'}, {role: 'style'}],
+    ['gemma4:e4b (2026)', 41.3, '41.3tps', '#e7000b'],
+    ['phi4:14b (2025)', 15.0, '15.0tps', '#94a3b8'],
+  ]}
+/>
+
+<Details title='Same capability?'>
+This is based on trying to find a model with similar benchmark performance. While benchmarks don't capture everything, they are helpful and this does seem to match the reactions of people who've used both.
+
+Here's how they compare across [MMLU-Pro](https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro) and [Artificial Analysis](https://artificialanalysis.ai/) benchmarks:
+
+| Benchmark | gemma4:e4b | phi4:14b |
+|---|---:|---:|
+| MMLU-Pro | 69.4% | 70.4% |
+| GPQA Diamond | 57% | 55% |
+| Humanity's Last Exam | 5% | 4% |
+| Terminal-bench hard | 8% | 4% |
+| Tau-bench (telecom) | 26% | 0% |
+| AA-Omniscience accuracy | 8% | 13% |
+| AA-Omniscience non-hallucination | 46% | 19% |
+
+They're close on general knowledge (MMLU-Pro, GPQA), Gemma 4 E4B is notably better at agentic and tool-use tasks (Terminal-bench, Tau-bench), and it hallucinates much less. Phi-4 edges slightly ahead on the AA-Omniscience accuracy benchmark. I think this is balanced enough to say they're fairly close in capability.
+
+It's also worth noting that on the benchmarks above we're only comparing text-in/text-out. Phi-4 is text-only, whereas gemma4:e4b additionally handles vision and audio input, and natively emits tool calls and thinking blocks. So for many real workflows gemma4:e4b is strictly _more_ capable!
+</Details>
+
+<Details title='Bonus: other Gemma 4 model measurements'>
+While I was at it, I also measured two other Gemma 4 variants:
+
+- `gemma4:e2b`: 66.3 tps (~4x phi4:14b). Smaller and faster, and only slightly lower benchmark scores than phi4:14b.
+- `gemma4:26b`: 0.4 tps. Reportedly stronger than phi4:14b, but at 18GB of weights it's in the same 'doesn't fit in 16GB of RAM' bucket as gemma3:27b.
+</Details>
+
+## Takeaways
+
+With fixed hardware, local inference got faster in two ways this year: the same models run ~1.1-1.4x faster thanks to engine improvements, and newer models deliver similar capability at ~2.8x the throughput.
+
+But consumer hardware has also been getting faster — [Apple's M5 claims over 4x peak GPU compute versus the M4](https://www.apple.com/newsroom/2025/10/apple-unleashes-m5-the-next-big-leap-in-ai-performance-for-apple-silicon/), though [real-world inference gains look more like ~15%](https://github.com/itsmostafa/inference-speed-tests). It's also been getting cheaper: a 13" MacBook Air with 16GB RAM and 512GB SSD was $1,199 a year ago with an M4; today the M5 equivalent is $1,099. That's ~8% off nominally, or closer to ~12% in real terms given [~3% US inflation over the year](https://www.bls.gov/cpi/).
+
+Stacking the factors — faster software (~2.8x at matched capability), faster hardware (~1.15x per chip generation), and ~12% cheaper in real terms at equivalent spec — a rough **"AI performance per dollar" for consumer local inference is around 3.5x what it was a year ago**.
+
+## Appendix: Test details
+
+Methodology matches [last year's post](../local-llms-speed-early-2025/): each model \<= 14B parameters was tested generating 1000 tokens, at least three times, after being loaded and used for 60 seconds. The two large models (`mistral-small:24b` and `gemma3:27b`) were tested generating 25 tokens, as they're much slower.
+
+Models were run using [ollama](https://ollama.com/) 0.20.7, at their default settings for the model tag as of 2026-04-16.
