@@ -1,0 +1,37 @@
+---
+title: "Local, real-time text-to-speech: compare Supertonic 2's 10 voices"
+publishedOn: "2026-04-17"
+---
+
+{/* eslint-disable @stylistic/max-statements-per-line */}
+
+[Supertonic 2](https://huggingface.co/Supertone/supertonic-2) is a text-to-speech model that's surprisingly quick to run even on modest CPUs.
+
+It comes with ten English voices — five female and five male. I couldn't find a side-by-side comparison of the voices, so here's one! My recommendation would be female 2, female 1 or male 3.
+
+| Female | Male |
+|---|---|
+| **Female 1** (accurate, monotonous) <br/> <audio controls src='/blog/supertonic-v2-voice-comparison/F1.ogg' /> | **Male 1** (confident, bit robotic) <br/> <audio controls src='/blog/supertonic-v2-voice-comparison/M1.ogg' /> |
+| **Female 2** (my favourite — clear, upbeat, chipper) <br/> <audio controls src='/blog/supertonic-v2-voice-comparison/F2.ogg' /> | **Male 2** (neutral, monotonous) <br/> <audio controls src='/blog/supertonic-v2-voice-comparison/M2.ogg' /> |
+| **Female 3** (calm, robotic)<br/> <audio controls src='/blog/supertonic-v2-voice-comparison/F3.ogg' /> | **Male 3** (my male favourite - clear, calm, warm)<br/> <audio controls src='/blog/supertonic-v2-voice-comparison/M3.ogg' /> |
+| **Female 4** (raspy, confident)<br/> <audio controls src='/blog/supertonic-v2-voice-comparison/F4.ogg' /> | **Male 4** (robotic) <br/> <audio controls src='/blog/supertonic-v2-voice-comparison/M4.ogg' /> |
+| **Female 5** (lower, less american)<br/> <audio controls src='/blog/supertonic-v2-voice-comparison/F5.ogg' /> | **Male 5** (relaxed, low energy) <br/> <audio controls src='/blog/supertonic-v2-voice-comparison/M5.ogg' /> |
+
+_Each entry in the table says: "Good morning. Sophia is going for a 5 km jog in Regent's Park at 10:30 AM and has invited you to join - want me to say yes?"_
+
+If you want a faster assistant-style pace, Supertonic has a `speed` parameter, but at values far from `1.0` (e.g. `1.4`) it occasionally drops or garbles words — especially on longer sentences or text with numbers and abbreviations. I'd recommend applying a pitch-preserving time-stretch to the rendered audio instead: same effective speaking rate without the artefacts. [wyoming-supertonic](https://github.com/domdomegg/wyoming-supertonic) does this by default.
+
+## For comparison: Piper
+
+[Piper](https://github.com/rhasspy/piper) is probably the most common self-hosted TTS in Home Assistant. Same phrase, four popular voices, all at the "medium" quality tier:
+
+|   |   |
+|---|---|
+| **en_US-amy** <br/> <audio controls src='/blog/supertonic-v2-voice-comparison/piper_en_US-amy-medium.ogg' /> | **en_GB-alan** <br/> <audio controls src='/blog/supertonic-v2-voice-comparison/piper_en_GB-alan-medium.ogg' /> |
+| **en_US-hfc_female** <br/> <audio controls src='/blog/supertonic-v2-voice-comparison/piper_en_US-hfc_female-medium.ogg' /> | **en_US-hfc_male** <br/> <audio controls src='/blog/supertonic-v2-voice-comparison/piper_en_US-hfc_male-medium.ogg' /> |
+
+## Running this in Home Assistant
+
+The reason I started looking into this was I wanted a better voice for my Home Assistant voice pipeline than Piper. I wrote a Wyoming protocol server that wraps Supertonic 2 to do this - it's a ~single-binary drop-in TTS server.
+
+See the [wyoming-supertonic README](https://github.com/domdomegg/wyoming-supertonic) for details on setting it up.
