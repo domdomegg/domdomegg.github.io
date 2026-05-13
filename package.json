@@ -23,7 +23,7 @@
     "eslint-plugin-mdx": "^3.4.1",
     "feed": "^4.2.2",
     "gray-matter": "^4.0.3",
-    "next": "^16.2.3",
+    "next": "^16.2.6",
     "postcss": "^8.5.10",
     "posthog-js": "^1.203.3",
     "react": "^19.0.0",
