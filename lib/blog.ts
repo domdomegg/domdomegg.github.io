@@ -6,6 +6,11 @@ import {type Post, postSchema} from '../components/BlogHeader';
 
 const externalPosts: Post[] = ([
 	{
+		title: 'How we contain Claude across products',
+		href: 'https://www.anthropic.com/engineering/how-we-contain-claude',
+		publishedOn: '2026-05-25',
+	},
+	{
 		title: 'Give AI companies something to aim for: The case for beneficial capability evals',
 		href: 'https://blog.bluedot.org/p/give-ai-companies-something-to-aim',
 		publishedOn: '2026-01-10',
