@@ -1,0 +1,62 @@
+---
+title: "A guide to building useful AI tools for AI safety"
+publishedOn: "2026-06-08"
+citable: true
+---
+
+import Details from '../../components/Details';
+
+AI models could do a lot of good for AI safety.
+
+Forethought's [concrete projects in AGI preparedness](https://www.forethought.org/research/concrete-projects-in-agi-preparedness) and [AI tools for existential security](https://www.forethought.org/research/ai-tools-for-existential-security) map this space well, and I generally endorse them: using AI better for forecasting, collective epistemics, philosophy, and coordination seems very useful for mitigating some of the most serious risks from AI, like [economic disempowerment leading to a stable totalitarian state](/blog/how-agi-could-kill-usa-democracy/).
+
+However, I worry most people who read these articles and choose to pursue something like 'AI-enabled forecasting tools' will fail.[^1]
+
+## Why most 'AI tools for AI safety' fail
+
+The word 'tools' evokes building a standalone product: an app, with a lot of software engineering behind it. And so people set out to build standalone web platforms, custom data analysis tools, or other technically-interesting solutions.
+
+But most of these are not helpful, because they enforce misguided structure onto a user's workflow, rather than empower the user to solve their problems with the full capability of the models however they see fit.
+
+Realistically, the person best placed to know how to use the models to help with forecasting, epistemics, or philosophy is the person doing the forecasting, epistemics, or philosophy: your product should therefore optimise hard on flexibility to let them do this!
+
+<Details title='Why is this mistake so incredibly common?'>
+
+Most people - maybe especially the people drawn to this space - make classic product engineering mistakes:
+- Applying classical product development patterns (have a clear focused set of user journeys) rather than principles (solve users' problems). Or simply copying what they've done before (problem -> build a webapp) rather than thinking through things carefully from first principles. These patterns and historical behaviours often don't apply well to AI tooling.
+- Not understanding users well enough, and wasting time building something that doesn't solve a real problem for anyone
+    - A real trap here is designing for an area rather than a person. The mistake is thinking 'what would a forecasting tool look like?' instead of 'what does a forecaster do, what problems do they have, and what constraints do they operate under?'
+- Not iterating from a working minimal solution, and instead trying to build the 'full' product up front. This usually means drifting from what users actually want, burning effort building the wrong thing. With how fast AI capabilities are improving, taking months+ to get something in front of users might mean the tool is obsolete by then!
+- Getting attached to a solution, then trying to shop around for a problem (rather than the other way around)
+
+</Details>
+
+## So what should be done instead?
+
+The most useful tooling enables people to accelerate their daily work, covering whatever they want to do today and into the future. Working on this effectively can look like:
+
+- Pair a buildery technical person (e.g. ex-CTO of a small startup) with a domain expert (e.g. a forecaster, someone in the civil service, or an experienced governance researcher). Ideally both are somewhat AI-savvy.
+- Optimise the domain person's day-to-day workflow[^2] using [Claude Cowork](https://www.anthropic.com/product/claude-cowork) or [Claude Code](https://www.anthropic.com/product/claude-code) plus some skills, MCPs/CLIs, and scheduled prompts. Another version of this looks like the buildery person trying to do the domain person's work themselves, with the help of AI tools.
+- Iterate. You should be shipping a new component or meaningful change at least every day or two, maybe more often, then getting feedback. Expect to discard a bunch of work.
+- Package this up for other researchers or organisations.
+- Work to deploy it in a few places, and use each deployment as an opportunity to iterate on making deployment easier.
+
+My guess is that the end result might include:
+
+- A thin harness. Don't overindex on the limitations of today's models too much, perhaps beyond a _little_ prompting. [Claude Code](https://www.anthropic.com/product/claude-code) or [Claude Cowork](https://www.anthropic.com/product/claude-cowork) might just be enough a lot of the time. I've also had some success building on top of the [Claude Agent SDK](https://code.claude.com/docs/en/agent-sdk/overview), or building directly on top of model APIs (preferring to expose tools via [code execution](https://www.anthropic.com/engineering/code-execution-with-mcp), e.g. as [CLIs](https://github.com/domdomegg/call-mcp)). (I work at Anthropic so know our product offering better; many harnesses are similarish, just use what works!)
+- Composable building blocks that give users flexibility and are easy to swap in/out as capabilities advance. Additionally, thinking of them this way tends to lead towards building more durable components, and also makes it easier to kill unsuccessful experiments. Composable blocks are also usually easier to deploy and more reusable between deployments. These blocks might include:
+    - skills (e.g. for doing things like web search, data analysis, or interacting with other tools)
+    - connectors (whether MCP servers/CLIs/[some hybrid](https://github.com/domdomegg/call-mcp)/APIs/SDKs) for doing things like file management, or running code
+    - infra to support the thin harness, skills or connectors, for example:
+        - services to allow users to run thin harnesses in a safe environment
+        - infra for building, hosting and sharing skills and connectors, like an [MCP aggregator](https://github.com/domdomegg/mcp-aggregator), [auth proxy](https://github.com/domdomegg/mcp-auth-wrapper) or [local tunneling service](https://github.com/domdomegg/mcp-local-tunnel)
+        - ways to lower the bar for users to create and share sandboxed artifacts e.g. [Claude Artifacts](https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them) for web apps, [Blurb](https://blurb.md/~/public/blurb/README.md) for docs, [Val Town](https://www.val.town/) for APIs, and something built on [asciinema](https://asciinema.org/) for terminal recordings
+        - other nice to haves that make using AI tools easier e.g. linking in something like [ntfy.sh](https://ntfy.sh/) for notifications
+    - better collection of context for AI systems, e.g. enabling auto-transcription of meetings
+    - documentation and training programs for users
+
+As above, **focus on solving users' actual problems**. Read the above as a list of example directions to explore, not a perfect blueprint.
+
+[^1]: Other than tooling around AI, I think it's also valuable to make the models themselves better at forecasting, epistemics, or philosophy. I think evals and RL environments can be very helpful for differentially accelerating beneficial capabilities and have [written about this previously](https://blog.bluedot.org/p/give-ai-companies-something-to-aim).
+
+[^2]: NB: their actual workflow! Not their imagined workflow/what they think might be useful.
