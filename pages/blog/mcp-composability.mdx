@@ -1,0 +1,53 @@
+---
+title: "Good MCP servers are designed for composition"
+publishedOn: "2026-06-07"
+---
+
+On Anthropic's MCP team I spoke to hundreds of people adopting MCP. Since then, I've also built over 50 MCP servers serving (in aggregate) millions of calls per day, and a large amount of MCP-related tooling.
+
+I've learnt that what separates okay from great MCP servers is designing them for composition.
+
+## The mistake
+
+Many people approach MCP servers as if they exist completely in a vacuum. They focus on individual capabilities or workflows that happen fully within one MCP server.
+
+For example, they imagine user journeys as:
+
+- "as a user, the Slack MCP server allows me to ask AI to catch me up on my Slack messages"
+- "as a user, the Slack MCP allows me to draft responses to Slack threads"
+
+## Thinking about MCP composability
+
+You know what's a really good interface for users to check their Slack messages and draft responses? Slack! It's actually often really painful to do things via AI that you could just do in one app.
+
+The value of an MCP server usually comes from how it can be composed with other tools and interfaces, not from the value of the MCP server in isolation. The Slack MCP server is most useful when it's part of a composition: e.g. perhaps one that includes a Google Docs MCP, a PagerDuty MCP, the GitHub `gh` CLI, and filesystem access to the user's computer.
+
+A better user journey looks like:
+
+> "As the oncall software engineer, I want to eliminate repetitive or trivial operational user support burden to free up time for more tactical reliability work.
+>
+> To do this, I want AI to poll a user support Slack channel every 5 mins, then triage any new messages against common workflows set out in our team Google Doc. The AI should support the user, and if it learns something new from the interaction edit the Google Doc so it continually gets better. For verified bugs, it should attempt a fix in the local checkout at ~/Documents/codebase, then raise a GitHub PR with the `gh` CLI, then post the PR to our team PR reviews Slack channel. If it gets stuck with any of this, it escalates to the oncall at the appropriate priority level via PagerDuty."
+
+Journeys like this are much much more valuable to users. Differences here are:
+- thinking through workflows with other MCP servers (this is the MCP composition bit)
+- starting with a much more concrete user (an oncall software engineer)
+- solving a real and specific pain point (often with AI it's "there is an existing time-consuming and/or unengaging workflow")
+- using agents as ongoing processes, rather than one-off chat interactions
+
+It's hard to predict all the ways users will want to use your MCP server: so don't! Think through several possible compositions of your MCP server, knowing these won't be exhaustive, and use these to design it to be generally composable. Once you have something out there, listen to your users about where they're finding value or getting stuck.
+
+## Designing for composability
+
+What good design looks like depends on your MCP server. But to start:
+- Expose your entire public API surface via your MCP server, and generally prefer precise tools to bundled big ones. (This goes against historic MCP guidance not to just create an API wrapper; I now think with solutions like [code execution](https://www.anthropic.com/engineering/code-execution-with-mcp) this is actually good).
+    - Consider also expanding your public API surface to cover ~everything that can be done in your product. Or, include your full external API surface, even if unstable (which is presumably fine for AI agents as they should be able to handle changes; MCP servers are not really meant to be rigid permanent contracts).
+    - A "complete" MCP server can be as simple as ~two meta tools: `get_api_docs()` and `call_api(method, path, args)`
+- Understand your users, and think through what they're trying to do.
+    - Interview your users, especially the ones pushing the boundaries of the server. Even better if you are dogfooding your MCP server heavily, because then you can always be sitting with a user: yourself.
+    - Point Claude at this article, and ask it to generate a tonne of examples for your product in the style of the better user journeys. Do some basic sense checking, then try to make them all possible with your MCP server.
+    - Have users collect and submit feedback. This seems to work especially well for internally deployed MCP servers (e.g. within an organisation). Some ways I've seen this go well:
+        - A `submit_feedback(text)` tool that the model can call itself to self-report mistakes, or when the user asked to do something with the server that the model thought was unsupported, or when the model spots an opportunity to improve the user's workflow even if they haven't asked for it. Tune the tool description etc. as needed to capture relevant details, and set privacy expectations for what the model should self-report/check-in with user about.
+        - Ask users to keep a friction log in some basic tracking tool e.g. could just be a Google Doc, then have a call to walk through the log. They can also use a skill or system prompt to get the model to self-add things to this friction log.
+- Don't shoot yourselves in the foot in very obvious ways:
+    - Don't place arduous legal restrictions on using your MCP server e.g. banning a very large or vague set of use cases, or requiring bespoke enterprise legal agreements for people to use your server
+    - Don't place arbitrary technical restrictions on using your MCP server e.g. doing OAuth but only allowlisting a few client IDs (support dynamic client registration! or at least make configuration self service)
