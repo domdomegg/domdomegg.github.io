@@ -213,7 +213,7 @@ export function getSortedPostsData(): Post[] {
 		return {
 			...matterData,
 			href,
-			absoluteUrl: `https://adamjones.me/blog/${href.slice(2)}`,
+			absoluteUrl: `https://adamjones.me${href}`,
 			location: 'internal',
 		};
 	});
