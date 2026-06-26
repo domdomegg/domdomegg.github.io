@@ -15,7 +15,7 @@ type BlogIndexProps = {
 const featuredAiSafetyHrefs = [
 	'/blog/what-is-agi/',
 	'/blog/how-agi-could-kill-usa-democracy/',
-	'/blog/ai-safety-plan-international-coalition/',
+	'/blog/coalition-of-democracies-solves-agi-risks/',
 	'/blog/rough-alignment-plan-early-2025/',
 	'/blog/uk-agi-plan-2025/',
 	'/blog/ai-regulator-toolbox/',
