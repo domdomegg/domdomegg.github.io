@@ -2,9 +2,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
 import {Feed} from 'feed';
-import {type Post, postSchema} from '../components/BlogHeader';
+import {type Post, type PostInput, postSchema} from '../components/BlogHeader';
 
-const externalPosts: Post[] = ([
+const externalPosts: PostInput[] = ([
 	{
 		title: 'How we contain Claude across products',
 		href: 'https://www.anthropic.com/engineering/how-we-contain-claude',
@@ -200,7 +200,7 @@ const externalPosts: Post[] = ([
 		href: 'https://bluedot.org/blog/ai-risks/',
 		publishedOn: '2024-02-21',
 	},
-] satisfies Omit<Post, 'absoluteUrl' | 'location'>[])
+] satisfies Omit<PostInput, 'absoluteUrl' | 'location'>[])
 	.map((p) => ({...p, absoluteUrl: p.href, location: 'external'}));
 
 export function getSortedPostsData(): Post[] {
@@ -246,7 +246,7 @@ export function writeRssFeed(posts: Post[]) {
 		language: 'en',
 		favicon: 'https://adamjones.me/favicon.ico',
 		copyright: '',
-		feed: 'https://adamjones.me/blog/feed',
+		feed: 'https://adamjones.me/blog/feed.xml',
 	});
 
 	posts.forEach((post) => {
@@ -259,5 +259,7 @@ export function writeRssFeed(posts: Post[]) {
 
 	const rss = feed.rss2();
 	fs.mkdirSync('public/blog', {recursive: true});
+	fs.writeFileSync('public/blog/feed.xml', rss);
+	// Kept for backwards compatibility with subscribers on the old extensionless URL.
 	fs.writeFileSync('public/blog/feed', rss);
 }

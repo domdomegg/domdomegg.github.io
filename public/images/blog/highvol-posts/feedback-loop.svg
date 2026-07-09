@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 290" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .cycle-box { fill: #eff6ff; stroke: #2563eb; }
+    .cycle-text { fill: #1e3a8a; }
+    .driver-box { fill: #f5f5f4; stroke: #78716c; }
+    .driver-text { fill: #44403c; }
+    @media (prefers-color-scheme: dark) {
+      .cycle-box { fill: #1e293b; stroke: #60a5fa; }
+      .cycle-text { fill: #bfdbfe; }
+      .driver-box { fill: #292524; stroke: #a8a29e; }
+      .driver-text { fill: #d6d3d1; }
+    }
+  </style>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrowGrey" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8a857f"/>
+    </marker>
+  </defs>
+
+  <!-- Three-node virtuous cycle. Node box centres: top (320,45),
+       lower-right / Post more (440,232), lower-left / Get better (200,232).
+       Arrows are Bézier curves drawn edge-to-edge between the boxes.
+       External driver enters from the left into the top node. -->
+
+  <!-- Cycle arrows (clockwise): feel better -> post more -> get better -> feel better -->
+  <g fill="none" stroke="#3b82f6" stroke-width="2.5" marker-end="url(#arrow)">
+    <!-- top (feel better) bottom-right -> post more top -->
+    <path d="M 388 72 Q 452 118 448 202"/>
+    <!-- post more left -> get better right (bow downwards) -->
+    <path d="M 362 240 Q 320 268 278 240"/>
+    <!-- get better top -> feel better bottom-left -->
+    <path d="M 192 202 Q 188 118 252 72"/>
+  </g>
+
+  <!-- External driver arrow (dashed, grey): highvol lowers the bar -> feel better.
+       Ends at the top node's left edge (x=210) so the arrowhead is visible. -->
+  <line x1="120" y1="45" x2="204" y2="45" stroke="#8a857f" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#arrowGrey)"/>
+
+  <!-- External driver node -->
+  <rect class="driver-box" x="20" y="18" width="100" height="54" rx="10" stroke-width="2" stroke-dasharray="7 5"/>
+  <text class="driver-text" x="70" y="41" text-anchor="middle" font-size="13" font-weight="600">highvol posts</text>
+  <text class="driver-text" x="70" y="59" text-anchor="middle" font-size="13" font-weight="600">lower the bar</text>
+
+  <!-- Cycle nodes -->
+  <g>
+    <!-- Top: feel better about posting — centre (320,45) -->
+    <rect class="cycle-box" x="210" y="18" width="220" height="54" rx="10" stroke-width="2"/>
+    <text class="cycle-text" x="320" y="41" text-anchor="middle" font-size="15" font-weight="600">Feel better about</text>
+    <text class="cycle-text" x="320" y="59" text-anchor="middle" font-size="15" font-weight="600">posting</text>
+
+    <!-- Lower-right: post more — centre (440,232) -->
+    <rect class="cycle-box" x="365" y="205" width="150" height="54" rx="10" stroke-width="2"/>
+    <text class="cycle-text" x="440" y="237" text-anchor="middle" font-size="15" font-weight="600">Post more</text>
+
+    <!-- Lower-left: get better — centre (200,232) -->
+    <rect class="cycle-box" x="125" y="205" width="150" height="54" rx="10" stroke-width="2"/>
+    <text class="cycle-text" x="200" y="237" text-anchor="middle" font-size="15" font-weight="600">Get better</text>
+  </g>
+</svg>

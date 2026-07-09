@@ -1,0 +1,57 @@
+---
+title: "Introducing: 'highvol'-tagged blog posts"
+publishedOn: "2026-07-10"
+---
+
+I write two kinds of post:
+
+- **Ideas I want to push into the world**, that people following me might want to read. I'm happy for these to go out via RSS and sit on my blog's front page. Examples: [How AGI could kill US democracy](/blog/how-agi-could-kill-usa-democracy/), [What might AGI look like, concretely?](/blog/what-is-agi/), [empathetic role-playing for product decisions](/blog/empathetic-role-playing/).
+- **Useful-if-you're-looking stuff.** Examples: [what the "Low Calorie Meal" on United Airlines actually is](/blog/united-airlines-low-calorie-meal/), [are cheap shaver blades are any good](/blog/cheap-shaver-blades/), [sending Keycloak emails through Google Workspace](/blog/keycloak-google-workspace/).
+
+Having one stream for both makes me reluctant to post the second kind, for fear of spamming people. But those posts are useful to people (and AI agents I guess) searching for that answer, and my analytics back that up:
+
+import BarChart from '../../components/BarChart';
+
+<BarChart data={[
+  ['Post', 'Relative page views', {role: 'tooltip', type: 'string'}],
+  ['Do cheap GPS trackers work?', 100, '100%'],
+  ['The AI regulator\'s toolbox', 8, '8%'],
+  ['How AGI could kill US democracy', 2, '2%'],
+]} options={{
+  hAxis: {
+    title: 'Relative page views', ticks: [], minValue: 0, maxValue: 100,
+  },
+  height: 220,
+  chartArea: {left: 190, width: '55%', height: '75%'},
+}} />
+
+A [review of cheap GPS trackers](/blog/cheap-gps-trackers/) gets significantly more traffic than my [AI](/blog/ai-regulator-toolbox/) [safety](/blog/how-agi-could-kill-usa-democracy/) writing. But it's almost all people arriving from a Google search (90%) — answering one question and leaving — whereas the AI safety posts are mostly read by people already browsing the blog. The two audiences barely overlap, which is exactly why reference posts shouldn't be pushed at the readers who stick around.
+
+I also just enjoy writing and sharing what I learn, so I'd like to post more of it. swyx argues for [learning in public](https://swyx.io/learn-in-public) and having "a habit of creating learning exhaust", which I really like. But again, this is likely to be content that is less valuable to be pushed out to followers.
+
+## Introducing: `highvol` posts
+
+The fix is to separate the two things a blog does:
+
+1. **Publishing** — making something exist at a stable, indexable, linkable URL.
+2. **Broadcasting** — actively pushing it at people who follow you.
+
+So I've added a **highvol** tier (as in "high volume"): published, but not broadcast. It still appears in the full list of posts, with a little "highvol" label so you know what you're getting — potentially lower-effort, published mainly in case it's useful.[^1]
+
+## One RSS feed, for now
+
+There's still just one RSS feed, with highvol posts excluded — so subscribers don't get a firehose of [vegan schnitzel](/blog/vegan-rewe-schnitzel-ruegenwalder-bratwurst/) reviews and [airplane food](/blog/united-airlines-low-calorie-meal/) documentation.
+
+I did consider a second "everything" feed. But I'm not sure anyone wants it, and RSS analytics are hard, so I'd likely be maintaining it for zero users. **If you'd want a second feed that includes highvol posts, [tell me](/feedback)!**
+
+## Is this silly?
+
+A bit. Not many people follow my blog closely, and those who do probably wouldn't mind the odd stray article.
+
+But the label removes the mental block. I can post something 80% done without it feeling like a broadcast. So having `highvol` as an option fuels the flywheel:[^2]
+
+![A virtuous cycle: feeling better about posting leads to posting more, which leads to getting better, which loops back to feeling better about posting. Off to the side, 'highvol posts lower the bar' feeds into feeling better about posting](../../images/blog/highvol-posts/feedback-loop.svg)
+
+[^1]: This isn't super new: on splitting a tended collection from a dated feed, there's Mike Caulfield's [garden and the stream](https://hapgood.us/2015/10/17/the-garden-and-the-stream-a-technopastoral/#:~:text=2%20%7C%20the%20garden%20and%20the%20stream), Maggie Appleton's [digital gardens](https://maggieappleton.com/garden-history), and Simon Willison's low bar for [what to blog about](https://simonwillison.net/2022/Nov/6/what-to-blog-about/).
+
+[^2]: The 'post more' -> 'get better' intuition I have is based on the [Art & Fear ceramics parable](https://austinkleon.com/2020/12/10/quantity-leads-to-quality-the-origin-of-a-parable/). I think the other parts are probably default intuitive.

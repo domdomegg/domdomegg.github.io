@@ -9,7 +9,8 @@ export const frontmatterSchema = z.object({
 	title: z.string(),
 	publishedOn: z.string().date(),
 	updatedOn: z.string().date().optional(),
-	citable: z.boolean().optional(),
+	citable: z.boolean().default(false),
+	highvol: z.boolean().default(false),
 });
 
 export const postSchema = frontmatterSchema.extend({
@@ -19,6 +20,7 @@ export const postSchema = frontmatterSchema.extend({
 });
 
 export type Post = Zod.infer<typeof postSchema>;
+export type PostInput = Zod.input<typeof postSchema>;
 
 const BlogHeader: React.FC<{frontmatter: unknown; href: string}> = ({frontmatter, href}) => {
 	const parsed = frontmatterSchema.parse(frontmatter);
@@ -47,7 +49,7 @@ const BlogHeader: React.FC<{frontmatter: unknown; href: string}> = ({frontmatter
 		<>
 			<Head>
 				<title>{`${parsed.title} - Adam Jones's Blog`}</title>
-				<link rel='alternate' type='application/rss+xml' title='RSS' href='../feed' />
+				<link rel='alternate' type='application/rss+xml' title='RSS' href='/blog/feed.xml' />
 				{parsed.citable && (
 					<>
 						<meta name='citation_title' content={parsed.title} />

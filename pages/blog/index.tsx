@@ -81,7 +81,7 @@ const BlogIndex: React.FC<BlogIndexProps> = ({posts}) => {
 			<SiteHeader />
 			<Head>
 				<title>Adam Jones's Blog</title>
-				<link rel='alternate' type='application/rss+xml' title='RSS' href='./feed' />
+				<link rel='alternate' type='application/rss+xml' title='RSS' href='/blog/feed.xml' />
 			</Head>
 			<h1>Adam Jones's Blog</h1>
 			<script
@@ -121,7 +121,36 @@ const BlogIndex: React.FC<BlogIndexProps> = ({posts}) => {
 				{publishedPosts.map((post) => (
 					<li key={post.href}>
 						<Link href={post.href}>{post.title}</Link>
-						{post.location === 'external' && <>{' '}<span className='bg-stone-300 dark:bg-stone-800 rounded-full text-xs px-2'>External</span></>}
+						{post.location === 'external' && (
+							<>
+								{' '}
+								<span className='relative inline-block'>
+									<button type='button' className='cursor-auto p-2 -my-6 -mx-2'>
+										<span className='bg-stone-300 dark:bg-stone-800 rounded-full text-xs px-2'>external</span>
+									</button>
+									<span className='absolute left-0 top-full block bg-white dark:bg-stone-800 border w-72 border-stone-300 dark:border-stone-600 rounded-sm shadow-sm px-3 py-1 text-xs z-10 transition-all origin-top-left invisible scale-0 [button:hover_+_&]:visible [button:focus-within_+_&]:visible hover:visible focus-within:visible [button:hover_+_&]:scale-100 [button:focus-within_+_&]:scale-100 hover:scale-100 focus-within:scale-100 normal-case font-normal'>
+										<p className='!my-1'>
+											Published elsewhere, not on this site.
+										</p>
+									</span>
+								</span>
+							</>
+						)}
+						{post.highvol && (
+							<>
+								{' '}
+								<span className='relative inline-block'>
+									<button type='button' className='cursor-auto p-2 -my-6 -mx-2'>
+										<span className='bg-stone-300 dark:bg-stone-800 rounded-full text-xs px-2'>highvol</span>
+									</button>
+									<span className='absolute left-0 top-full block bg-white dark:bg-stone-800 border w-72 border-stone-300 dark:border-stone-600 rounded-sm shadow-sm px-3 py-1 text-xs z-10 transition-all origin-top-left invisible scale-0 [button:hover_+_&]:visible [button:focus-within_+_&]:visible hover:visible focus-within:visible [button:hover_+_&]:scale-100 [button:focus-within_+_&]:scale-100 hover:scale-100 focus-within:scale-100 normal-case font-normal'>
+										<p className='!my-1'>
+											A lower-priority post: either lower-effort than my usual writing, or reference content that most subscribers won't care about.
+										</p>
+									</span>
+								</span>
+							</>
+						)}
 						<span className='text-xs text-stone-500'>
 							{' '}
 							—
@@ -141,7 +170,7 @@ export default BlogIndex;
 
 export const getStaticProps: GetStaticProps<BlogIndexProps> = async () => {
 	const posts = getSortedPostsData();
-	writeRssFeed(posts.filter((p) => Date.now() >= new Date(p.publishedOn).getTime()));
+	writeRssFeed(posts.filter((p) => Date.now() >= new Date(p.publishedOn).getTime() && !p.highvol));
 
 	return {
 		props: {
