@@ -15,6 +15,9 @@
 # production
 /dist
 
+# development (kept separate from /dist so builds can't corrupt a running dev server)
+/dist-dev
+
 # misc
 .DS_Store
 *.pem

@@ -21,5 +21,3 @@ Blog posts live in `pages/blog/*.mdx`, with images under `public/images/blog/<sl
 ## Local development
 
 `npm run start` runs the dev server; `npm run build` produces the static export in `dist/`.
-
-Don't `build` while the dev server is running — they share the `dist/` output and Turbopack cache, and building corrupts the dev server's compiled CSS (a `Parsing CSS source code failed` 500). If that happens, stop the dev server, `rm -rf dist .next node_modules/.cache`, and restart.

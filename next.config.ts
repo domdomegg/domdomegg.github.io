@@ -31,7 +31,10 @@ const withMDX = nextMDX({
 
 const nextConfig: NextConfig = {
 	output: 'export',
-	distDir: 'dist',
+	// Dev gets its own output dir (and thus its own Turbopack cache) so that
+	// running `next build` alongside the dev server can't corrupt the dev
+	// server's compiled output. See https://github.com/domdomegg/domdomegg.github.io/issues/54
+	distDir: process.env.NODE_ENV === 'development' ? 'dist-dev' : 'dist',
 	reactStrictMode: true,
 	images: {
 		unoptimized: true,
