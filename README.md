@@ -15,7 +15,7 @@ On 2023-03-07 this repository was made open-source. As I wasn't certain that the
 Blog posts live in `pages/blog/*.mdx`, with images under `public/images/blog/<slug>/`.
 
 - **`highvol` posts:** frontmatter `highvol: true` marks a post as published but not broadcast — it's excluded from the RSS feed, but still listed and indexable. [More on why](https://adamjones.me/blog/highvol-posts/).
-- **[draft] prefix:** A `[draft]` filename prefix keeps a post out of the listing/RSS entirely (though it's still reachable at its URL in the static build).
+- **draft- prefix:** A `draft-` filename prefix keeps a post out of the listing/RSS entirely (though it's still reachable at its URL, e.g. `/blog/draft-<slug>/`, including on the dev server). Don't use brackets in filenames — Next treats brackets as dynamic-route syntax, so the dev server can't serve such pages.
 - **Images:** before committing, **strip EXIF metadata** (especially GPS location) and **downscale to a reasonable web size** (~1400px wide, a few hundred KB). For example: `magick photo.jpg -resize 1400x -strip -quality 82 public/images/blog/<slug>/name.jpg`.
 
 ## Local development
