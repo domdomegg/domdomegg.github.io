@@ -1,0 +1,109 @@
+---
+title: "Do structured interviews actually work?"
+publishedOn: "2026-07-13"
+---
+
+## In short
+
+Yes: structured interviews are probably the best selection method we have, although they're still not great. And "structured" is fuzzier than it sounds, and often misapplied in practice.
+
+The components of structure with the most evidence behind them:
+- basing questions on a job analysis
+- asking each candidate the same questions
+- using situational, past-behaviour and job-knowledge questions (not trait-focused ones)
+- rating each answer, ideally against anchored scales
+
+## In long
+
+### Structured interviews are probably good
+
+The largest recent meta-analysis ([Sackett et al. 2022](https://pubmed.ncbi.nlm.nih.gov/34968080/), [PDF](https://gwern.net/doc/statistics/meta-analysis/2021-sackett.pdf)) found structured interviews were the single best predictor of job performance, ahead of work samples, job knowledge tests, and cognitive ability: a corrected validity of 0.42, versus 0.19 for unstructured interviews.
+
+The raw correlations are much smaller: mean observed validity across the underlying studies was 0.32 for structured interviews (0.13 unstructured). The 0.42 comes from two statistical corrections, both of which revise the number upwards: for *criterion unreliability* (supervisor ratings are a noisy measure of true performance, so the observed correlation understates the true relationship), and for *range restriction* (you only observe job performance for people you hired, who are pre-selected to be similar, and a narrowed range depresses correlations).
+
+Both corrections rest on assumptions, which are still shaky today and were definitely wrong in the past. Older studies like [Schmidt & Hunter's 1998 summary](https://doi.org/10.1037/0033-2909.124.2.262) reported 0.51 structured and 0.38 unstructured - this incorrectly applied range-restriction corrections sized for applicant pools to existing employees who weren't selected using the interview being validated, so their scores weren't much restricted in the first place. Sackett et al. fixed this, cutting most methods' estimates by 0.10-0.20.
+
+The evidence base is also fairly weak:
+- Roughly 3/4 of the interview studies were conducted on existing employees, not real applicants.
+- "Job performance" almost always means supervisor ratings, which are biased in themselves.
+- Validity varied a lot between studies (residual SD of 0.19), so you can't count on the average holding for your interview.
+- There's little agreement on what "structured interview" even means... see the next sections.
+
+### But people don't agree what counts as "structured"
+
+[Motowidlo et al. observed in 1992](https://www.researchgate.net/publication/232604420_Studies_of_the_Structured_Behavioral_Interview) that researchers agreed structured interviews were better, but not on what "structured" meant.
+
+The [2014 review by Levashina et al.](http://www.morgeson.com/downloads/levashina_hartwell_morgeson_campion_2014.pdf) concluded this is still the case: "Many articles and book chapters fail to define structure, and for articles that do, it is often unclear whether the provided description adequately reflects the operationalization."
+
+### Although there have been attempts to define it, with some analysis of which parts matter
+
+The two canonical definitions:
+
+- [Huffcutt & Arthur (1994)](https://www.semanticscholar.org/paper/Hunter-and-Hunter-(1984)-revisited:-Interview-for-Huffcutt-Arthur/eab097912caea300fcc43193e1e62b4eb8f01c0c): structure is "the degree of discretion that an interviewer is allowed in conducting the interview", along two dimensions: "standardization of (a) interview questions and (b) response scoring".
+- [Campion et al. (1997)](https://onlinelibrary.wiley.com/doi/10.1111/j.1744-6570.1997.tb00709.x): extend Huffcutt's definition into 15 components (of which the typical study implements about 6).
+
+Here are Campion's 15 components across Huffcutt's 2 dimensions, ordered by strength of evidence:
+
+| Component | Effect | Evidence |
+|---|---|---|
+| **Interview questions** | | |
+| Base questions on a job analysis | ⬆️ helps a lot | ★★★☆☆ consistent across meta-analyses |
+| Same questions for each candidate | ⬆️ helps | ★★★☆☆ indirect: it's how some meta-analyses define "structured" |
+| Situational / past-behaviour / job-knowledge questions | ⬆️ helps | ★★★☆☆ beat trait-focused questions in meta-analyses |
+| Control ancillary information | ↗️ maybe helps a bit | ★☆☆☆☆ one supplementary analysis |
+| Longer interviews / more questions | ↘️ maybe slightly hurts | ★☆☆☆☆ one marginal negative finding |
+| Limit prompting and follow-ups | ❓ unclear | ☆☆☆☆☆ almost none |
+| No candidate questions until the end | ❓ unclear | ☆☆☆☆☆ almost none |
+| **Response scoring** | | |
+| Rate each answer | ⬆️ helps | ★★★★☆ strong, for reliability |
+| Mechanical score aggregation | 🤷 mixed: beats gut-feel, but ties/loses to consensus | ★★★★☆ strong outside interviews; two findings within |
+| Anchored rating scales | ⬆️ helps | ★★☆☆☆ one meta-analysis + small studies |
+| Extensive interviewer training | ↗️ probably helps | ★★☆☆☆ a few studies |
+| Multiple interviewers | ↘️ maybe slightly hurts | ★★★☆☆ two meta-analyses |
+| Same interviewer(s) across candidates | ↗️ helps only if little else is structured | ★☆☆☆☆ mostly indirect |
+| Detailed notes | ↗️ probably helps a bit | ★☆☆☆☆ thin, mostly indirect |
+| No discussing candidates between interviews | ❓ unclear | ☆☆☆☆☆ none |
+
+In more detail:
+
+- Interview questions
+    - **Base questions on a job analysis.** [Wiesner & Cronshaw (1988)](https://doi.org/10.1111/j.2044-8325.1988.tb00467.x) found corrected validity of 0.87 where a formal job analysis was done, vs 0.59 informal and 0.56 unknown; [McDaniel et al. (1994)](https://doi.org/10.1037/0021-9010.79.4.599) found 0.50/0.39 for job-analysis-based interviews vs 0.29 for trait-focused "psychological" interviews. The absolute values are wrong given the overcorrection mistake described above, but the relative difference suggests deriving questions from the job helps a lot.
+    - **Ask the same questions of each candidate.** This lets you compare candidates directly on question performance. Direct evidence is hard to come by because it's used as the defining characteristic of "structured" in the meta-analyses above, rather than a separately tested component. Using mostly the same questions seems to be enough (see the ceiling effect below).
+    - **Use situational, past-behaviour and job-knowledge questions**, rather than trait-based self description. Situational ("what would you do if…"), past-behaviour ("tell me about a specific time you…"), and job-knowledge questions all beat trait-focused self-description ("what are your strengths?"). Between situational and past-behaviour, meta-analyses ([Taylor & Small 2002](https://doi.org/10.1348/096317902320369712); [Huffcutt et al. 2004](https://doi.org/10.1111/j.0965-075x.2004.280_1.x)) give past-behaviour a slight edge (observed validity 0.31 vs 0.25-0.26), especially for complex jobs, though individual studies split both ways.
+    - **Control ancillary information** (CV, test scores, referrals). In a supplementary analysis of 66 studies, McDaniel et al. found validities were higher when interviewers couldn't see candidates' test scores, even controlling for structure (though they don't report effect sizes).
+    - **Longer interviews / more questions.** Plausible in theory (more questions means more measurements), but there's no direct evidence it helps, and the one relevant finding points the other way ([Marchese & Muchinsky 1993](https://doi.org/10.1111/j.1468-2389.1993.tb00080.x) found length weakly *negatively* related to validity).
+    - **Limit prompting and follow-ups.** Unclear: the 2014 review calls research on probing "almost nonexistent". [Probing seems to help candidates fake](https://doi.org/10.1037/0021-9010.92.6.1638), and limiting probes probably reduces interviewer-introduced bias. However, [follow-ups are likely very valuable when used deliberately to reduce uncertainty](/blog/job-interviews-as-measurement/).
+    - **No candidate questions until the end.** The weakest: barely studied. Plausibly this helps avoid biasing the interview and ensures candidates get the same time for the interviewer questions.
+- Response scoring
+    - **Rate each answer**, rather than giving one overall score at the end. Multiple ratings have strong meta-analytic support for reliability ([Conway, Jako & Goodman 1995](https://doi.org/10.1037/0021-9010.80.5.565)), and rating per-answer is less cognitively demanding: you judge each response while it's fresh instead of reconstructing an hour from memory.
+    - **Combine scores mechanically, not by feel.** [Kuncel et al.'s meta-analysis](https://gwern.net/doc/statistics/prediction/2013-kuncel.pdf) found that when people combine assessment data holistically instead of via a formula, validity for predicting job performance drops from 0.44 to 0.28, even when the judges were experts who knew the job and often had extra information. However, consensus discussion after independent ratings held up fine ([Pulakos et al. 1996](https://doi.org/10.1111/j.1744-6570.1996.tb01792.x)), and in Wiesner & Cronshaw's data consensus panels beat averaging.
+    - **Use behaviourally anchored rating scales**: example answers pinned to scale points ("a 5 looks like…"), rather than bare 1-5 numbers. In Taylor & Small's meta-analysis, anchored scales beat unanchored on both validity (0.35 vs 0.26) and interrater reliability. (Though Campion et al. caution that their popularity outruns the strength of the evidence.)
+    - **Train interviewers extensively**, with a catch: substantial training with practice interviews and feedback improved interviewers' predictive validity ([Dougherty et al. 1986](https://doi.org/10.1037/0021-9010.71.1.9)), while brief "avoid rating errors" training did nothing in two studies. That said, rating-error avoidance is a narrow slice of what training can cover, so this may say more about that format than about brevity.
+    - **Use multiple interviewers.** No advantage, maybe even slightly negative: among structured interviews, Wiesner & Cronshaw found panels and individual interviews equally valid (0.60 vs 0.63 corrected), and McDaniel et al. found individual interviews slightly *more* valid (0.46 vs 0.38).[^1]
+    - **Same interviewer(s) across all candidates.** Matters mainly when little else is structured: interviewers differ in how they rate, so mixing them across candidates adds noise. With high structure on the other components this stops mattering: [one study](https://doi.org/10.1037/0021-9010.79.6.998) of a highly structured interview found interrater reliability of 0.97 with only modestly skilled interviewers.
+    - **Take detailed notes.** Notes improve recall of what the candidate actually said, and provide documentation if a hiring decision is legally challenged ([keeping interview records is associated with employers winning discrimination cases](https://doi.org/10.1037/0021-9010.82.6.900)). Direct evidence on validity is thin.
+    - **Don't discuss candidates between interviews.** Plausible (independent reads mean one interviewer's error doesn't propagate, much like controlling ancillary information), but there's essentially no evidence, and discussion could also catch errors.
+
+Despite there being evidence for some components, Campion et al. conclude "there is no consensus among experts as to which components of structure are most important", though they venture that job analysis, question consistency and question type matter most for content, and per-answer ratings, anchored scales and training for scoring. Few components have been studied in isolation, and basically none varied together in a controlled comparison. That was still true per the 2014 review, and per some light searching, still true today.
+
+A ceiling effect appeared in Huffcutt & Arthur's meta-analysis, where validity climbed across their first three levels of structure (0.20 → 0.35 → 0.56, corrected) then flatlined. Fully scripted interviews (identical questions, no follow-ups permitted, per-answer benchmark scoring) scored 0.57, adding just 0.01 over mostly-standardized ones that let interviewers choose among questions and probe.
+
+### Big tech interviews are probably pretty bad
+
+Big tech interview loops often give every candidate the same esoteric puzzles: questions that were never derived from an analysis of the actual job.[^2] Missing this job analysis is missing the component with the strongest evidence for the strongest effect behind it.
+
+Ironically, the identical puzzles are usually justified in the name of being "structured", yet exact scripting is the increment the ceiling effect found no payoff for, while job-derived questions are where the evidence shows the biggest validity differences.
+
+My guess is that these unideal interviewing programs happen because:
+1. confirmation bias: people read "structured interviews are better" and hear "my standardized interview program is best", rather than what the literature actually measured. And they overestimate how strong that evidence is in the first place (as we've seen, it's all pretty weak)
+2. recruiting programs are run by HR departments that don't understand the job-relevant skills, and teams don't feel they have the autonomy to fix their own loops
+3. fear of being sued, which pushes people to standardize and blandify everything ([standardized administration does correlate with employers winning discrimination cases](https://doi.org/10.1037/0021-9010.82.6.900), but job-relatedness predicted wins even more strongly, so bland isn't safer than job-derived)
+4. practical constraints, e.g. wanting one general funnel so candidates can be considered for multiple roles
+
+1–3 can be overcome largely through education and teams taking ownership of their hiring pipelines. 4 is tougher, but has partial solutions (e.g. find criteria common to many roles and screen on those first).
+
+P.S. To learn how to run structured interviews better in practice, building on these findings, see [Run better job interviews by viewing them as measurement tools](/blog/job-interviews-as-measurement/).
+
+[^1]: Panels do beat individual interviews among *unstructured* interviews (0.37 vs 0.20 corrected, in Wiesner & Cronshaw), which might be where the panel intuition comes from. The [litigation data](https://doi.org/10.1037/0021-9010.82.6.900) tells a similar story: using panels per se didn't predict employers winning discrimination cases, though having interview decisions reviewed by others did.
+
+[^2]: Other components are often shaky too (training is frequently brief, and aggregation sometimes gut-feel), but those are harder to judge from outside and have weaker evidence anyway. I'd also speculate that when the core questions aren't job relevant, the scores could be so invalid that even mechanical aggregation would be net harmful until the questions are fixed.

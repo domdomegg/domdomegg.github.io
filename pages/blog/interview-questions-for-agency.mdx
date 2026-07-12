@@ -1,0 +1,138 @@
+---
+title: "Interview questions that find high agency people"
+publishedOn: "2026-07-13"
+---
+
+AI advances seem to be increasing the value of someone who can figure out what needs doing and go do it. Being good at this and complementary skills is often referred to as being "high agency"[^agency], and is what I want to [measure in interviews](/blog/job-interviews-as-measurement/).
+
+Here are some questions I like for getting signal on this. Given AI tends to nail well-specified tasks, human jobs are increasingly about handling underspecified tasks and leveraging AI effectively. The best questions therefore:
+
+- **are a little underspecified.** Clarifying messy situations and then executing is also a large part of what I mean by high agency.
+- **work with AI allowed.** This additionally makes the setup closer to how the candidate will actually work.
+
+## Plan to solve a fuzzy problem: fix the world's microwaves
+
+I used to work out of a WeWork with a variant of the [Samsung CM1109](https://www.caterkwik.co.uk/shop/downloads/CM1109_CM1109_User_Manual_2015-11-16.pdf) microwave. It has:
+
+- A Check button, which gets you stuck in "Check mode", where typing a preset number shows how many times that preset has been run. You exit with the Stop button.
+- A Sound button, which naturally puts the microwave in "Sound mode", an entire mode of operation for changing how loud it beeps (yes, really!). This one exits differently: the Start button.
+
+The microwave got stuck in some stupid mode so often that an instructional sign had to be put up next to it, and people still struggled. My nemesis:
+
+![The Samsung CM1109 commercial microwave, with a numeric keypad flanked by Check and Sound buttons](/images/blog/interview-questions-for-agency/cm1109.png)
+
+Many microwaves have a [chaos button](https://www.reddit.com/r/mildlyinteresting/comments/b32ao5/my_mothers_new_microwave_has_a_chaos_option/):
+
+![A microwave button labelled Chaos, with an icon of snowflakes and water drips](/images/blog/interview-questions-for-agency/chaos-button.jpg)
+
+Microwaves in general seem [consistently overcomplicated](https://mcewandotdesign.wordpress.com/2020/10/15/why-are-microwaves-so-complicated/). This causes some wellbeing loss: huge numbers of people, each burning a little time and effort deciphering badly designed microwaves.
+
+So with all that preamble, the question is:
+
+> Imagine you quit your job this morning. Your new mission is to fix the small-but-worldwide wellbeing loss caused by confusing microwave design. What do you actually do?
+
+Clarifications: Some candidates jump into designing a better microwave. But this is not "design a better microwave" - better designs probably already exist and the problem isn't solved. The candidate has to think about how change actually happens: A product company? Usability rankings that shift purchases? Commercial procurement, where one buyer controls thousands of units? Standards, like the USB-C mandate?
+
+Follow-ups:
+- Generic
+    - Why might your idea be wrong/fail/backfire?
+    - How would the impact compare to your current role?[^microwaveimpact] What about the role you're applying to here? What do you think would make you more or less impactful in the role you're applying for?
+- If focused on one idea:
+    - What other ideas? How do they compare?
+- If giving vague or abstract ideas:
+    - What would the first day working on this look like? The first week? The first month?
+- If proposing an ambitious plan:
+    - What would be a smaller/faster way of doing this?
+    - How could you derisk your plan sooner?
+- If proposing an unambitious plan:
+    - If you had funding of £100 million/year to spend on this, what would you do?
+
+Strong candidates might:
+- Clarify the situation, e.g. ask good questions, define the problem clearly, derive sensible goals or proxies
+- Generate many concrete ideas they could feasibly execute on, and consider trade-offs between them carefully
+- Select a particularly good idea and develop it into a clear plan
+- Demonstrate broad knowledge across different areas
+- If available, use AI tools effectively
+- Communicate clearly throughout
+
+The same recipe works for basically any problem in the world, big or small. But compared to classic societal problems (e.g. global poverty, animal welfare, climate change), microwaves and similar topics get much more concrete solutions from candidates. They're approachable without a tonne of deep expertise, and it's exceedingly rare for someone to arrive with enough pre-existing microwave knowledge to make it unfair.
+
+## Code up a messy feature with AI: Airtable private API MCP
+
+Airtable lets users build automations in a configuration wizard. For example, you could use it to organise [a silly event](/blog/adamcon-2026/):
+
+![Airtable's automation editor: a trigger "When a record matches conditions" followed by a "Send an email" action](/images/blog/interview-questions-for-agency/airtable-automations.png)
+
+(Candidates don't really need to know what MCP or Airtable is beforehand: figuring that out by asking Claude, Googling, or reading docs is part of the exercise.)
+
+The task is:
+
+> See [airtable-mcp-server](https://github.com/domdomegg/airtable-mcp-server). Users want to be able to have Claude edit their Airtable automations with this. How could you enable this?
+
+The interview probably needs AI assistance for candidates to get something decent implemented in a 50-minute interview.
+
+Even with AI, in practice this is challenging: the MCP server is built on Airtable's public API, which can't control automations. So the candidate probably needs to poke around the undocumented private API, and test what kind of auth works there and how they could get it. But again, figuring this out is part of the interview.
+
+Strong candidates might:
+- Clarify the situation: e.g. understand MCP/Airtable/this library, ask why users want this
+- Generate a few concrete hypotheses about how to get this to work, then go test them
+- Given this information, select a good idea
+- Get something at least kinda working
+
+Compared to questions that explicitly ask for a big-ish plan (like fixing microwaves), the framing of 'actually solve this problem in the time' can elicit more natural behaviour. (Kinda like how earlier Claude models did quite different things if you asked them to 'implement X' vs 'create a plan to implement X'.) But of course the scope is smaller and you'll likely see different things.
+
+## Answering fuzzy questions: practical and evidence-based ethics
+
+AI is very good at answering well-specified questions, especially ones with a "right" answer that are in distribution for the information available. Work is now increasingly focused on messier questions with no right answer, where people still need to make some kind of call.
+
+Semi-practical ethics questions (that do have better answers than handwaving or listing "obvious" pros and cons) are quite useful for this. For example:
+
+> Does it cause more harm to eat a chicken burger, or take one flight from London to San Francisco?
+
+![Side by side: a cheeseburger with fries, and the view of a plane wing from a window seat](/images/blog/interview-questions-for-agency/burger-vs-flight.jpg)
+
+Follow-ups:
+- Generic
+    - Where are you most likely to be wrong? How could you improve that weak part?
+    - If you could spend £10 million to get a better answer here, how would you do that?
+    - What evidence would change your mind about your conclusion?
+- If focused on one idea:
+    - What other ideas? How do they compare?
+- If giving vague or abstract ideas:
+    - Can you detail all the specific potential harms caused?
+    - How would you put numbers to this?
+
+Strong candidates might:
+- Figure out what is even meant by this question, e.g. discuss whether there are universal moral principles to appeal to ([moral universalism](https://en.wikipedia.org/wiki/Moral_universalism)), what harms are in scope, what a good final answer might look like
+- Think through the harms caused, and try to find some way to get closer to a comparable estimate
+- Investigate these paths, e.g. make reasonable assumptions, find [potentially relevant papers](https://www.nature.com/articles/s41467-021-24487-w) with Claude and go through them critically
+- Communicate an answer clearly, explaining assumptions and perhaps with some kind of sensitivity analysis e.g. "currently the x term dominates, because of assumption y. but if you assumed not y, then actually z would be the key factor"
+
+Compared to the other questions, this gives more signal about their own values and ethical reasoning, and has them demonstrate a bit of 'research taste' when finding and interpreting information.
+
+## Answering messy questions: The watermelon question
+
+> Imagine you have a watermelon, and want to cut off some percentage of the red flesh to eat now, storing the rest in the fridge. To keep it fresh, you want to minimise the red flesh exposed on the stored piece. How should you cut it?
+
+![A watermelon quarter with a wedge carved out of it, next to a stack of cut slices](/images/blog/interview-questions-for-agency/watermelon.jpg)
+
+Hints:
+- Try simple cuts before formalising. How do a plane or a wedge do?
+- What's the best cut for exactly 50%?
+- What simplifications or assumptions would help? (e.g. can work through sphere → spheroid → ellipsoid → arbitrary mesh)
+
+Compared to the other questions this is closer to a standard puzzle-esque task, and I'm less keen on it for that reason. But it is at least less specified than most puzzles, and given it's basically impossible to do in an interview timeframe, it leaves a lot of the work in making reasonable relaxations of the problem / prioritising finding sensible partial results.
+
+This interview can be given with today's AI models, although it also works reasonably without AI. [Claude Fable 5](https://www.anthropic.com/news/claude-fable-5-mythos-5) can solve the sphere case, but is unable to do any shapes beyond the sphere.
+
+## Got other interview questions?
+
+I'm always on the hunt for more good questions! If you have favourites, [tell me](/feedback)!
+
+[^agency]:
+    The best long-form definition I know is [highagency.com](https://www.highagency.com/). A shorter gesture at it: proactive, resourceful, self-directed, autodidactic, and optimistic. Another attempt might be "ability to figure out what needs doing given a messy problem, and do it well".
+
+[^microwaveimpact]:
+    This part is often useful to understand the impact people think they are having in their role.
+
+    In rare cases, I've seen this "wake up" people a bit - when they realise it'd be a better use of their time to run a campaign for improving microwave design, maybe they should reconsider what they're up to/be more ambitious about impact. Although the more common case is someone giving a vagueish handwavey answer of building some SaaS product that is useful to people.

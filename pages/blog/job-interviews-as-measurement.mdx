@@ -1,0 +1,61 @@
+---
+title: "Run better job interviews by viewing them as measurement tools"
+publishedOn: "2026-07-13"
+---
+
+If you've spent time in tech, you've probably run a lot of interviews. Maybe you've caught yourself bored in them, or quietly questioned whether they're a good use of anyone's time. I have!
+
+A Palantir colleague told me something that completely changed my perspective on this:
+
+> **An interview is a measurement tool. Optimise for reducing as much uncertainty as you can over the interview.**
+
+In some sense, this is obvious: before the interview we don't know how good they are, and hopefully after the interview we know a little more? But tech interviews are often so devoid of soul that you forget this, and end up going through the motions serving LeetCode problems to people.
+
+Truly applying this principle makes interviews far more valuable for everyone involved, and turns interviewing back into a skill that's fun to improve at.
+
+## What is measurement?
+
+Douglas Hubbard in [How to Measure Anything](https://doi.org/10.1002%2F9781118983836) defines measurement as reduction of uncertainty based on observation.
+
+You might remember this from physics class: when you measure something, you still have an uncertainty range.
+
+When you measure someone's height, you haven't gone from knowing nothing to knowing it's exactly 181 cm. You never knew nothing: just knowing they're an adult human puts them at "roughly 170 ± 20 cm". Looking at them narrows that to "probably 180 ± 8 cm",[^2] and a careful tape measurement to "maybe 181 ± 0.5 cm".[^1]
+
+![Three probability distributions of the same person's height on a centimetre scale, narrowing as knowledge improves: knowing they're an adult human gives roughly 170 ± 20 cm; looking at them gives 180 ± 8 cm; a tape measure gives a sharp spike at 181 ± 0.5 cm. Each is a measurement; they differ in how much uncertainty remains.](../../images/blog/job-interviews-as-measurement/height-measurement.svg)
+
+## Applying this to job interviews
+
+Ideally you measure the candidate against clear job-relevant criteria[^3]: the attributes necessary for success in the role. Your rubric is in terms of those criteria, not any particular question's answer. The question is just the stimulus; what you record is what the response told you about the criteria.
+
+You start with a lot of uncertainty. A CV or previous interview scorecards might give you some info about a criterion, domain expertise for example.
+
+Then as you run through your interview, you narrow your uncertainties:
+
+![Three job-relevant criteria (agency, domain expertise, and communication), each with a probability distribution before and after an interview. The 'before' distributions, based on CV and other scorecards, differ per criterion: domain expertise starts fairly narrow (a CV says a lot about it), agency starts very wide (a CV says almost nothing). Each ends narrower after the interview. Agency and domain expertise settle around high values; communication settles around a clearly low one: the interview revealed a weakness.](../../images/blog/job-interviews-as-measurement/uncertainty-reduction.svg)
+
+In practice, I often have a notes window up listing the criteria, with bullets under each for the evidence the candidate has provided (both positive and negative). I repeatedly scan over them, thinking about where I feel most uncertain, and steer the interview there. I strike through criteria as I get enough on them, and sometimes keep another page of suggested narrowing questions and nudges in case I get stuck.
+
+Templated questions can be useful for hitting these topics: your job as interviewer then becomes easier, as you just need to nudge the candidate to show different sides of themselves. But beware! Many interviewer training programs fail by drilling strict templates into people, rather than coaching them to use templates to find out the most useful information. [Research on structured interviews](/blog/do-structured-interviews-work/) often gets misinterpreted as "follow a script", when what actually makes structured interviews work is job-derived criteria, mostly-consistent questions, and per-answer scoring (rather than one score at the end), not rigid scripting.
+
+## This makes interviews more fun, helpful and accurate
+
+It's much more fun! Turning the interview into a game of "how narrow can I get my error bars on this candidate by the end of the hour?" is much more engaging as an interviewer. You can get better at this skill over time, and getting better at things is fun. And it's simply more fun to feel like you're helping more. Speaking of...
+
+It's much more helpful! As a hiring manager, this style of feedback is much more valuable for deciding on a candidate. Knowing "they got the LeetCode answer" often doesn't tell me how good they'd be in the role. What we end up discussing in debriefs is the criteria for the role, and how the candidate measures up on them. The ideal interviewer can give clear opinions on these criteria with evidence and notes to back them up. The process above also forces clarity about where uncertainty remains at the end of the loop, so we know what to probe in follow-up interviews or references.
+
+It's much more accurate! You want good people to work at your company, hopefully. [The (albeit limited) evidence on structured interviews](/blog/do-structured-interviews-work/) suggests job-derived criteria might be the most important component for making interviews distinguish good candidates.
+
+## Put an end to bad interviews
+
+Try this in your next interview: write down the criteria beforehand, and play the game: how much can you narrow your error bars by the end of the hour?
+
+And if you think your team could benefit from this idea, share it in your company Slack!
+
+[^1]: You might also consider biases or effects that change how you should use the measurement. E.g. people are taller in the morning, so your height measurement is conditional on time of day, or on their current hairstyle. In the same way, people often don't act 'normally' in an interview setting, and you may need to adjust for this.
+
+[^2]: People are surprisingly decent at this: studies of [untrained observers estimating height](https://arxiv.org/abs/2009.07828) find mean absolute errors of roughly 3-6 cm, which works out to about ± 8 cm as a 95% interval. (Estimates are also biased towards the average, so tall people get underestimated, another thing to debias for.)
+
+[^3]:
+    The most important criterion these days might be [agency](http://highagency.com/): as AI makes roles change more often and improves at well-defined tasks, whether someone can figure out what needs doing and actually get it done matters more than traditional hard skills. I've attempted to collect questions that test for it in [Interview questions that test for agency](/blog/interview-questions-for-agency/).
+
+    More generally, the right criteria matter. Defining and communicating criteria to your recruiters and interviewers is a core responsibility of a hiring manager.
