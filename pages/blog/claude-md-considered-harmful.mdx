@@ -1,0 +1,43 @@
+---
+title: "CLAUDE.md Considered Harmful"
+publishedOn: "2026-07-12"
+---
+
+At Anthropic, I work on making Claude better at important work. It pains me that so many well-intentioned CLAUDE.mds make things worse.
+
+![Vito Corleone from The Godfather: "Look how they massacred my boy."](/images/blog/claude-md-considered-harmful/massacred-my-boy.jpg)
+
+## In principle, most CLAUDE.mds are unnecessary
+
+Most important information should live in README.md, where both agents and humans can read it. Claude (usually) reads this by default — and to force it, your CLAUDE.md can just be `@README.md`.
+
+Your README should cover what's nonobvious from the folder contents:
+
+- where to find things outside the folder, like Slack channels or Google Docs
+- nonobvious conventions (but minimise these: if a convention is important, make it a lint rule or test; if it's not, why enforce it?)
+- sometimes, a succinct summary of the content's purpose, if that's hard or expensive to fetch from a third-party source
+
+There are narrow exceptions where information is relevant to agents but not humans, which you might put in CLAUDE.md if you're really worried about README space. (Though in my experience humans almost never read the docs, so your README is probably just for Claude anyway...)
+
+The exceptions:
+
+- **Agent-only tools** that humans genuinely don't need. For example, a Playwright CLI the agent uses to operate a web browser, where humans would just click around. Even here you need very little: rather than putting the tool's full docs in CLAUDE.md, a minimal "`playwright-cli` is available for browser testing" lets the model run `playwright-cli --help` when it needs details. Progressive disclosure is good!
+- **Agent-only rules** that don't apply to humans. For example, [Sarbanes–Oxley internal controls](https://en.wikipedia.org/wiki/Sarbanes%E2%80%93Oxley_Act#Sarbanes%E2%80%93Oxley_Section_404:_Assessment_of_internal_control) mean US public companies typically require a human to approve changes to software that affects financial reporting.
+
+If you're documenting lots of differences between how your agents and humans operate, review your setup instead: give your agents the same tools and affordances you have, and vice versa.
+
+## In practice, most CLAUDE.mds are worse than unnecessary
+
+Most CLAUDE.mds I see are treated as slop, rarely tended to with care. Often they describe the codebase in a way Claude could easily figure out itself (so why bother?!), and then go stale.
+
+![Gravity Falls meme: Claude reads a paper saying "CLAUDE.md with outdated AI slop summary that Claude could figure out itself". "Woah. This is worthless!"](/images/blog/claude-md-considered-harmful/this-is-worthless.jpg)
+
+[Researchers have also tested the effect of CLAUDE.mds](https://arxiv.org/abs/2602.11988): context files generally failed to improve frontier model coding agents' success rates — while increasing inference costs by over 20%. This held whether the files were LLM-generated or written by the repository's own developers.
+
+![Bar charts from the paper: success rates on SWE-bench Lite and AGENTbench for four models, with no context files, LLM-generated context files, and developer-written context files. Success rates are roughly flat or slightly worse with context files for Sonnet 4.5 and GPT-5.2](/images/blog/claude-md-considered-harmful/context-files-results.png)
+
+## Implementing this advice
+
+Sold? Copy this prompt into your agent:
+
+> See CLAUDE.md. Delete anything inferrable from the codebase, e.g. code structure, key classes etc. Move anything that is also relevant to humans to the README or docs folder, if one exists. This should leave CLAUDE.md with only the nonobvious information that isn't relevant to humans, likely just agent-only tools and rules. For more on the motivation, see adamjones.me/blog/claude-md-considered-harmful
