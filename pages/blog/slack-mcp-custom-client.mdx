@@ -7,9 +7,9 @@ highvol: true
 
 import Details from '../../components/Details'
 
-Slack publish an [MCP server](https://docs.slack.dev/ai/slack-mcp-server/) at `https://mcp.slack.com/mcp` that gives AI agents access to your workspace — search, read messages, send messages, read/write canvases, and so on.
+Slack publish an [MCP server](https://docs.slack.dev/ai/slack-mcp-server/) at `https://mcp.slack.com/mcp` that gives AI agents access to your workspace. This allows them to search, read messages, send messages, read/write canvases, and so on.
 
-Slack document how to [connect it to Claude Code](https://docs.slack.dev/ai/slack-mcp-server/connect-to-claude) and to Cursor, but both of those flows rely on their pre-registered Slack apps. If you want to use the server from your own MCP client — a self-hosted [aggregator](https://github.com/domdomegg/mcp-aggregator), a bespoke agent, a different IDE, anything — you need your own Slack app.
+Slack document how to [connect it to Claude Code](https://docs.slack.dev/ai/slack-mcp-server/connect-to-claude) and to Cursor, but both of those flows rely on their pre-registered Slack apps. If you want to use the server from your own MCP client like a self-hosted [aggregator](https://github.com/domdomegg/mcp-aggregator), a bespoke agent, or different IDE, you need your own Slack app.
 
 ## 1. Create the Slack app from a manifest
 
@@ -89,7 +89,7 @@ In your MCP client, configure Slack with:
 
 ## Troubleshooting
 
-- **"No scopes requested"**: your client isn't sending the `scope` parameter. The Slack MCP server advertises scopes in its protected-resource metadata (RFC 9728) — your client should read them from there and include them in the authorize URL.
+- **"No scopes requested"**: your client isn't sending the `scope` parameter. The Slack MCP server advertises scopes in its protected-resource metadata (RFC 9728). Your client should read them from there and include them in the authorize URL.
 - **"doesn't have a bot user to install"**: missing `features.bot_user` in the manifest (see above).
 
 [^1]: URL looks like `https://app.slack.com/app-settings/<TEAM_ID>/<APP_ID>/oauth`

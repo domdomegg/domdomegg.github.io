@@ -230,7 +230,7 @@ PawRide is a game-changing startup that's poised to revolutionize the way dogs g
   // Split into tokens for AI (words and punctuation) and characters for human
   const tokens = fullText.match(/\S+|\s+|[.,;:?!]/g) || [];
   const characters = fullText.split('');
-  // 200 words/minute on this specific text — compute chars/sec from actual word count
+  // 200 words/minute on this specific text: compute chars/sec from actual word count
   // so the visualised rate matches the label regardless of avg word length
   const humanWpm = 200;
   const humanCharsPerSecond = characters.length / ((fullText.split(/\s+/).length / humanWpm) * 60);
@@ -431,6 +431,6 @@ Spend 1 minute answering each of:
 
 - Pick a random friend or colleague. How would you now explain AGI to them?
 - What are the key differences between today's ChatGPT, and the described vision of AGI?
-- Which of the three digital advantages—speed, scale, or stamina—do you think will most affect how impactful AGI is, and why?
+- Which of speed, scale, or stamina do you think will most affect how impactful AGI is, and why?
 
 [Optional: Create a new Google doc to save your thoughts](https://docs.google.com/document/u/0/create).

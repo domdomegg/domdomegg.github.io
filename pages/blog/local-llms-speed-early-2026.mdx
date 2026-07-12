@@ -59,7 +59,7 @@ Two oddities:
 
 ## New models are ~2.8x faster at the same capability
 
-The bigger gain comes from switching to a newer model. gemma4:e4b is about as capable as phi4:14b, but runs at **41.3 tps** on the same machine — ~2.8x faster than phi4:14b did last year (15 tps):
+The bigger gain comes from switching to a newer model. gemma4:e4b is about as capable as phi4:14b, but runs at **41.3 tps** on the same machine, ~2.8x faster than phi4:14b did last year (15 tps):
 
 <BarChart
   data={[
@@ -100,9 +100,9 @@ While I was at it, I also measured two other Gemma 4 variants:
 
 With fixed hardware, local inference got faster in two ways this year: the same models run ~1.1-1.4x faster thanks to engine improvements, and newer models deliver similar capability at ~2.8x the throughput.
 
-But consumer hardware has also been getting faster — [Apple's M5 claims over 4x peak GPU compute versus the M4](https://www.apple.com/newsroom/2025/10/apple-unleashes-m5-the-next-big-leap-in-ai-performance-for-apple-silicon/), though [real-world inference gains look more like ~15%](https://github.com/itsmostafa/inference-speed-tests). It's also been getting cheaper: a 13" MacBook Air with 16GB RAM and 512GB SSD was $1,199 a year ago with an M4; today the M5 equivalent is $1,099. That's ~8% off nominally, or closer to ~12% in real terms given [~3% US inflation over the year](https://www.bls.gov/cpi/).
+But consumer hardware has also been getting faster: [Apple's M5 claims over 4x peak GPU compute versus the M4](https://www.apple.com/newsroom/2025/10/apple-unleashes-m5-the-next-big-leap-in-ai-performance-for-apple-silicon/), though [real-world inference gains look more like ~15%](https://github.com/itsmostafa/inference-speed-tests). It's also been getting cheaper: a 13" MacBook Air with 16GB RAM and 512GB SSD was $1,199 a year ago with an M4; today the M5 equivalent is $1,099. That's ~8% off nominally, or closer to ~12% in real terms given [~3% US inflation over the year](https://www.bls.gov/cpi/).
 
-Stacking the factors — faster software (~2.8x at matched capability), faster hardware (~1.15x per chip generation), and ~12% cheaper in real terms at equivalent spec — a rough **"AI performance per dollar" for consumer local inference is around 3.5x what it was a year ago**.
+Stacking the factors (faster software at ~2.8x matched capability, faster hardware at ~1.15x per chip generation, and ~12% cheaper in real terms at equivalent spec), a rough **"AI performance per dollar" for consumer local inference is around 3.5x what it was a year ago**.
 
 ## Appendix: Test details
 
