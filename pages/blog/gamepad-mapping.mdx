@@ -4,11 +4,11 @@ publishedOn: "2024-11-04"
 highvol: true
 ---
 
-I recently set out on a project to make [a web game with controller support](https://github.com/domdomegg/controller-tutor/).
+I recently set out to make [a web game with controller support](https://github.com/domdomegg/controller-tutor/).
 
-The [Gamepad API](https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API) enables you to connect to controllers from the browser, which gives you an array of buttons.
+The [Gamepad API](https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API) lets you connect to controllers from the browser, giving you an array of buttons.
 
-The specification defines a `standard` mapping for controllers, from this array to the relevant buttons. The specification helpfully provides [an image](https://w3c.github.io/gamepad/standard_gamepad.svg) that explains the mapping for something looking like a [DualShock controller](https://en.wikipedia.org/wiki/DualShock), but it's not immediately clear how this maps to an Xbox controller.
+The specification defines a `standard` mapping from this array to the relevant buttons, and helpfully provides [an image](https://w3c.github.io/gamepad/standard_gamepad.svg) explaining it for something like a [DualShock controller](https://en.wikipedia.org/wiki/DualShock). But it's not immediately clear how this maps to an Xbox controller.
 
 Here's a table mapping the W3C Standard Gamepad buttons/axes to their corresponding Xbox controller inputs:
 
@@ -89,4 +89,4 @@ const mapGamepadToGamepadState = (gamepad: Gamepad, deadzone = 0.5) => {
 
 [CC0](https://creativecommons.org/publicdomain/zero/1.0/): This code has been marked as dedicated to the public domain.
 
-And finally, if you're looking to do some troubleshooting with your controller you can use [Human Benchmark's gamepad tester](https://hardwaretester.com/gamepad). I have no relation to this service other than as a user, but I found it really helpful.
+Finally, if you need to troubleshoot your controller, use [Human Benchmark's gamepad tester](https://hardwaretester.com/gamepad). I have no relation to this service other than as a user - I just found it really helpful.

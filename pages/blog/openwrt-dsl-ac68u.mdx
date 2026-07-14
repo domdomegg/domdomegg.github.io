@@ -4,13 +4,13 @@ publishedOn: "2024-12-22"
 highvol: true
 ---
 
-With default settings, OpenWrt will only reach 360Mbps download with a DSL-AC68U. This guide will explain how you can set up this device with OpenWrt, and achieve speeds of over 900Mbps!
+With default settings, OpenWrt only reaches 360Mbps download on a DSL-AC68U. This guide explains how to set up OpenWrt on this device and reach speeds of over 900Mbps!
 
 Note: At time of writing, OpenWrt does not support WiFi or ADSL/VDSL on this device. This is fine for me, as I’m just using it as an ethernet router. If you need these capabilities, consider using the stock firmware or [Asuswrt-Merlin](https://www.asuswrt-merlin.net/) ([gnuton's version](https://github.com/gnuton/asuswrt-merlin.ng)).
 
 ## Flashing
 
-*Warning: This should be pretty safe and Asus makes it pretty easy to [recover a router from a weird state](https://www.youtube.com/watch?v=T8YKnpXxhx0). That said, I take no responsibility if you break your router.*
+*Warning: This should be safe, and Asus makes it easy to [recover a router from a weird state](https://www.youtube.com/watch?v=T8YKnpXxhx0). That said, I take no responsibility if you break your router.*
 
 You will need:
 * 1x DSL-AC68U
@@ -56,7 +56,7 @@ If you make bad changes and can’t reach the router, just wait 90 seconds and t
 
 ## Performance tuning
 
-With the configuration above, OpenWrt achieves about 360Mbps download. This might be fine for many use cases, but we can do better. There are two tricks: software flow offloading, and increasing the CPU clock speed. These two can enable us to reach speeds of over 900Mbps!
+With the configuration above, OpenWrt achieves about 360Mbps download. This might be fine for many use cases, but we can do better. Two tricks - software flow offloading and increasing the CPU clock speed - take us to over 900Mbps!
 
 ### Software flow offloading
 
@@ -71,8 +71,8 @@ The OpenWrt firmware we installed was for the RT-AC68U, which has a lower defaul
 
 To do this:
 1. SSH into the router. On most systems this will be running `ssh root@192.168.1.1` in the terminal and using your router password. See [the OpenWrt wiki for more details about SSH](https://openwrt.org/docs/guide-quick-start/sshadministration).
-2. On the router, run: `nvram set clkfreq=1200,666 && nvram commit && reboot`. This will increase the CPU frequency to 1200Mhz, set the RAM frequency to 666Mhz, and reboot the router. You’ll need to wait for a minute for the router to reboot.
-    * You can tweak the number even higher if you want, which might eek out a bit more performance. I didn’t bother as I was already getting the max from my external internet connection. If you push it too high, the router might not boot - [an NVRAM reset](#appendix-nvram-reset) will undo your changes and fix this.
+2. On the router, run: `nvram set clkfreq=1200,666 && nvram commit && reboot`. This will increase the CPU frequency to 1200Mhz, set the RAM frequency to 666Mhz, and reboot the router (takes about a minute).
+    * You can push the number even higher, which might eke out a bit more performance. I didn’t bother, as I was already maxing out my internet connection. If you push it too high, the router might not boot - [an NVRAM reset](#appendix-nvram-reset) will undo your changes and fix this.
 
 ### Full benchmarks
 
@@ -88,7 +88,7 @@ Here’s the full table of benchmarks for the DSL-AC68U on OpenWrt, plus a compa
 | 1200 | Software | 🏆 924* | 🏆 927* |
 | 1200 | Software + hardware | 892 | 893 |
 
-**This is the fastest I have ever been able to get with any router on this connection. So it might be that this is simply the limit of my connection rather than the router at this point.*
+**The fastest I’ve ever got with any router on this connection - so this may simply be the limit of my connection rather than the router.*
 
 ## Appendix: NVRAM reset
 

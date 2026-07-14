@@ -5,9 +5,9 @@ publishedOn: "2025-04-05"
 
 import Details from '../../components/Details';
 
-This is a summary of Yann LeCun's talk "Mathematical Obstacles on the Way to Human-Level AI". I've tried to make it more accessible to people who are familiar with basic AI concepts, but not the level of maths Yann presents. You can watch the original talk [on YouTube](https://www.youtube.com/watch?v=ETZfkkv6V7Y).
+This is a summary of Yann LeCun's talk "Mathematical Obstacles on the Way to Human-Level AI". I've tried to make it accessible to people familiar with basic AI concepts, but not the level of maths Yann presents. You can watch the original talk [on YouTube](https://www.youtube.com/watch?v=ETZfkkv6V7Y).
 
-[I disagree with Yann](/blog/yann-lecun-agi-disagreement/), but I have tried to represent Yann's arguments as faithfully as possible. I think understanding people who differ in opinion to you is incredibly important for thinking properly about things.
+[I disagree with Yann](/blog/yann-lecun-agi-disagreement/), but I have tried to represent his arguments as faithfully as possible. Understanding people who disagree with you is incredibly important for thinking properly about things.
 
 At the bottom of the post I include Gemini 2.5 Pro's analysis of my summary. In short:
 > The summary correctly identifies the core arguments, uses LeCun's terminology [...], and reflects the overall tone and conclusions of the talk
@@ -24,7 +24,7 @@ LLMs are primarily trained on text, which doesn't carry as much raw data as othe
 ![Data quantity slide](/images/blog/yann-no-agi/yann-data-quantity.png)
 </Details>
 
-The setup for LLMs has them predict the next token. But this means they are predicting in a space with exponentially many options, of which only one is correct. This means they are almost always incorrect. And similarly for images/videos, they have so many options and the world is only partially predictable, that it's not feasible for the model to be correct.
+LLMs are set up to predict the next token. This means predicting in a space with many options, of which only one is correct, and this scales exponentially with sequence length - so predictions are almost always incorrect. Similarly for images/videos: there are so many options, and the world is only partially predictable, that it's not feasible for the model to be correct.
 <Details title='My visualisation'>
 ![Autoregressive models visualization](/images/blog/yann-no-agi/jones-autoregressive-models.svg)
 </Details>
@@ -33,9 +33,9 @@ The setup for LLMs has them predict the next token. But this means they are pred
 ![Generative images and videos slide](/images/blog/yann-no-agi/yann-generative-images-and-videos.png)
 </Details>
 
-AI systems work the same amount of time on short problems and hard problems. But actually they should work longer on hard problems.
+AI systems spend the same amount of time on short problems and hard problems. They should work longer on hard problems.
 - He thinks chain of thought is a trick that he implies isn't really solving it. (video timestamp: 19:33)
-- Instead thinks we should have AI systems be using optimization/search algorithms against an objective when posed with a problem, rather than using feed forward neural networks. And then the search process can continue until it solves the problem (which means it can work longer on a hard problem).
+- Instead, AI systems should use optimization/search algorithms against an objective, rather than feed forward neural networks. The search process can then continue until it solves the problem - meaning it can work longer on a hard problem.
 <Details title="LeCun's slide">
 ![Feed-forward insufficient slide](/images/blog/yann-no-agi/yann-feed-forward-insufficient.png)
 </Details>

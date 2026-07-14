@@ -6,15 +6,15 @@ citable: true
 
 This article explains concrete AI governance practices people are exploring as of August 2024.
 
-[Prior summaries](#related-articles) have mapped out high-level areas of work, but rarely dive into concrete practice details. For example, they might describe roles in policy development, advocacy and implementation - but don’t specify what practices these policies might try to implement.
+[Prior summaries](#related-articles) map out high-level areas of work, but rarely dive into concrete detail. For example, they might describe roles in policy development, advocacy and implementation - but not the practices those policies might try to implement.
 
-This summary explores specific practices addressing risks from advanced AI systems. Practices are grouped into categories based on where in the AI lifecycle they best ‘fit’ - although many practices are relevant at multiple stages. Within each group, practices are simply sorted alphabetically.
+This summary explores specific practices addressing risks from advanced AI systems. Practices are grouped by where in the AI lifecycle they best ‘fit’ (though many are relevant at multiple stages), and sorted alphabetically within each group.
 
-Each practice's explanation should be readable independently. You can navigate and get a direct link to a section by clicking the section in the left sidebar.
+Each practice's explanation is readable independently. Click a section in the left sidebar to navigate to it and get a direct link.
 
-The primary goal of this article is to help newcomers contribute to the field.[^1] Readers are encouraged to [leave comments on LessWrong](https://www.lesswrong.com/posts/EyEeznwJuQEgYERAk/the-ai-regulator-s-toolbox-a-list-of-concrete-ai-governance#comments) where they are confused. A secondary goal is to help align the use of terms within the field, to help even experienced researchers understand each other.
+The primary goal is to help newcomers contribute to the field.[^1] If you're confused, [leave a comment on LessWrong](https://www.lesswrong.com/posts/EyEeznwJuQEgYERAk/the-ai-regulator-s-toolbox-a-list-of-concrete-ai-governance#comments). A secondary goal is to align the use of terms within the field, so even experienced researchers understand each other.
 
-So, without further ado let’s jump in!
+Let’s jump in!
 
 ## Pre-training
 
@@ -250,7 +250,7 @@ Introductory resources: ???[^0]
 
 _TLDR: Require human oversight in AI decision-making processes, especially for high-stakes applications._
 
-A human-in-the-loop (HITL) system is one where a human gets to make the final decision as to the action being taken. The loop here often refers to the decision-making process, for example the [observe, orient, decide, act (OODA) loop](https://en.wikipedia.org/wiki/OODA_loop). A human being in this loop means progressing through the loop relies on them, usually owning the ‘decide’ stage.
+A human-in-the-loop (HITL) system is one where a human makes the final decision on the action taken. The loop here often refers to the decision-making process, for example the [observe, orient, decide, act (OODA) loop](https://en.wikipedia.org/wiki/OODA_loop). A human in this loop means progressing through it relies on them, usually owning the ‘decide’ stage.
 
 For example, imagine an AI system used for targeting airstrikes. A human-in-the-loop system would surface recommendations to a human, who would then decide on whether to proceed. The nature of this human oversight could range dramatically: for example, reviewing each strike in detail compared to skimming batches of a thousand.
 
@@ -280,7 +280,7 @@ Some methods could also enable attributing content to specific AI systems or use
 
 This involves embedding markers into AI-generated content to enable its identification. This can be applied to any outputs of AI systems, including text, images, audio, and video.
 
-Watermarking is generally not effective against actors who intentionally want to remove the watermarks. It’s nearly impossible to watermark text outputs robustly, especially short texts. It’s very difficult to robustly watermark other AI outputs.
+Watermarking is generally not effective against actors who intentionally want to remove the watermarks. It’s nearly impossible to robustly watermark text outputs, especially short texts, and very difficult for other AI outputs.
 
 It may still be helpful to watermark AI outputs for other purposes. For example, to:
 
@@ -384,7 +384,7 @@ Introductory resources: [Create input and output safeguards](https://ai.google.d
 
 _TLDR: Gradually roll out AI systems to larger populations to monitor impacts and allow for controlled scaling or rollback if issues arise._
 
-Progressive delivery involves incrementally deploying AI systems to larger user groups or environments. This allows developers and regulators to monitor the system as it scales, and the ability to slow, pause, or reverse the rollout if problems are detected. Additionally, these problems should hopefully be smaller in scale as fewer users would have access - and we'd have more time to implement [societal adaptations](#societal-adaptation). Progressive delivery is already very common in technology companies, to minimise the impact of new bugs or similar.
+Progressive delivery involves incrementally deploying AI systems to larger user groups or environments. This lets developers and regulators monitor the system as it scales, and slow, pause, or reverse the rollout if problems are detected. Those problems should also be smaller, as fewer users have access - and we'd have more time to implement [societal adaptations](#societal-adaptation). Progressive delivery is already very common in technology companies, to minimise the impact of new bugs.
 
 Developing guidance for this would include:
 
@@ -580,7 +580,7 @@ Standards, guidance and enforcement could help protect the confidentiality, inte
 
 #### Securing model parameters and other key intellectual property
 
-Future AI systems may be highly capable and dangerous in the wrong hands. Adversaries like nation states or terrorist groups are likely to want to get their hands on these systems to enable them to pursue their own goals. Attackers might also want related intellectual property, like algorithms that improve the efficiency of training or running AI systems.
+Future AI systems may be highly capable and dangerous in the wrong hands. Adversaries like nation states or terrorist groups will likely want these systems to pursue their own goals. Attackers might also want related intellectual property, like algorithms that improve the efficiency of training or running AI systems.
 
 Despite the significant risks, ex-OpenAI staff have noted that [current security measures are far from sufficient](https://situational-awareness.ai/lock-down-the-labs/):
 
@@ -596,7 +596,7 @@ It currently seems plausible that we will train or deploy highly capable AI syst
 
 If we deploy these AI systems, we might want to sandbox or somehow limit the environments we deploy them into to reduce the damage they might cause.
 
-To do this effectively, we’ll need to do a good job securing these environments themselves. This is because these AI systems might be very good at breaking security measures we put in place - and if they broke out, could cause catastrophic harm.
+To do this effectively, we’ll need to secure these environments well. These AI systems might be very good at breaking the security measures we put in place - and if they broke out, could cause catastrophic harm.
 
 Introductory resources: ???[^0]
 
@@ -682,7 +682,7 @@ Introductory resources:[^0] (not AI-specific) [Effective Regulation](https://reg
 
 _TLDR: Adjust aspects of society downstream of AI capabilities, to reduce negative impacts from AI._
 
-Societal adaptation to AI focuses on modifying societal systems and infrastructure to make them better-able to avoid, defend against and remedy AI harms. This is in contrast to focusing on capability-modifying interventions: those which affect how a potentially dangerous capability is developed or deployed. Societal adaptation might be useful as over time it is easier to train AI systems of a fixed capability level, so capability-modifying interventions may become infeasible (e.g. when anyone can train a GPT-4-level model on a laptop).
+Societal adaptation to AI focuses on modifying societal systems and infrastructure to better avoid, defend against and remedy AI harms. This contrasts with capability-modifying interventions, which affect how a potentially dangerous capability is developed or deployed. Societal adaptation matters because over time it gets easier to train AI systems of a fixed capability level, so capability-modifying interventions may become infeasible (e.g. once anyone can train a GPT-4-level model on a laptop).
 
 Societal adaptation is generally presented as complementary to capability-modifying interventions, and not a replacement for them. One route might be to use capability-modifying interventions to delay the diffusion of dangerous capabilities to ‘buy time’ so that effective societal adaptation can occur.
 

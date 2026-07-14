@@ -9,7 +9,7 @@ import BarChart from '../../components/BarChart';
 
 _Update: I did [a follow-up with a more realistic setup, showing what the performance looks like when this is running on a remote server](../benchmark-next-vs-nginx-aws/)._
 
-[Next.js](https://nextjs.org/) is a React framework that allows you to build web applications. It offers a bunch of neat features to make web development easier.
+[Next.js](https://nextjs.org/) is a React framework with a bunch of neat features to make web development easier.
 
 While Next.js leans heavily into server-side features like SSR and API routes, it can be used to build static websites. Three ways to deploy these static sites are:[^1]
 
@@ -17,11 +17,11 @@ While Next.js leans heavily into server-side features like SSR and API routes, i
 2. Use the default Next.js production server (`next build && next start`)
 3. (not recommended[^2]) Use the Next.js development server (`next dev`)
 
-My suspicion is that 1 is likely the fastest. However, 2 might often be simpler - both because you don’t need to configure a second web server, and it means your deployment configuration can be the same across static and dynamic Next.js apps.
+My suspicion: 1 is likely fastest. However, 2 is often simpler - you don’t need to configure a second web server, and your deployment configuration can be the same across static and dynamic Next.js apps.
 
-Knowing _how much slower_ this is allows us to properly evaluate this penalty, and make evidence-based decisions about what trade-offs we might be making.
+Knowing _how much slower_ this is lets us properly evaluate the penalty, and make evidence-based decisions about the trade-offs.
 
-So, how fast is it? I took this blog (yes, the very one you’re reading) and tested out how long it takes to load.
+So, how fast is it? I took this blog (yes, the very one you’re reading) and tested how long it takes to load.
 
 <Details title='Detailed reproduction steps'>
 Specifically, I took [commit 34df60](https://github.com/domdomegg/domdomegg.github.io/tree/34df6053e2e5c984838e02e86cdc9ee0926d9ab3), ran `npm install` with Node v20.12.2, then ran:
@@ -106,13 +106,13 @@ Median page load times, no additional reqs/second (i.e. for the browser to consi
 
 ## Takeaways
 
-Wow, nginx is _fast_ - **4874x faster** than Next.js under heavy load for median response time. I had some sense of this before, but just quite how much it dominates on request duration. I think this is largely because Next.js slows down quite a bit under heavy request load, given Next.js’s median time when only processing a single request was much lower.
+Wow, nginx is _fast_ - **4874x faster** than Next.js under heavy load for median response time. I had some sense of this before, but not quite how much it dominates on request duration. I think this is largely because Next.js slows down under heavy request load: its median time when processing a single request was much lower.
 
-That said, the Next.js server is plenty fast for real-world use cases. It was just 20ms slower (a fifth of a blink) to actually load the page under low load, and even under heavy load (3733 requests/second) it still had a median request duration of 253ms.
+That said, the Next.js server is plenty fast for real-world use cases. It was just 20ms slower (a fifth of a blink) to load the page under low load, and even under heavy load (3733 requests/second) it still had a median request duration of 253ms.
 
-The real-world penalty will also likely be lower than this: network latency will likely start to dominate. And if you’ve got dynamic requests to APIs, that will almost certainly be the bottleneck rather than the static file serving.
+The real-world penalty will likely be lower than this: network latency will start to dominate. And if you’ve got dynamic requests to APIs, those will almost certainly be the bottleneck rather than the static file serving.
 
-Overall, with this small of a penalty in most cases I’d pick running Next.js given it’s significantly easier to set up (provided you’re building a Next.js app already), and means your deployment can be standardised across static and dynamic applications. Only when you’re getting hundreds or thousands of requests per second, or if you've already got a really smooth nginx pipeline, does it probably become worth looking at this.
+Overall, with this small a penalty I’d pick running Next.js in most cases: it’s significantly easier to set up (provided you’re building a Next.js app already), and standardises your deployment across static and dynamic applications. It's probably only worth looking at nginx when you’re getting hundreds or thousands of requests per second, or if you've already got a really smooth nginx pipeline.
 
 _Update: I did [a follow-up with a more realistic setup, showing what the performance looks like when this is running on a remote server](../benchmark-next-vs-nginx-aws/)._
 

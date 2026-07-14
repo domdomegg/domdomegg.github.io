@@ -6,6 +6,16 @@ html {
 }
 
 @utility prose {
+    /* Cap tall (e.g. portrait) images so they don't dominate the column.
+     * Scoped to plain markdown images: `<img>` without a class attribute.
+     * Custom JSX images (e.g. the AdamCon grids) always carry className and
+     * set their own sizing, so they're left untouched. */
+    img:not([class]) {
+        max-height: 80vh;
+        width: auto;
+        margin-inline: auto;
+    }
+
     code {
         &::before,
         &::after {
