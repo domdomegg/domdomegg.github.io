@@ -52,6 +52,10 @@ Analytics show these are effectively different products with different readers, 
 
 14. **End by pointing somewhere, not summarising.** The last paragraph should be the sharpest implication, a call to action, or a link into the next post — never a recap.
 
+## The edit pass
+
+15. **Finish every post with a pass that only deletes.** Reread the near-final draft doing nothing but cutting: dead intensifiers ("just", "really", "actually", "pretty", "fairly", "very"), scaffolding ("it is also the case that", "some kind of", "in order to"), passives with an obvious actor ("this can be mitigated by" → "you can mitigate this"), and restatements of things already said. The test for each word: does the sentence lose meaning or voice without it? If not, it goes — but keep the words that serve the relationship with the reader (see "Omit needless words vs voice" below). This applies to highvol posts too: scrappy means less polish on structure and evidence, not extra words.
+
 ## Mechanics
 
 - Interlink related posts aggressively (relative links like `../what-is-agi/`).
