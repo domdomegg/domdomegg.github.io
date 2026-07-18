@@ -6,6 +6,11 @@ import {type Post, type PostInput, postSchema} from '../components/BlogHeader';
 
 const externalPosts: PostInput[] = ([
 	{
+		title: 'Effective Patterns for Advanced MCP Usage',
+		href: 'https://www.pulsemcp.com/posts/effective-patterns-for-advanced-mcp-usage',
+		publishedOn: '2026-07-17',
+	},
+	{
 		title: 'How we contain Claude across products',
 		href: 'https://www.anthropic.com/engineering/how-we-contain-claude',
 		publishedOn: '2026-05-25',
