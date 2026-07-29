@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .ink { fill: #44403c; }
+    .muted { fill: #78716c; }
+    .axis { stroke: #78716c; stroke-width: 1.5; }
+    .expert { stroke: #78716c; stroke-width: 2.5; fill: none; }
+    .expertt { fill: #78716c; }
+    .you { stroke: #2563eb; stroke-width: 2.5; fill: none; }
+    .yout { fill: #2563eb; }
+    @media (prefers-color-scheme: dark) {
+      .ink { fill: #d6d3d1; }
+      .muted { fill: #a8a29e; }
+      .axis { stroke: #a8a29e; }
+      .expert { stroke: #a8a29e; }
+      .expertt { fill: #a8a29e; }
+      .you { stroke: #3b82f6; }
+      .yout { fill: #60a5fa; }
+    }
+  </style>
+
+  <!-- Axes: plot x 60..530, y 55..250 -->
+  <line x1="60" y1="250" x2="530" y2="250" class="axis"/>
+  <line x1="60" y1="250" x2="60" y2="55" class="axis"/>
+  <text x="295" y="290" text-anchor="middle" font-size="13" class="muted">the specialised domain</text>
+  <text x="32" y="152" font-size="13" class="muted" transform="rotate(-90 32 152)" text-anchor="middle">depth</text>
+
+  <!-- Expert: broad, moderate depth -->
+  <path class="expert" d="M 70 248 C 140 170, 200 148, 295 148 C 390 148, 450 170, 520 248"/>
+  <text x="150" y="140" font-size="13" font-weight="600" class="expertt">the "expert"</text>
+
+  <!-- You: near-zero everywhere, tall spike at your question -->
+  <path class="you" d="M 70 244 L 330 244 Q 364 244 371 80 Q 378 244 412 244 L 520 244"/>
+  <text x="392" y="86" font-size="13" font-weight="600" class="yout">you</text>
+
+  <!-- Tick for your question -->
+  <line x1="371" y1="250" x2="371" y2="257" class="axis"/>
+  <text x="371" y="272" text-anchor="middle" font-size="12.5" class="muted">your question</text>
+</svg>

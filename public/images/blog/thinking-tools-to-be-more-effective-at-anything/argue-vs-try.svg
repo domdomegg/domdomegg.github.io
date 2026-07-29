@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 295" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .ink { fill: #44403c; }
+    .muted { fill: #78716c; }
+    .node { fill: #f5f5f4; stroke: #78716c; stroke-width: 1.5; }
+    .mush { fill: #f5f5f4; stroke: #78716c; stroke-width: 1.5; stroke-dasharray: 5 4; }
+    .slowloop { stroke: #78716c; stroke-width: 2; fill: none; stroke-dasharray: 6 5; }
+    .slowhead { fill: #78716c; }
+    .fastnode { fill: #eff6ff; stroke: #2563eb; stroke-width: 2; }
+    .fasttext { fill: #1e3a8a; }
+    .fastloop { stroke: #2563eb; stroke-width: 2.5; fill: none; }
+    .fasthead { fill: #2563eb; }
+    .tline { stroke: #a8a29e; stroke-width: 2.5; stroke-linecap: round; }
+    .check { stroke: #2563eb; stroke-width: 3; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    @media (prefers-color-scheme: dark) {
+      .ink { fill: #d6d3d1; }
+      .muted { fill: #a8a29e; }
+      .node { fill: #292524; stroke: #a8a29e; }
+      .mush { fill: #292524; stroke: #a8a29e; }
+      .slowloop { stroke: #a8a29e; }
+      .slowhead { fill: #a8a29e; }
+      .fastnode { fill: #1e293b; stroke: #60a5fa; }
+      .fasttext { fill: #bfdbfe; }
+      .fastloop { stroke: #3b82f6; }
+      .fasthead { fill: #3b82f6; }
+      .tline { stroke: #78716c; }
+      .check { stroke: #60a5fa; }
+    }
+  </style>
+
+  <defs>
+    <marker id="sh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" class="slowhead"/>
+    </marker>
+    <marker id="fh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" class="fasthead"/>
+    </marker>
+  </defs>
+
+  <!-- LEFT: argue about it -->
+  <text x="140" y="26" text-anchor="middle" font-size="13.5" font-weight="600" class="ink">Argue about it</text>
+
+  <rect x="50" y="44" width="120" height="30" rx="9" class="node"/>
+  <line x1="64" y1="55" x2="146" y2="55" class="tline"/>
+  <line x1="64" y1="64" x2="124" y2="64" class="tline"/>
+
+  <rect x="110" y="88" width="120" height="30" rx="9" class="node"/>
+  <line x1="124" y1="99" x2="190" y2="99" class="tline"/>
+  <line x1="124" y1="108" x2="166" y2="108" class="tline"/>
+
+  <rect x="50" y="132" width="120" height="30" rx="9" class="node"/>
+  <line x1="64" y1="143" x2="152" y2="143" class="tline"/>
+  <line x1="64" y1="152" x2="112" y2="152" class="tline"/>
+
+  <rect x="110" y="176" width="120" height="30" rx="9" class="node"/>
+  <line x1="124" y1="187" x2="182" y2="187" class="tline"/>
+  <line x1="124" y1="196" x2="172" y2="196" class="tline"/>
+
+  <path class="slowloop" marker-end="url(#sh)" d="M 140 212 L 140 228"/>
+
+  <circle cx="140" cy="250" r="17" class="mush"/>
+  <text x="140" y="256" text-anchor="middle" font-size="16" font-weight="600" class="muted">?</text>
+
+  <text x="140" y="288" text-anchor="middle" font-size="12" class="muted">a mushy guess</text>
+
+  <!-- RIGHT: try it -->
+  <text x="420" y="26" text-anchor="middle" font-size="13.5" font-weight="600" class="fasttext">Try it</text>
+
+  <rect x="360" y="44" width="120" height="30" rx="9" class="node"/>
+  <line x1="374" y1="55" x2="456" y2="55" class="tline"/>
+  <line x1="374" y1="64" x2="434" y2="64" class="tline"/>
+
+  <path class="fastloop" marker-end="url(#fh)" d="M 420 82 L 420 122"/>
+
+  <circle cx="420" cy="147" r="17" class="fastnode"/>
+  <path class="check" d="M 412 147 L 418 154 L 429 140"/>
+
+  <text x="420" y="288" text-anchor="middle" font-size="12" class="muted">the answer</text>
+</svg>

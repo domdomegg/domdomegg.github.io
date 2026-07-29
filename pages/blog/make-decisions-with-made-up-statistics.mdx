@@ -1,0 +1,60 @@
+---
+title: "Thinking tool: Make decisions with made-up statistics"
+publishedOn: "2026-08-15"
+---
+
+import Details from '../../components/Details'
+
+Making data-driven decisions is hard in practice - the data you need can seem impossible to find. So just make it up!
+
+What I mean is described well by internet commenter 'ciphergoth', on [a Slate Star Codex post](https://slatestarcodex.com/2013/05/02/if-its-worth-doing-its-worth-doing-with-made-up-statistics/):
+
+> “Sometimes pulling numbers out of your arse and using them to make a decision is better than pulling a decision out of your arse.”
+
+This is the skill behind the classic [Fermi question](https://en.wikipedia.org/wiki/Fermi_problem): how many piano tuners are there in Chicago? Population, households per piano, tunings per year, tunings a tuner can do - four made-up numbers multiply out to a decent answer, usually more accurate than guessing directly.
+
+Of course, don't present this as more than an estimate. But it's usually a better-informed basis for decisions.
+
+For example, consider some ways to combat climate change:
+- Switching to energy saving light bulbs
+- Deleting old emails
+- Installing a couple of plug-in solar panels
+
+It may not be obvious ([to some at least](https://bertptrs.nl/2024/08/24/deleting-emails-will-not-save-the-planet.html)) which is most helpful. But made-up numbers get you much clearer estimates.
+
+<Details title='Worked example: the three climate options'>
+
+Everything here is electricity, so we can just compare kilowatt-hours saved per year and skip converting to carbon - the conversion is the same multiplier for all three, so [it can't change the final decision](../ask-if-the-answer-changes-the-decision/).
+
+**Energy saving light bulbs.** I probably have about 8 bulbs, on for about 4 hours a day. Swapping 40W halogens for 6W LEDs: `8 x (40-6)W x 4 hours/day x 365 days/year` = **~400 kWh/year**.
+
+**Deleting old emails.** I don't know what a gigabyte-year of storage costs in energy, so let's build it up. A big datacentre hard drive is around 16TB and draws maybe 10W, running constantly: that's `10W x 8,760 hours` = 88 kWh/year for 16,000 GB, or 0.0055 kWh per GB. Then datacentres burn extra power on cooling and everything else (call it 2x) and your mail is stored more than once for redundancy (call it 2x), giving roughly 0.022 kWh per GB per year.
+
+How much email is there to delete? A Gmail account is 15GB and most people never fill it. Even deleting 20% of a full inbox would be extreme, so at most that's 3GB: `3 GB x 0.022 kWh/GB-year` = **~0.07 kWh/year**.
+
+**Two plug-in solar panels.** These are about 400W each, but that's the rating under ideal conditions. Averaged over the year there's about 12 hours of daylight a day. Output follows an arc within the day - nothing at dawn, most at midday - so halve it. And conditions are rarely ideal, thanks to cloud, dirt and the panel not pointing straight at the sun, so halve it again. `0.8 kW x 12 hours x 0.5 x 0.5 x 365 days` = **~880 kWh/year**.
+
+So the solar panels might be about 880 kWh, while deleting 3GB of email is 0.07 kWh - a factor of about 12,500. Put another way, deleting all that email saves about as much energy as having the solar panels for 42 minutes.
+
+Of course, these assumptions are extremely shaky. But they're unlikely to be 12,500 times off.
+
+And yes, deleting three gigabytes of email costs you something quite different to installing plug-in solar. But now we can meaningfully compare the options, and fill in the estimates with better data where we find it. LLMs like Claude are great at suggesting reasonable ranges, or handling the uncertainties properly, e.g. using [Squiggle](https://www.squiggle-language.com/).
+
+</Details>
+
+The same logic applies to "which feature should we build" or "which project should we pursue", given a north star metric. Sometimes options come out as a wash; other times you realise some are [100x better than others](../hunt-for-100x-opportunities/).
+
+Making up numbers also forces you to identify the decision-relevant evidence. This often leads to "hmmm, it might actually be possible to measure this" (even if imperfectly, e.g. via sampling, or combining measurement with assumptions). And starting from made-up numbers keeps you aimed at the true thing, rather than whatever's easiest to measure.
+
+## Related concepts
+
+This is part of my [thinking tools series](../thinking-tools-to-be-more-effective-at-anything/). Also consider:
+- [Ask if the answer changes the decision](../ask-if-the-answer-changes-the-decision/) first - the fastest estimate is the one you don't need
+- [Hunt for 100x opportunities](../hunt-for-100x-opportunities/): rough numbers are enough to compare options that differ by orders of magnitude
+- [Run the experiment](../run-the-experiment/): when made-up numbers aren't precise enough to make a decision, reality is available!
+- [Build feedback loops](../thinking-tools-to-be-more-effective-at-anything/#build-feedback-loops): a rough estimate is a prediction, and you learn most from checking it against what actually happened
+
+## More on made-up statistics
+
+- Slate Star Codex: [If it's worth doing, it's worth doing with made-up statistics](https://slatestarcodex.com/2013/05/02/if-its-worth-doing-its-worth-doing-with-made-up-statistics/)
+- Douglas Hubbard: [How to Measure Anything](https://hubbardresearch.com/publications/how-to-measure-anything-book/)
