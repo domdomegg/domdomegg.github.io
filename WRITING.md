@@ -42,6 +42,31 @@ Analytics show these are effectively different products with different readers, 
 
 10. **Most posts want a visual — ideally one that carries the argument.** A diagram that *is* the thesis (the activation-energy barrier in `coalition-of-democracies-solves-agi-risks`, the problem-identification-tools map in `empathetic-role-playing`, the plan overview in `rough-alignment-plan-early-2025`), a chart for data (the BarCharts in `local-llms-speed-early-2026`), or an image for levity (the US–China meme in `uk-agi-plan-2025`). A good diagram is often the most-repeated artifact from a post, and visuals give skimmers a second entry point into the argument.
 
+10a. **Source visuals in this order: make it, find it free, then generate it.**
+
+    1. **A diagram you make** is almost always the best option — it's the only one that can *be* the argument rather than decorate it. Inline SVG, styled for light and dark (see the existing ones in `public/images/blog/`).
+    2. **Free media**: public domain or Creative Commons. Wikimedia Commons, NASA, Flickr's CC search, government archives, and the original creator's own site. Credit in an italic line under the image, naming the creator and linking the licence — like the [Apollo 13 mailbox](https://images.nasa.gov/details/S70-35013) and [xkcd 1205](https://xkcd.com/1205/) images in `thinking-tools-to-be-more-effective-at-anything`, or the DRC photo in `how-agi-could-kill-usa-democracy`. Check the licence actually permits use, and honour attribution terms.
+    3. **Generated (ChatGPT/Gemini)** only when nothing free fits. See below.
+
+10b. **If you generate an image, avoid the AI-slop look.** The tell isn't that an image was generated, it's that it looks like it came from a generator: glossy hyperreal lighting, a cluttered "sci-fi collage" of unrelated symbols, neon-on-dark-blue, floating holograms, mangled baked-in text, and a subject that's a literal transcription of the adjacent sentence. These read as filler and cost the reader's trust.
+
+    What works instead — the generated images in `thinking-tools-to-be-more-effective-at-anything` are the reference:
+    - **Commit to a real visual genre**, and name it in the prompt: a 19th-century oil painting (David and Goliath), an ordinary stock interiors photograph (the thermostat), a Victorian anatomical plate (the homunculus). A recognisable genre carries its own conventions, which is what stops it looking generated.
+    - **Illustrate the *idea*, obliquely.** The thermostat image works because the argument is "we spent an hour debating whether a thermostat is an AI system" — the joke is how mundane it is. A picture of "abstract decision-making" would have been worthless.
+    - **No text in the image.** Generators mangle it, and it can't be translated, searched or read by screen readers. Put words in the caption or alt text.
+    - **Keep it plain.** One subject, ordinary lighting, no lens flare, no glow.
+    - **Don't imply it's real.** Don't generate photorealistic images of identifiable people or of events presented as documentation.
+
+    Alt text describes what's *in* the image (as with any image); don't caption generated images as though they were photographs of real events.
+
+10c. **Crop landscape; never make the reader scroll past an image.** A tall image eats a whole phone screen and pushes the argument out of view — the reader scrolls through it rather than reading it. Prefer ~16:9 (up to ~2:1 for a wide scene, and the xkcd-style exception where the image *is* the content); crop portrait and square photos down rather than shipping them as-is. Cropping usually improves the image anyway, since it forces the subject to fill the frame.
+
+    **Credits go in the alt text, not a visible caption.** Reserve the italic line under an image for something that adds to the argument — a joke, a pointer, the thing to notice ("To find a 4-leaf clover, first spend some time in the clover fields!"). Attribution is bookkeeping: put "Photo by X, public domain" at the end of the alt text, where it's still recorded and still reachable, without spending the reader's attention. (Licences that *require* visible attribution are the exception — honour them.)
+
+10d. **Diagrams carry meaning in the picture, not in labels.** The recurring failure is a diagram that explains itself in words — a title restating the heading, a caption per panel, an annotation on every element — at which point the reader is reading a paragraph laid out awkwardly, and the shapes are decoration. If the arrangement doesn't communicate without its labels, redraw the arrangement; don't add another label.
+
+    Default budget: **one or two text elements per diagram**, plus short node names. Cut in this order — the title (the surrounding prose already says it), then panel headers (the contrast should be visible), then any annotation restating what a reader can see. Keep the label that names the thing they couldn't otherwise know ("Herbie", "the constraint") and the one non-obvious insight. Prose beneath the image is cheaper than text inside it, and stays selectable, translatable and readable at any size.
+
 11. **Microhumour, not jokes.** Small moments of wit that reward attention without costing clarity: playful structure ("Thing 1: Avoid being in a race in the first place", `uk-agi-plan-2025`), a wry title (`oh-good`), delight in the data ("Gemma 3 1B got 1.8x faster!", `local-llms-speed-early-2026`). Humour makes the writer feel human and keeps readers moving through dense material — but it's seasoning: never at the expense of the argument, and never forced.
 
 12. **Try to compress the thesis into one repeatable sentence — mainly as a test.** If the idea won't compress ("an extremely-competent, fast and copyable remote employee", `what-is-agi`), it usually isn't sharp yet. The quotable line is also how persuasion essays travel — people repeat the sentence, not the post — but treat it as something to find during editing, not force during drafting. Low priority for utility and reference posts.
@@ -60,7 +85,8 @@ Analytics show these are effectively different products with different readers, 
 
 - Interlink related posts aggressively (relative links like `../what-is-agi/`).
 - Frontmatter: `title`, `publishedOn`; add `citable: true` for reference-style posts, `highvol: true` for published-not-broadcast.
-- Image handling rules are in README.md (strip EXIF, downscale).
+- Image handling rules are in README.md (strip EXIF, downscale). Sourcing and generated-image rules are in 10a/10b above.
+- Images live in `public/images/blog/<slug>/`. Every image needs alt text describing what's in it; credit free media in an italic line beneath.
 
 # Part 2: The canon
 
@@ -107,6 +133,7 @@ The best generally-applicable writing advice, compiled by theme with attribution
 
 - **A good graphic is an argument, not decoration.** Edward Tufte (*The Visual Display of Quantitative Information*): graphical excellence is complex ideas communicated with clarity, precision, and efficiency. Show the data, maximize the share of ink doing informational work, cut chartjunk.
 - **Diagrams give skimmers a second entry point** and are often the most-shared artifact of a piece. If the thesis can be drawn, draw it.
+- **Decoration costs more than it gives.** Tufte's chartjunk argument generalises to photos: an image that carries no information trains readers to skip images, including the ones that do carry information. This is the real case against generic AI-generated headers — not that they're generated, but that they're empty.
 
 ## Process
 

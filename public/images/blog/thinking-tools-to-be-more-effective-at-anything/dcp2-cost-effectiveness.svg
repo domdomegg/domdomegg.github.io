@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 320" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .ink { fill: #44403c; }
+    .muted { fill: #78716c; }
+    .axis { stroke: #78716c; stroke-width: 1.5; }
+    .grid { stroke: #78716c; stroke-width: 1; stroke-opacity: 0.25; }
+    .curve { stroke: #2563eb; stroke-width: 2.5; fill: none; }
+    .ref { stroke: #78716c; stroke-width: 1.5; stroke-dasharray: 4 4; }
+    .hi { fill: #d97706; }
+    @media (prefers-color-scheme: dark) {
+      .ink { fill: #d6d3d1; }
+      .muted { fill: #a8a29e; }
+      .axis { stroke: #a8a29e; }
+      .grid { stroke: #a8a29e; }
+      .curve { stroke: #3b82f6; }
+      .ref { stroke: #a8a29e; }
+    }
+  </style>
+
+  <text x="20" y="24" font-size="14" font-weight="600" class="ink">Cost-effectiveness of interventions in global health</text>
+  <text x="20" y="43" font-size="12" class="muted">108 interventions, ranked. The best are ~100x the median.</text>
+
+  <!-- Plot area: x 70..520, y 60..250 -->
+  <line x1="70" y1="250" x2="530" y2="250" class="axis"/>
+  <line x1="70" y1="250" x2="70" y2="58" class="axis"/>
+
+  <!-- gridlines -->
+  <g class="grid">
+    <line x1="70" y1="202" x2="530" y2="202"/>
+    <line x1="70" y1="154" x2="530" y2="154"/>
+    <line x1="70" y1="106" x2="530" y2="106"/>
+  </g>
+
+  <!-- y labels (DALYs per $1000, illustrative of the DCP2 shape) -->
+  <g font-size="11" class="muted" text-anchor="end">
+    <text x="63" y="254">0</text>
+    <text x="63" y="206">10</text>
+    <text x="63" y="158">20</text>
+    <text x="63" y="110">30</text>
+  </g>
+  <text x="30" y="155" font-size="12" class="muted" transform="rotate(-90 30 155)" text-anchor="middle">health gained per $</text>
+
+  <!-- x labels -->
+  <g font-size="11" class="muted" text-anchor="middle">
+    <text x="70" y="268">0</text>
+    <text x="185" y="268">25</text>
+    <text x="300" y="268">50</text>
+    <text x="415" y="268">75</text>
+    <text x="522" y="268">100</text>
+  </g>
+  <text x="300" y="288" text-anchor="middle" font-size="12" class="muted">interventions, in order of cost-effectiveness</text>
+
+  <!-- The hockey stick: flat for ~85% of interventions, then explodes -->
+  <path class="curve" d="M 74 249 L 150 248.5 L 230 247.5 L 300 246 L 350 244 L 390 240 L 420 234 L 445 226 L 462 216 L 478 200 L 492 176 L 504 140 L 514 96 L 522 62"/>
+
+  <!-- Median marker -->
+  <line x1="300" y1="246" x2="300" y2="220" class="ref"/>
+  <text x="300" y="214" text-anchor="middle" font-size="11.5" class="muted">the median intervention</text>
+
+  <!-- Best marker -->
+  <circle cx="522" cy="62" r="5" class="hi"/>
+  <text x="512" y="58" text-anchor="end" font-size="11.5" font-weight="600" fill="#b45309">the best ones</text>
+
+
+  <text x="20" y="310" font-size="12" class="muted">Data: Disease Control Priorities in Developing Countries, 2nd edition (2006).</text>
+</svg>

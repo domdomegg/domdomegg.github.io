@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 470" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .ink { fill: #44403c; }
+    .muted { fill: #78716c; }
+    .node { fill: #f5f5f4; stroke: #78716c; stroke-width: 1.5; }
+    .nodetext { fill: #44403c; }
+    .frame { fill: #eff6ff; stroke: #2563eb; stroke-width: 1.5; }
+    .frametext { fill: #1e3a8a; }
+    .anchor { fill: #2563eb; stroke: #2563eb; stroke-width: 2; }
+    .anchortext { fill: #ffffff; }
+    .edge { stroke: #78716c; stroke-width: 1.5; fill: none; }
+    .edgehead { fill: #78716c; }
+    .divider { stroke: #78716c; stroke-width: 1.5; fill: none; }
+    @media (prefers-color-scheme: dark) {
+      .ink { fill: #d6d3d1; }
+      .muted { fill: #a8a29e; }
+      .node { fill: #292524; stroke: #a8a29e; }
+      .nodetext { fill: #d6d3d1; }
+      .frame { fill: #1e293b; stroke: #60a5fa; }
+      .frametext { fill: #bfdbfe; }
+      .anchor { fill: #3b82f6; stroke: #3b82f6; }
+      .edge { stroke: #a8a29e; }
+      .edgehead { fill: #a8a29e; }
+      .divider { stroke: #a8a29e; }
+    }
+  </style>
+
+  <defs>
+    <marker id="fh" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" class="edgehead"/>
+    </marker>
+  </defs>
+
+  <!-- ============ Solution brainstorming ============ -->
+  <text x="20" y="26" font-size="14" font-weight="600" class="ink">Brainstorming solutions: one frame, many answers</text>
+
+  <rect x="20" y="76" width="118" height="44" rx="8" class="anchor"/>
+  <text x="79" y="94" text-anchor="middle" font-size="12.5" font-weight="700" class="anchortext">"how do we</text>
+  <text x="79" y="110" text-anchor="middle" font-size="12.5" font-weight="700" class="anchortext">cure cancer?"</text>
+
+  <rect x="250" y="42" width="150" height="32" rx="8" class="node"/>
+  <text x="325" y="63" text-anchor="middle" font-size="12" class="nodetext">a new drug</text>
+  <rect x="250" y="82" width="150" height="32" rx="8" class="node"/>
+  <text x="325" y="103" text-anchor="middle" font-size="12" class="nodetext">a better therapy</text>
+  <rect x="250" y="122" width="150" height="32" rx="8" class="node"/>
+  <text x="325" y="143" text-anchor="middle" font-size="12" class="nodetext">gene editing</text>
+
+  <g class="edge" marker-end="url(#fh)">
+    <path d="M 140 92 C 190 92 196 58 246 58"/>
+    <path d="M 140 98 L 246 98"/>
+    <path d="M 140 104 C 190 104 196 138 246 138"/>
+  </g>
+
+  <text x="412" y="103" font-size="12.5" class="muted">…?</text>
+
+  <!-- Divider -->
+  <line x1="20" y1="182" x2="540" y2="182" class="divider" stroke-dasharray="2 5"/>
+
+  <!-- ============ Framestorming ============ -->
+  <text x="20" y="218" font-size="14" font-weight="600" class="ink">Framestorming: many frames first - each opens its own answers</text>
+
+  <rect x="20" y="316" width="118" height="44" rx="8" class="anchor"/>
+  <text x="79" y="334" text-anchor="middle" font-size="12.5" font-weight="700" class="anchortext">cancer is the</text>
+  <text x="79" y="350" text-anchor="middle" font-size="12.5" font-weight="700" class="anchortext">problem area</text>
+
+  <!-- frames -->
+  <rect x="188" y="240" width="146" height="32" rx="8" class="frame"/>
+  <text x="261" y="261" text-anchor="middle" font-size="11.5" class="frametext">how do we cure it?</text>
+  <rect x="188" y="288" width="146" height="32" rx="8" class="frame"/>
+  <text x="261" y="309" text-anchor="middle" font-size="11.5" class="frametext">how do we prevent it?</text>
+  <rect x="188" y="336" width="146" height="32" rx="8" class="frame"/>
+  <text x="261" y="357" text-anchor="middle" font-size="11.5" class="frametext">how do we detect it?</text>
+  <rect x="188" y="384" width="146" height="32" rx="8" class="frame"/>
+  <text x="261" y="405" text-anchor="middle" font-size="11.5" class="frametext">how do we live with it?</text>
+
+  <!-- solutions per frame -->
+  <g class="node">
+    <rect x="384" y="240" width="140" height="32" rx="8"/>
+    <rect x="384" y="288" width="140" height="32" rx="8"/>
+    <rect x="384" y="336" width="140" height="32" rx="8"/>
+    <rect x="384" y="384" width="140" height="32" rx="8"/>
+  </g>
+  <g class="nodetext" text-anchor="middle" font-size="11.5">
+    <text x="454" y="261">drugs, therapies…</text>
+    <text x="454" y="309">vaccines, diet, policy…</text>
+    <text x="454" y="357">screening, blood tests…</text>
+    <text x="454" y="405">pain care, support…</text>
+  </g>
+
+  <g class="edge" marker-end="url(#fh)">
+    <path d="M 140 330 C 165 330 162 256 184 256"/>
+    <path d="M 140 335 C 165 335 162 304 184 304"/>
+    <path d="M 140 341 C 165 341 162 352 184 352"/>
+    <path d="M 140 346 C 165 346 162 400 184 400"/>
+    <path d="M 336 256 L 380 256"/>
+    <path d="M 336 304 L 380 304"/>
+    <path d="M 336 352 L 380 352"/>
+    <path d="M 336 400 L 380 400"/>
+  </g>
+
+  <text x="280" y="446" text-anchor="middle" font-size="12.5" class="muted">diverging on the question first gives you far more, and far better, answers</text>
+</svg>

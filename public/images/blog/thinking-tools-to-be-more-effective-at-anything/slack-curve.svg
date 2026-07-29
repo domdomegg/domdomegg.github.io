@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .ink { fill: #44403c; }
+    .muted { fill: #78716c; }
+    .axis { stroke: #78716c; stroke-width: 1.5; }
+    .ref { stroke: #78716c; stroke-width: 1.5; stroke-dasharray: 5 5; }
+    .curve { stroke: #2563eb; stroke-width: 2.5; fill: none; }
+    .dot { fill: #2563eb; }
+    @media (prefers-color-scheme: dark) {
+      .ink { fill: #d6d3d1; }
+      .muted { fill: #a8a29e; }
+      .axis { stroke: #a8a29e; }
+      .ref { stroke: #a8a29e; }
+      .curve { stroke: #3b82f6; }
+      .dot { fill: #3b82f6; }
+    }
+  </style>
+
+  <!-- Axes: plot area x 70..510, y 40..240 -->
+  <line x1="70" y1="240" x2="510" y2="240" class="axis"/>
+  <line x1="70" y1="240" x2="70" y2="40" class="axis"/>
+  <text x="290" y="272" text-anchor="middle" font-size="13" class="muted">utilisation</text>
+  <text x="40" y="140" font-size="13" class="muted" transform="rotate(-90 40 140)" text-anchor="middle">delay when anything changes</text>
+
+  <!-- x tick labels -->
+  <g font-size="12" class="muted" text-anchor="middle">
+    <text x="70" y="257">0%</text>
+    <text x="290" y="257">50%</text>
+    <text x="466" y="257">90%</text>
+    <text x="510" y="257">100%</text>
+  </g>
+
+  <!-- Asymptote at 100% -->
+  <line x1="510" y1="235" x2="510" y2="45" class="ref"/>
+
+  <!-- M/M/1-style delay curve: 1/(1-rho), scaled. x=70+440*rho, y=240-12*(1/(1-rho)-1) approx -->
+  <path class="curve" d="M 70 235 C 200 231 290 228 356 220 C 400 214 430 205 452 190 C 470 176 484 155 493 128 C 500 106 505 78 507 52"/>
+
+  <!-- Healthy point ~75% -->
+  <circle cx="400" cy="209" r="5" class="dot"/>
+  <text x="150" y="180" font-size="13" class="ink" font-weight="600">~75-85%: slack left to absorb</text>
+  <text x="150" y="198" font-size="13" class="ink">shocks and seize opportunities</text>
+  <line x1="330" y1="188" x2="392" y2="205" class="ref"/>
+
+  <!-- No-slack annotation -->
+  <text x="295" y="62" font-size="13" class="ink" font-weight="600">~100%: everything queues,</text>
+  <text x="295" y="80" font-size="13" class="ink">nothing can change</text>
+  <line x1="428" y1="75" x2="490" y2="95" class="ref"/>
+</svg>

@@ -1,9 +1,5 @@
-const RedirectPage = () => {
-	if (typeof window !== 'undefined') {
-		window.location.replace('/privacy');
-	}
+import {Redirect} from '../components/Redirect';
 
-	return <div />;
-};
+const RedirectPage = () => <Redirect to='/privacy'/>;
 
 export default RedirectPage;

@@ -1,0 +1,36 @@
+---
+title: "Thinking tool: Optimize only the constraint by finding your bottleneck"
+publishedOn: "2026-07-31"
+highvol: true
+---
+
+When improving a system with many parts: find the bottleneck and improve only that.
+
+![A Shapez factory: the red and green input belts are packed solid with items nose-to-tail, backed up all the way to the mining patches, while the yellow output belts leaving the processing machines run half-empty with big gaps between items. Screenshot from Shapez by tobspr Games](../../images/blog/thinking-tools-to-be-more-effective-at-anything/shapez.jpg)
+
+If you've ever played [Shapez](https://shapez.io/) or [Factorio](https://factorio.com/), you'll have an intuition that it's the bottlenecks that are key. In manufacturing (or manufacturing games) this usually becomes quite obvious. But the same applies to anywhere else you care about flow: of team tasks through different stakeholders, of API requests through microservices, or of candidates in a recruiting pipeline.
+
+In [The Goal](https://en.wikipedia.org/wiki/The_Goal_(novel)), a fiction novel about manufacturing optimisation, the protagonist leads a Boy Scout hike through a narrow trail wide enough for only 1 boy at a time. It sounds obvious, but they realise the group is held back by its slowest member, Herbie - fast walkers at the front just create a long gap, not a faster hike.
+
+The group only speeds up when they offer to take weight out of Herbie's backpack, and they stop spreading apart when they put Herbie at the front to set the pace. (There are other nice analogies: the spread of the group is 'work in progress' inventory, the trail ahead of the first boy is raw material, the speed of each boy is process throughput.)
+
+![Two panels of a single-file trail. Top: Herbie mid-trail with four boys bunched up right behind him and a large marked gap ahead to the four fast walkers, labelled 'the gap: work in progress, spread thin'. Bottom: Herbie moved to the front with the whole group tight behind him, walking at his pace](../../images/blog/thinking-tools-to-be-more-effective-at-anything/herbie.svg)
+
+From this, [The Goal](https://en.wikipedia.org/wiki/The_Goal_(novel)) sets out a theory of constraints, with 5 focusing steps:
+
+1. **Identify**: The signal for this is "where does work pile up in front of". In the walking analogy, this is "which boy has a large space ahead of them to the next boy", which is Herbie. In practice, this requires a deep understanding of your system and what outcome it is you're even optimising for.
+2. **Exploit**: Take free actions to optimise throughput of the constraint. In story, they realise Herbie is carrying a bunch of equipment which can be distributed to the other boys.
+3. **Subordinate everything else**: Every non-constraint should run at the constraint's pace. In the story, this is done by moving Herbie to the front of the pack. In practice this is often done poorly as it requires deliberately creating idleness. But note that this is better than the alternative: producing excess work in progress parts is just increases WIP inventory (a cost), not final output.
+4. **Elevate**: Spend money to optimise the throughput of the constraint. This isn't given in the hiking story, but perhaps it could look like buying Herbie higher-spec lightweight gear so he moves faster. Often in knowledge work jobs, this looks like hiring a new person onto the team.
+5. **Repeat**: In doing the steps above, you might have changed the balance of the system and have introduced new constraints. Go back to step one and analyze again!
+
+I'll re-highlight the bit in point 3: it's actually better sometimes for non-bottlenecks to be idle. Additionally, intentionally blocking the system on the constraint can help focus efforts on this bottleneck. In the example above, putting Herbie in front helped keep the pack together (equivalent to having less in progress work that would make the team less agile), and incentivised people to take things out of his backpack.
+
+This is built into certain management systems: Kanban sets low max limits on "work in progress" tasks. This forces the system to stop and resolve bottlenecks, improving overall flow. Additionally, in the same way that subordinating to the constraint kept the pack together above, here the reduced WIP helps you to be more agile: if you don't have to worry about a bunch of half-complete conflicting work, you're more able to pivot when you receive important new information.
+
+![A kanban board with three columns. Build and Review are each split into 'doing' and 'done' sub-columns, with work-in-progress limits of 5 and 3 bracketed above them. Build holds one note in doing and four notes in done marked 'can't move'; Review is full with three notes in doing and none in done; Deploy is empty](../../images/blog/thinking-tools-to-be-more-effective-at-anything/kanban-swarm.svg)
+_In the Kanban board above, review is the constraint: it's full at its limit of 3, so nothing can move into it. That backs up into Build, where four finished tickets sit in "done" with nowhere to go. Because build is now at its limit of 5, nobody there can start anything, so the sensible thing left to do is to help review._
+
+## Related concepts
+
+This is part of my [thinking tools series](../thinking-tools-to-be-more-effective-at-anything/).

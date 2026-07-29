@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16 26 528 348" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .ink { fill: #44403c; }
+    .muted { fill: #78716c; }
+    .node { fill: #f5f5f4; stroke: #78716c; stroke-width: 1.5; }
+    .nodetext { fill: #44403c; }
+    .anchor { fill: #2563eb; stroke: #2563eb; stroke-width: 2; }
+    .anchortext { fill: #ffffff; }
+    .edge { stroke: #78716c; stroke-width: 1.5; fill: none; }
+    .edgehead { fill: #78716c; }
+    .divider { stroke: #78716c; stroke-width: 1.5; fill: none; }
+    @media (prefers-color-scheme: dark) {
+      .ink { fill: #d6d3d1; }
+      .muted { fill: #a8a29e; }
+      .node { fill: #292524; stroke: #a8a29e; }
+      .nodetext { fill: #d6d3d1; }
+      .anchor { fill: #3b82f6; stroke: #3b82f6; }
+      .edge { stroke: #a8a29e; }
+      .edgehead { fill: #a8a29e; }
+      .divider { stroke: #a8a29e; }
+    }
+  </style>
+  <defs>
+    <marker id="ph" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" class="edgehead"/>
+    </marker>
+  </defs>
+  <text x="20" y="44" font-size="13.5" font-weight="600" class="ink">Solution first</text>
+  <rect x="20" y="82" width="112" height="42" rx="8" class="anchor"/>
+  <text x="76" y="108" text-anchor="middle" font-size="12.5" font-weight="700" class="anchortext">your solution</text>
+  <rect x="230" y="62" width="132" height="32" rx="8" class="node"/>
+  <text x="296" y="83" text-anchor="middle" font-size="12" class="nodetext">a problem</text>
+  <rect x="230" y="102" width="132" height="32" rx="8" class="node"/>
+  <text x="296" y="123" text-anchor="middle" font-size="12" class="nodetext">a problem</text>
+  <rect x="230" y="142" width="132" height="32" rx="8" class="node"/>
+  <text x="296" y="163" text-anchor="middle" font-size="12" class="nodetext">a problem</text>
+  <g class="edge" marker-end="url(#ph)">
+    <path d="M 134 97 C 180 97 184 78 226 78"/>
+    <path d="M 134 103 L 226 118"/>
+    <path d="M 134 109 C 180 109 184 158 226 158"/>
+  </g>
+  <line x1="20" y1="196" x2="540" y2="196" class="divider" stroke-dasharray="2 5"/>
+  <text x="20" y="232" font-size="13.5" font-weight="600" class="ink">Problem first</text>
+  <rect x="428" y="268" width="112" height="42" rx="8" class="anchor"/>
+  <text x="484" y="294" text-anchor="middle" font-size="12.5" font-weight="700" class="anchortext">their problem</text>
+  <rect x="198" y="248" width="132" height="32" rx="8" class="node"/>
+  <text x="264" y="269" text-anchor="middle" font-size="12" class="nodetext">a solution</text>
+  <rect x="198" y="288" width="132" height="32" rx="8" class="node"/>
+  <text x="264" y="309" text-anchor="middle" font-size="12" class="nodetext">a solution</text>
+  <rect x="198" y="328" width="132" height="32" rx="8" class="node"/>
+  <text x="264" y="349" text-anchor="middle" font-size="12" class="nodetext">a solution</text>
+  <g class="edge" marker-end="url(#ph)">
+    <path d="M 426 283 C 380 283 376 264 334 264"/>
+    <path d="M 426 289 L 334 304"/>
+    <path d="M 426 295 C 380 295 376 344 334 344"/>
+  </g>
+</svg>

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16 26 528 226" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .ink { fill: #44403c; }
+    .muted { fill: #78716c; }
+    .trail { stroke: #d6d3d1; stroke-width: 24; fill: none; stroke-linecap: round; }
+    .boy { fill: #93c5fd; stroke: #2563eb; stroke-width: 1.5; }
+    .herbie { fill: #2563eb; stroke: #1e3a8a; stroke-width: 1.5; }
+    .label { fill: #44403c; }
+    .gap { stroke: #b91c1c; stroke-width: 1.5; fill: none; stroke-dasharray: 4 3; }
+    .gaptext { fill: #b91c1c; }
+    @media (prefers-color-scheme: dark) {
+      .ink { fill: #d6d3d1; }
+      .muted { fill: #a8a29e; }
+      .trail { stroke: #44403c; }
+      .boy { fill: #1e3a8a; stroke: #60a5fa; }
+      .herbie { fill: #60a5fa; stroke: #bfdbfe; }
+      .label { fill: #d6d3d1; }
+      .gap { stroke: #f87171; }
+      .gaptext { fill: #f87171; }
+    }
+  </style>
+
+  <!-- ============ Before ============ -->
+  <line x1="30" y1="92" x2="530" y2="92" class="trail"/>
+
+  <!-- fast walkers, strung out unevenly ahead -->
+  <circle cx="356" cy="88" r="11" class="boy"/>
+  <circle cx="399" cy="96" r="11" class="boy"/>
+  <circle cx="437" cy="86" r="11" class="boy"/>
+  <circle cx="489" cy="94" r="11" class="boy"/>
+
+  <!-- Herbie -->
+  <circle cx="214" cy="91" r="13" class="herbie"/>
+  <text x="214" y="124" text-anchor="middle" font-size="11.5" font-weight="600" class="label">Herbie</text>
+
+  <!-- pack bunched behind him, slightly irregular -->
+  <circle cx="182" cy="96" r="11" class="boy"/>
+  <circle cx="156" cy="86" r="11" class="boy"/>
+  <circle cx="127" cy="95" r="11" class="boy"/>
+  <circle cx="99" cy="88" r="11" class="boy"/>
+
+  <!-- gap annotation -->
+  <line x1="230" y1="66" x2="340" y2="66" class="gap"/>
+  <text x="285" y="58" text-anchor="middle" font-size="11.5" font-weight="600" class="gaptext">the gap: work in progress</text>
+
+  <!-- ============ After ============ -->
+  <line x1="30" y1="212" x2="530" y2="212" class="trail"/>
+
+  <circle cx="404" cy="212" r="13" class="herbie"/>
+  <text x="404" y="245" text-anchor="middle" font-size="11.5" font-weight="600" class="label">Herbie</text>
+
+  <circle cx="371" cy="208" r="11" class="boy"/>
+  <circle cx="343" cy="216" r="11" class="boy"/>
+  <circle cx="314" cy="207" r="11" class="boy"/>
+  <circle cx="287" cy="215" r="11" class="boy"/>
+  <circle cx="258" cy="208" r="11" class="boy"/>
+  <circle cx="231" cy="216" r="11" class="boy"/>
+  <circle cx="203" cy="209" r="11" class="boy"/>
+  <circle cx="176" cy="215" r="11" class="boy"/>
+
+  <text x="285" y="176" text-anchor="middle" font-size="11.5" class="muted">subordinate everything to the constraint</text>
+</svg>

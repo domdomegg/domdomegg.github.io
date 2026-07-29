@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .ink { fill: #44403c; }
+    .muted { fill: #78716c; }
+    .axis { stroke: #78716c; stroke-width: 1.5; }
+    .target { stroke: #78716c; stroke-width: 1.5; stroke-dasharray: 6 5; }
+    .s1 { stroke: #2563eb; stroke-width: 2.5; fill: none; }
+    .s1d { fill: #2563eb; }
+    .s1t { fill: #2563eb; }
+    .s2 { stroke: #d97706; stroke-width: 2.5; fill: none; }
+    .s2d { fill: #d97706; }
+    .s2t { fill: #b45309; }
+    @media (prefers-color-scheme: dark) {
+      .ink { fill: #d6d3d1; }
+      .muted { fill: #a8a29e; }
+      .axis { stroke: #a8a29e; }
+      .target { stroke: #a8a29e; }
+      .s1 { stroke: #3b82f6; }
+      .s1d { fill: #3b82f6; }
+      .s1t { fill: #60a5fa; }
+      .s2t { fill: #d97706; }
+    }
+  </style>
+
+  <!-- Legend -->
+  <g font-size="13">
+    <circle cx="78" cy="26" r="5" class="s1d"/>
+    <text x="90" y="31" class="ink">overcorrect, then settle</text>
+    <circle cx="268" cy="26" r="5" class="s2d"/>
+    <text x="280" y="31" class="ink">timid increments</text>
+  </g>
+
+  <!-- Axes: plot x 60..530, y 55..250 -->
+  <line x1="60" y1="250" x2="530" y2="250" class="axis"/>
+  <line x1="60" y1="250" x2="60" y2="55" class="axis"/>
+  <text x="295" y="282" text-anchor="middle" font-size="13" class="muted">attempts</text>
+  <text x="32" y="152" font-size="13" class="muted" transform="rotate(-90 32 152)" text-anchor="middle">behaviour</text>
+
+  <!-- Target line at y=120 -->
+  <line x1="60" y1="120" x2="530" y2="120" class="target"/>
+  <text x="524" y="110" font-size="12.5" class="muted" text-anchor="end">target</text>
+
+  <!-- Overcorrect series: start 240, overshoot to 78, dip 138, settle 120 -->
+  <path class="s1" d="M 80 240 L 170 78 L 260 138 L 350 114 L 440 121"/>
+  <g class="s1d">
+    <circle cx="80" cy="240" r="4.5"/><circle cx="170" cy="78" r="4.5"/><circle cx="260" cy="138" r="4.5"/><circle cx="350" cy="114" r="4.5"/><circle cx="440" cy="121" r="4.5"/>
+  </g>
+  <text x="452" y="144" font-size="13" class="s1t" font-weight="600">lands it</text>
+
+  <!-- Timid series: slow asymptotic rise, never reaches -->
+  <path class="s2" d="M 80 240 L 170 218 L 260 200 L 350 186 L 440 175"/>
+  <g class="s2d">
+    <circle cx="80" cy="240" r="4.5"/><circle cx="170" cy="218" r="4.5"/><circle cx="260" cy="200" r="4.5"/><circle cx="350" cy="186" r="4.5"/><circle cx="440" cy="175" r="4.5"/>
+  </g>
+  <text x="452" y="180" font-size="13" class="s2t" font-weight="600">still short</text>
+
+  <!-- Overshoot annotation -->
+  <text x="182" y="62" font-size="12.5" class="muted">overshooting tells you where the line is</text>
+</svg>

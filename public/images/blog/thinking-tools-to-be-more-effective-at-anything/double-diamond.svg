@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 270" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .ink { fill: #44403c; }
+    .muted { fill: #78716c; }
+    .cone { fill: #eff6ff; stroke: #2563eb; stroke-width: 2; }
+    .idea { fill: #2563eb; }
+    .dumb { fill: #d97706; }
+    .pick { fill: #2563eb; }
+    .divider { stroke: #78716c; stroke-width: 1.5; stroke-dasharray: 5 5; }
+    @media (prefers-color-scheme: dark) {
+      .ink { fill: #d6d3d1; }
+      .muted { fill: #a8a29e; }
+      .cone { fill: #1e293b; stroke: #60a5fa; }
+      .idea { fill: #3b82f6; }
+      .pick { fill: #60a5fa; }
+      .divider { stroke: #a8a29e; }
+    }
+  </style>
+
+  <!-- Diamond: expand from x=40 to widest at x=280, converge to x=520; centre y=130 -->
+  <path class="cone" d="M 40 130 L 280 35 L 280 225 Z"/>
+  <path class="cone" d="M 280 35 L 520 130 L 280 225 Z"/>
+  <line x1="280" y1="35" x2="280" y2="225" class="divider"/>
+
+  <!-- Phase labels -->
+  <text x="160" y="20" text-anchor="middle" font-size="14" font-weight="600" class="ink">Diverge: generate, don't judge</text>
+  <text x="400" y="20" text-anchor="middle" font-size="14" font-weight="600" class="ink">Converge: now prune hard</text>
+
+  <!-- Ideas at the widest point -->
+  <g class="idea">
+    <circle cx="255" cy="70" r="6"/>
+    <circle cx="268" cy="105" r="6"/>
+    <circle cx="252" cy="140" r="6"/>
+    <circle cx="266" cy="175" r="6"/>
+  </g>
+  <circle cx="256" cy="205" r="6" class="dumb"/>
+  <text x="242" y="209" text-anchor="end" font-size="12.5" class="muted">the "dumb" one</text>
+
+  <!-- Survivors while converging -->
+  <g class="idea">
+    <circle cx="360" cy="105" r="6"/>
+    <circle cx="365" cy="160" r="6"/>
+  </g>
+  <circle cx="510" cy="130" r="8" class="pick"/>
+  <text x="510" y="250" text-anchor="middle" font-size="13" class="ink" font-weight="600">the pick</text>
+
+  <text x="160" y="252" text-anchor="middle" font-size="12.5" class="muted">dumb ideas and reward hacks welcome here</text>
+</svg>

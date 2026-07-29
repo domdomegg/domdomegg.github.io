@@ -1,9 +1,5 @@
-const RedirectPage = () => {
-	if (typeof window !== 'undefined') {
-		window.location.replace('/blog/reviewing-your-work');
-	}
+import {Redirect} from '../components/Redirect';
 
-	return <div />;
-};
+const RedirectPage = () => <Redirect to='/blog/reviewing-your-work'/>;
 
 export default RedirectPage;

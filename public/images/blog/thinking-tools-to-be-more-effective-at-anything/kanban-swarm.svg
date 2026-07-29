@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="14 12 424 258" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .ink { fill: #44403c; }
+    .muted { fill: #78716c; }
+    .colline { stroke: #a8a29e; stroke-width: 1.2; fill: none; }
+    .subline { stroke: #d6d3d1; stroke-width: 1; fill: none; stroke-dasharray: 3 3; }
+    .hdr { fill: #f5f5f4; stroke: #a8a29e; stroke-width: 1.2; }
+    .note { fill: #bbf7d0; stroke: #4ade80; stroke-width: 1; }
+    .note2 { fill: #a7f3d0; stroke: #34d399; stroke-width: 1; }
+    .noteblock { fill: #fecaca; stroke: #f87171; stroke-width: 1; }
+    .limit { fill: #2563eb; }
+    .limitline { stroke: #2563eb; stroke-width: 1.5; fill: none; }
+    .hotlimit { fill: #b91c1c; }
+    .hotlimitline { stroke: #b91c1c; stroke-width: 2; fill: none; }
+    .bar { fill: #93c5fd; }
+    .barhot { fill: #f87171; }
+    .cap { stroke: #b91c1c; stroke-width: 1.5; stroke-dasharray: 5 3; fill: none; }
+    .captext { fill: #b91c1c; }
+    .item { fill: #93c5fd; stroke: #2563eb; stroke-width: 1.2; }
+    .itemhot { fill: #f87171; stroke: #b91c1c; stroke-width: 1.5; }
+    .trail { stroke: #e7e5e4; stroke-width: 20; fill: none; stroke-linecap: round; }
+    @media (prefers-color-scheme: dark) {
+      .ink { fill: #d6d3d1; }
+      .muted { fill: #a8a29e; }
+      .colline { stroke: #78716c; }
+      .subline { stroke: #57534e; }
+      .hdr { fill: #292524; stroke: #78716c; }
+      .note { fill: #14532d; stroke: #4ade80; }
+      .note2 { fill: #065f46; stroke: #34d399; }
+      .noteblock { fill: #7f1d1d; stroke: #f87171; }
+      .limit { fill: #60a5fa; }
+      .limitline { stroke: #60a5fa; }
+      .hotlimit { fill: #f87171; }
+      .hotlimitline { stroke: #f87171; }
+      .bar { fill: #1e3a8a; }
+      .barhot { fill: #7f1d1d; }
+      .cap { stroke: #f87171; }
+      .captext { fill: #f87171; }
+      .item { fill: #1e3a8a; stroke: #60a5fa; }
+      .itemhot { fill: #7f1d1d; stroke: #f87171; }
+      .trail { stroke: #44403c; }
+    }
+  </style>
+  <path d="M 34 44 L 34 34 L 168 34 L 168 44" class="limitline"/>
+  <text x="101" y="26" text-anchor="middle" font-size="12" font-weight="700" class="limit">5</text>
+  <path d="M 186 44 L 186 34 L 320 34 L 320 44" class="hotlimitline"/>
+  <text x="253" y="26" text-anchor="middle" font-size="12" font-weight="700" class="hotlimit">3</text>
+  <rect x="26" y="48" width="150" height="30" class="hdr"/>
+  <text x="101" y="68" text-anchor="middle" font-size="12.5" font-weight="600" class="ink">Build</text>
+  <rect x="178" y="48" width="150" height="30" class="hdr"/>
+  <text x="253" y="68" text-anchor="middle" font-size="12.5" font-weight="600" class="ink">Review</text>
+  <rect x="330" y="48" width="96" height="30" class="hdr"/>
+  <text x="378" y="68" text-anchor="middle" font-size="12.5" font-weight="600" class="ink">Deploy</text>
+  <text x="63" y="94" text-anchor="middle" font-size="11" class="muted">doing</text>
+  <text x="139" y="94" text-anchor="middle" font-size="11" class="muted">done</text>
+  <text x="215" y="94" text-anchor="middle" font-size="11" class="muted">doing</text>
+  <text x="291" y="94" text-anchor="middle" font-size="11" class="muted">done</text>
+  <rect x="26" y="78" width="150" height="176" class="colline" fill="none"/>
+  <rect x="178" y="78" width="150" height="176" class="colline" fill="none"/>
+  <rect x="330" y="78" width="96" height="176" class="colline" fill="none"/>
+  <line x1="101" y1="78" x2="101" y2="254" class="subline"/>
+  <line x1="253" y1="78" x2="253" y2="254" class="subline"/>
+  <rect x="48" y="104" width="30" height="26" rx="2" class="note"/>
+  <rect x="124" y="104" width="30" height="26" rx="2" class="noteblock"/>
+  <rect x="124" y="136" width="30" height="26" rx="2" class="noteblock"/>
+  <rect x="124" y="168" width="30" height="26" rx="2" class="noteblock"/>
+  <rect x="124" y="200" width="30" height="26" rx="2" class="noteblock"/>
+  <rect x="200" y="104" width="30" height="26" rx="2" class="note2"/>
+  <rect x="200" y="136" width="30" height="26" rx="2" class="note2"/>
+  <rect x="200" y="168" width="30" height="26" rx="2" class="note2"/>
+  <text x="139" y="242" text-anchor="middle" font-size="10.5" class="captext">can't move</text>
+  <text x="378" y="170" text-anchor="middle" font-size="11" class="muted">empty</text>
+</svg>

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="12 24 536 116" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .muted { fill: #78716c; }
+    .step { fill: #eff6ff; stroke: #2563eb; stroke-width: 1.5; }
+    .steptext { fill: #1e3a8a; }
+    .num { fill: #2563eb; }
+    .numtext { fill: #ffffff; }
+    .edge { stroke: #2563eb; stroke-width: 2; fill: none; }
+    .edgehead { fill: #2563eb; }
+    @media (prefers-color-scheme: dark) {
+      .muted { fill: #a8a29e; }
+      .step { fill: #1e293b; stroke: #60a5fa; }
+      .steptext { fill: #bfdbfe; }
+      .num { fill: #3b82f6; }
+      .edge { stroke: #3b82f6; }
+      .edgehead { fill: #3b82f6; }
+    }
+  </style>
+
+  <defs>
+    <marker id="mh" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" class="edgehead"/>
+    </marker>
+  </defs>
+
+  <!-- Steps -->
+  <rect x="20" y="36" width="94" height="58" rx="8" class="step"/>
+  <circle cx="34" cy="50" r="10" class="num"/>
+  <text x="34" y="54" text-anchor="middle" font-size="11" font-weight="700" class="numtext">1</text>
+  <text x="67" y="72" text-anchor="middle" font-size="11.5" class="steptext">make reqs</text>
+  <text x="67" y="86" text-anchor="middle" font-size="11.5" class="steptext">less dumb</text>
+
+  <rect x="130" y="36" width="94" height="58" rx="8" class="step"/>
+  <circle cx="144" cy="50" r="10" class="num"/>
+  <text x="144" y="54" text-anchor="middle" font-size="11" font-weight="700" class="numtext">2</text>
+  <text x="177" y="79" text-anchor="middle" font-size="11.5" class="steptext">delete</text>
+
+  <rect x="240" y="36" width="94" height="58" rx="8" class="step"/>
+  <circle cx="254" cy="50" r="10" class="num"/>
+  <text x="254" y="54" text-anchor="middle" font-size="11" font-weight="700" class="numtext">3</text>
+  <text x="287" y="79" text-anchor="middle" font-size="11.5" class="steptext">simplify</text>
+
+  <rect x="350" y="36" width="94" height="58" rx="8" class="step"/>
+  <circle cx="364" cy="50" r="10" class="num"/>
+  <text x="364" y="54" text-anchor="middle" font-size="11" font-weight="700" class="numtext">4</text>
+  <text x="397" y="72" text-anchor="middle" font-size="11.5" class="steptext">accelerate</text>
+  <text x="397" y="86" text-anchor="middle" font-size="11.5" class="steptext">cycle time</text>
+
+  <rect x="460" y="36" width="80" height="58" rx="8" class="step"/>
+  <circle cx="474" cy="50" r="10" class="num"/>
+  <text x="474" y="54" text-anchor="middle" font-size="11" font-weight="700" class="numtext">5</text>
+  <text x="500" y="79" text-anchor="middle" font-size="11.5" class="steptext">automate</text>
+
+  <g class="edge" marker-end="url(#mh)">
+    <path d="M 116 65 L 126 65"/>
+    <path d="M 226 65 L 236 65"/>
+    <path d="M 336 65 L 346 65"/>
+    <path d="M 446 65 L 456 65"/>
+  </g>
+
+  <text x="280" y="126" text-anchor="middle" font-size="12.5" class="muted">the classic mistake: optimising something that shouldn't exist</text>
+</svg>

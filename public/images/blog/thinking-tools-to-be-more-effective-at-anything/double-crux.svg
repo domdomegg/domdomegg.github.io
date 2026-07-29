@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 290" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .ink { fill: #44403c; }
+    .muted { fill: #78716c; }
+    .graybox { fill: #f5f5f4; stroke: #78716c; stroke-width: 1.5; }
+    .cruxbox { fill: #eff6ff; stroke: #2563eb; stroke-width: 2.5; }
+    .cruxtext { fill: #1e3a8a; }
+    .link { stroke: #78716c; stroke-width: 1.5; fill: none; }
+    .clash { fill: #d97706; }
+    @media (prefers-color-scheme: dark) {
+      .ink { fill: #d6d3d1; }
+      .muted { fill: #a8a29e; }
+      .graybox { fill: #292524; stroke: #a8a29e; }
+      .cruxbox { fill: #1e293b; stroke: #60a5fa; }
+      .cruxtext { fill: #bfdbfe; }
+      .link { stroke: #a8a29e; }
+      .clash { fill: #d97706; }
+    }
+  </style>
+
+  <!-- Two conclusions at top, clashing -->
+  <rect x="45" y="30" width="185" height="46" rx="8" class="graybox"/>
+  <text x="137" y="58" text-anchor="middle" font-size="14" class="ink">"We should rewrite it"</text>
+
+  <rect x="330" y="30" width="185" height="46" rx="8" class="graybox"/>
+  <text x="422" y="58" text-anchor="middle" font-size="14" class="ink">"We should patch it"</text>
+
+  <text x="280" y="61" text-anchor="middle" font-size="20" font-weight="700" class="clash">&#8800;</text>
+
+  <!-- Surface arguments (where circular debates stay) -->
+  <rect x="45" y="110" width="185" height="46" rx="8" class="graybox"/>
+  <text x="137" y="130" text-anchor="middle" font-size="12.5" class="muted">"the code is unmaintainable"</text>
+  <text x="137" y="146" text-anchor="middle" font-size="12.5" class="muted">"rewrites always slip"</text>
+
+  <rect x="330" y="110" width="185" height="46" rx="8" class="graybox"/>
+  <text x="422" y="130" text-anchor="middle" font-size="12.5" class="muted">"patching compounds debt"</text>
+  <text x="422" y="146" text-anchor="middle" font-size="12.5" class="muted">"we can't afford a pause"</text>
+
+  <g class="link">
+    <line x1="137" y1="76" x2="137" y2="108"/>
+    <line x1="422" y1="76" x2="422" y2="108"/>
+    <line x1="137" y1="156" x2="230" y2="210"/>
+    <line x1="422" y1="156" x2="330" y2="210"/>
+  </g>
+
+  <!-- The shared crux -->
+  <rect x="112" y="212" width="336" height="52" rx="8" class="cruxbox"/>
+  <text x="280" y="233" text-anchor="middle" font-size="13.5" font-weight="600" class="cruxtext">Crux: "v2 must ship within 6 months"</text>
+  <text x="280" y="251" text-anchor="middle" font-size="12.5" class="cruxtext">if this flipped, we'd both switch sides</text>
+
+  <text x="280" y="285" text-anchor="middle" font-size="12.5" class="muted">debate the crux, not the conclusions</text>
+</svg>

@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 430" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .ink { fill: #44403c; }
+    .muted { fill: #78716c; }
+    .node { fill: #f5f5f4; stroke: #78716c; stroke-width: 1.5; }
+    .nodetext { fill: #44403c; }
+    .anchor { fill: #2563eb; stroke: #2563eb; stroke-width: 2; }
+    .anchortext { fill: #ffffff; }
+    .edge { stroke: #78716c; stroke-width: 1.5; fill: none; }
+    .edgehead { fill: #78716c; }
+    .divider { stroke: #78716c; stroke-width: 1.5; fill: none; }
+    @media (prefers-color-scheme: dark) {
+      .ink { fill: #d6d3d1; }
+      .muted { fill: #a8a29e; }
+      .node { fill: #292524; stroke: #a8a29e; }
+      .nodetext { fill: #d6d3d1; }
+      .anchor { fill: #3b82f6; stroke: #3b82f6; }
+      .edge { stroke: #a8a29e; }
+      .edgehead { fill: #a8a29e; }
+      .divider { stroke: #a8a29e; }
+    }
+  </style>
+
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" class="edgehead"/>
+    </marker>
+  </defs>
+
+  <!-- ================= Forward chaining ================= -->
+  <text x="20" y="26" font-size="14" font-weight="600" class="ink">Forward chaining: start from here, see where you get</text>
+
+  <rect x="20" y="80" width="86" height="40" rx="8" class="anchor"/>
+  <text x="63" y="105" text-anchor="middle" font-size="13" font-weight="700" class="anchortext">today</text>
+
+  <!-- tier 1 -->
+  <rect x="185" y="48" width="104" height="36" rx="8" class="node"/>
+  <text x="237" y="71" text-anchor="middle" font-size="12" class="nodetext">learn Rust</text>
+  <rect x="185" y="100" width="104" height="36" rx="8" class="node"/>
+  <text x="237" y="123" text-anchor="middle" font-size="12" class="nodetext">go to the gym</text>
+  <rect x="185" y="152" width="104" height="36" rx="8" class="node"/>
+  <text x="237" y="175" text-anchor="middle" font-size="12" class="nodetext">start a podcast</text>
+
+  <!-- tier 2 -->
+  <rect x="368" y="48" width="104" height="36" rx="8" class="node"/>
+  <text x="420" y="71" text-anchor="middle" font-size="12" class="nodetext">a side project</text>
+  <rect x="368" y="100" width="104" height="36" rx="8" class="node"/>
+  <text x="420" y="123" text-anchor="middle" font-size="12" class="nodetext">feel healthier</text>
+  <rect x="368" y="152" width="104" height="36" rx="8" class="node"/>
+  <text x="420" y="175" text-anchor="middle" font-size="12" class="nodetext">a few listeners</text>
+
+  <g class="edge" marker-end="url(#ah)">
+    <path d="M 108 94 C 145 94 148 66 181 66"/>
+    <path d="M 108 100 C 145 100 148 118 181 118"/>
+    <path d="M 108 106 C 145 106 148 170 181 170"/>
+    <path d="M 291 66 L 364 66"/>
+    <path d="M 291 118 L 364 118"/>
+    <path d="M 291 170 L 364 170"/>
+  </g>
+
+  <text x="486" y="123" font-size="12.5" class="muted">…?</text>
+
+  <!-- Divider -->
+  <line x1="20" y1="216" x2="540" y2="216" class="divider" stroke-dasharray="2 5"/>
+
+  <!-- ================= Backchaining ================= -->
+  <text x="20" y="252" font-size="14" font-weight="600" class="ink">Backchaining: start from the goal, see what it needs</text>
+
+  <rect x="454" y="306" width="86" height="40" rx="8" class="anchor"/>
+  <text x="497" y="331" text-anchor="middle" font-size="13" font-weight="700" class="anchortext">the goal</text>
+
+  <!-- tier 1 (nearest the goal) -->
+  <rect x="271" y="274" width="104" height="36" rx="8" class="node"/>
+  <text x="323" y="297" text-anchor="middle" font-size="12" class="nodetext">paying users</text>
+  <rect x="271" y="326" width="104" height="36" rx="8" class="node"/>
+  <text x="323" y="349" text-anchor="middle" font-size="12" class="nodetext">a prototype</text>
+  <rect x="271" y="378" width="104" height="36" rx="8" class="node"/>
+  <text x="323" y="401" text-anchor="middle" font-size="12" class="nodetext">a co-founder</text>
+
+  <!-- tier 2 (nearest today) -->
+  <rect x="88" y="274" width="104" height="36" rx="8" class="node"/>
+  <text x="140" y="297" text-anchor="middle" font-size="12" class="nodetext">someone to ask</text>
+  <rect x="88" y="326" width="104" height="36" rx="8" class="node"/>
+  <text x="140" y="349" text-anchor="middle" font-size="12" class="nodetext">one scary email</text>
+  <rect x="88" y="378" width="104" height="36" rx="8" class="node"/>
+  <text x="140" y="401" text-anchor="middle" font-size="12" class="nodetext">a list of names</text>
+
+  <g class="edge" marker-end="url(#ah)">
+    <path d="M 452 320 C 415 320 412 292 379 292"/>
+    <path d="M 452 326 C 415 326 412 344 379 344"/>
+    <path d="M 452 332 C 415 332 412 396 379 396"/>
+    <path d="M 267 292 L 196 292"/>
+    <path d="M 267 344 L 196 344"/>
+    <path d="M 267 396 L 196 396"/>
+  </g>
+
+  <text x="46" y="331" font-size="12.5" class="muted">…?</text>
+</svg>
