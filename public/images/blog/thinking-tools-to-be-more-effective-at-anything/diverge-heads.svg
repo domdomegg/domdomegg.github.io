@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 270" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .muted { fill: #78716c; }
+    .head { stroke: #44403c; stroke-width: 2.5; fill: none; }
+    .idea { fill: #2563eb; }
+    .dead { fill: #78716c; opacity: 0.55; }
+    .x { stroke: #78716c; stroke-width: 2; opacity: 0.8; }
+    .flow { stroke: #2563eb; stroke-width: 1.5; fill: none; opacity: 0.55; }
+    .board { stroke: #78716c; stroke-width: 2; fill: none; }
+    .ring { stroke: #2563eb; stroke-width: 2.5; fill: none; }
+    @media (prefers-color-scheme: dark) {
+      .muted { fill: #a8a29e; }
+      .head { stroke: #d6d3d1; }
+      .idea { fill: #3b82f6; }
+      .dead { fill: #a8a29e; }
+      .x { stroke: #a8a29e; }
+      .flow { stroke: #3b82f6; }
+      .board { stroke: #a8a29e; }
+      .ring { stroke: #60a5fa; }
+    }
+  </style>
+
+  <!-- Left: judging in your head — ideas die before they're born -->
+  <path class="head" d="M 60 215 C 45 175 42 130 70 100 C 100 68 155 70 178 105 C 190 123 190 138 200 148 L 188 155 L 188 175 C 188 188 178 192 165 189 L 165 215"/>
+  <g class="dead">
+    <circle cx="85" cy="130" r="6"/>
+    <circle cx="120" cy="105" r="6"/>
+    <circle cx="112" cy="160" r="6"/>
+    <circle cx="148" cy="135" r="6"/>
+  </g>
+  <g class="x">
+    <line x1="79" y1="124" x2="91" y2="136"/><line x1="91" y1="124" x2="79" y2="136"/>
+    <line x1="114" y1="99" x2="126" y2="111"/><line x1="126" y1="99" x2="114" y2="111"/>
+    <line x1="106" y1="154" x2="118" y2="166"/><line x1="118" y1="154" x2="106" y2="166"/>
+  </g>
+  <path class="flow" d="M 160 145 C 200 150 215 150 235 150"/>
+  <circle cx="245" cy="150" r="6" class="idea"/>
+
+  <!-- Right: everything comes out; judging happens on the board -->
+  <path class="head" d="M 320 215 C 305 175 302 130 330 100 C 360 68 415 70 438 105 C 450 123 450 138 460 148 L 448 155 L 448 175 C 448 188 438 192 425 189 L 425 215"/>
+  <g class="flow">
+    <path d="M 430 120 C 460 95 480 85 498 82"/>
+    <path d="M 435 140 C 465 128 482 122 500 118"/>
+    <path d="M 432 160 C 462 158 480 156 500 155"/>
+  </g>
+  <rect x="490" y="60" width="55" height="150" rx="4" class="board"/>
+  <g class="idea">
+    <circle cx="517" cy="85" r="6"/>
+    <circle cx="517" cy="120" r="6"/>
+  </g>
+  <circle cx="517" cy="85" r="11" class="ring"/>
+  <g class="dead">
+    <circle cx="517" cy="155" r="6"/>
+    <circle cx="517" cy="185" r="6"/>
+  </g>
+  <g class="x">
+    <line x1="511" y1="149" x2="523" y2="161"/><line x1="523" y1="149" x2="511" y2="161"/>
+    <line x1="511" y1="179" x2="523" y2="191"/><line x1="523" y1="179" x2="511" y2="191"/>
+  </g>
+
+  <text x="280" y="250" text-anchor="middle" font-size="13" class="muted">critique on the board, not in your head</text>
+</svg>

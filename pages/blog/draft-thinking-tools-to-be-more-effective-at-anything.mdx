@@ -41,11 +41,23 @@ Brainstorm different framings of the problem, not just solutions to it.
 
 [Read the full framestorming article.](../framestorming/)
 
+### Diverge, then converge
+
+When you need to brainstorm and select a solution: first diverge (generate freely, with criticism explicitly disallowed), then converge (prune hard). Doing both at once does both badly.
+
+[Read the full article on diverging, then converging.](../diverge-then-converge/)
+
 ### Musk's 5 step design process
 
 Eliminate work before optimising it: make requirements less dumb, delete everything you can, simplify, accelerate cycle time, and only then automate.
 
 [Read the full article on Musk's 5 step design process.](../musks-5-step-design-process/)
+
+### Choose simple over easy
+
+When choosing between approaches: optimize for simplicity (lack of interleaving), not ease. Easy means low effort now; simple means few entangled concerns - and simplicity is what keeps systems changeable.
+
+[Read the full article on choosing simple over easy.](../choose-simple-over-easy/)
 
 ### Accept redundancy
 
@@ -139,57 +151,70 @@ Specialised domains like security or law aren't magic: experts built their skill
 
 [Read the full article on becoming a narrow expert.](../become-a-narrow-expert/)
 
+### Express concrete opinions, update honestly
+
+When forming or stating views: make them concrete, clear and able-to-be-disagreed-with - and visibly update as evidence arrives.
+
+This is the useful version of "strong opinions, loosely held". Vague opinions can't be tested; strongly-performed opinions that never update are worse. ([A good critique of the original phrase](https://glowforge.com/blog/article/strong-opinions-loosely-held-might-be-the-worst-idea-in-tech).)
+
+[Tetlock's superforecasters](https://en.wikipedia.org/wiki/Superforecaster) embody the good version: they state numeric probabilities (concrete, disagreeable-with) and update them in small, frequent steps as evidence arrives. They beat both confident pundits who never budge and vague hedgers who never said anything testable.
+
+In practice, that means making it cheap for someone to check you:
+- **Say what kind of evidence you have**, and how much of it. "In my experience" and "in a randomised trial of 4,000 people" are both fine; using the second tone for the first kind of evidence is not. A vibe, a single anecdote, an unvalidated internal dashboard and a well-powered study should not all be reported in the same confident tone.
+- **Link the primary source**, not a news article about it. If your number came from a spreadsheet you made, say so.
+- **Give the actual number** rather than a direction. "Latency roughly halved, from ~800ms to ~400ms" beats "significantly faster", and can be checked.
+- **Flag your uncertainty in proportion**, and where you'd expect to be wrong.
+- **Make your reasoning visible**, not just your conclusion - so someone can disagree with a specific step instead of dismissing the whole thing.
+
+This is more work, and it exposes you to being corrected. That's the point: it's the same trade as [thinking in public](#think-in-public), where free error-correction is worth more than looking unimpeachable.
+
+#### Related concepts
+- [Adopt a scout mindset](../adopt-a-scout-mindset/): the underlying disposition
+- [Be sceptical](../be-skeptical/): the same standard, applied to claims you receive rather than ones you make
+- [Make decisions with made-up statistics](../make-decisions-with-made-up-statistics/): probabilities are the concrete form of an opinion
+
+### Climb the user-contact ladder
+
+When deciding how to understand users: climb as high as you can on: be a user > talk to users with good questions > [role-play as a user](../empathetic-role-playing/) > imagine what they want > don't think about them at all.
+
+Each rung down loses information. "Good questions" means [Mom Test](https://en.wikipedia.org/wiki/The_Mom_Test) questions: ask about their life and past behaviour, not about your idea, because people lie to be nice.
+
+![A ladder with five rungs from best to worst: be a user; talk to users with good questions; role-play as a user; imagine what they want; don't think about them at all. An arrow labelled 'information' points up](../../images/blog/thinking-tools-to-be-more-effective-at-anything/ladder.svg)
+
+![A staircase descending through the same five options, with a dashed arrow: each rung down loses information](../../images/blog/thinking-tools-to-be-more-effective-at-anything/ladder-stairs.svg)
+
+#### Related concepts
+- [Framestorming](../framestorming/): user contact feeds better problem framings
+- [Find problems, not applications for solutions](../find-problems-not-applications-for-solutions/): the problems live up the ladder
+
+### Refuse the idiot plot
+
+When there's tension, ambiguity, or an elephant in the room: say the awkward or obvious thing; ask the dumb question.
+
+Films where everything would resolve if someone just had the obvious conversation are called "[idiot plots](https://en.wikipedia.org/wiki/Idiot_plot)" - the plot needs the bubble left unpopped. Real life doesn't: you can just pop it, and it resolves things startlingly often. The awkwardness is smaller than predicted, every time.
+
+#### Related concepts
+- [Do the obvious things](#do-the-obvious-things): this is the interpersonal special case
+
+### Overcommunicate
+
+When something matters: repeat it, across channels and time.
+
+Most people weren't listening the first time and will forget the second. Aviation internalised this: pilots read every clearance back word by word, because "I said it once, clearly" is how planes crash. Assuming one announcement was received isn't respectful of people's attention - it's just wrong about how attention works.
+
+[todo: optional - swap in a time your own team missed something you'd definitely announced]
+
+#### Related concepts
+- [Build systems, not willpower](#build-systems-not-willpower): repetition works better as a system (multiple channels, scheduled reminders) than as a memory
+- [Own it all the way down](#own-it-all-the-way-down): "did they actually receive it?" is part of owning the outcome
+
 ## Executing
 
-### Build feedback loops
+### Shorten cycle times, reduce batch sizes
 
-When you're going to do something more than once: spend some of your effort building the loop that tells you how you're doing, not just doing the thing.
+In new or uncertain work, short cycles and small batches cap how much you invest in potentially the wrong thing - and tighten the feedback loops that keep you on track.
 
-Most work has no natural feedback loop. You write, ship, advise or decide - and nothing comes back, or what comes back is so delayed and noisy that you can't learn from it. So you repeat the same mistakes confidently for years.
-
-![Two panels. Left, 'no loop: guessing' - do a lot of work, ship it eventually, find out it was wrong months later: one slow, expensive lesson. Right, 'a loop: hillclimbing' - a tight cycle of try something, see the result, adjust: many cheap lessons, compounding](../../images/blog/thinking-tools-to-be-more-effective-at-anything/feedback-loops.svg)
-
-A good loop is fast, honest and cheap:
-- **Fast**, because a loop that closes in a day teaches you far more per month than one that closes in a quarter.
-- **Honest**, because the point is to find out you're wrong. Metrics you can game, or friends who only say nice things, give you a loop that feels good and teaches nothing.
-- **Cheap**, because you'll only keep running it if it's easy. A five-minute check you actually do beats a perfect review process you skip.
-
-Concretely: write down predictions before you find out, so you can tell whether you were right. Ask people who'll actually tell you the bad news. Instrument the thing you care about, even roughly. And when you notice a decision you'll make repeatedly, build the loop before you make it a hundred times.
-
-#### Related concepts
-- [Small cycles, small batches](#small-cycles-small-batches): the same idea applied to shipping - each batch is a turn of the loop
-- [Run the experiment](../run-the-experiment/): an experiment is a feedback loop you build deliberately
-- [Recursively self-improve](#recursively-self-improve): retros are a feedback loop pointed at your own process
-- [Express concrete opinions, update honestly](#express-concrete-opinions-update-honestly): stating views concretely is what makes feedback possible
-
-### Small cycles, small batches
-
-When building anything for someone else: get something into the hands of real users as soon as possible and figure out why and how it's wrong.
-
-You can't reason your way to what contact will teach you. Ship in small batches, scaling batch size exponentially as confidence grows.
-
-![Three ship-and-learn loops growing exponentially in size: v0.1 with 2 users, v1 with 20 users, v10 with everyone. Caption: each loop is ship, learn why it's wrong, grow the batch](../../images/blog/thinking-tools-to-be-more-effective-at-anything/small-cycles.svg)
-
-There's a well-known parable about this from [*Art & Fear*](https://en.wikipedia.org/wiki/Art_%26_Fear): a pottery teacher grades half the class on the quantity of pots produced, and half on producing a single perfect pot. The best pots all come from the quantity group - they spent the term making and learning from mistakes, while the quality group theorised about perfection. (The story is a lightly-fictionalised retelling, but the mechanism is real either way.)
-
-#### Related concepts
-- [Accelerate cycle time](../musks-5-step-design-process/#step-4-accelerate-cycle-time) is Musk's version of the same step
-- [Run the experiment](../run-the-experiment/): each shipped batch is an experiment about what users actually need
-- [Half-ass it with everything you've got](#half-ass-it-with-everything-youve-got): small early batches justify a deliberately lower quality bar
-
-### Diverge, then converge
-
-When you notice yourself evaluating ideas mid-brainstorm: stop - brainstorm then prune, don't do both at once.
-
-While diverging, deliberately include dumb ideas and "reward hacks" against the stated goal: they often spur the good ideas, and occasionally _are_ the answer. Inversion helps too: describe the really obvious way to fail, then do the opposite.
-
-![A diamond shape: the left half expands ('diverge: generate, don't judge', with idea dots including an amber 'dumb' one), the right half narrows ('converge: now prune hard') to a single pick](../../images/blog/thinking-tools-to-be-more-effective-at-anything/double-diamond.svg)
-
-![Two trees: the first branches freely to six leaves; the second has the same branches pruned to grey dashes except one bold surviving path. Caption: doing both at once does both badly](../../images/blog/thinking-tools-to-be-more-effective-at-anything/diverge-tree.svg)
-
-#### Related concepts
-- [Framestorming](../framestorming/): diverge on the problem framing, not just on solutions
-- [Backchaining](../backchaining/) and forward chaining are both divergence techniques - use each deliberately
+[Read the full article on shortening cycle times and reducing batch sizes.](../shorten-cycle-times-reduce-batch-sizes/)
 
 ### PIOSEE
 
@@ -198,34 +223,8 @@ When a situation is chaotic and you don't know where to start: Problem, Informat
 The value isn't these specific letters (aviation uses several variants); it's having _any_ explicit loop, because under pressure people skip straight from problem to execution. [US Airways flight 1549](https://en.wikipedia.org/wiki/US_Airways_Flight_1549) is the famous demonstration: about three and a half minutes from bird strike to water, and the cockpit transcript is a decision loop run under maximum pressure - establish the problem (both engines out), gather information, weigh the options (LaGuardia? Teterboro? the Hudson?), select, execute. All 155 people survived.
 
 #### Related concepts
-- [Diverge, then converge](#diverge-then-converge) is the Options-then-Select step slowed down for when you have more than three minutes
+- [Diverge, then converge](../diverge-then-converge/) is the Options-then-Select step slowed down for when you have more than three minutes
 - [Do the obvious things](#do-the-obvious-things): most PIOSEE passes conclude with obvious actions - the loop's job is making sure you actually do them
-
-### Half-ass it with everything you've got
-
-Before starting a task: decide what the goal actually requires, then hit that bar efficiently - quality is not the goal.
-
-Sometimes you need to max quality; often good enough today beats excellent next month. ([Nate Soares](https://mindingourway.com/half-assing-it-with-everything-youve-got/).)
-
-*Boundary with quality-before-scale:* calibrate quality low while exploring; once you're scaling, defects scale with you.
-
-#### Related concepts
-- [Optimize only the constraint](../optimize-only-the-constraint/): quality on a non-bottleneck is effort the system's output can't even see
-- [Small cycles, small batches](#small-cycles-small-batches): early small batches are exactly where the low bar belongs
-
-### Choose simple over easy
-
-When choosing between approaches: choose the simple one, not the easy one.
-
-Easy means low effort now; simple means few entangled concepts. They often conflict - the easy option (another dependency, another special case) frequently makes the system more complex.
-
-The [left-pad incident](https://en.wikipedia.org/wiki/Npm_left-pad_incident) is the monument to this: thousands of projects took the easy option of a dependency for 11 lines of string-padding code, and when its author unpublished it, build pipelines across the JavaScript ecosystem fell over. Each choice was easy; the resulting system was anything but simple.
-
-(Rich Hickey, [Simple Made Easy](https://www.thestrangeloop.com/2011/simple-made-easy.html).)
-
-#### Related concepts
-- [Simplify or optimise the design](../musks-5-step-design-process/#step-3-simplify-or-optimise-the-design) - Musk's step three, after questioning and deleting
-- [Use the time-money exchange rate](#use-the-time-money-exchange-rate): easiness is a loan; check the interest rate
 
 ### More dakka
 
@@ -235,7 +234,7 @@ More attempts and more practice often just make you better. [Zvi's motivating ex
 
 #### Related concepts
 - [Overcorrect, then settle](#overcorrect-then-settle): the same "turn the dial much further" move, applied to behaviour change
-- [Small cycles, small batches](#small-cycles-small-batches): more reps is also how the cycles compound
+- [Shorten cycle times, reduce batch sizes](../shorten-cycle-times-reduce-batch-sizes/): more reps is also how the cycles compound
 
 ### Overcorrect, then settle
 
@@ -324,31 +323,6 @@ The obvious advice - sleep, write the list, send the email, ask the question - i
 - [Run the meeting in your head first](#run-the-meeting-in-your-head-first): "what would I tell someone else in this position?" is the fastest generator of obvious advice
 - [Refuse the idiot plot](#refuse-the-idiot-plot): the social version - the obvious question, actually asked
 
-## People
-
-### Climb the user-contact ladder
-
-When deciding how to understand users: climb as high as you can on: be a user > talk to users with good questions > [role-play as a user](../empathetic-role-playing/) > imagine what they want > don't think about them at all.
-
-Each rung down loses information. "Good questions" means [Mom Test](https://en.wikipedia.org/wiki/The_Mom_Test) questions: ask about their life and past behaviour, not about your idea, because people lie to be nice.
-
-![A ladder with five rungs from best to worst: be a user; talk to users with good questions; role-play as a user; imagine what they want; don't think about them at all. An arrow labelled 'information' points up](../../images/blog/thinking-tools-to-be-more-effective-at-anything/ladder.svg)
-
-![A staircase descending through the same five options, with a dashed arrow: each rung down loses information](../../images/blog/thinking-tools-to-be-more-effective-at-anything/ladder-stairs.svg)
-
-#### Related concepts
-- [Framestorming](../framestorming/): user contact feeds better problem framings
-- [Find problems, not applications for solutions](../find-problems-not-applications-for-solutions/): the problems live up the ladder
-
-### Refuse the idiot plot
-
-When there's tension, ambiguity, or an elephant in the room: say the awkward or obvious thing; ask the dumb question.
-
-Films where everything would resolve if someone just had the obvious conversation are called "[idiot plots](https://en.wikipedia.org/wiki/Idiot_plot)" - the plot needs the bubble left unpopped. Real life doesn't: you can just pop it, and it resolves things startlingly often. The awkwardness is smaller than predicted, every time.
-
-#### Related concepts
-- [Do the obvious things](#do-the-obvious-things): this is the interpersonal special case
-
 ### Disagree and commit
 
 When a decision has been made against your view, on reasonable grounds under real uncertainty: commit fully - no dragging, no relitigating, no "I told you so" positioning.
@@ -365,28 +339,6 @@ Note the two-sidedness: the team got genuine backing, not grudging backing - and
 - [Express concrete opinions, update honestly](#express-concrete-opinions-update-honestly): commitment and updating are compatible; relitigating and updating are not
 - [Accept redundancy](../accept-redundancy/): under real uncertainty, letting a decision you disagree with run is another shot on target
 
-### Express concrete opinions, update honestly
-
-When forming or stating views: make them concrete, clear and able-to-be-disagreed-with - and visibly update as evidence arrives.
-
-This is the useful version of "strong opinions, loosely held". Vague opinions can't be tested; strongly-performed opinions that never update are worse. ([A good critique of the original phrase](https://glowforge.com/blog/article/strong-opinions-loosely-held-might-be-the-worst-idea-in-tech).)
-
-[Tetlock's superforecasters](https://en.wikipedia.org/wiki/Superforecaster) embody the good version: they state numeric probabilities (concrete, disagreeable-with) and update them in small, frequent steps as evidence arrives. They beat both confident pundits who never budge and vague hedgers who never said anything testable.
-
-In practice, that means making it cheap for someone to check you:
-- **Say what kind of evidence you have**, and how much of it. "In my experience" and "in a randomised trial of 4,000 people" are both fine; using the second tone for the first kind of evidence is not. A vibe, a single anecdote, an unvalidated internal dashboard and a well-powered study should not all be reported in the same confident tone.
-- **Link the primary source**, not a news article about it. If your number came from a spreadsheet you made, say so.
-- **Give the actual number** rather than a direction. "Latency roughly halved, from ~800ms to ~400ms" beats "significantly faster", and can be checked.
-- **Flag your uncertainty in proportion**, and where you'd expect to be wrong.
-- **Make your reasoning visible**, not just your conclusion - so someone can disagree with a specific step instead of dismissing the whole thing.
-
-This is more work, and it exposes you to being corrected. That's the point: it's the same trade as [thinking in public](#think-in-public), where free error-correction is worth more than looking unimpeachable.
-
-#### Related concepts
-- [Adopt a scout mindset](../adopt-a-scout-mindset/): the underlying disposition
-- [Be sceptical](../be-skeptical/): the same standard, applied to claims you receive rather than ones you make
-- [Make decisions with made-up statistics](../make-decisions-with-made-up-statistics/): probabilities are the concrete form of an opinion
-
 ### Run the meeting in your head first
 
 Before asking your boss (or anyone) for something: imagine you're the one being asked. What questions would you ask? What information would you want? What advice would you give?
@@ -398,19 +350,13 @@ This generalises: keep imagined mentors and ask what they'd tell you; predict ho
 #### Related concepts
 - [Do the obvious things](#do-the-obvious-things): imagined-you usually gives obvious advice; take it
 
-### Overcommunicate
-
-When something matters: repeat it, across channels and time.
-
-Most people weren't listening the first time and will forget the second. Aviation internalised this: pilots read every clearance back word by word, because "I said it once, clearly" is how planes crash. Assuming one announcement was received isn't respectful of people's attention - it's just wrong about how attention works.
-
-[todo: optional - swap in a time your own team missed something you'd definitely announced]
-
-#### Related concepts
-- [Build systems, not willpower](#build-systems-not-willpower): repetition works better as a system (multiple channels, scheduled reminders) than as a memory
-- [Own it all the way down](#own-it-all-the-way-down): "did they actually receive it?" is part of owning the outcome
-
 ## Compounding
+
+### Build feedback loops
+
+Many things in the modern world don't have a clear feedback signal. Build feedback loops you can trust, and use them to actually guide your behaviour - a skill that matters more as AI thrives on well-defined loops.
+
+[Read the full article on building feedback loops.](../build-feedback-loops/)
 
 ### Be AI-legible
 

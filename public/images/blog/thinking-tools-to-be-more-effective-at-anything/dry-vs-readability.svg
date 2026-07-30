@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 275" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .ink { fill: #44403c; }
+    .muted { fill: #78716c; }
+    .axis { stroke: #a8a29e; stroke-width: 1.5; fill: none; }
+    .dry { stroke: #2563eb; stroke-width: 2.5; fill: none; }
+    .drylabel { fill: #2563eb; }
+    .read { stroke: #d97706; stroke-width: 2.5; fill: none; }
+    .readlabel { fill: #d97706; }
+    @media (prefers-color-scheme: dark) {
+      .ink { fill: #d6d3d1; }
+      .muted { fill: #a8a29e; }
+      .axis { stroke: #78716c; }
+      .dry { stroke: #3b82f6; }
+      .drylabel { fill: #60a5fa; }
+    }
+  </style>
+
+  <line x1="60" y1="40" x2="60" y2="240" class="axis"/>
+  <line x1="60" y1="240" x2="530" y2="240" class="axis"/>
+  <text x="38" y="140" text-anchor="middle" font-size="12.5" class="muted" transform="rotate(-90 38 140)">relative importance</text>
+  <text x="530" y="262" text-anchor="end" font-size="12.5" class="muted">programming experience</text>
+
+  <!-- DRY: obsession peaks mid-career, then relaxes -->
+  <path class="dry" d="M 60 236 C 120 234 150 215 180 165 S 225 70 255 70 C 285 70 320 135 370 158 S 490 180 528 178"/>
+  <text x="255" y="52" text-anchor="middle" font-size="13.5" font-weight="600" class="drylabel">DRY</text>
+
+  <!-- Readability: dips in the show-off years, then grows forever -->
+  <path class="read" d="M 60 195 C 90 210 115 228 150 228 C 185 228 240 185 290 150 C 350 108 450 82 528 72"/>
+  <text x="470" y="56" text-anchor="middle" font-size="13.5" font-weight="600" class="readlabel">code readability</text>
+</svg>

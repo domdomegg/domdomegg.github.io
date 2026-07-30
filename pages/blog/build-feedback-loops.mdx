@@ -1,0 +1,70 @@
+---
+title: "Thinking tool: Build feedback loops"
+publishedOn: "2026-08-20"
+---
+
+Some things in life have great feedback loops. Touch a hot stove, and you'll learn quickly not to do this again.
+
+From Wikipedia:
+
+> Feedback occurs when outputs of a system are routed back as inputs as part of a chain of cause and effect that forms a circuit or loop. The system can then be said to feed back into itself.
+
+Or, put another way: feedback is when your system produces an output that itself affects future outputs.
+
+![A system diagram: an input arrow flows into a box labelled 'system', which produces an output arrow; the output is routed back along a blue 'feedback' path that rejoins the input](../../images/blog/thinking-tools-to-be-more-effective-at-anything/feedback-loop-general.svg)
+
+## Why feedback loops are powerful
+
+Having a strong feedback loop:
+- allows you to try many strategies and hillclimb on the things that work. Throwing things at the wall and seeing what sticks is a good strategy when you can see what sticks.
+- aligns a team. Having an agreed upon feedback signal makes the goal often a lot clearer than something abstract that is only in words.
+- is fun, especially seeing progress. Consider why video games highlight progress so often and in so many ways (high scores, achievements, experience points, making a big deal of "levelling up")
+- simplifies ensuring you're going in the right direction and be held accountable for it. This forces you to be honest with yourselves and allows you to cross-correct earlier if you're going in the wrong direction.
+
+Unfortunately many things in the modern world don't have a clear feedback signal. It's therefore important to build feedback loops that you can trust and use them to actually guide your behaviours.
+
+## AI thrives on feedback loops
+
+Being able to design good feedback loops might become one of the most important skills while humans still have jobs. AI systems like Claude are particularly good at making progress when they have well-defined feedback loops, probably because:
+- their reinforcement learning training likely prepares them for these situations
+- AI can spin up lots of parallel subagents to brute force many different solutions (which is useful for the "throw things at wall" hillclimbing approach)
+- AI is often good at finding brute force solutions because it is tireless, and can leverage tools useful for bruteforcing things that humans aren't great at (particularly coding capabilities; e.g. writing potential cybersecurity exploits to test theories, exploring lots of maths proofs in [Lean](https://lean-lang.org/), or virtually screening huge libraries of candidate drug molecules).
+
+## Examples
+
+### The Lean Startup
+
+I think one of the key insights in [The Lean Startup](https://en.wikipedia.org/wiki/The_Lean_Startup) is that creating and listening to a feedback loop is the best way to hillclimb towards a successful product. It offers a pretty good generic feedback loop for most product companies:
+- Build: Build or improve a product based on your ideas
+- Measure: Understand [your customers](../thinking-tools-to-be-more-effective-at-anything/#climb-the-user-contact-ladder), [their problems](../find-problems-not-applications-for-solutions/), and how they use your product
+- Learn: Use the insights to generate product ideas to build
+
+![The same system diagram shape as above, zoomed in: ideas flow into a larger system box containing build, measure and learn stages in sequence, and the product flows out the other side. A blue feedback path branches off the product output and loops around the outside of the system, rejoining the ideas input](../../images/blog/thinking-tools-to-be-more-effective-at-anything/build-measure-learn.svg)
+
+The part that makes this an effective feedback loop is that if you start diverging away from this well you should get nudged back on track. For example, if you don't build what customers want (and therefore what they'll pay for), the measure phase should tell you that quite clearly, and you should have a bunch of angry (or worse, apathetic) customers.
+
+Once you have a loop, it's then particularly valuable to [reduce the cycle time](../shorten-cycle-times-reduce-batch-sizes/) to go through the loop. This means that if any one point is diverging, you get to find out about it and correct it quickly.
+
+### Improving a data pipeline
+
+Let's say you have a data pipeline that is supposed to clean up records in a particular way. You want to improve its accuracy. A potential feedback loop could be to:
+1. Write a spec for what accurate cleanup looks like.
+2. Run a batch through the data pipeline.
+3. Evaluate the resulting data against the spec and identify ambiguities or discrepancies
+4. For ambiguities, go back to the spec and improve it so it's no longer ambiguous on these cases. For discrepancies, go back to the data pipeline implementation and fix it to address these.
+
+You can then repeat this entire process many times.
+
+### Improving Claude skills
+
+I've seen feedback loops being used to improve Claude skills. For example, let's say you have an email writing style skill. You might have an instruction in it to:
+1. AI creates an initial email draft
+2. I will edit it for tone, then send it
+3. AI reviews any changes I made, then updates the skill such that future emails are written more closely to my tone, effectively using my edits as feedback signal for how it should write more like me.
+
+## Related concepts
+
+This is part of my [thinking tools series](../thinking-tools-to-be-more-effective-at-anything/). Also consider:
+- [Shorten cycle times, reduce batch sizes](../shorten-cycle-times-reduce-batch-sizes/): shorter cycles let feedback flow through quicker, reducing how long you spend diverging
+- [Recursively self-improve](../thinking-tools-to-be-more-effective-at-anything/#recursively-self-improve): the ultimate form of feedback is pointing improvement at your own ways of doing things
+- [Build systems, not willpower](../thinking-tools-to-be-more-effective-at-anything/#build-systems-not-willpower): bake the feedback loop into the system, so it runs without anyone having to remember it

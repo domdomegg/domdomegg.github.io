@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 235" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .ink { fill: #44403c; }
+    .muted { fill: #78716c; }
+    .flow { stroke: #78716c; stroke-width: 2; fill: none; }
+    .flowhead { fill: #78716c; }
+    .node { fill: #f5f5f4; stroke: #78716c; stroke-width: 1.5; }
+    .frame { fill: none; stroke: #78716c; stroke-width: 1.5; }
+    .fb { stroke: #2563eb; stroke-width: 2.5; fill: none; }
+    .fbhead { fill: #2563eb; }
+    @media (prefers-color-scheme: dark) {
+      .ink { fill: #d6d3d1; }
+      .muted { fill: #a8a29e; }
+      .flow { stroke: #a8a29e; }
+      .flowhead { fill: #a8a29e; }
+      .node { fill: #292524; stroke: #a8a29e; }
+      .frame { stroke: #a8a29e; }
+      .fb { stroke: #3b82f6; }
+      .fbhead { fill: #3b82f6; }
+    }
+  </style>
+
+  <defs>
+    <marker id="gh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" class="flowhead"/>
+    </marker>
+    <marker id="bh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" class="fbhead"/>
+    </marker>
+  </defs>
+
+  <!-- the system: a bigger box containing the three stages -->
+  <rect x="90" y="40" width="390" height="150" rx="10" class="frame"/>
+
+  <!-- input -->
+  <path class="flow" marker-end="url(#gh)" d="M 10 88 L 114 88"/>
+  <text x="48" y="74" text-anchor="middle" font-size="12.5" class="muted">ideas</text>
+
+  <!-- stages -->
+  <rect x="120" y="70" width="90" height="36" rx="7" class="node"/>
+  <text x="165" y="93" text-anchor="middle" font-size="13" font-weight="600" class="ink">build</text>
+
+  <path class="flow" marker-end="url(#gh)" d="M 210 88 L 234 88"/>
+
+  <rect x="240" y="70" width="90" height="36" rx="7" class="node"/>
+  <text x="285" y="93" text-anchor="middle" font-size="13" font-weight="600" class="ink">measure</text>
+
+  <path class="flow" marker-end="url(#gh)" d="M 330 88 L 354 88"/>
+
+  <rect x="360" y="70" width="90" height="36" rx="7" class="node"/>
+  <text x="405" y="93" text-anchor="middle" font-size="13" font-weight="600" class="ink">learn</text>
+
+  <!-- product: flows out of the system -->
+  <path class="flow" marker-end="url(#gh)" d="M 450 88 L 540 88"/>
+  <text x="514" y="74" text-anchor="middle" font-size="12.5" class="muted">product</text>
+
+  <!-- feedback: routed back outside the system to rejoin the input -->
+  <path class="fb" marker-end="url(#bh)" d="M 512 92 L 512 212 L 40 212 L 40 94"/>
+</svg>

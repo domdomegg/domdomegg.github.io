@@ -1,0 +1,94 @@
+---
+title: "Thinking tool: Choose simple over easy"
+publishedOn: "2026-08-22"
+---
+
+When choosing between approaches: optimize for simplicity (lack of interleaving), not ease.
+
+Rich Hickey, in [Simple Made Easy](https://www.thestrangeloop.com/2011/simple-made-easy.html), discusses the difference between (a useful frame of) simple and easy. This post details the ideas that resonated most with me, in text form.
+
+The examples here focus on software design, but the concept applies to designing any artefact that needs to adapt to changes, including organizations or business processes.
+
+Simple
+- Etymology: sim- plex = one braid, opposite of com- plex = combined braids
+- Meaning: not [complected](https://en.wiktionary.org/wiki/complect#English) i.e. not interwoven with other concerns
+- Objective: you can tell if something is interwoven
+
+Easy
+- Etymology: ease < aise < (probably) adjacens = lie near
+- Meaning: lies near to our understanding/skill set/existing tools
+- Subjective: depends on the person, something easy for them might not be for others
+
+For long-term productivity it's more important to focus on simplicity: detangling the concerns in a system. Interweaving of concerns (or complexity) means you need to consider multiple things at once whenever you change something. Human brains (and probably LLMs) operate better the fewer constraints they need to juggle.
+
+Taking complexity as interweaving of concerns, another analogy is a knitted castle versus a Lego castle. Here the interweaving is literal, and changing the composed Lego castle would clearly be much easier than changing the interweaved knitted one. In software, the interweaving might be dependencies between modules.
+
+![AI-generated image: a small castle hand-knitted from blue wool, slightly saggy with a loose strand of yarn trailing off, next to the same castle built crisply from blue plastic toy bricks, both on a wooden table](../../images/blog/thinking-tools-to-be-more-effective-at-anything/knitted-vs-lego.jpg)
+
+(Some things are both easy and simple - double win! But when they conflict, prioritise simplicity.)
+
+Modularity is often a good way to bring about simplicity. But avoid the trap of fake modularity. For example, if two pieces of code in theory have abstract interfaces, and yet in practice are already designed with the other strictly in mind, you haven't got true simplicity. You've just hidden the interweaving behind an interface.
+
+![Two pairs of Lego bricks with thought bubbles, after Hickey's Simple Made Easy slides: in 'modular on paper', the blue brick daydreams about the yellow brick and vice versa; in 'actually modular', both bricks daydream only about a generic dashed stud outline](../../images/blog/thinking-tools-to-be-more-effective-at-anything/fake-modularity.svg)
+
+To develop abstractions that promote simplicity:
+- [Simplify the requirements](../musks-5-step-design-process/#step-1-make-requirements-less-dumb) before you start.
+- Define what subsystems do, but not how they do it.
+- Have many subsystems that break down the problem into small simple pieces. Keep their interfaces small.
+- Subsystems should not care when and where they are called. To detach them, consider using standardized queues. Avoid mutable state: this interweaves value and time, and promotes hidden interweaving between systems.
+
+## Examples
+
+- Avoiding scope creep in open source libraries: Some libraries are effectively feature-complete. Your project doesn't need to do everything in the world; it needs to cover its area of responsibility well. You can always start a new project on top of the existing one and compose it with others if you want to build your mega app.
+- Have fewer configuration options: Eliminating options and feature flags exponentially reduces the number of configurations for your program, and therefore all the ways they can interweave. This often leads to the (correct) mantra "convention over configuration".
+
+    The worst possible configuration options are ones that depend on or interact with each other.
+- Prefer simplicity over code deduplication. Given a choice between copy-pasting code and building highly parameterised code that interleaves many concerns, it might be better to go with the copy-pasted version. "Don't repeat yourself" (DRY) is a good rule of thumb, but is less important than reducing complexity. Also see: [The Grug-brained take on DRY](https://grugbrain.dev/#grug-on-dry).
+
+    ![A sketch chart of relative importance against years of programming: the DRY curve rises to a sharp mid-career peak then relaxes to a modest plateau; the code readability curve dips early, then grows steadily past DRY. After a sketch by Lea Verou](../../images/blog/thinking-tools-to-be-more-effective-at-anything/dry-vs-readability.svg)
+- In organisational design, one of the hardest challenges is designing structures that reduce complexity. Giving people unentangled pieces of work they can fully own lets them race forwards, and lets you judge their performance fairly. I'd bet disruptive reorgs to reduce entanglement between teams lead to better long-term outcomes than the "easy" status quo.
+- In medicine, the locally-easy option is "add another prescription" for each additional condition. But every extra drug can interact with every drug already prescribed, so the interaction surface grows roughly quadratically - and decisions become entangled across different doctors. Deliberately reducing this complexity with [deprescribing](https://en.wikipedia.org/wiki/Deprescribing) reduces unexpected drug interactions.
+
+## Similar sentiments
+
+The same sentiment shows up in the [Unix philosophy](https://en.wikipedia.org/wiki/Unix_philosophy):
+
+> - Write programs that do one thing and do it well.
+> - Write programs to work together.
+
+Or by [Edsger W. Dijkstra](https://www.cs.utexas.edu/~EWD/transcriptions/EWD12xx/EWD1243.html):
+
+> Computing's core challenge is how not to make a mess of it. If people object that any science has to meet that challenge, we should give a double rebuttal. Firstly, machines are so fast and storage capacities are so huge that we face orders of magnitude more room for confusion, the propagation and diffusion of which are easily inadvertently mechanized. Secondly, because we are dealing with artefacts, all unmastered complexity is of our own making; there is no one else to blame and so we had better learn how not to introduce the complexity in the first place.
+
+And of course in [The Grug brained Developer's Guide](https://grugbrain.dev/):
+
+> apex predator of grug is complexity
+>
+> complexity bad
+>
+> say again:
+>
+> complexity very bad
+>
+> you say now:
+>
+> complexity very, very bad
+>
+> given choice between complexity or one on one against t-rex, grug take t-rex: at least grug see t-rex
+>
+> [...]
+>
+> demon complexity spirit mocking him make change here break unrelated thing there what!?! mock mock mock ha ha so funny grug love programming and not becoming shiney rock speculator like grug senior advise
+>
+> club not work on demon spirit complexity and bad idea actually hit developer who let spirit in with club: sometimes grug himself!
+>
+> sadly, often grug himself
+>
+> so grug say again and say often: complexity very, very bad
+
+## Related concepts
+
+This is part of my [thinking tools series](../thinking-tools-to-be-more-effective-at-anything/). Also consider:
+- [Simplify or optimise the design](../musks-5-step-design-process/#step-3-simplify-or-optimise-the-design) - Musk's step three, after questioning and deleting
+- [Use the time-money exchange rate](../thinking-tools-to-be-more-effective-at-anything/#use-the-time-money-exchange-rate): easiness is a loan; check the interest rate
+- [Accept redundancy](../accept-redundancy/): sometimes duplication is the simple option, as in the DRY example above

@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 285" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .ink { fill: #44403c; }
+    .muted { fill: #78716c; }
+    .cloud { fill: none; stroke: #78716c; stroke-width: 2; }
+    .divider { stroke: #78716c; stroke-width: 1.5; stroke-dasharray: 5 5; opacity: 0.6; }
+    @media (prefers-color-scheme: dark) {
+      .ink { fill: #d6d3d1; }
+      .muted { fill: #a8a29e; }
+      .cloud { stroke: #a8a29e; }
+      .divider { stroke: #a8a29e; }
+    }
+  </style>
+
+  <defs>
+    <g id="bkg" fill="currentColor" stroke="#1c1917" stroke-width="2.5" stroke-linejoin="round">
+      <path d="M -32 0 L 0 16 L 0 36 L -32 20 Z"/>
+      <path d="M 0 16 L 32 0 L 32 20 L 0 36 Z"/>
+      <path d="M -32 0 L 0 16 L 0 36 L -32 20 Z" fill="#000" fill-opacity="0.25" stroke="none"/>
+      <path d="M 0 16 L 32 0 L 32 20 L 0 36 Z" fill="#000" fill-opacity="0.12" stroke="none"/>
+      <path d="M -32 0 L 0 -16 L 32 0 L 0 16 Z"/>
+      <path d="M -6.5 -15 L -6.5 -8 A 6.5 3.25 0 0 0 6.5 -8 L 6.5 -15"/>
+      <ellipse cx="0" cy="-15" rx="6.5" ry="3.25"/>
+      <path d="M -22.5 -7 L -22.5 0 A 6.5 3.25 0 0 0 -9.5 0 L -9.5 -7"/>
+      <ellipse cx="-16" cy="-7" rx="6.5" ry="3.25"/>
+      <path d="M 9.5 -7 L 9.5 0 A 6.5 3.25 0 0 0 22.5 0 L 22.5 -7"/>
+      <ellipse cx="16" cy="-7" rx="6.5" ry="3.25"/>
+      <path d="M -6.5 1 L -6.5 8 A 6.5 3.25 0 0 0 6.5 8 L 6.5 1"/>
+      <ellipse cx="0" cy="1" rx="6.5" ry="3.25"/>
+    </g>
+    <g id="bkghost" fill="none" stroke="#8a8580" stroke-width="2.5" stroke-linejoin="round">
+      <path d="M -32 8 L 0 -8 L 32 8 L 0 24 Z" stroke-dasharray="5 4"/>
+      <g>
+        <path d="M -6.5 -7 L -6.5 0 A 6.5 3.25 0 0 0 6.5 0 L 6.5 -7"/>
+        <ellipse cx="0" cy="-7" rx="6.5" ry="3.25"/>
+        <path d="M -22.5 1 L -22.5 8 A 6.5 3.25 0 0 0 -9.5 8 L -9.5 1"/>
+        <ellipse cx="-16" cy="1" rx="6.5" ry="3.25"/>
+        <path d="M 9.5 1 L 9.5 8 A 6.5 3.25 0 0 0 22.5 8 L 22.5 1"/>
+        <ellipse cx="16" cy="1" rx="6.5" ry="3.25"/>
+        <path d="M -6.5 9 L -6.5 16 A 6.5 3.25 0 0 0 6.5 16 L 6.5 9"/>
+        <ellipse cx="0" cy="9" rx="6.5" ry="3.25"/>
+      </g>
+    </g>
+    <path id="cloudpath" d="M -40 10 Q -52 -8 -32 -16 Q -27 -32 -8 -27 Q 4 -38 19 -28 Q 40 -30 39 -13 Q 52 -1 37 9 Q 31 21 12 16 Q -4 25 -19 16 Q -33 23 -40 10 Z"/>
+  </defs>
+
+  <text x="150" y="30" text-anchor="middle" font-size="14" font-weight="600" class="ink">Modular on paper</text>
+  <text x="425" y="30" text-anchor="middle" font-size="14" font-weight="600" class="ink">Actually modular</text>
+  <line x1="290" y1="45" x2="290" y2="270" class="divider"/>
+
+  <!-- Left: each brick is thinking about the other brick -->
+  <use href="#cloudpath" class="cloud" transform="translate(88 112) scale(1.25)"/>
+  <use href="#bkg" transform="translate(88 104) scale(0.52)" color="#fbbf24"/>
+  <circle cx="88" cy="156" r="5" class="cloud"/>
+  <circle cx="88" cy="174" r="3" class="cloud"/>
+  <use href="#bkg" transform="translate(88 225)" color="#3b82f6"/>
+
+  <use href="#cloudpath" class="cloud" transform="translate(218 112) scale(1.25)"/>
+  <use href="#bkg" transform="translate(218 104) scale(0.52)" color="#3b82f6"/>
+  <circle cx="218" cy="156" r="5" class="cloud"/>
+  <circle cx="218" cy="174" r="3" class="cloud"/>
+  <use href="#bkg" transform="translate(218 225)" color="#fbbf24"/>
+
+  <!-- Right: each brick is thinking about the generic interface -->
+  <use href="#cloudpath" class="cloud" transform="translate(360 112) scale(1.25)"/>
+  <use href="#bkghost" transform="translate(360 100) scale(0.68)"/>
+  <circle cx="360" cy="156" r="5" class="cloud"/>
+  <circle cx="360" cy="174" r="3" class="cloud"/>
+  <use href="#bkg" transform="translate(360 225)" color="#3b82f6"/>
+
+  <use href="#cloudpath" class="cloud" transform="translate(490 112) scale(1.25)"/>
+  <use href="#bkghost" transform="translate(490 100) scale(0.68)"/>
+  <circle cx="490" cy="156" r="5" class="cloud"/>
+  <circle cx="490" cy="174" r="3" class="cloud"/>
+  <use href="#bkg" transform="translate(490 225)" color="#fbbf24"/>
+
+</svg>

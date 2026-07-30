@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 260" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .ink { fill: #44403c; }
+    .muted { fill: #78716c; }
+    .curve { stroke: #2563eb; stroke-width: 2.5; fill: none; }
+    .fill-l { fill: #eff6ff; }
+    .fill-r { fill: #78716c; opacity: 0.12; }
+    .divider { stroke: #78716c; stroke-width: 1.5; stroke-dasharray: 5 5; }
+    .axis { stroke: #a8a29e; stroke-width: 1.5; }
+    .pick { fill: #2563eb; }
+    @media (prefers-color-scheme: dark) {
+      .ink { fill: #d6d3d1; }
+      .muted { fill: #a8a29e; }
+      .curve { stroke: #3b82f6; }
+      .fill-l { fill: #1e293b; }
+      .fill-r { fill: #a8a29e; }
+      .divider { stroke: #a8a29e; }
+      .axis { stroke: #78716c; }
+      .pick { fill: #60a5fa; }
+    }
+  </style>
+
+  <text x="165" y="26" text-anchor="middle" font-size="14" font-weight="600" class="ink">Diverge</text>
+  <text x="400" y="26" text-anchor="middle" font-size="14" font-weight="600" class="ink">Converge</text>
+
+  <!-- Idea count over time: pile them up, then cut down to one -->
+  <path class="fill-l" d="M 50 220 C 130 210 220 130 280 62 L 280 220 Z"/>
+  <path class="fill-r" d="M 280 62 C 350 100 470 185 520 202 L 520 220 L 280 220 Z"/>
+  <path class="curve" d="M 50 220 C 130 210 220 130 280 62 C 350 100 470 185 520 202"/>
+  <line x1="280" y1="45" x2="280" y2="225" class="divider"/>
+  <circle cx="520" cy="202" r="7" class="pick"/>
+
+  <line x1="50" y1="40" x2="50" y2="225" class="axis"/>
+  <line x1="45" y1="220" x2="545" y2="220" class="axis"/>
+  <text x="36" y="130" text-anchor="middle" font-size="12.5" class="muted" transform="rotate(-90 36 130)">ideas alive</text>
+</svg>

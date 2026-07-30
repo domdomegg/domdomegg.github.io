@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 210" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .ink { fill: #44403c; }
+    .muted { fill: #78716c; }
+    .flow { stroke: #78716c; stroke-width: 2; fill: none; }
+    .flowhead { fill: #78716c; }
+    .node { fill: #f5f5f4; stroke: #78716c; stroke-width: 1.5; }
+    .fb { stroke: #2563eb; stroke-width: 2.5; fill: none; }
+    .fbhead { fill: #2563eb; }
+    .fbt { fill: #2563eb; }
+    @media (prefers-color-scheme: dark) {
+      .ink { fill: #d6d3d1; }
+      .muted { fill: #a8a29e; }
+      .flow { stroke: #a8a29e; }
+      .flowhead { fill: #a8a29e; }
+      .node { fill: #292524; stroke: #a8a29e; }
+      .fb { stroke: #3b82f6; }
+      .fbhead { fill: #3b82f6; }
+      .fbt { fill: #60a5fa; }
+    }
+  </style>
+
+  <defs>
+    <marker id="gh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" class="flowhead"/>
+    </marker>
+    <marker id="bh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" class="fbhead"/>
+    </marker>
+  </defs>
+
+  <!-- input -> system -> output -->
+  <path class="flow" marker-end="url(#gh)" d="M 40 75 L 224 75"/>
+  <text x="132" y="62" text-anchor="middle" font-size="12.5" class="muted">input</text>
+
+  <rect x="230" y="50" width="100" height="50" rx="8" class="node"/>
+  <text x="280" y="80" text-anchor="middle" font-size="13.5" font-weight="600" class="ink">system</text>
+
+  <path class="flow" marker-end="url(#gh)" d="M 330 75 L 520 75"/>
+  <text x="432" y="62" text-anchor="middle" font-size="12.5" class="muted">output</text>
+
+  <!-- feedback: output routed back to input -->
+  <path class="fb" marker-end="url(#bh)" d="M 450 79 L 450 155 L 110 155 L 110 84"/>
+  <text x="280" y="176" text-anchor="middle" font-size="12.5" font-weight="600" class="fbt">feedback</text>
+</svg>
