@@ -1,0 +1,54 @@
+---
+title: "Test-time compute and distillation can be applied to humans"
+publishedOn: "2026-08-26"
+---
+
+There's a powerful AI technique that I think can apply to humans too.
+
+This technique is a big part of what made AlphaZero - an AI system that taught itself superhuman Go, chess and shogi from scratch - so powerful.
+
+![The full game record of game 4 of AlphaGo vs Lee Sedol: a Go board dense with numbered black and white stones. Diagram: Wikimedia Commons, CC BY-SA 4.0](../../images/blog/ttc-distillation-for-humans/alphago-game4.jpg)
+
+*Game 4 of AlphaGo vs Lee Sedol, 2016. This was the only game in the match humanity won. AlphaGo, AlphaZero's weaker predecessor, was the first AI to beat a world champion at Go.*[^zero]
+
+## AlphaZero
+
+AlphaZero's neural network learns to guess, at a glance, how good a board position is.
+
+To improve it, they amplified: from a position, play many moves ahead, evaluate the resulting positions with the current network, and work backwards to a much better estimate of the original position's value.
+
+Then they distilled: train the network so its at-a-glance guess matches that search-backed estimate.
+
+Repeat this for many cycles, and AlphaZero's instant intuitions get much better.
+
+![A loop between two nodes: a circle labelled 'intuition' and a branching tree labelled 'tree search'. The arrow from intuition to search is labelled 'amplify: spend more effort'; the arrow back is labelled 'distill: practise until it's instinct'](../../images/blog/ttc-distillation-for-humans/amplify-distill-loop.svg)
+
+For more, see [Rob Miles' excellent video](https://www.youtube.com/watch?v=v9M2Ho9I9Qo):
+
+<iframe width='100%' style={{aspectRatio: '16/9'}} src='https://www.youtube-nocookie.com/embed/v9M2Ho9I9Qo' title="How to Keep Improving When You're Better Than Any Teacher - Iterated Distillation and Amplification" frameBorder='0' allow='accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowFullScreen></iframe>
+
+Variants on this technique have been called many things, such as iterated distillation and amplification, or expert iteration. In the last couple of years, it's become fashionable to call amplification "increasing test-time compute".
+
+## Humans
+
+You can basically do the same with humans.
+
+Breaking it down into two parts:
+1. Amplification: turning up the effort dial to get better results. There are many ways to do this:
+    - Trying harder. It's simple, but sometimes just putting more effort in is both possible and helps.
+    - Doing something more rigorously than is strictly "needed". For example, [learning by writing](https://www.cold-takes.com/learning-by-writing/) forces you to make your thoughts much sharper.
+    - Using particularly effortful thinking tools, especially the expand-then-contract ones: [diverging then converging](../diverge-then-converge/), [framestorming](../framestorming/), or [hunting for 100x opportunities](../hunt-for-100x-opportunities/).
+2. Distillation: After doing something a bunch of times, human brains seem to naturally shift this explicit difficult work into intuitive processing.
+
+    You can probably relate to this if you've learnt to drive a car. The first few lessons, your mind was probably overwhelmed just trying to hit the right pedals, shift gears and steer. With practice, this becomes automatic and you focus more on the rules of the road. Once you've nailed that, it too moves to automatic processing. The cycle repeats: complex manoeuvres, navigating to work, different weather conditions.
+
+    Eventually, driving is fully intuitive, and you can spend your effort on a conversation with a friend - something you'd never manage when you started.
+
+    The exact same seems to happen when applying a thinking tool. Initially it feels effortful, but after even a few uses it becomes easy, automatic and intuitive.
+
+[^zero]:
+    [AlphaGo](https://en.wikipedia.org/wiki/AlphaGo) beat Lee Sedol in 2016 using only the amplification half at play time - tree search on top of neural networks trained on human games and self-play outcomes.
+
+    [AlphaGo Zero](https://deepmind.google/discover/blog/alphago-zero-starting-from-scratch/) introduced amplification and distillation during training, learning entirely from self-play.
+
+    [AlphaZero](https://deepmind.google/discover/blog/alphazero-shedding-new-light-on-chess-shogi-and-go/) then generalised it to chess and shogi too.

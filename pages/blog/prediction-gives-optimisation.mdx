@@ -1,0 +1,26 @@
+---
+title: "Prediction is underrated: if you can predict, you can optimise"
+publishedOn: "2026-08-25"
+---
+
+![A businessman in a suit and red tie, hands cupped around a brightly glowing crystal ball on a velvet-draped table. Photo: InfoWire.dk, Flickr, public domain](../../images/blog/prediction-gives-optimisation/crystal-ball.jpg)
+
+People underrate the power of prediction. I think this is because they don't realise prediction is all you need...
+
+Once you have accurate and cheap prediction, you can turn it into an algorithm for action:
+1. Enumerate your possible actions.
+2. Use your prediction function to evaluate each one.
+3. Execute the best one.
+
+In practice, the action space might be huge, and prediction usually has some cost,[^cost] so enumerating everything might not be feasible. But with heuristics to prune the space, the algorithm works. You can also [distill](../ttc-distillation-for-humans/) it by running it explicitly the first few times you do the thing.
+
+## Related
+
+- [Empathy is underrated](../empathy-career-superpower/): Getting good at empathy lets you predict the behaviour of others, including future versions of yourself. Combined with this algorithm, you can more effectively optimise for your goals.
+- [Test-time compute and distillation](../ttc-distillation-for-humans/) helps you run this algorithm implicitly without as much cognitive effort.
+- [AIXI](https://en.wikipedia.org/wiki/AIXI) is effectively the above algorithm formalised - and presented as an algorithm for [AGI](../what-is-agi/).
+
+[^cost]:
+    I mean cost in any resource, not necessarily money.
+
+    E.g. even on a small decision, like where to go out for dinner, it takes a bit of time and brainpower to explicitly predict how much you might enjoy different options.
