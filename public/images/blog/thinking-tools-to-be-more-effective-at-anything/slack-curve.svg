@@ -37,13 +37,13 @@
   <path class="curve" d="M 70 235 C 200 231 290 228 356 220 C 400 214 430 205 452 190 C 470 176 484 155 493 128 C 500 106 505 78 507 52"/>
 
   <!-- Healthy point ~75% -->
-  <circle cx="400" cy="209" r="5" class="dot"/>
+  <circle cx="412" cy="208.5" r="5" class="dot"/>
   <text x="150" y="180" font-size="13" class="ink" font-weight="600">~75-85%: slack left to absorb</text>
   <text x="150" y="198" font-size="13" class="ink">shocks and seize opportunities</text>
-  <line x1="330" y1="188" x2="392" y2="205" class="ref"/>
+  <line x1="330" y1="188" x2="404" y2="205" class="ref"/>
 
   <!-- No-slack annotation -->
   <text x="295" y="62" font-size="13" class="ink" font-weight="600">~100%: everything queues,</text>
   <text x="295" y="80" font-size="13" class="ink">nothing can change</text>
-  <line x1="428" y1="75" x2="490" y2="95" class="ref"/>
+  <line x1="428" y1="75" x2="497" y2="93" class="ref"/>
 </svg>

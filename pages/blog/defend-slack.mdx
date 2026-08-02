@@ -9,13 +9,13 @@ Having [slack](https://thezvi.wordpress.com/2017/09/30/slack/) is what lets you 
 
 This doesn't mean not [working hard](../thinking-tools-to-be-more-effective-at-anything/#smarter-first-then-harder). In fact, you can work extremely hard, and still have slack: you can create slack either by spending less capacity, or figuring out how you can add more capacity. Someone who works 100-hour weeks with the capacity to work 110 has slack, someone who works 10 hours with capacity to work 10 doesn't.
 
-Queueing theory makes the case quantitatively. In any system where work arrives unpredictably, waiting time doesn't rise smoothly with utilisation - it rises roughly in proportion to `1/(1-utilisation)`. At 50% utilisation, a job waits about as long as it takes to do. At 90%, it waits about nine times as long. At 99%, ninety-nine times. The curve is nearly flat for most of its length and then goes vertical, which is why the last few percent of "efficiency" are so expensive.
+This is not just "be nice to yourself", it also makes you more productive. [Queueing theory and empirical experiments](https://erikbern.com/2018/03/27/waiting-time-load-factor-and-queueing-theory.html) show that with variable-sized tasks at high utilisation, the time it takes you to react to things shoots way up.[^queueing] This is really bad! Being able to react quickly makes you far more able to [learn from feedback](../build-feedback-loops/) and [iterate with a short cycle time](../shorten-cycle-times-reduce-batch-sizes/).
 
-This is why sysadmins don't run servers at 100% CPU, why motorways jam long before every lane-metre is occupied, and why hospitals plan to keep beds empty. [The classic simulation of NHS emergency admissions](https://pubmed.ncbi.nlm.nih.gov/10406748/) found risks appearing above ~85% bed occupancy and regular bed crises at 90%+, which is where the widely-cited 85% target came from. (Queueing people [argue about the exact number](https://journals.sagepub.com/doi/10.1177/0951484819870936) - it depends on ward size and how much variance you'll tolerate - but nobody argues the right answer is 100%.) Your calendar is the same system: a fully-booked week has no room for the urgent thing, so the urgent thing displaces something else, and the delay propagates.
-
-Even ignoring the other direct benefits, adding slack to your plans helps combat [planning fallacy](https://en.wikipedia.org/wiki/Planning_fallacy), where people expect things to go better than they actually will, and also underestimate the time needed to do tasks.
+For example, hospitals deliberately keep ~15% of beds empty, because [above ~85% occupancy](https://pubmed.ncbi.nlm.nih.gov/10406748/), emergency admissions start hitting dangerous queues.
 
 ![Curve of delay against utilisation: nearly flat until high utilisation, then shooting up towards infinity at 100%. Annotations mark 75-85% as leaving slack to absorb shocks, and ~100% as everything queueing](../../images/blog/thinking-tools-to-be-more-effective-at-anything/slack-curve.svg)
+
+Even ignoring the other direct benefits, adding slack to your plans helps combat [planning fallacy](https://en.wikipedia.org/wiki/Planning_fallacy), where people expect things to go better than they actually will, and also underestimate the time needed to do tasks.
 
 ## Related concepts
 
@@ -23,3 +23,6 @@ This is part of my [thinking tools series](../thinking-tools-to-be-more-effectiv
 - [Prepare to seize windows of opportunity](../create-surface-area-for-luck/#prepare-to-seize-windows-of-opportunity): slack is what lets you actually pounce when the window opens
 - [Accept redundancy](../accept-redundancy/): redundancy can often buy slack, as it removes constraints
 - [Optimise only the constraint](../optimize-only-the-constraint/): slack matters most in your bottlenecked resource - that's the one where queueing bites
+
+[^queueing]:
+    For the quantitative version, see [queueing theory](https://en.wikipedia.org/wiki/Queueing_theory): with unpredictable arrivals, waiting time grows roughly in proportion to `1/(1-utilisation)`. At 90% busy, jobs wait about nine times as long as they take to do; at 99%, ninety-nine times. (People [argue about the exact right hospital occupancy](https://journals.sagepub.com/doi/10.1177/0951484819870936) - it depends on ward size and variance - but nobody argues it's 100%.)
