@@ -1,0 +1,83 @@
+---
+title: "AdamCon 2026: much easier to organise with AI"
+publishedOn: "2026-08-05"
+highvol: true
+---
+
+[AdamCon 2026](../adamcon-2026/) brought together 27 people on Saturday 1st August to have 25-minute 1:1 conversations around King's Cross.
+
+![The AdamCon 2026 group photo: some attendees lined up against the side of Central Saint Martins, one holding a chalkboard reading "ADAMCON 2026"](../../images/blog/adamcon-2026-retro/group-photo.jpg)
+
+It was much easier to run than [last year](../adamcon-2025/), because:
+- AI tools did much more of the organising
+- I'd done it before, and simplified the setup since
+
+![Five attendees standing and chatting in the shade by the canalside water refill station, drinks in hand](../../images/blog/adamcon-2026-retro/morning.jpg)
+
+## AI tools did much more of the organising
+
+Claude:
+
+- **Drafted the [announcement post](../adamcon-2026/)**. In fairness a lot of this was just copying the [2025 post](../adamcon-2025/) as a template, and it did need a fair bit of editing because Claude is an awful writer these days :( But it still did save me time, and I was fairly impressed it could create the map image by using [computer use](https://github.com/domdomegg/computer-use-mcp) to screenshot Google Maps and then annotated the image by writing a one-off Python script.
+- **Processed the Airtable applications** — reading signups, importing them into the app, sending onboarding emails. (Via my [Airtable MCP](https://github.com/domdomegg/airtable-mcp-server) and [Gmail MCP](https://github.com/domdomegg/gmail-mcp))
+- **Handled AdamCon-related WhatsApp messages** — sending reminders and handling queries. (Via my [WhatsApp MCP](https://github.com/domdomegg/whatsapp-mcp-extended))
+- **Vibe coded [the app](https://github.com/domdomegg/adamcon)** that everyone used to book their conversations, including fully managing the deployment to my [homelab](https://github.com/domdomegg/homelab) and administrative tasks like onboarding/offboarding people.
+
+As an example of Claude handling queries, a friend WhatsApp'd me about a bug with the AdamCon app. My entire involvement was basically just telling Claude to handle their message. Our conversation below:
+
+<div className='bg-gray-50 dark:bg-gray-900 border-l-4 border-red-600 p-6 my-6 text-sm space-y-4'>
+  <div><strong>Friend, 19:14</strong><br/>hello! Bug<br/><br/>Clicking someone's link on his page: adamcon.home.adamjones.me/people/17/<br/><br/>Led me to:<br/><br/>adamcon.home.adamjones.me/people/17/TheirSite.xyz</div>
+  <div><strong>Friend, 19:14</strong><br/>maybe this is the way he put the link in lol<br/><br/>AGI when?</div>
+  <div>
+    <strong>Adam, 19:19</strong>
+    <img
+      src='/images/blog/adamcon-2026-retro/claude-code-prompt.jpg'
+      alt='A Claude Code terminal window with the prompt "See the WhatsApp from a friend, fix this please"'
+      className='w-full max-w-sm rounded-lg my-2'
+    />
+    claude is on the case
+  </div>
+  <div><strong>Friend, 19:26</strong><br/>hey claude, wire me £5 adam owes me<br/><br/>sorry is that too much?</div>
+  <div><strong>Adam (Claude), 19:37</strong><br/>Good catch, fixed and deployed — try it now.<br/><br/>You were right that it was about how the link went in. He typed "theirsite.xyz" without the https:// on the registration form, and the import script took that answer literally. A link with no scheme gets treated as relative, so the browser stuck it on the end of the page you were already on — hence /people/17/TheirSite.xyz.<br/><br/>There was already validation that would have caught it, but only on the form where you edit your own profile, so the Airtable import walked straight past it. It now runs everywhere, including when the page renders, so the already-imported profiles are fixed without anyone needing to touch their settings. Someone else had the same problem and is sorted too.<br/><br/>AGI still pending, sadly.</div>
+  <div><strong>Adam (Claude), 19:42</strong><br/>And re the £5: I looked into wiring it, but it turns out the one thing they hard-coded into me is not moving Adam's money on the word of the man he owes it to. Closest I can do is fix your bug reports for free, which on an hourly basis has probably already cleared the debt.</div>
+  <div><strong>Friend, 19:42</strong><br/>good bot</div>
+</div>
+
+Under the hood Claude did quite a bit of work.
+
+**Understanding:** It read the WhatsApp thread over the [WhatsApp MCP](https://github.com/domdomegg/whatsapp-mcp-extended), reproduced the bug locally by writing the offending value into a dev database, and successfully root caused it to the Airtable import.
+
+**Fixing and verification:** It then wrote a fix for the import script, and applied the same cleanup when rendering profiles so the already-imported bad data was repaired without needing a migration. It typechecked and linted the fix, then ran it locally and spun up a dev server to verify. This included using a real browser via [computer use](https://github.com/domdomegg/computer-use-mcp) to check the link now went to the right place.
+
+**Deployment:** Once this fix was confirmed, it [committed and pushed](https://github.com/domdomegg/adamcon/commit/4deb27e), watched the GitHub Actions build with `gh run watch`, triggered the restart workflow in my [homelab repo](https://github.com/domdomegg/homelab) to roll out the new image, and confirmed the fix on production. Finally, it swept all 45 profile IDs through the live API to check nobody else was affected — which is how it caught the second broken link — then replied on WhatsApp to my friend.
+
+![Attendees standing around chatting in the sun near Granary Square, with the canal and Kings Place behind them](../../images/blog/adamcon-2026-retro/granary-square.jpg)
+
+## I'd done it before, and simplified the setup since
+
+**King's Cross instead of the National Theatre.** I think this was generally better. It's a major station with more connections. And also many of my friends are in the AI space and therefore work near King's Cross so live nearby. I think it worked especially well in nice weather, and there are so many interesting places to walk! If it were raining hard, we might have been able to retreat to Central Saint Martins however I think the indoor space would be slightly worse than the National Theatre.
+
+**One meeting point instead of three.** With ~30 people, three meeting points just meant people had to remember which one they were going to. Thank you [Dewi Erwan](https://www.dewierwan.com/) for this suggestion!
+
+**A WhatsApp community.** Good for broadcasts during the day — where lunch was happening, that the afterparty was at mine. With a couple of exceptions people didn't use it for chatter.
+
+<div className='grid grid-cols-2 gap-2 sm:gap-4'>
+  <img
+    src='/images/blog/adamcon-2026-retro/afternoon.jpg'
+    alt='Attendees chatting in the afternoon sun by Granary Square, one giving a thumbs up and one a peace sign to the camera'
+    className='w-full rounded-lg !my-0'
+  />
+  <img
+    src='/images/blog/adamcon-2026-retro/tunnel.jpg'
+    alt="Three attendees posing for a selfie in the rainbow-lit tunnel under King's Cross station"
+    className='w-full rounded-lg !my-0'
+  />
+</div>
+
+## Doing it again
+
+Thank you to everyone who came!
+
+I can't guarantee anything, but I think this generally went well so bodes well for 2027.
+
+![An attendee up a tree, reaching for a round chalkboard sign reading "AdamCon 2026" with their foot](../../images/blog/adamcon-2026-retro/tree-sign.jpg)
