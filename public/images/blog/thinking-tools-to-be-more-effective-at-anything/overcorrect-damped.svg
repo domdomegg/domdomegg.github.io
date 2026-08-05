@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 245" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .ink { fill: #44403c; }
+    .muted { fill: #78716c; }
+    .axis { stroke: #a8a29e; stroke-width: 1.5; }
+    .target { stroke: #78716c; stroke-width: 1.5; stroke-dasharray: 5 4; }
+    .fast { stroke: #2563eb; stroke-width: 2.5; fill: none; }
+    .fastlabel { fill: #2563eb; }
+    .slow { stroke: #78716c; stroke-width: 2; fill: none; opacity: 0.7; }
+    .settle { fill: #2563eb; }
+    .settleslow { fill: #78716c; }
+    @media (prefers-color-scheme: dark) {
+      .ink { fill: #d6d3d1; }
+      .muted { fill: #a8a29e; }
+      .axis { stroke: #78716c; }
+      .target { stroke: #a8a29e; }
+      .fast { stroke: #3b82f6; }
+      .fastlabel { fill: #60a5fa; }
+      .slow { stroke: #a8a29e; }
+      .settle { fill: #3b82f6; }
+      .settleslow { fill: #a8a29e; }
+    }
+  </style>
+
+  <line x1="55" y1="220" x2="530" y2="220" class="axis"/>
+  <line x1="55" y1="220" x2="55" y2="35" class="axis"/>
+  <line x1="55" y1="120" x2="530" y2="120" class="target"/>
+  <text x="526" y="112" text-anchor="end" font-size="12" class="muted">target</text>
+
+  <!-- Slightly underdamped: overshoots once, settles fast -->
+  <path class="fast" d="M 58 216 C 90 210 105 95 135 82 C 158 73 172 128 195 138 C 214 145 228 122 250 119 C 275 116 300 120 330 120 L 470 120"/>
+  <circle cx="255" cy="120" r="4.5" class="settle"/>
+  <text x="205" y="60" font-size="12.5" font-weight="600" class="fastlabel">overshoot once, settle fast</text>
+
+  <!-- Overdamped: never overshoots, takes forever -->
+  <path class="slow" d="M 58 216 C 150 206 240 182 320 162 C 390 145 450 127 492 121"/>
+  <text x="470" y="200" text-anchor="end" font-size="12.5" class="muted">"safe": slower - and may never get to optimal</text>
+
+  <circle cx="492" cy="121" r="4.5" class="settleslow"/>
+  <text x="530" y="240" text-anchor="end" font-size="12.5" class="muted">time</text>
+</svg>

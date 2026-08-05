@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 260" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .muted { fill: #78716c; }
+    .axis { stroke: #a8a29e; stroke-width: 1.5; }
+    .linear { stroke: #78716c; stroke-width: 2; fill: none; opacity: 0.75; }
+    .exp { stroke: #2563eb; stroke-width: 2.5; fill: none; }
+    .explabel { fill: #2563eb; }
+    @media (prefers-color-scheme: dark) {
+      .muted { fill: #a8a29e; }
+      .axis { stroke: #78716c; }
+      .linear { stroke: #a8a29e; }
+      .exp { stroke: #3b82f6; }
+      .explabel { fill: #60a5fa; }
+    }
+  </style>
+
+  <line x1="55" y1="220" x2="530" y2="220" class="axis"/>
+  <line x1="55" y1="220" x2="55" y2="35" class="axis"/>
+  <text x="530" y="242" text-anchor="end" font-size="12.5" class="muted">time</text>
+  <text x="34" y="128" text-anchor="middle" font-size="12.5" class="muted" transform="rotate(-90 34 128)">capability</text>
+
+  <!-- Standard steady growth: straight line -->
+  <path class="linear" d="M 58 212 L 103 209 L 148 206 L 194 204 L 239 201 L 284 198 L 329 195 L 374 192 L 420 190 L 465 187 L 510 184"/>
+  <text x="505" y="170" text-anchor="end" font-size="12.5" class="muted">standard 1% growth</text>
+
+  <!-- Recursive growth: compounding curve -->
+  <path class="exp" d="M 58 212 L 81 211 L 103 209 L 126 207 L 148 204 L 171 202 L 194 199 L 216 195 L 239 191 L 261 186 L 284 180 L 307 173 L 329 165 L 352 156 L 374 146 L 397 134 L 420 120 L 442 104 L 465 85 L 487 63 L 510 37"/>
+  <text x="470" y="34" text-anchor="end" font-size="12.5" font-weight="600" class="explabel">recursive 1% growth</text>
+</svg>

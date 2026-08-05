@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="55 42 460 190" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .head { stroke: #44403c; stroke-width: 2.5; fill: none; }
+    .cloud { fill: none; stroke: #78716c; stroke-width: 2; }
+    .table { fill: none; stroke: #78716c; stroke-width: 2; }
+    .adv-blue { fill: none; stroke: #2563eb; stroke-width: 2; }
+    .adv-amber { fill: none; stroke: #d97706; stroke-width: 2; }
+    .adv-muted { fill: none; stroke: #78716c; stroke-width: 2; }
+    @media (prefers-color-scheme: dark) {
+      .head { stroke: #d6d3d1; }
+      .cloud { stroke: #a8a29e; }
+      .table { stroke: #a8a29e; }
+      .adv-blue { stroke: #60a5fa; }
+      .adv-muted { stroke: #a8a29e; }
+    }
+  </style>
+
+  <!-- You -->
+  <path class="head" d="M 80 225 C 65 185 62 140 90 110 C 120 78 175 80 198 115 C 210 133 210 148 220 158 L 208 165 L 208 185 C 208 198 198 202 185 199 L 185 225"/>
+
+  <!-- The imaginary boardroom -->
+  <path class="cloud" d="M 262 165 Q 240 132 268 114 Q 258 80 302 78 Q 318 50 364 58 Q 406 46 426 72 Q 472 68 476 100 Q 510 112 500 146 Q 512 180 472 186 Q 460 208 420 200 Q 398 216 364 206 Q 328 216 310 196 Q 274 198 262 165 Z"/>
+  <circle cx="242" cy="182" r="5" class="cloud"/>
+  <circle cx="228" cy="196" r="3" class="cloud"/>
+
+  <!-- Advisors around the table -->
+  <g class="adv-blue">
+    <circle cx="322" cy="110" r="10"/><path d="M 306 135 A 16 16 0 0 1 338 135"/>
+  </g>
+  <g class="adv-amber">
+    <circle cx="376" cy="101" r="11"/><path d="M 359 128 A 17 17 0 0 1 393 128"/>
+  </g>
+  <g class="adv-muted">
+    <circle cx="428" cy="110" r="10"/><path d="M 412 135 A 16 16 0 0 1 444 135"/>
+  </g>
+  <g class="adv-muted">
+    <circle cx="284" cy="132" r="8"/><path d="M 271 152 A 13 13 0 0 1 297 152"/>
+  </g>
+  <g class="adv-blue">
+    <circle cx="466" cy="134" r="8"/><path d="M 453 154 A 13 13 0 0 1 479 154"/>
+  </g>
+
+  <ellipse cx="374" cy="166" rx="68" ry="17" class="table"/>
+</svg>

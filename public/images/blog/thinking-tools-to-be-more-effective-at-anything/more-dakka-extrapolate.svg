@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 260" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .muted { fill: #78716c; }
+    .axis { stroke: #a8a29e; stroke-width: 1.5; }
+    .fit { stroke: #2563eb; stroke-width: 2.5; }
+    .more { stroke: #2563eb; stroke-width: 2.5; stroke-dasharray: 7 6; opacity: 0.75; }
+    .pt { fill: #2563eb; }
+    .label { fill: #d97706; }
+    .nudge { stroke: #d97706; stroke-width: 2.5; fill: none; stroke-linecap: round; }
+    .nudgehead { fill: #d97706; }
+    @media (prefers-color-scheme: dark) {
+      .muted { fill: #a8a29e; }
+      .axis { stroke: #78716c; }
+      .fit { stroke: #3b82f6; }
+      .more { stroke: #3b82f6; }
+      .pt { fill: #3b82f6; }
+    }
+  </style>
+
+  <line x1="55" y1="220" x2="530" y2="220" class="axis"/>
+  <line x1="55" y1="220" x2="55" y2="35" class="axis"/>
+  <text x="530" y="242" text-anchor="end" font-size="12.5" class="muted">dose (effort, hours, lamps...)</text>
+  <text x="34" y="128" text-anchor="middle" font-size="12.5" class="muted" transform="rotate(-90 34 128)">results</text>
+
+  <!-- What's been tried -->
+  <line x1="70" y1="207" x2="280" y2="128" class="fit"/>
+  <g class="pt">
+    <circle cx="88" cy="203" r="5"/>
+    <circle cx="120" cy="187" r="5"/>
+    <circle cx="146" cy="182" r="5"/>
+    <circle cx="180" cy="165" r="5"/>
+    <circle cx="212" cy="157" r="5"/>
+    <circle cx="242" cy="139" r="5"/>
+    <circle cx="272" cy="133" r="5"/>
+  </g>
+  <text x="170" y="230" text-anchor="middle" font-size="12" class="muted">everything anyone has tried</text>
+
+  <!-- The line just keeps going -->
+  <line x1="280" y1="128" x2="500" y2="45" class="more"/>
+  <text x="408" y="118" text-anchor="middle" font-size="13.5" font-weight="600" class="label">just do more!</text>
+  <line x1="440" y1="100" x2="470" y2="88.7" class="nudge"/>
+  <path class="nudgehead" d="M 466 79 L 482 84 L 471 96 Z"/>
+</svg>

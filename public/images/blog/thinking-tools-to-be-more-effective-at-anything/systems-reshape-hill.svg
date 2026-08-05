@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 270" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .ink { fill: #44403c; }
+    .muted { fill: #78716c; }
+    .terrain { stroke: #78716c; stroke-width: 2.5; fill: none; }
+    .ball { fill: #2563eb; }
+    .flagpole { stroke: #d97706; stroke-width: 2.5; }
+    .flag { fill: #d97706; }
+    .push { stroke: #d97706; stroke-width: 2.5; fill: none; }
+    .pushhead { fill: #d97706; }
+    .roll { stroke: #2563eb; stroke-width: 2.5; fill: none; }
+    .rollhead { fill: #2563eb; }
+    @media (prefers-color-scheme: dark) {
+      .ink { fill: #d6d3d1; }
+      .muted { fill: #a8a29e; }
+      .terrain { stroke: #a8a29e; }
+      .ball { fill: #3b82f6; }
+      .roll { stroke: #3b82f6; }
+      .rollhead { fill: #3b82f6; }
+    }
+  </style>
+
+  <text x="150" y="34" text-anchor="middle" font-size="14" font-weight="600" class="ink">Willpower</text>
+  <text x="420" y="34" text-anchor="middle" font-size="14" font-weight="600" class="ink">A system</text>
+
+  <!-- Willpower: the goal is uphill, push every day -->
+  <path class="terrain" d="M 40 215 C 90 215 130 210 165 190 C 205 167 230 125 258 108"/>
+  <circle cx="75" cy="205" r="10" class="ball"/>
+  <line x1="247" y1="113" x2="247" y2="78" class="flagpole"/>
+  <path class="flag" d="M 247 78 L 269 85 L 247 92 Z"/>
+  <path class="push" d="M 100 190 C 130 178 155 160 180 140"/>
+  <path class="pushhead" d="M 170 136 L 188 133 L 179 149 Z"/>
+  <text x="100" y="150" text-anchor="middle" font-size="12" class="muted">push, every day</text>
+
+  <!-- System: reshape the hill so the goal is downhill -->
+  <path class="terrain" d="M 310 108 C 350 115 390 150 430 180 C 460 200 490 212 525 215"/>
+  <circle cx="328" cy="102" r="10" class="ball"/>
+  <line x1="505" y1="213" x2="505" y2="179" class="flagpole"/>
+  <path class="flag" d="M 505 179 L 527 186 L 505 193 Z"/>
+  <path class="roll" d="M 357 116 C 387 131 412 150 437 168"/>
+  <path class="rollhead" d="M 428 172 L 445 174 L 437 158 Z"/>
+  <text x="468" y="142" text-anchor="middle" font-size="12" class="muted">rolls there itself</text>
+
+  <text x="280" y="256" text-anchor="middle" font-size="13" class="muted">a good system reshapes the hill so the right behaviour is downhill</text>
+</svg>

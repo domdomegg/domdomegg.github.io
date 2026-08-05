@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 260" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .ink { fill: #44403c; }
+    .muted { fill: #78716c; }
+    .doc { fill: #eff6ff; stroke: #2563eb; stroke-width: 2.5; }
+    .docline { stroke: #2563eb; stroke-width: 2; opacity: 0.5; }
+    .person { fill: none; stroke: #78716c; stroke-width: 2; }
+    .fwd { stroke: #2563eb; stroke-width: 2.5; fill: none; }
+    .fwdhead { fill: #2563eb; }
+    .back { stroke: #d97706; stroke-width: 2; fill: none; }
+    .backhead { fill: #d97706; }
+    .backlabel { fill: #d97706; }
+    @media (prefers-color-scheme: dark) {
+      .ink { fill: #d6d3d1; }
+      .muted { fill: #a8a29e; }
+      .doc { fill: #1e293b; stroke: #60a5fa; }
+      .docline { stroke: #60a5fa; }
+      .person { stroke: #a8a29e; }
+      .fwd { stroke: #3b82f6; }
+      .fwdhead { fill: #3b82f6; }
+    }
+  </style>
+
+  <!-- Your post -->
+  <rect x="60" y="75" width="85" height="110" rx="6" class="doc"/>
+  <line x1="74" y1="100" x2="131" y2="100" class="docline"/>
+  <line x1="74" y1="118" x2="120" y2="118" class="docline"/>
+  <line x1="74" y1="136" x2="128" y2="136" class="docline"/>
+  <line x1="74" y1="154" x2="108" y2="154" class="docline"/>
+  <text x="102" y="207" text-anchor="middle" font-size="12.5" class="ink">your post</text>
+
+  <!-- The world -->
+  <g class="person">
+    <circle cx="440" cy="85" r="9"/><path d="M 426 106 A 14 14 0 0 1 454 106"/>
+    <circle cx="482" cy="110" r="9"/><path d="M 468 131 A 14 14 0 0 1 496 131"/>
+    <circle cx="438" cy="140" r="9"/><path d="M 424 161 A 14 14 0 0 1 452 161"/>
+    <circle cx="481" cy="167" r="9"/><path d="M 467 188 A 14 14 0 0 1 495 188"/>
+  </g>
+
+  <!-- Publish: one arrow out -->
+  <path class="fwd" d="M 155 105 C 250 75 330 78 408 92"/>
+  <path class="fwdhead" d="M 402 82 L 419 94 L 399 98 Z"/>
+  <text x="280" y="66" text-anchor="middle" font-size="12.5" class="ink" font-weight="600">publish once</text>
+
+  <!-- Returns: critiques and opportunities flow back -->
+  <path class="back" d="M 420 150 C 330 165 240 162 160 150"/>
+  <path class="backhead" d="M 168 141 L 150 148 L 165 158 Z"/>
+  <text x="288" y="182" text-anchor="middle" font-size="12.5" class="backlabel">critiques: free error-correction</text>
+
+  <path class="back" d="M 425 185 C 330 215 235 210 155 190"/>
+  <path class="backhead" d="M 164 182 L 146 187 L 160 199 Z"/>
+  <text x="290" y="232" text-anchor="middle" font-size="12.5" class="backlabel">opportunities: jobs, collabs, consulting</text>
+</svg>

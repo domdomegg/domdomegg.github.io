@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="30 46 504 78" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .muted { fill: #78716c; }
+    .ink { fill: #44403c; }
+    .box { fill: #eff6ff; stroke: #2563eb; stroke-width: 2; }
+    .done { fill: none; stroke: #78716c; stroke-width: 2; }
+    .arrow { stroke: #78716c; stroke-width: 2; fill: none; }
+    .head { fill: #78716c; }
+    .label { fill: #2563eb; font-weight: 600; }
+    @media (prefers-color-scheme: dark) {
+      .muted { fill: #a8a29e; }
+      .ink { fill: #d6d3d1; }
+      .box { fill: #1e293b; stroke: #60a5fa; }
+      .done { stroke: #a8a29e; }
+      .arrow { stroke: #a8a29e; }
+      .head { fill: #a8a29e; }
+      .label { fill: #60a5fa; }
+    }
+  </style>
+
+  <rect x="40" y="55" width="150" height="60" rx="8" class="box"/>
+  <text x="115" y="80" text-anchor="middle" font-size="13" class="label">1. List the obvious</text>
+  <text x="115" y="98" text-anchor="middle" font-size="13" class="label">things to do</text>
+
+  <line x1="192" y1="85" x2="228" y2="85" class="arrow"/>
+  <path class="head" d="M 226 79 L 240 85 L 226 91 Z"/>
+
+  <rect x="242" y="55" width="110" height="60" rx="8" class="box"/>
+  <text x="297" y="90" text-anchor="middle" font-size="13" class="label">2. Do them</text>
+
+  <line x1="354" y1="85" x2="390" y2="85" class="arrow"/>
+  <path class="head" d="M 388 79 L 402 85 L 388 91 Z"/>
+
+  <rect x="404" y="55" width="120" height="60" rx="30" class="done"/>
+  <text x="464" y="90" text-anchor="middle" font-size="13" class="ink">solved (usually)</text>
+
+</svg>
