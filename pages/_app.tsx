@@ -28,7 +28,7 @@ const App: React.FC<AppProps> = (props) => {
 	}, []);
 
 	return (
-		<PostHogProvider>
+		<PostHogProvider client={posthog}>
 			{/* eslint-disable-next-line react/no-unknown-property */}
 			<style jsx global>{`:root {
 				--font-sans: ${sans.style.fontFamily};

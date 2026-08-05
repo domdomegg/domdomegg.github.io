@@ -19,8 +19,8 @@ export const postSchema = frontmatterSchema.extend({
 	location: z.literal('internal').or(z.literal('external')),
 });
 
-export type Post = Zod.infer<typeof postSchema>;
-export type PostInput = Zod.input<typeof postSchema>;
+export type Post = z.infer<typeof postSchema>;
+export type PostInput = z.input<typeof postSchema>;
 
 const BlogHeader: React.FC<{frontmatter: unknown; href: string}> = ({frontmatter, href}) => {
 	const parsed = frontmatterSchema.parse(frontmatter);
