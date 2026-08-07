@@ -1,0 +1,108 @@
+---
+title: "RL environments I'd find interesting"
+publishedOn: "2026-08-07"
+---
+
+tldr: I would be keen to see RL environments that:
+- teach models to conduct AI safety work well (including technical research, governance work, AI macrostrategy etc.)
+- are challenging for models, e.g. are not fully saturated
+- are "high-quality", e.g. not Claude slop (with some tips below on assessing your environment)
+
+---
+
+I work in RL data at Anthropic, so people often come to me offering RL environments. Most aren't relevant to me; this post details what I might find interesting, and how to pitch me.
+
+I'm particularly interested in environments that teach models capabilities that help with AI safety, construed broadly.
+
+I [previously made the case for beneficial capability evals (and weakly, RL environments)](https://blog.bluedot.org/p/give-ai-companies-something-to-aim). On evals, companies extensively measure general capabilities and dangerous capabilities, but barely measure the beneficial ones. I think the commercial RL environment landscape is broadly similar.
+
+[Accelerating safety is important](../slow-capabilities-and-accelerate-safety/). And doing this with AI itself is one of the few ways we have to ensure it actually keeps up.
+
+The lack of evals or RL environments here is frustrating. So I figured I'd broadcast that this is something I'd want to exist!
+
+## What counts as "AI safety" here
+
+I construe this broadly, but it should be clearly differential: accelerating safety rather than general capabilities. Things I'd count include:
+
+- **Technical safety research** — interpretability, safety evaluations, red-teaming, control, alignment experiments. (Standard caveats that some of this arguably [might push forward general capabilities too](https://www.lesswrong.com/posts/iDNEjbdHhjzvLLAmm/should-we-publish-mechanistic-interpretability-research))
+- **AI governance** — drafting and critiquing regulation, compliance analysis, standards work, policy impact forecasts.
+- **AI macrostrategy** — forecasting, threat modelling, working out which interventions matter and in what order, AGI preparedness.
+- **Transformative AI economics** — modelling labour market effects, compute markets, [power concentration dynamics](../how-agi-could-kill-usa-democracy/), designing economic policy.
+
+## Examples
+
+### Design an AI safety experiment
+
+**The task.** Given an AI safety paper's headline claim, ask the model to generate a coherent way of evaluating it, i.e. a methods section. My guess is this is more useful for conceptual AI safety research, as otherwise the skill might be similar to general capabilities research.
+
+**Grading.** Grade using LLM-as-a-judge, perhaps with golden examples or an expert-created rubric for what methods are good or bad.
+
+One hard challenge would be avoiding pretraining leakage; my guess is that picking niche papers or private work could be helpful here. Or otherwise showing that the pre-trained model has not memorised the paper.
+
+### Reproduce an AI safety paper
+
+**The task.** Give the model a full AI safety paper, except with the results/conclusions redacted. Ask it to reproduce the entire paper and determine the results.
+
+**Grading.** LLM-as-a-judge, perhaps against some golden ground truth?
+
+There's maybe also a dual task where you ask the model to predict the outcome of the experiment without running it. It then gets better at forecasting the result of AI safety work, which probably builds better research intuitions.
+
+### Critique AI safety work
+
+**The task.** Given a full AI safety paper that has some known flaws, ask the model to identify these flaws.
+
+**Grading.** Grade using LLM-as-a-judge, for recall on flaws from expert critiques.
+
+My guess is a good way to construct this might be to look through publications that have had comments on them, e.g. where conclusions are overstated given the results, or there's a flaw in the methodology or a bug in the implementation that invalidates results.
+
+The environment should probably also include some AI safety papers that do seem solid, and check that the model agrees with this.
+
+### Conduct an impact assessment of an AI governance intervention
+
+**The task.** Give the model a proposed AI governance intervention, e.g. a regulatory text being introduced by a government, and ask it to perform a high-quality impact assessment. That includes: identifying the relevant stakeholders, how they might change their behaviour (counterfactual to the default case), what impacts you'd expect as a result, and quantifying these with uncertainty (potentially proposing experiments that could reduce that uncertainty). All grounded in forecasting and analysis best practice.
+
+**Grading.** Graded using LLM-as-a-judge, probably with golden examples or rubrics from experts.
+
+## What a good environment sample looks like
+
+If you're interested in advertising your environment, the following is what I'd be interested in:
+
+1. **At least one task in full.** The task, the grading, and a few transcripts of today's strongest models attempting it. Being this concrete is usually more helpful than a generic README.
+
+2. **An analysis of failures.** After running the task many times, I want to understand why models are not getting 100%.[^saturation] Are they failing in interesting ways, or is your environment bugged or testing for the wrong skill? Ideally there'd also be evidence that these failures are genuinely skills AI safety practitioners want AI to be better at. For example, did you get an AI safety researcher to assess these tasks and agree they resemble their job? (And if so, who, and why should I trust their judgement?)[^shadowing]
+
+3. **Evidence that reward is robust.** Reward should be closely correlated with genuine performance, and resistant to reward hacking. If you're relying on expert-generated rubrics or golden solutions, it's also useful to understand how you arrived at those and why you think they're correct.
+
+4. **Scaling plans.** How many tasks exist now, how many could exist, how much does the marginal task cost to produce? For what it's worth, I think people overestimate the number of tasks necessary for something to be useful — but being able to scale is a big plus!
+
+Also in general:
+- Avoid AI slop. If your email or README reads like it was fully AI generated, I worry about how much effort went in, and therefore the quality of the tasks. AI writing is also currently bad at communicating information to humans effectively.
+- Demonstrate competence. Lots of people are throwing around slop, so I can't spend much time reviewing everything. Presenting credentials I'm likely to respect helps. Claude can read my website for you and tell you the kinds of things I might care about.[^creds]
+
+If you're building something in this space that you think does well on the above, contact me via the email on [my homepage](/).
+
+[^saturation]:
+    If models regularly get 100%, your environment is pointless because there's no headroom to learn and improve.
+
+    It could be useful as a "regression test" style evaluation, but that's far less valuable.
+
+[^shadowing]:
+    Shadowing or otherwise closely pairing with AI safety practitioners might be particularly helpful for this.
+
+    Related:
+    - [AI tools for AI safety: pairing with domain experts](../ai-tools-for-ai-safety/#so-what-should-be-done-instead)
+    - [Climb the user-contact ladder](../climb-the-user-contact-ladder/)
+    - [Build feedback loops](../build-feedback-loops/) and [shorten cycle times, reduce batch sizes](../shorten-cycle-times-reduce-batch-sizes/)
+
+[^creds]:
+    I asked Claude to suggest some examples here, it suggested:
+
+    > - You've worked somewhere doing serious safety or governance work, or been through a programme like [MATS](https://www.matsprogram.org/) or [AI Safety Fundamentals](https://aisafetyfundamentals.com/).
+    > - You've done AI safety research yourself, and can point at the output: a paper, a public write-up, a talk. It doesn't need to be famous, it needs to be real.
+    > - A domain expert is actually on your team, rather than having been consulted once.
+    > - You've shipped something technical and hard that I can go and look at — a repo, a tool people use, a benchmark others have run.
+    > - Someone I already trust is willing to vouch for you.
+
+    I think these are mostly right. On the first point: I'd weight the kinds of places featured on the [80,000 Hours job board](https://jobs.80000hours.org/) more heavily than "traditionally" impressive organisations.
+
+    E.g. I'm fairly sceptical of experience in academia, or in governance institutions that feel behind on AI (e.g. the UN, OECD, World Economic Forum) — these produce people of enormously varying quality, so the affiliation isn't that useful. I think MATS or AISF are a decent signals though.

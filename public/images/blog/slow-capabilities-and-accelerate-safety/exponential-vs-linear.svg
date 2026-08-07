@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="73 29 457 222" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .muted { fill: #78716c; }
+    .axis { stroke: #a8a29e; stroke-width: 1.5; fill: none; }
+    .cap { stroke: #dc2626; stroke-width: 3; fill: none; stroke-linecap: round; }
+    .cap-t { fill: #dc2626; }
+    .safe { stroke: #2563eb; stroke-width: 3; fill: none; stroke-linecap: round; }
+    .safe-t { fill: #2563eb; }
+    .gap { fill: #dc2626; opacity: 0.13; }
+    @media (prefers-color-scheme: dark) {
+      .muted { fill: #a8a29e; }
+      .axis { stroke: #78716c; }
+      .cap { stroke: #f87171; }
+      .cap-t { fill: #f87171; }
+      .safe { stroke: #3b82f6; }
+      .safe-t { fill: #3b82f6; }
+      .gap { fill: #f87171; opacity: 0.2; }
+    }
+  </style>
+
+  <path class="gap" d="M 75 213 C 180 205 285 180 420 40 L 420 152 C 285 173 180 193 75 213 Z"/>
+
+  <line x1="75" y1="30" x2="75" y2="235" class="axis"/>
+  <line x1="75" y1="235" x2="470" y2="235" class="axis"/>
+
+  <path class="safe" d="M 75 213 L 420 152"/>
+  <path class="cap" d="M 75 213 C 180 205 285 180 420 40"/>
+
+  <text x="432" y="44" font-size="13.5" class="cap-t" font-weight="600">AI capabilities</text>
+  <text x="432" y="150" font-size="13.5" class="safe-t" font-weight="600">our capacity</text>
+  <text x="432" y="167" font-size="13.5" class="safe-t" font-weight="600">to handle them</text>
+
+  <text x="470" y="250" text-anchor="end" font-size="12.5" class="muted">time</text>
+</svg>
