@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 300" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .dough { fill: #f5f5f4; stroke: #a8a29e; stroke-width: 1.5; }
+    .flap { fill: #e7e5e4; stroke: #a8a29e; stroke-width: 1.5; }
+    .fold { stroke: #57534e; stroke-width: 2.5; fill: none; }
+    .seam { stroke: #b45309; stroke-width: 3.5; fill: none; stroke-linecap: round; }
+    .reach { stroke: #57534e; stroke-width: 1.75; fill: none; }
+    .reachfill { fill: #57534e; }
+    .reachlbl { fill: #57534e; font-size: 12px; font-weight: 700; }
+    .lbl { fill: #292524; font-size: 13px; font-weight: 600; }
+    .sub { fill: #78716c; font-size: 12px; }
+    .key { fill: #78716c; font-size: 11.5px; }
+    .keyseam { fill: #b45309; font-size: 11.5px; font-weight: 700; }
+    .bad { fill: #dc2626; font-size: 17px; font-weight: 700; }
+    .good { fill: #15803d; font-size: 17px; font-weight: 700; }
+    @media (prefers-color-scheme: dark) {
+      .dough { fill: #292524; stroke: #78716c; }
+      .flap { fill: #3a3634; stroke: #78716c; }
+      .fold { stroke: #d6d3d1; }
+      .seam { stroke: #fbbf24; }
+      .reach { stroke: #d6d3d1; }
+      .reachfill { fill: #d6d3d1; }
+      .reachlbl { fill: #d6d3d1; }
+      .lbl { fill: #f5f5f4; }
+      .sub { fill: #a8a29e; }
+      .key { fill: #a8a29e; }
+      .keyseam { fill: #fbbf24; }
+      .bad { fill: #f87171; }
+      .good { fill: #4ade80; }
+    }
+  </style>
+  <defs>
+    <marker id="ra" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" class="reachfill"/>
+    </marker>
+  </defs>
+
+  <!-- key -->
+  <line class="fold" x1="30" y1="26" x2="58" y2="26"/>
+  <text class="key" x="64" y="30">crease</text>
+  <line class="seam" x1="128" y1="26" x2="156" y2="26"/>
+  <text class="keyseam" x="162" y="30">edge to pleat shut</text>
+
+  <!-- LEFT: crease across the short axis -->
+  <text class="bad" x="30" y="76">✗</text>
+  <text class="lbl" x="52" y="76">Crease across the short axis</text>
+
+  <ellipse class="dough" cx="175" cy="170" rx="105" ry="64"/>
+  <path class="flap" d="M 175 106 A 105 64 0 0 1 175 234 Z"/>
+  <line class="fold" x1="175" y1="106" x2="175" y2="234"/>
+  <path class="seam" d="M 175 106 A 105 64 0 0 1 175 234"/>
+  <line class="reach" x1="175" y1="170" x2="273" y2="170" marker-end="url(#ra)" marker-start="url(#ra)"/>
+  <text class="reachlbl" x="224" y="162" text-anchor="middle">far</text>
+
+  <text class="sub" x="52" y="268">A deep fold over a curved edge — fiddly to</text>
+  <text class="sub" x="52" y="286">pleat, and easier to tear.</text>
+
+  <!-- RIGHT: crease along the long axis -->
+  <text class="good" x="380" y="76">✓</text>
+  <text class="lbl" x="402" y="76">Crease along the long axis</text>
+
+  <ellipse class="dough" cx="505" cy="170" rx="105" ry="64"/>
+  <path class="flap" d="M 400 170 A 105 64 0 0 0 610 170 Z"/>
+  <line class="fold" x1="400" y1="170" x2="610" y2="170"/>
+  <path class="seam" d="M 400 170 A 105 64 0 0 0 610 170"/>
+  <line class="reach" x1="505" y1="170" x2="505" y2="228" marker-end="url(#ra)" marker-start="url(#ra)"/>
+  <text class="reachlbl" x="517" y="205">near</text>
+
+  <text class="sub" x="382" y="268">A shallow fold along a straight crease — pleats</text>
+  <text class="sub" x="382" y="286">neatly, and stops you overfilling.</text>
+</svg>

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 250" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .box { fill: #f5f5f4; stroke: #a8a29e; stroke-width: 1.5; }
+    .lbl { fill: #292524; font-size: 13px; font-weight: 600; }
+    .edge { stroke: #a8a29e; stroke-width: 1.5; fill: none; }
+    .head { fill: #a8a29e; }
+    .wait { fill: #b45309; font-size: 11.5px; font-weight: 700; }
+    @media (prefers-color-scheme: dark) {
+      .box { fill: #292524; stroke: #78716c; }
+      .lbl { fill: #f5f5f4; }
+      .edge { stroke: #78716c; }
+      .head { fill: #78716c; }
+      .wait { fill: #fbbf24; }
+    }
+  </style>
+  <defs>
+    <marker id="d-arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" class="head"/>
+    </marker>
+  </defs>
+
+  <!-- 1 dough -->
+  <rect class="box" x="20" y="22" width="150" height="34" rx="17"/>
+  <text class="lbl" x="38" y="44">1 Make dough</text>
+
+  <!-- 6 roll wrappers -->
+  <rect class="box" x="380" y="22" width="150" height="34" rx="17"/>
+  <text class="lbl" x="398" y="44">6 Roll wrappers</text>
+  <path class="edge" d="M 170 39 H 372" marker-end="url(#d-arw)"/>
+  <text class="wait" x="271" y="31" text-anchor="middle">30 min rest</text>
+
+  <!-- 2 press tofu -->
+  <rect class="box" x="20" y="96" width="150" height="34" rx="17"/>
+  <text class="lbl" x="38" y="118">2 Press tofu</text>
+
+  <!-- 3 chop -->
+  <rect class="box" x="20" y="170" width="150" height="34" rx="17"/>
+  <text class="lbl" x="38" y="192">3 Chop veg</text>
+
+  <!-- 4 cook mushrooms -->
+  <rect class="box" x="196" y="170" width="168" height="34" rx="17"/>
+  <text class="lbl" x="214" y="192">4 Cook mushrooms</text>
+  <path class="edge" d="M 170 187 H 188" marker-end="url(#d-arw)"/>
+
+  <!-- 5 mix filling -->
+  <rect class="box" x="380" y="122" width="150" height="34" rx="17"/>
+  <text class="lbl" x="398" y="144">5 Mix filling</text>
+
+  <!-- 2 -> 5 -->
+  <path class="edge" d="M 170 113 H 300 V 133 H 372" marker-end="url(#d-arw)"/>
+  <text class="wait" x="222" y="105" text-anchor="middle">10 min press</text>
+
+  <!-- 4 -> 5 : straight vertical rise into the bottom of box 5 -->
+  <path class="edge" d="M 364 187 H 420 V 164" marker-end="url(#d-arw)"/>
+  <text class="wait" x="432" y="182">8–10 min cook</text>
+
+  <!-- 7 fill & seal -->
+  <rect class="box" x="600" y="64" width="150" height="34" rx="17"/>
+  <text class="lbl" x="618" y="86">7 Fill &amp; seal</text>
+  <path class="edge" d="M 530 39 H 565 V 74 H 592" marker-end="url(#d-arw)"/>
+  <path class="edge" d="M 530 139 H 565 V 88 H 592" marker-end="url(#d-arw)"/>
+
+  <!-- 8 fry & steam -->
+  <rect class="box" x="600" y="138" width="150" height="34" rx="17"/>
+  <text class="lbl" x="618" y="160">8 Fry &amp; steam</text>
+  <path class="edge" d="M 675 98 V 130" marker-end="url(#d-arw)"/>
+
+  <!-- 9 eat -->
+  <rect class="box" x="600" y="206" width="150" height="34" rx="17"/>
+  <text class="lbl" x="618" y="228">9 Eat</text>
+  <path class="edge" d="M 675 172 V 198" marker-end="url(#d-arw)"/>
+  <text class="wait" x="686" y="190">9–10 min</text>
+</svg>
