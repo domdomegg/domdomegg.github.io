@@ -1,0 +1,56 @@
+---
+title: "Ollama's MLX builds of Gemma 4 are ~1.2x faster on a M2 Pro MacBook"
+publishedOn: "2026-08-09"
+highvol: true
+---
+
+import BarChart from '../../components/BarChart';
+import Details from '../../components/Details';
+
+Ollama [now ships MLX builds of Gemma 4](https://ollama.com/blog/faster-gemma-4-mlx-mtp) with multi-token prediction.
+
+On my M2 Pro MacBook with 16GB RAM, the `-mlx` tags are **~1.2x faster** than the standard ones, for the same model:
+
+<BarChart
+  data={[
+    ['Model', 'Standard', {role: 'annotation'}, 'MLX', {role: 'annotation'}],
+    ['gemma4:e2b', 61.8, '61.8', 74.2, '74.2'],
+    ['gemma4:e4b', 32.6, '32.6', 37.9, '37.9'],
+  ]}
+  options={{
+    colors: ['#94a3b8', '#e7000b'],
+    hAxis: {title: 'Tokens per second', ticks: []},
+  }}
+/>
+
+The MLX builds are also smaller on disk (e2b: 6.5GB vs 7.2GB, e4b: 8.8GB vs 9.6GB), and produced the same answers in my spot checks. So on Apple Silicon there doesn't seem to be much reason not to use them.
+
+<Details title='Raw data'>
+Median of three runs generating 1000 tokens each, after 60 seconds of warm-up:
+
+| Model | Standard tps | MLX tps | Speedup |
+|-------|-------------:|--------:|--------:|
+| gemma4:e2b | 61.8 | 74.2 | 1.20x |
+| gemma4:e4b | 32.6 | 37.9 | 1.16x |
+
+Individual runs:
+
+| Model | Run 1 | Run 2 | Run 3 |
+|-------|------:|------:|------:|
+| gemma4:e2b | 61.3 | 61.8 | 62.6 |
+| gemma4:e2b-mlx | 74.2 | 73.6 | 74.8 |
+| gemma4:e4b | 30.9 | 32.6 | 32.6 |
+| gemma4:e4b-mlx | 36.7 | 37.9 | 38.9 |
+
+Run with ollama 0.32.4 on 2026-08-09, at default settings for each model tag.
+</Details>
+
+## Appendix: comparison to April 2026 results
+
+These absolute numbers are a bit lower than the [66.3 tps for `gemma4:e2b` and 41.3 tps for `gemma4:e4b` I measured in April](/blog/local-llms-speed-early-2026/), on the same machine.
+
+I wondered whether ollama had regressed (the April run was with 0.20.7 and this is 0.32.4). After re-downloading 0.20.7, I found `gemma4:e2b` ran at **59.5 tps, versus 61.8 tps on 0.32.4**. So there appears to be no regression here; if anything the newer version is very slightly faster.
+
+The remaining gap is probably just my laptop being warmer in the [London heatwave](https://www.bbc.co.uk/weather/articles/cgr7d28vvpno) than it was in spring.
+
+Either way, each standard/MLX pair was measured back to back in one session, so the relative difference probably holds even if absolute numbers drift between sessions.
