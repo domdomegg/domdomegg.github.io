@@ -1,0 +1,91 @@
+---
+title: "Can LLMs count letters yet? tldr: Yes."
+publishedOn: "2026-08-10"
+highvol: true
+---
+
+"How many r's are in strawberry?" was a popular way to embarrass AI models a year ago, who would often incorrectly answer 2. This still circulates as a meme in some circles; and I couldn't easily find an example of someone running this experiment in 2026 to see how today's models fare.
+
+So, I [ran the experiment](/blog/run-the-experiment/)!
+
+**In short: models nail letter counting now.** Even the oldest and cheapest models that Anthropic serves get 100%. And many fairly small local models also do quite well. Some tiny open-weights models (\<4B params) struggle sometimes, but often due to spiralling "thinking", or failure to comply with format, rather than counting issues directly.
+
+| Model | Params | Released | Thinking | Accuracy | No answer |
+|---|---|---|---|---|---|
+| `claude-sonnet-4-5` | — | Sep 2025 | default | **100%** | 0/20 |
+| `claude-haiku-4-5` | — | Oct 2025 | default | **100%** | 0/20 |
+| `claude-opus-5` | — | Jul 2026 | default | **100%** | 0/20 |
+| `gemma4:26b` | 26B | May 2026 | default | **100%** | 0/20 |
+| `gemma4:e4b` | 4B | May 2026 | default | **95%** | 0/20 |
+| `gemma4:e2b` | 2B | May 2026 | default | **85%** | 0/20 |
+| `qwen3.5:4b` | 4B | May 2026 | **off** | **80%** | 3/20 |
+| `lfm2.5-thinking` | 1.2B | May 2026 | default | **65%** | 6/20 |
+| `deepseek-r1:1.5b` | 1.5B | Jan 2025 | default | **50%** | 4/20 |
+| `lfm2.5-thinking` | 1.2B | May 2026 | **off** | **40%** | 10/20 |
+| `deepseek-r1:1.5b` | 1.5B | Jan 2025 | **off** | **40%** | 6/20 |
+| `qwen3.5:4b` | 4B | May 2026 | default | **25%** | 14/20 |
+| `qwen3.5:0.8b` | 0.8B | May 2026 | **off** | **20%** | 8/20 |
+| `qwen3.5:2b` | 2B | May 2026 | **off** | **20%** | 1/20 |
+| `llama3.2:3b` | 3B | Sep 2024 | default | **5%** | 0/20 |
+| `gemma3:4b` | 4B | Mar 2025 | default | **5%** | 0/20 |
+| `llama3.2:1b` | 1B | Sep 2024 | default | **0%** | 16/20 |
+| `qwen3.5:0.8b` | 0.8B | May 2026 | default | **0%** | 20/20 |
+| `qwen3.5:2b` | 2B | May 2026 | default | **0%** | 20/20 |
+
+## Test details
+
+This ran on a fixed set of 20 English words with correct answers across 0/1/2/3+ occurrences, a 2000-token budget, `ANSWER: <number>` grading with unparseable responses scored as *no answer* rather than wrong. A transcript might look like:
+
+Prompt:
+
+```
+How many times does the letter "s" appear in the string below (case-insensitive)?
+
+discussion
+
+You have a budget of 2000 tokens. Reason briefly if you need to, but you must commit to an answer within the budget.
+
+Respond with your final answer on its own line in exactly this format:
+ANSWER: <number>
+```
+
+Response (`claude-haiku-4-5`, 169 tokens):
+
+```
+I need to count the letter "s" in the word "discussion" (case-insensitive).
+
+Let me go through each letter:
+d-i-s-c-u-s-s-i-o-n
+
+1. d - not an s
+2. i - not an s
+3. s - this is an s (1st)
+4. c - not an s
+5. u - not an s
+6. s - this is an s (2nd)
+7. s - this is an s (3rd)
+8. i - not an s
+9. o - not an s
+10. n - not an s
+
+The letter "s" appears 3 times in "discussion".
+
+ANSWER: 3
+```
+
+Local models ran via ollama 0.32.4 on an M2 Pro MacBook (16GB); API models hit directly with fixed parameters. "Thinking: off" rows pass Ollama `reasoning: {effort: "none"}`.
+
+The eval overall was implemented in [AISI Inspect](https://inspect.aisi.org.uk/).
+
+## Other reflections
+
+For small thinking models, thinking can be beneficial or harmful:
+- `lfm2.5-thinking` gets 65% with thinking, 40% without.
+- `qwen3.5:4b` goes from 0% with thinking, to 80% without. This is because with thinking it burns the entire token budget deliberating and never answers (even when warned about token budget!). For example, it often spells the word correctly, then second-guesses itself until the token budget runs out.
+
+Low scores on small open-weights models feel less like miscounts, and are often more structural:
+- Overthinking spirals: `qwen3.5` is particularly prone to this, and even many of `lfm2.5-thinking`'s failures are overthinking
+- Format non-compliance: answering in prose/or using `ans: ` response
+- Absurd miscounts: `gemma3:1b` answers instantly with numbers like 74 t's in "settlement", or occasionally claims numbers in the billions... And `qwen3.5:0.8b` says "1" for 57% of all questions, whatever the string.
+
+From browsing online, it seems like many "AI makes silly mistakes" videos these days rely on the ChatGPT voice models. My guess is that these might be much smaller to be able to process live voice; and therefore less intelligent. With [the new GPT-Live](https://openai.com/index/introducing-gpt-live/) models since July 8th 2026, I wonder if this will change the genre a fair bit.
