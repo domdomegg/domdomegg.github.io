@@ -7,8 +7,8 @@ import Link from 'next/link';
 
 export const frontmatterSchema = z.object({
 	title: z.string(),
-	publishedOn: z.string().date(),
-	updatedOn: z.string().date().optional(),
+	publishedOn: z.iso.date(),
+	updatedOn: z.iso.date().optional(),
 	citable: z.boolean().default(false),
 	highvol: z.boolean().default(false),
 });
